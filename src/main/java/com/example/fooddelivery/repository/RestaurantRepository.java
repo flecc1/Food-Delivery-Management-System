@@ -28,6 +28,20 @@ public class RestaurantRepository {
         r2.setCity("Minsk");
         r2.setRating(7.9);
 
+        Restaurant r3 = new Restaurant();
+        r3.setId(3L);
+        r3.setName("KFC");
+        r3.setAddress("st. Nemiga, 11");
+        r3.setCity("Minsk");
+        r3.setRating(9.1);
+
+        Restaurant r4 = new Restaurant();
+        r4.setId(4L);
+        r4.setName("Papa Donner");
+        r4.setAddress("st. Gikalo, 13");
+        r4.setCity("Minsk");
+        r4.setRating(5.9);
+
         restaurants.add(r1);
         restaurants.add(r2);
     }
