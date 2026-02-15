@@ -6,6 +6,7 @@ import org.springframework.cglib.core.Local;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -14,4 +15,5 @@ public class Order {
     private String status;
     private LocalDateTime createTime;
     private int amount;
+    private List<Dish> dishes;
 }
