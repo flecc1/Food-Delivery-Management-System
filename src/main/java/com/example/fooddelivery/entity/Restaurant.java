@@ -13,7 +13,7 @@ public class Restaurant {
     private String name;
     private String address;
     private String city;
-    private String rating;
+    private double rating;
     private List<Dish> menu;
     private  List<Order> orders;
 }
