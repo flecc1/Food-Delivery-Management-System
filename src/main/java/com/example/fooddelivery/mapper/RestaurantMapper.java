@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class RestaurantMapper {
-    public RestaurantShortDto toShortDto(Restaurant restaurant){
+    public RestaurantShortDto toShortDto(Restaurant restaurant) {
         if (restaurant == null)
             return null;
         RestaurantShortDto resShortDto = new RestaurantShortDto();

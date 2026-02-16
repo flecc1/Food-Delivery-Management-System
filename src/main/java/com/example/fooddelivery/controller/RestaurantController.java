@@ -14,13 +14,13 @@ public class RestaurantController {
     private final RestaurantService restaurantService;
 
     @GetMapping("/{id:\\d+}")
-    public RestaurantShortDto getRestaurants(@PathVariable Long id){
+    public RestaurantShortDto getRestaurants(@PathVariable Long id) {
         return restaurantService.findRestaurantById(id);
     }
 
     @GetMapping
-    public List<RestaurantShortDto> getRestaurantsByName(@RequestParam(value = "name", required = false) String name){
-        return  name == null
+    public List<RestaurantShortDto> getRestaurantsByName(@RequestParam(value = "name", required = false) String name) {
+        return name == null
                 ? restaurantService.getRestaurants()
                 : restaurantService.findByName(name);
     }

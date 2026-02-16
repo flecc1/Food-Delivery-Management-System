@@ -10,6 +10,7 @@ import java.util.Optional;
 @Repository
 public class RestaurantRepository {
     private List<Restaurant> restaurants = new ArrayList<>();
+
     public RestaurantRepository() {
         Restaurant r1 = new Restaurant();
         r1.setId(1L);
@@ -45,34 +46,33 @@ public class RestaurantRepository {
         restaurants.add(r4);
     }
 
-    public List<Restaurant> findAll(){
+    public List<Restaurant> findAll() {
         return restaurants;
     }
 
-    public Optional<Restaurant> findById(Long id){
-       return restaurants.stream()
+    public Optional<Restaurant> findById(Long id) {
+        return restaurants.stream()
                 .filter(restaurant -> restaurant.getId().equals(id))
                 .findFirst();
     }
 
-    public Restaurant addRestaurant(Restaurant newRestaurant){
+    public Restaurant addRestaurant(Restaurant newRestaurant) {
         restaurants.add(newRestaurant);
         return newRestaurant;
     }
 
-    public void deleteRestaurant(Restaurant restaurant){
+    public void deleteRestaurant(Restaurant restaurant) {
         restaurants.remove(restaurant);
     }
 
-    public void deleteById(Long id){
-        for (Restaurant res:restaurants){
-            if(res.getId().equals(id)){
+    public void deleteById(Long id) {
+        for (Restaurant res : restaurants) {
+            if (res.getId().equals(id)) {
                 restaurants.remove(res);
                 break;
             }
         }
     }
-
 
 
     public Restaurant updateRestaurant(Long id, Restaurant newRestaurant) {
@@ -87,9 +87,10 @@ public class RestaurantRepository {
         }
         return null;
     }
-    public List<Restaurant> findByName(String name){
+
+    public List<Restaurant> findByName(String name) {
         return restaurants.stream()
-                .filter(restaurant->restaurant.getName().equals(name))
+                .filter(restaurant -> restaurant.getName().equals(name))
                 .toList();
     }
 }
