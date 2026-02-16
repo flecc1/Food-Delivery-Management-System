@@ -1,18 +1,15 @@
 package com.example.fooddelivery.repository;
 
 import com.example.fooddelivery.entity.Restaurant;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
-@Data
 @Repository
 public class RestaurantRepository {
     private List<Restaurant> restaurants = new ArrayList<>();
-
     public RestaurantRepository() {
         Restaurant r1 = new Restaurant();
         r1.setId(1L);
@@ -44,19 +41,18 @@ public class RestaurantRepository {
 
         restaurants.add(r1);
         restaurants.add(r2);
+        restaurants.add(r3);
+        restaurants.add(r4);
     }
 
     public List<Restaurant> findAll(){
         return restaurants;
     }
 
-    public Restaurant findById(Long id){
-        for (Restaurant res:restaurants){
-            if(res.getId().equals(id)){
-                return res;
-            }
-        }
-        return null;
+    public Optional<Restaurant> findById(Long id){
+       return restaurants.stream()
+                .filter(restaurant -> restaurant.getId().equals(id))
+                .findFirst();
     }
 
     public Restaurant addRestaurant(Restaurant newRestaurant){
@@ -79,9 +75,9 @@ public class RestaurantRepository {
 
 
 
-    public Restaurant updateRestaurant(Long id, Restaurant newRestaurant){
-        for (Restaurant res:restaurants){
-            if(res.getId().equals(id)) {
+    public Restaurant updateRestaurant(Long id, Restaurant newRestaurant) {
+        for (Restaurant res : restaurants) {
+            if (res.getId().equals(id)) {
                 res.setName(newRestaurant.getName());
                 res.setAddress(newRestaurant.getAddress());
                 res.setRating(newRestaurant.getRating());
@@ -90,5 +86,10 @@ public class RestaurantRepository {
             }
         }
         return null;
+    }
+    public List<Restaurant> findByName(String name){
+        return restaurants.stream()
+                .filter(restaurant->restaurant.getName().equals(name))
+                .toList();
     }
 }
