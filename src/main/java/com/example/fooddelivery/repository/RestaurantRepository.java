@@ -41,7 +41,7 @@ public class RestaurantRepository {
         r4.setRating(5.9);
 
         restaurants.add(r1);
-        restaurants.add(r2);
+        restaurants.add(r2); 
         restaurants.add(r3);
         restaurants.add(r4);
     }
