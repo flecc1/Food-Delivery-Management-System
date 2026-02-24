@@ -1,5 +1,6 @@
 package com.example.fooddelivery.entity;
 
+import jakarta.persistence.ManyToMany;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
