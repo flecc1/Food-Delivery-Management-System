@@ -1,17 +1,14 @@
 package com.example.fooddelivery.dto;
 
-import com.example.fooddelivery.entity.Dish;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
-
 @Data
 @NoArgsConstructor
-public class RestaurantLongDto {
-    private long id;
+public class MenuDto {
+    private Long id;
     private String name;
-    private String address;
-    private double rating;
+    private String description;
     private List<DishDto> dishes;
 }

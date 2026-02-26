@@ -20,7 +20,7 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
     private String status;
-    private LocalDateTime createTime;
+    private LocalDateTime createdAt;
     private int amount;
     @ManyToMany
     @JoinTable(name = "orders_dishes",

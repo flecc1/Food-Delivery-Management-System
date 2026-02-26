@@ -4,14 +4,15 @@ import com.example.fooddelivery.entity.Dish;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Data
 @NoArgsConstructor
-public class RestaurantLongDto {
-    private long id;
-    private String name;
-    private String address;
-    private double rating;
+public class OrderDto {
+    private Long id;
+    private String status;
+    private LocalDateTime createdAt;
+    private int amount;
     private List<DishDto> dishes;
 }

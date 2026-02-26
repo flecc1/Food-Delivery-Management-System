@@ -19,8 +19,11 @@ public class Menu {
     private String description;
     private boolean active;
     @ManyToOne
+    @JoinColumn(name = "restaurant_id")
     private Restaurant restaurant;
     @ManyToMany
-    @JoinTable(name = "menus_dishes")
+    @JoinTable(name = "menus_dishes",
+            joinColumns = @JoinColumn(name = "menu_id"),
+            inverseJoinColumns = @JoinColumn(name = "dish_id"))
     private List<Dish> dishes;
 }
