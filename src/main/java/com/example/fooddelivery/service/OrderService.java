@@ -5,8 +5,6 @@ import com.example.fooddelivery.dto.order.OrderDto;
 import com.example.fooddelivery.entity.Dish;
 import com.example.fooddelivery.entity.Order;
 import com.example.fooddelivery.exception.OrderNotFoundException;
-import com.example.fooddelivery.exception.RestaurantNotFoundException;
-import com.example.fooddelivery.mapper.DishMapper;
 import com.example.fooddelivery.mapper.OrderMapper;
 import com.example.fooddelivery.repository.DishRepository;
 import com.example.fooddelivery.repository.OrderRepository;
@@ -22,14 +20,13 @@ import java.util.List;
 public class OrderService {
     private final OrderRepository orderRepository;
     private final OrderMapper orderMapper;
-    private final DishMapper dishMapper;
     private final DishRepository dishRepository;
 
 
     public OrderDto findOrderById(Long id) {
         return orderRepository.findById(id)
                 .map(orderMapper::toOrderDto)
-                .orElseThrow();
+                .orElseThrow(() -> new OrderNotFoundException("Order #" + id + " not found"));
     }
 
     public List<OrderDto> getOrders() {
@@ -57,7 +54,7 @@ public class OrderService {
     @Transactional
     public OrderDto updateOrder(Long id, OrderCreateDto newOrder) {
         Order order = orderRepository.findById(id)
-                .orElseThrow();
+                .orElseThrow(() -> new OrderNotFoundException("Cannot update: Order #" + id + " not found"));
         order.setAddress(newOrder.getAddress());
         List<Dish> dishes = dishRepository.findAllById(newOrder.getDishes_id());
         order.setDishes(dishes);

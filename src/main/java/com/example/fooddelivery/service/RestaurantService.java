@@ -21,7 +21,7 @@ public class RestaurantService {
     public RestaurantShortDto findRestaurantById(Long id) {
         return restaurantRepository.findById(id)
                 .map(restaurantMapper::toShortDto)
-                .orElseThrow();
+                .orElseThrow(() -> new RestaurantNotFoundException("Restaurant with id " + id + " not found"));
     }
 
     public List<RestaurantShortDto> getRestaurants() {
