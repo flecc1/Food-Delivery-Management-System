@@ -1,4 +1,4 @@
-package com.example.fooddelivery.dto;
+package com.example.fooddelivery.dto.dish;
 
 import com.example.fooddelivery.entity.Category;
 import lombok.Data;

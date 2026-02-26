@@ -1,6 +1,6 @@
-package com.example.fooddelivery.dto;
+package com.example.fooddelivery.dto.order;
 
-import com.example.fooddelivery.entity.Dish;
+import com.example.fooddelivery.dto.dish.DishDto;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -15,4 +15,6 @@ public class OrderDto {
     private LocalDateTime createdAt;
     private int amount;
     private List<DishDto> dishes;
+    private double price;
+    private String address;
 }

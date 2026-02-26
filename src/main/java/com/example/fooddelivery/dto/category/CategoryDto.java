@@ -1,4 +1,4 @@
-package com.example.fooddelivery.dto;
+package com.example.fooddelivery.dto.category;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

@@ -1,16 +1,20 @@
 package com.example.fooddelivery.service;
 
-import com.example.fooddelivery.dto.OrderDto;
+import com.example.fooddelivery.dto.order.OrderCreateDto;
+import com.example.fooddelivery.dto.order.OrderDto;
+import com.example.fooddelivery.entity.Dish;
 import com.example.fooddelivery.entity.Order;
+import com.example.fooddelivery.exception.OrderNotFoundException;
 import com.example.fooddelivery.exception.RestaurantNotFoundException;
 import com.example.fooddelivery.mapper.DishMapper;
 import com.example.fooddelivery.mapper.OrderMapper;
+import com.example.fooddelivery.repository.DishRepository;
 import com.example.fooddelivery.repository.OrderRepository;
-import com.example.fooddelivery.repository.RestaurantRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -18,8 +22,9 @@ import java.util.List;
 public class OrderService {
     private final OrderRepository orderRepository;
     private final OrderMapper orderMapper;
-    private final RestaurantRepository restaurantRepository;
     private final DishMapper dishMapper;
+    private final DishRepository dishRepository;
+
 
     public OrderDto findOrderById(Long id) {
         return orderRepository.findById(id)
@@ -35,29 +40,40 @@ public class OrderService {
     }
 
     @Transactional
-    public OrderDto addOrder(Order order) {
-        Order saved = orderRepository.save(order);
-        return orderMapper.toOrderDto(saved);
+    public OrderDto addOrder(OrderCreateDto newOrderDto) {
+        Order order = orderMapper.toEntity(newOrderDto);
+        List<Dish> dishes = dishRepository.findAllById(newOrderDto.getDishes_id());
+        order.setDishes(dishes);
+        double totalPrice = dishes.stream().mapToDouble(Dish::getPrice).sum();
+        order.setPrice(totalPrice);
+        order.setAddress(newOrderDto.getAddress());
+        order.setStatus("CREATED");
+        order.setCreatedAt(LocalDateTime.now());
+        order.setAmount(dishes.size());
+        orderRepository.save(order);
+        return orderMapper.toOrderDto(order);
     }
 
     @Transactional
-    public OrderDto updateOrder(Long id, Order newOrder) {
-        Order saved = orderRepository.findById(id)
+    public OrderDto updateOrder(Long id, OrderCreateDto newOrder) {
+        Order order = orderRepository.findById(id)
                 .orElseThrow();
-        saved.setStatus(newOrder.getStatus());
-        saved.setId(newOrder.getId());
-        saved.setAmount(newOrder.getAmount());
-        saved.setCreatedAt(newOrder.getCreatedAt());
-        saved.setDishes(newOrder.getDishes());
-        return orderMapper.toOrderDto(orderRepository.save(saved));
+        order.setAddress(newOrder.getAddress());
+        List<Dish> dishes = dishRepository.findAllById(newOrder.getDishes_id());
+        order.setDishes(dishes);
+
+        double totalPrice = dishes.stream().mapToDouble(Dish::getPrice).sum();
+        order.setPrice(totalPrice);
+        order.setAmount(dishes.size());
+        return orderMapper.toOrderDto(orderRepository.save(order));
     }
 
     @Transactional
-    public void deleteRestaurant(Long id) {
-        if(!restaurantRepository.existsById(id)) {
-            throw new RestaurantNotFoundException("Restaurant not found");
+    public void deleteOrder(Long id) {
+        if(!orderRepository.existsById(id)) {
+            throw new OrderNotFoundException("Order not found");
         }
-        restaurantRepository.deleteById(id);
+        orderRepository.deleteById(id);
     }
 
 }

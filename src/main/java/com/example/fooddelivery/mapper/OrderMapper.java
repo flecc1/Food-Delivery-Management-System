@@ -1,11 +1,10 @@
 package com.example.fooddelivery.mapper;
 
-import com.example.fooddelivery.dto.OrderDto;
+import com.example.fooddelivery.dto.order.OrderCreateDto;
+import com.example.fooddelivery.dto.order.OrderDto;
 import com.example.fooddelivery.entity.Order;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
-
-import java.util.List;
 
 @Component
 @RequiredArgsConstructor
@@ -25,6 +24,17 @@ public class OrderMapper {
                 .stream()
                 .map(dishMapper::toDto)
                 .toList());
+        orderDto.setPrice(order.getPrice());
+        orderDto.setAddress(order.getAddress());
         return orderDto;
+    }
+
+    public Order toEntity(OrderCreateDto orderCreateDto) {
+        if (orderCreateDto == null) {
+            return null;
+        }
+        Order order = new Order();
+        order.setAddress(orderCreateDto.getAddress());
+        return order;
     }
 }

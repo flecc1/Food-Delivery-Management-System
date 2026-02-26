@@ -1,6 +1,6 @@
 package com.example.fooddelivery.mapper;
 
-import com.example.fooddelivery.dto.MenuDto;
+import com.example.fooddelivery.dto.menu.MenuDto;
 import com.example.fooddelivery.entity.Menu;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;

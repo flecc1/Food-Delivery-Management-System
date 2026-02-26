@@ -1,6 +1,6 @@
 package com.example.fooddelivery.dto.restaurant;
 
-import com.example.fooddelivery.dto.DishDto;
+import com.example.fooddelivery.dto.dish.DishDto;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
