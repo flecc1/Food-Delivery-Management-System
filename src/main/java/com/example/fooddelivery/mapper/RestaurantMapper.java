@@ -17,4 +17,6 @@ public class RestaurantMapper {
         resShortDto.setRating(restaurant.getRating());
         return resShortDto;
     }
+    
+
 }

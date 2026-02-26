@@ -1,13 +1,10 @@
 package com.example.fooddelivery.controller;
 
 import com.example.fooddelivery.dto.RestaurantShortDto;
+import com.example.fooddelivery.entity.Restaurant;
 import com.example.fooddelivery.service.RestaurantService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -26,5 +23,20 @@ public class RestaurantController {
         return name == null
                 ? restaurantService.getRestaurants()
                 : restaurantService.findByName(name);
+    }
+
+    @PostMapping
+    public RestaurantShortDto createRestaurant(@RequestBody Restaurant restaurant) {
+        return restaurantService.addRestaurant(restaurant);
+    }
+
+    @PutMapping("/{id:\\d+}")
+    public RestaurantShortDto updateRestaurant(@PathVariable Long id, @RequestBody Restaurant restaurant) {
+        return restaurantService.updateRestaurant(id, restaurant);
+    }
+
+    @DeleteMapping("/{id:\\d+}")
+    public void deleteRestaurant(@PathVariable Long id) {
+        restaurantService.deleteRestaurant(id);
     }
 }
