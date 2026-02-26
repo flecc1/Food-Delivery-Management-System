@@ -1,6 +1,7 @@
 package com.example.fooddelivery.mapper;
 
-import com.example.fooddelivery.dto.RestaurantShortDto;
+import com.example.fooddelivery.dto.restaurant.RestaurantCreateDto;
+import com.example.fooddelivery.dto.restaurant.RestaurantShortDto;
 import com.example.fooddelivery.entity.Restaurant;
 import org.springframework.stereotype.Component;
 
@@ -17,6 +18,16 @@ public class RestaurantMapper {
         resShortDto.setRating(restaurant.getRating());
         return resShortDto;
     }
-    
+
+    public Restaurant toEntity(RestaurantCreateDto restaurantCreateDto) {
+        if (restaurantCreateDto == null) {
+            return null;
+        }
+        Restaurant restaurant = new Restaurant();
+        restaurant.setName(restaurantCreateDto.getName());
+        restaurant.setAddress(restaurantCreateDto.getAddress());
+        restaurant.setCity(restaurantCreateDto.getCity());
+        return restaurant;
+    }
 
 }

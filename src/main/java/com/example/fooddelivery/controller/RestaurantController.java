@@ -1,7 +1,7 @@
 package com.example.fooddelivery.controller;
 
-import com.example.fooddelivery.dto.RestaurantShortDto;
-import com.example.fooddelivery.entity.Restaurant;
+import com.example.fooddelivery.dto.restaurant.RestaurantCreateDto;
+import com.example.fooddelivery.dto.restaurant.RestaurantShortDto;
 import com.example.fooddelivery.service.RestaurantService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -26,13 +26,13 @@ public class RestaurantController {
     }
 
     @PostMapping
-    public RestaurantShortDto createRestaurant(@RequestBody Restaurant restaurant) {
-        return restaurantService.addRestaurant(restaurant);
+    public RestaurantShortDto createRestaurant(@RequestBody RestaurantCreateDto restaurantCreateDto) {
+        return restaurantService.addRestaurant(restaurantCreateDto);
     }
 
     @PutMapping("/{id:\\d+}")
-    public RestaurantShortDto updateRestaurant(@PathVariable Long id, @RequestBody Restaurant restaurant) {
-        return restaurantService.updateRestaurant(id, restaurant);
+    public RestaurantShortDto updateRestaurant(@PathVariable Long id, @RequestBody RestaurantCreateDto restaurantCreateDto) {
+        return restaurantService.updateRestaurant(id, restaurantCreateDto);
     }
 
     @DeleteMapping("/{id:\\d+}")

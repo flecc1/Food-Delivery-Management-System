@@ -1,8 +1,8 @@
 package com.example.fooddelivery.service;
 
-import com.example.fooddelivery.dto.RestaurantShortDto;
+import com.example.fooddelivery.dto.restaurant.RestaurantCreateDto;
+import com.example.fooddelivery.dto.restaurant.RestaurantShortDto;
 import com.example.fooddelivery.entity.Restaurant;
-import com.example.fooddelivery.exception.ResourceNotFoundException;
 import com.example.fooddelivery.exception.RestaurantNotFoundException;
 import com.example.fooddelivery.mapper.RestaurantMapper;
 import com.example.fooddelivery.repository.RestaurantRepository;
@@ -39,18 +39,19 @@ public class RestaurantService {
     }
 
     @Transactional
-    public RestaurantShortDto addRestaurant(Restaurant restaurant) {
-        Restaurant saved = restaurantRepository.save(restaurant);
-        return restaurantMapper.toShortDto(saved);
+    public RestaurantShortDto addRestaurant(RestaurantCreateDto restaurantCreateDto) {
+        Restaurant restaurant = restaurantMapper.toEntity(restaurantCreateDto);
+        restaurantRepository.save(restaurant);
+        return restaurantMapper.toShortDto(restaurant);
     }
 
     @Transactional
-    public RestaurantShortDto updateRestaurant(Long id, Restaurant newRestaurant) {
+    public RestaurantShortDto updateRestaurant(Long id, RestaurantCreateDto newRestaurant) {
         Restaurant saved = restaurantRepository.findById(id)
                 .orElseThrow();
         saved.setName(newRestaurant.getName());
-        saved.setId(newRestaurant.getId());
-        saved.setRating(newRestaurant.getRating());
+        saved.setAddress(newRestaurant.getAddress());
+        saved.setCity(newRestaurant.getCity());
         return restaurantMapper.toShortDto(restaurantRepository.save(saved));
     }
 
