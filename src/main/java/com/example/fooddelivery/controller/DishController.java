@@ -15,21 +15,18 @@ public class DishController {
     private final DishService dishService;
 
     @GetMapping
-    public List<DishDto> getDishes() {
+    public List<DishDto> getAllDishes(
+            @RequestParam(value = "name", required = false) String name,
+            @RequestParam(value = "price", required = false) Double price) {
+        if(name != null){
+            return dishService.findDishByName(name);
+        }
+        if(price != null){
+            return dishService.findDishByPrice(price);
+        }
         return dishService.findAllDishes();
     }
-    @GetMapping("/{id:\\d+}")
-    public DishDto getDishById(@PathVariable Long id) {
-        return dishService.findDishById(id);
-    }
-    @GetMapping(value = "name")
-    public List<DishDto> getDishByName(@RequestParam(value = "name") String name) {
-        return dishService.findDishByName(name);
-    }
-    @GetMapping(value = "price")
-    public List<DishDto> getDishByPrice(@RequestParam(value = "price") double price) {
-        return dishService.findDishByPrice(price);
-    }
+
     @PostMapping
     public DishDto createDish(@RequestBody DishCreateDto dishCreateDto) {
         return dishService.addDish(dishCreateDto);
