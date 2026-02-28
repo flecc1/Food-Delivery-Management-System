@@ -1,15 +1,14 @@
 package com.example.fooddelivery.dto.dish;
 
-import com.example.fooddelivery.entity.Category;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
 @Data
 @NoArgsConstructor
-public class DishDto {
-    private Long id;
+public class DishCreateDto {
     private String name;
     private double price;
     private String description;
-    private String categoryName;
+    private Long categoryId;
 }

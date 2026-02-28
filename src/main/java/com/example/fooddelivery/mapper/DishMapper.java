@@ -1,5 +1,6 @@
 package com.example.fooddelivery.mapper;
 
+import com.example.fooddelivery.dto.dish.DishCreateDto;
 import com.example.fooddelivery.dto.dish.DishDto;
 import com.example.fooddelivery.entity.Dish;
 import org.springframework.stereotype.Component;
@@ -15,7 +16,20 @@ public class DishMapper {
         dishDto.setName(dish.getName());
         dishDto.setPrice(dish.getPrice());
         dishDto.setDescription(dish.getDescription());
-        dishDto.setCategory(dish.getCategory());
+        if(dish.getCategory() != null) {
+            dishDto.setCategoryName(dish.getCategory().getName());
+        }
+
         return dishDto;
+    }
+    public Dish toEntity(DishCreateDto dishCreateDto){
+        if(dishCreateDto == null) {
+            return null;
+        }
+        Dish dish = new Dish();
+        dish.setName(dishCreateDto.getName());
+        dish.setPrice(dishCreateDto.getPrice());
+        dish.setDescription(dishCreateDto.getDescription());
+        return dish;
     }
 }
