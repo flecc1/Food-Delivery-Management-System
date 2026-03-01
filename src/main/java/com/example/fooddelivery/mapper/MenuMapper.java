@@ -1,14 +1,21 @@
 package com.example.fooddelivery.mapper;
 
+import com.example.fooddelivery.dto.menu.MenuCreateDto;
 import com.example.fooddelivery.dto.menu.MenuDto;
+import com.example.fooddelivery.entity.Dish;
 import com.example.fooddelivery.entity.Menu;
+import com.example.fooddelivery.repository.DishRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
+
+import java.util.Collections;
+import java.util.List;
 
 @Component
 @RequiredArgsConstructor
 public class MenuMapper {
     private final DishMapper dishMapper;
+    private final DishRepository dishRepository;
     public MenuDto toDto(Menu menu) {
         if(menu == null) {
             return null;
@@ -17,10 +24,35 @@ public class MenuMapper {
         menuDto.setId(menu.getId());
         menuDto.setName(menu.getName());
         menuDto.setDescription(menu.getDescription());
-        menuDto.setDishes(menu.getDishes()
-                .stream()
-                .map(dishMapper::toDto)
-                .toList());
+        menuDto.setActive(menu.isActive());
+
+        if(menu.getRestaurant() != null) {
+            menuDto.setRestaurantName(menu.getRestaurant().getName());
+        }
+        if (menu.getDishes() != null) {
+            menuDto.setDishes(menu.getDishes()
+                    .stream()
+                    .map(dishMapper::toDto)
+                    .toList());
+        } else {
+            menuDto.setDishes(Collections.emptyList());
+        }
         return menuDto;
+    }
+
+    public Menu toEntity(MenuCreateDto menuCreateDto) {
+        if(menuCreateDto == null) {
+            return null;
+        }
+        Menu menu = new Menu();
+        menu.setName(menuCreateDto.getName());
+        menu.setDescription(menuCreateDto.getDescription());
+        if(menuCreateDto.getDishesIds() != null) {
+            List<Dish> dishList = dishRepository.findAllById(menuCreateDto.getDishesIds());
+            menu.setDishes(dishList);
+        } else {
+            menu.setDishes(Collections.emptyList());
+        }
+        return menu;
     }
 }
