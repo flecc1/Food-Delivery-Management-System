@@ -65,8 +65,8 @@ public class DishService {
 
     @Transactional
     public void deleteDishById(Long id) {
-        if(!dishRepository.existsById(id)) {
-            throw  new DishNotFoundException("Dish not found with id: " + id);
+        if (!dishRepository.existsById(id)) {
+            throw new DishNotFoundException("Dish not found with id: " + id);
         }
         dishRepository.deleteById(id);
     }

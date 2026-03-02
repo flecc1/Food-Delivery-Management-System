@@ -57,9 +57,9 @@ public class RestaurantService {
 
     @Transactional
     public void deleteRestaurant(Long id) {
-    if(!restaurantRepository.existsById(id)) {
-        throw new RestaurantNotFoundException("Restaurant not found");
-    }
+        if (!restaurantRepository.existsById(id)) {
+            throw new RestaurantNotFoundException("Restaurant not found");
+        }
         restaurantRepository.deleteById(id);
     }
 }

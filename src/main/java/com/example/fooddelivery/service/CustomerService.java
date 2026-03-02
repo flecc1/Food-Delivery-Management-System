@@ -8,7 +8,6 @@ import com.example.fooddelivery.mapper.CustomerMapper;
 import com.example.fooddelivery.repository.CustomerRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
-
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -59,7 +58,7 @@ public class CustomerService {
         saved.setLastName(newCustomerDto.getLastName());
         saved.setEmail(newCustomerDto.getEmail());
         saved.setPhoneNumber(newCustomerDto.getPhoneNumber());
-        if(newCustomerDto.getPassword() != null && !newCustomerDto.getPassword().isEmpty()) {
+        if (newCustomerDto.getPassword() != null && !newCustomerDto.getPassword().isEmpty()) {
             saved.setPassword(newCustomerDto.getPassword());
         }
         return customerMapper.toDto(customerRepository.save(saved));
@@ -67,8 +66,8 @@ public class CustomerService {
 
     @Transactional
     public void deleteCustomerById(Long id) {
-        if(!customerRepository.existsById(id)) {
-            throw  new CustomerNotFoundException("Cant delete: customer not found with id: " + id);
+        if (!customerRepository.existsById(id)) {
+            throw new CustomerNotFoundException("Cant delete: customer not found with id: " + id);
         }
         customerRepository.deleteById(id);
     }

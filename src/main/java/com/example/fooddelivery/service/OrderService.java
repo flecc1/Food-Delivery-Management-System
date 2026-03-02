@@ -74,7 +74,7 @@ public class OrderService {
 
     @Transactional
     public void deleteOrder(Long id) {
-        if(!orderRepository.existsById(id)) {
+        if (!orderRepository.existsById(id)) {
             throw new OrderNotFoundException("Order not found");
         }
         orderRepository.deleteById(id);

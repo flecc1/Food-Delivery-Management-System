@@ -7,8 +7,8 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class DishMapper {
-    public DishDto toDto(Dish dish){
-        if(dish == null) {
+    public DishDto toDto(Dish dish) {
+        if (dish == null) {
             return null;
         }
         DishDto dishDto = new DishDto();
@@ -16,14 +16,15 @@ public class DishMapper {
         dishDto.setName(dish.getName());
         dishDto.setPrice(dish.getPrice());
         dishDto.setDescription(dish.getDescription());
-        if(dish.getCategory() != null) {
+        if (dish.getCategory() != null) {
             dishDto.setCategoryName(dish.getCategory().getName());
         }
 
         return dishDto;
     }
-    public Dish toEntity(DishCreateDto dishCreateDto){
-        if(dishCreateDto == null) {
+
+    public Dish toEntity(DishCreateDto dishCreateDto) {
+        if (dishCreateDto == null) {
             return null;
         }
         Dish dish = new Dish();

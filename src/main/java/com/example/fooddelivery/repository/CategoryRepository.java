@@ -1,6 +1,5 @@
 package com.example.fooddelivery.repository;
 
-import com.example.fooddelivery.dto.category.CategoryDto;
 import com.example.fooddelivery.entity.Category;
 import org.springframework.data.jpa.repository.JpaRepository;
 

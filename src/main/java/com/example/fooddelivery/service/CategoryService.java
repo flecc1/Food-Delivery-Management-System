@@ -10,7 +10,6 @@ import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.beans.Transient;
 import java.util.List;
 
 @Service
@@ -41,7 +40,7 @@ public class CategoryService {
 
     @Transactional
     public void deleteCategoryById(Long id) {
-        if(!categoryRepository.existsById(id)) {
+        if (!categoryRepository.existsById(id)) {
             throw new CategoryNotFoundException("Cant delete: category not found with id: " + id);
         }
         categoryRepository.deleteById(id);

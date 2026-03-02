@@ -16,8 +16,9 @@ import java.util.List;
 public class MenuMapper {
     private final DishMapper dishMapper;
     private final DishRepository dishRepository;
+
     public MenuDto toDto(Menu menu) {
-        if(menu == null) {
+        if (menu == null) {
             return null;
         }
         MenuDto menuDto = new MenuDto();
@@ -26,7 +27,7 @@ public class MenuMapper {
         menuDto.setDescription(menu.getDescription());
         menuDto.setActive(menu.isActive());
 
-        if(menu.getRestaurant() != null) {
+        if (menu.getRestaurant() != null) {
             menuDto.setRestaurantName(menu.getRestaurant().getName());
         }
         if (menu.getDishes() != null) {
@@ -41,13 +42,13 @@ public class MenuMapper {
     }
 
     public Menu toEntity(MenuCreateDto menuCreateDto) {
-        if(menuCreateDto == null) {
+        if (menuCreateDto == null) {
             return null;
         }
         Menu menu = new Menu();
         menu.setName(menuCreateDto.getName());
         menu.setDescription(menuCreateDto.getDescription());
-        if(menuCreateDto.getDishesIds() != null) {
+        if (menuCreateDto.getDishesIds() != null) {
             List<Dish> dishList = dishRepository.findAllById(menuCreateDto.getDishesIds());
             menu.setDishes(dishList);
         } else {

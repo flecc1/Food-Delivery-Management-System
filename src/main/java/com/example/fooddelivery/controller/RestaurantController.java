@@ -4,7 +4,15 @@ import com.example.fooddelivery.dto.restaurant.RestaurantCreateDto;
 import com.example.fooddelivery.dto.restaurant.RestaurantShortDto;
 import com.example.fooddelivery.service.RestaurantService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
@@ -13,6 +21,7 @@ import java.util.List;
 @RequestMapping("/api/v1/restaurants")
 public class RestaurantController {
     private final RestaurantService restaurantService;
+
     @GetMapping("/{id:\\d+}")
     public RestaurantShortDto getRestaurants(@PathVariable Long id) {
         return restaurantService.findRestaurantById(id);

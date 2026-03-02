@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class CustomerMapper {
     public CustomerDto toDto(Customer customer) {
-        if(customer == null) {
+        if (customer == null) {
             return null;
         }
         CustomerDto customerDto = new CustomerDto();

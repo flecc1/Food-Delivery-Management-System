@@ -60,16 +60,16 @@ public class MenuService {
 
     @Transactional
     public MenuDto updateMenuById(Long id, MenuCreateDto menuCreateDto) {
-        Menu exist =  menuRepository.findById(id)
+        Menu exist = menuRepository.findById(id)
                 .orElseThrow(() -> new MenuNotFoundException("Menu not found with id: " + id));
         exist.setName(menuCreateDto.getName());
         exist.setDescription(menuCreateDto.getDescription());
-        if(!menuCreateDto.getRestaurantId().equals(exist.getRestaurant().getId())) {
+        if (!menuCreateDto.getRestaurantId().equals(exist.getRestaurant().getId())) {
             Restaurant newRestaurant = restaurantRepository.findById(menuCreateDto.getRestaurantId())
                     .orElseThrow(() -> new RestaurantNotFoundException("Restaurant not found with id: " + menuCreateDto.getRestaurantId()));
-                    exist.setRestaurant(newRestaurant);
+            exist.setRestaurant(newRestaurant);
         }
-        if(menuCreateDto.getDishesIds() != null) {
+        if (menuCreateDto.getDishesIds() != null) {
             List<Dish> updatedDishes = dishRepository.findAllById(menuCreateDto.getDishesIds());
             exist.setDishes(updatedDishes);
         }
@@ -78,7 +78,7 @@ public class MenuService {
 
     @Transactional
     public void deleteMenuById(Long id) {
-        if(!menuRepository.existsById(id)) {
+        if (!menuRepository.existsById(id)) {
             throw new MenuNotFoundException("Menu not found with id: " + id);
         }
         menuRepository.deleteById(id);
