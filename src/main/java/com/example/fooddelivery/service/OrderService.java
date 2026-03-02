@@ -25,12 +25,13 @@ public class OrderService {
     private final OrderMapper orderMapper;
     private final DishRepository dishRepository;
     private final CustomerRepository customerRepository;
+    private static final String NOT_FOUND_SUFFIX = " not found";
 
 
     public OrderDto findOrderById(Long id) {
         return orderRepository.findById(id)
                 .map(orderMapper::toOrderDto)
-                .orElseThrow(() -> new OrderNotFoundException("Order #" + id + " not found"));
+                .orElseThrow(() -> new OrderNotFoundException("Order with id " + id + NOT_FOUND_SUFFIX));
     }
 
     public List<OrderDto> getOrders() {
@@ -44,7 +45,7 @@ public class OrderService {
     public OrderDto addOrder(OrderCreateDto newOrderDto) {
         Order order = orderMapper.toEntity(newOrderDto);
         Customer customer = customerRepository.findById(newOrderDto.getCustomerId())
-                .orElseThrow(() -> new CustomerNotFoundException("Customer with id " + newOrderDto.getCustomerId() + " not found"));
+                .orElseThrow(() -> new CustomerNotFoundException("Customer with id " + newOrderDto.getCustomerId() + " NOT_FOUND_SUFFIX"));
         order.setCustomer(customer);
         List<Dish> dishes = dishRepository.findAllById(newOrderDto.getDishesId());
         order.setDishes(dishes);
@@ -61,7 +62,7 @@ public class OrderService {
     @Transactional
     public OrderDto updateOrder(Long id, OrderCreateDto newOrder) {
         Order order = orderRepository.findById(id)
-                .orElseThrow(() -> new OrderNotFoundException("Cannot update: Order #" + id + " not found"));
+                .orElseThrow(() -> new OrderNotFoundException("Cannot update: Order #" + id + " NOT_FOUND_SUFFIX"));
         order.setAddress(newOrder.getAddress());
         List<Dish> dishes = dishRepository.findAllById(newOrder.getDishesId());
         order.setDishes(dishes);
@@ -75,7 +76,7 @@ public class OrderService {
     @Transactional
     public void deleteOrder(Long id) {
         if (!orderRepository.existsById(id)) {
-            throw new OrderNotFoundException("Order not found");
+            throw new OrderNotFoundException("Order with id " + id + NOT_FOUND_SUFFIX);
         }
         orderRepository.deleteById(id);
     }
