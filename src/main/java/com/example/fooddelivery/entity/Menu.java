@@ -18,7 +18,7 @@ public class Menu {
     private String name;
     private String description;
     private boolean active;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "restaurant_id")
     private Restaurant restaurant;
     @ManyToMany

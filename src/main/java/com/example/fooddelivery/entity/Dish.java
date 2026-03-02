@@ -22,6 +22,6 @@ public class Dish {
     private String description;
     @ManyToMany(mappedBy = "dishes")
     private List<Menu> menus;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Category category;
 }
