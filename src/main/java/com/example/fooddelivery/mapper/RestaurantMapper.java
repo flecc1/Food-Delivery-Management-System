@@ -5,7 +5,6 @@ import com.example.fooddelivery.dto.restaurant.RestaurantShortDto;
 import com.example.fooddelivery.entity.Restaurant;
 import org.springframework.stereotype.Component;
 
-
 @Component
 public class RestaurantMapper {
     public RestaurantShortDto toShortDto(Restaurant restaurant) {

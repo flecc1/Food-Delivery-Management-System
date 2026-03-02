@@ -21,12 +21,11 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class OrderService {
+    private static final String NOT_FOUND_SUFFIX = " not found";
     private final OrderRepository orderRepository;
     private final OrderMapper orderMapper;
     private final DishRepository dishRepository;
     private final CustomerRepository customerRepository;
-    private static final String NOT_FOUND_SUFFIX = " not found";
-
 
     public OrderDto findOrderById(Long id) {
         return orderRepository.findById(id)
@@ -45,7 +44,8 @@ public class OrderService {
     public OrderDto addOrder(OrderCreateDto newOrderDto) {
         Order order = orderMapper.toEntity(newOrderDto);
         Customer customer = customerRepository.findById(newOrderDto.getCustomerId())
-                .orElseThrow(() -> new CustomerNotFoundException("Customer with id " + newOrderDto.getCustomerId() + " NOT_FOUND_SUFFIX"));
+                .orElseThrow(() -> new CustomerNotFoundException("Customer with id "
+                        + newOrderDto.getCustomerId() + " NOT_FOUND_SUFFIX"));
         order.setCustomer(customer);
         List<Dish> dishes = dishRepository.findAllById(newOrderDto.getDishesId());
         order.setDishes(dishes);
@@ -62,7 +62,7 @@ public class OrderService {
     @Transactional
     public OrderDto updateOrder(Long id, OrderCreateDto newOrder) {
         Order order = orderRepository.findById(id)
-                .orElseThrow(() -> new OrderNotFoundException("Cannot update: Order #" + id + " NOT_FOUND_SUFFIX"));
+                .orElseThrow(() -> new OrderNotFoundException("Cannot update: Order id " + id + " NOT_FOUND_SUFFIX"));
         order.setAddress(newOrder.getAddress());
         List<Dish> dishes = dishRepository.findAllById(newOrder.getDishesId());
         order.setDishes(dishes);

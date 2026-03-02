@@ -40,8 +40,8 @@ public class RestaurantController {
     }
 
     @PutMapping("/{id:\\d+}")
-    public RestaurantShortDto updateRestaurant(@PathVariable Long id, @RequestBody RestaurantCreateDto restaurantCreateDto) {
-        return restaurantService.updateRestaurant(id, restaurantCreateDto);
+    public RestaurantShortDto updateRestaurant(@PathVariable Long id, @RequestBody RestaurantCreateDto restaurantDto) {
+        return restaurantService.updateRestaurant(id, restaurantDto);
     }
 
     @DeleteMapping("/{id:\\d+}")

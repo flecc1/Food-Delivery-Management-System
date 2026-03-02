@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface DishRepository extends JpaRepository<Dish, Long> {
-    public List<Dish> findDishByName(String name);
+    List<Dish> findDishByName(String name);
 
-    public List<Dish> findDishByPrice(double price);
+    List<Dish> findDishByPrice(double price);
 }

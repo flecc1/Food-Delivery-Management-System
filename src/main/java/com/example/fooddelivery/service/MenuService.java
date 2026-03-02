@@ -53,7 +53,8 @@ public class MenuService {
         Menu menu = menuMapper.toEntity(menuCreateDto);
         menu.setActive(true);
         Restaurant restaurant = restaurantRepository.findById(menuCreateDto.getRestaurantId())
-                .orElseThrow(() -> new RestaurantNotFoundException("Restaurant not found with id: " + menuCreateDto.getRestaurantId()));
+                .orElseThrow(() -> new RestaurantNotFoundException("Restaurant not found with id: "
+                        + menuCreateDto.getRestaurantId()));
         menu.setRestaurant(restaurant);
         return menuMapper.toDto(menuRepository.save(menu));
     }
@@ -64,11 +65,14 @@ public class MenuService {
                 .orElseThrow(() -> new MenuNotFoundException("Menu not found with id: " + id));
         exist.setName(menuCreateDto.getName());
         exist.setDescription(menuCreateDto.getDescription());
+
         if (!menuCreateDto.getRestaurantId().equals(exist.getRestaurant().getId())) {
             Restaurant newRestaurant = restaurantRepository.findById(menuCreateDto.getRestaurantId())
-                    .orElseThrow(() -> new RestaurantNotFoundException("Restaurant not found with id: " + menuCreateDto.getRestaurantId()));
+                    .orElseThrow(() -> new RestaurantNotFoundException("Restaurant not found with id: "
+                            + menuCreateDto.getRestaurantId()));
             exist.setRestaurant(newRestaurant);
         }
+
         if (menuCreateDto.getDishesIds() != null) {
             List<Dish> updatedDishes = dishRepository.findAllById(menuCreateDto.getDishesIds());
             exist.setDishes(updatedDishes);

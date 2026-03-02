@@ -45,7 +45,8 @@ public class DishService {
     public DishDto addDish(DishCreateDto dishCreateDto) {
         Dish dish = dishMapper.toEntity(dishCreateDto);
         Category category = categoryRepository.findById(dishCreateDto.getCategoryId())
-                .orElseThrow(() -> new CategoryNotFoundException("Category not found with id: " + dishCreateDto.getCategoryId()));
+                .orElseThrow(() -> new CategoryNotFoundException("Category not found with id: "
+                        + dishCreateDto.getCategoryId()));
         dish.setCategory(category);
         return dishMapper.toDto(dishRepository.save(dish));
     }
@@ -58,7 +59,8 @@ public class DishService {
         exist.setPrice(dishCreateDto.getPrice());
         exist.setDescription(dishCreateDto.getDescription());
         Category category = categoryRepository.findById(dishCreateDto.getCategoryId())
-                .orElseThrow(() -> new CategoryNotFoundException("Category not found with id: " + dishCreateDto.getCategoryId()));
+                .orElseThrow(() -> new CategoryNotFoundException("Category not found with id: "
+                        + dishCreateDto.getCategoryId()));
         exist.setCategory(category);
         return dishMapper.toDto(dishRepository.save(exist));
     }
