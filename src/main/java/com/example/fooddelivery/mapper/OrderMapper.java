@@ -2,7 +2,10 @@ package com.example.fooddelivery.mapper;
 
 import com.example.fooddelivery.dto.order.OrderCreateDto;
 import com.example.fooddelivery.dto.order.OrderDto;
+import com.example.fooddelivery.entity.Customer;
 import com.example.fooddelivery.entity.Order;
+import com.example.fooddelivery.exception.CustomerNotFoundException;
+import com.example.fooddelivery.repository.CustomerRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -26,6 +29,10 @@ public class OrderMapper {
                 .toList());
         orderDto.setPrice(order.getPrice());
         orderDto.setAddress(order.getAddress());
+        if (order.getCustomer() != null) {
+            orderDto.setCustomerId(order.getCustomer().getId());
+        }
+
         return orderDto;
     }
 

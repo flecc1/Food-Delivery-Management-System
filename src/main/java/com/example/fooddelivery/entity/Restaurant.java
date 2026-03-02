@@ -21,8 +21,8 @@ public class Restaurant {
     private String address;
     private String city;
     private double rating;
-    @OneToMany(mappedBy = "restaurant")
+    @OneToMany(cascade = CascadeType.ALL,  mappedBy = "restaurant")
     private List<Menu> menus;
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     private List<Order> orders;
 }

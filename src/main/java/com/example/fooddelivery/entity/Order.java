@@ -29,4 +29,7 @@ public class Order {
     private List<Dish> dishes;
     private double price;
     private String address;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "customer_id")
+    private Customer customer;
 }

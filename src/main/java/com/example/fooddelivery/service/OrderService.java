@@ -2,10 +2,13 @@ package com.example.fooddelivery.service;
 
 import com.example.fooddelivery.dto.order.OrderCreateDto;
 import com.example.fooddelivery.dto.order.OrderDto;
+import com.example.fooddelivery.entity.Customer;
 import com.example.fooddelivery.entity.Dish;
 import com.example.fooddelivery.entity.Order;
+import com.example.fooddelivery.exception.CustomerNotFoundException;
 import com.example.fooddelivery.exception.OrderNotFoundException;
 import com.example.fooddelivery.mapper.OrderMapper;
+import com.example.fooddelivery.repository.CustomerRepository;
 import com.example.fooddelivery.repository.DishRepository;
 import com.example.fooddelivery.repository.OrderRepository;
 import jakarta.transaction.Transactional;
@@ -21,6 +24,7 @@ public class OrderService {
     private final OrderRepository orderRepository;
     private final OrderMapper orderMapper;
     private final DishRepository dishRepository;
+    private final CustomerRepository customerRepository;
 
 
     public OrderDto findOrderById(Long id) {
@@ -39,7 +43,10 @@ public class OrderService {
     @Transactional
     public OrderDto addOrder(OrderCreateDto newOrderDto) {
         Order order = orderMapper.toEntity(newOrderDto);
-        List<Dish> dishes = dishRepository.findAllById(newOrderDto.getDishes_id());
+        Customer customer = customerRepository.findById(newOrderDto.getCustomerId())
+                .orElseThrow(() -> new CustomerNotFoundException("Customer with id " + newOrderDto.getCustomerId() + " not found"));
+        order.setCustomer(customer);
+        List<Dish> dishes = dishRepository.findAllById(newOrderDto.getDishesId());
         order.setDishes(dishes);
         double totalPrice = dishes.stream().mapToDouble(Dish::getPrice).sum();
         order.setPrice(totalPrice);
@@ -56,7 +63,7 @@ public class OrderService {
         Order order = orderRepository.findById(id)
                 .orElseThrow(() -> new OrderNotFoundException("Cannot update: Order #" + id + " not found"));
         order.setAddress(newOrder.getAddress());
-        List<Dish> dishes = dishRepository.findAllById(newOrder.getDishes_id());
+        List<Dish> dishes = dishRepository.findAllById(newOrder.getDishesId());
         order.setDishes(dishes);
 
         double totalPrice = dishes.stream().mapToDouble(Dish::getPrice).sum();

@@ -18,6 +18,6 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
     private String name;
-    @OneToMany(mappedBy = "category")
+    @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, mappedBy = "category")
     private List<Dish> dishes;
 }

@@ -15,6 +15,8 @@ public class OrderDto {
     private LocalDateTime createdAt;
     private int amount;
     private List<DishDto> dishes;
+    //TODO DOUBLE на BIGDECIMAL
     private double price;
     private String address;
+    private Long customerId;
 }

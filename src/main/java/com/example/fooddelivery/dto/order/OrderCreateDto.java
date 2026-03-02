@@ -6,6 +6,7 @@ import java.util.List;
 
 @Data
 public class OrderCreateDto {
-    private List<Long> dishes_id;
+    private List<Long> dishesId;
     private String address;
+    private Long customerId;
 }
