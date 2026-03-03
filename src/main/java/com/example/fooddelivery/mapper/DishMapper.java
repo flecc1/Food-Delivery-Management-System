@@ -21,9 +21,9 @@ public class DishMapper {
             dishDto.setCategoryName(dish.getCategory().getName());
         }
 
-        if(dish.getMenus() != null && !dish.getMenus().isEmpty()) {
+        if (dish.getMenus() != null && !dish.getMenus().isEmpty()) {
             Menu menu = dish.getMenus().getFirst();
-            if(menu.getRestaurant() != null) {
+            if (menu.getRestaurant() != null) {
                 dishDto.setRestaurantName(menu.getRestaurant().getName());
                 dishDto.setRestaurantId(menu.getRestaurant().getId());
             }
