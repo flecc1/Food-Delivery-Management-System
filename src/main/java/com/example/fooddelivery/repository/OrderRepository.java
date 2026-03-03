@@ -10,9 +10,8 @@ import java.util.Optional;
 
 public interface OrderRepository extends JpaRepository<Order, Long> {
     @EntityGraph(attributePaths = {"dishes", "customer"})
-    @Override
     @NullMarked
-    Optional<Order> findById(Long id);
+    Optional<Order> findWithDishesAndCustomerById(Long id);
 
     @EntityGraph(attributePaths = {"dishes", "customer"})
     @Override

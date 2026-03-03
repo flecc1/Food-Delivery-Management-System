@@ -28,7 +28,7 @@ public class OrderService {
     private final CustomerRepository customerRepository;
 
     public OrderDto findOrderById(Long id) {
-        return orderRepository.findById(id)
+        return orderRepository.findWithDishesAndCustomerById(id)
                 .map(orderMapper::toOrderDto)
                 .orElseThrow(() -> new OrderNotFoundException("Order with id " + id + NOT_FOUND_SUFFIX));
     }
@@ -61,7 +61,7 @@ public class OrderService {
 
     @Transactional
     public OrderDto updateOrder(Long id, OrderCreateDto newOrder) {
-        Order order = orderRepository.findById(id)
+        Order order = orderRepository.findWithDishesAndCustomerById(id)
                 .orElseThrow(() -> new OrderNotFoundException("Cannot update: Order id " + id + " NOT_FOUND_SUFFIX"));
         order.setAddress(newOrder.getAddress());
         List<Dish> dishes = dishRepository.findAllById(newOrder.getDishesId());
@@ -80,5 +80,4 @@ public class OrderService {
         }
         orderRepository.deleteById(id);
     }
-
 }
