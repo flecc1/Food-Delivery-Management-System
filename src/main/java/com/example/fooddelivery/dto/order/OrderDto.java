@@ -15,7 +15,8 @@ public class OrderDto {
     private LocalDateTime createdAt;
     private int amount;
     private List<DishDto> dishes;
-    private double price;
+    private double totalPrice;
     private String address;
     private Long customerId;
+    private String customerName;
 }

@@ -15,9 +15,9 @@ public class CategoryMapper {
         categoryDto.setId(category.getId());
         categoryDto.setName(category.getName());
         if (category.getDishes() != null) {
-            categoryDto.setCount(category.getDishes().size());
+            categoryDto.setDishCount(category.getDishes().size());
         } else {
-            categoryDto.setCount(0);
+            categoryDto.setDishCount(0);
         }
         return categoryDto;
     }

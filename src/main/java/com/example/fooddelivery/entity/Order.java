@@ -36,7 +36,7 @@ public class Order {
             joinColumns = @JoinColumn(name = "order_id"),
             inverseJoinColumns = @JoinColumn(name = "dish_id"))
     private List<Dish> dishes;
-    private double price;
+    private double totalPrice;
     private String address;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "customer_id")

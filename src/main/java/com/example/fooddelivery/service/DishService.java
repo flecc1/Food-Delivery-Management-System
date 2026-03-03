@@ -5,12 +5,15 @@ import com.example.fooddelivery.dto.dish.DishDto;
 import com.example.fooddelivery.entity.Category;
 import com.example.fooddelivery.entity.Dish;
 import com.example.fooddelivery.entity.Menu;
+import com.example.fooddelivery.entity.Restaurant;
 import com.example.fooddelivery.exception.CategoryNotFoundException;
 import com.example.fooddelivery.exception.DishNotFoundException;
+import com.example.fooddelivery.exception.RestaurantNotFoundException;
 import com.example.fooddelivery.mapper.DishMapper;
 import com.example.fooddelivery.repository.CategoryRepository;
 import com.example.fooddelivery.repository.DishRepository;
 import com.example.fooddelivery.repository.MenuRepository;
+import com.example.fooddelivery.repository.RestaurantRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -25,6 +28,7 @@ public class DishService {
     private final DishMapper dishMapper;
     private final CategoryRepository categoryRepository;
     private final MenuRepository menuRepository;
+    private final RestaurantRepository restaurantRepository;
 
     public DishDto findDishById(Long id) {
         return dishRepository.findById(id).map(dishMapper::toDto)
@@ -50,13 +54,15 @@ public class DishService {
         Dish dish = dishMapper.toEntity(dishCreateDto);
         Category category = categoryRepository.findById(dishCreateDto.getCategoryId())
                 .orElseThrow(() -> new CategoryNotFoundException("Category not found"));
+        Restaurant restaurant = restaurantRepository.findById(dishCreateDto.getRestaurantId())
+                        .orElseThrow(() -> new RestaurantNotFoundException("Restaurant not found with id: "
+                                + dishCreateDto.getRestaurantId()));
+        dish.setRestaurant(restaurant);
         dish.setCategory(category);
-        dish = dishRepository.save(dish);
         Menu menu = menuRepository.findById(menuId)
                 .orElseThrow(() -> new RuntimeException("Menu not found"));
         menu.getDishes().add(dish);
-        menuRepository.save(menu);
-        return dishMapper.toDto(dish);
+        return dishMapper.toDto(dishRepository.save(dish));
     }
 
     @Transactional

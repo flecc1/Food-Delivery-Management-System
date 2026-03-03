@@ -50,7 +50,7 @@ public class OrderService {
         List<Dish> dishes = dishRepository.findAllById(newOrderDto.getDishesId());
         order.setDishes(dishes);
         double totalPrice = dishes.stream().mapToDouble(Dish::getPrice).sum();
-        order.setPrice(totalPrice);
+        order.setTotalPrice(totalPrice);
         order.setAddress(newOrderDto.getAddress());
         order.setStatus("CREATED");
         order.setCreatedAt(LocalDateTime.now());
@@ -68,7 +68,7 @@ public class OrderService {
         order.setDishes(dishes);
 
         double totalPrice = dishes.stream().mapToDouble(Dish::getPrice).sum();
-        order.setPrice(totalPrice);
+        order.setTotalPrice(totalPrice);
         order.setAmount(dishes.size());
         return orderMapper.toOrderDto(orderRepository.save(order));
     }

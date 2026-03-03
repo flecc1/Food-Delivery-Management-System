@@ -30,4 +30,6 @@ public class Dish {
     private List<Menu> menus;
     @ManyToOne(fetch = FetchType.LAZY)
     private Category category;
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Restaurant restaurant;
 }

@@ -25,9 +25,10 @@ public class OrderMapper {
                 .stream()
                 .map(dishMapper::toDto)
                 .toList());
-        orderDto.setPrice(order.getPrice());
+        orderDto.setTotalPrice(order.getTotalPrice());
         orderDto.setAddress(order.getAddress());
         if (order.getCustomer() != null) {
+            orderDto.setCustomerName(order.getCustomer().getFirstName() + " " + order.getCustomer().getLastName());
             orderDto.setCustomerId(order.getCustomer().getId());
         }
 

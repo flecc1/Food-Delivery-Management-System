@@ -1,6 +1,7 @@
 package com.example.fooddelivery.dto.restaurant;
 
 import com.example.fooddelivery.dto.dish.DishDto;
+import com.example.fooddelivery.dto.menu.MenuDto;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -14,4 +15,5 @@ public class RestaurantLongDto {
     private String address;
     private double rating;
     private List<DishDto> dishes;
+    private List<MenuDto> menus;
 }

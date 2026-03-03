@@ -3,7 +3,6 @@ package com.example.fooddelivery.mapper;
 import com.example.fooddelivery.dto.dish.DishCreateDto;
 import com.example.fooddelivery.dto.dish.DishDto;
 import com.example.fooddelivery.entity.Dish;
-import com.example.fooddelivery.entity.Menu;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -21,12 +20,9 @@ public class DishMapper {
             dishDto.setCategoryName(dish.getCategory().getName());
         }
 
-        if (dish.getMenus() != null && !dish.getMenus().isEmpty()) {
-            Menu menu = dish.getMenus().getFirst();
-            if (menu.getRestaurant() != null) {
-                dishDto.setRestaurantName(menu.getRestaurant().getName());
-                dishDto.setRestaurantId(menu.getRestaurant().getId());
-            }
+        if (dish.getRestaurant() != null) {
+            dishDto.setRestaurantName(dish.getRestaurant().getName());
+            dishDto.setRestaurantId(dish.getRestaurant().getId());
         }
         return dishDto;
     }
