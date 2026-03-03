@@ -23,7 +23,7 @@ public interface MenuRepository extends JpaRepository<Menu, Long> {
     @NullMarked
     List<Menu> findAll();
 
-    @EntityGraph(attributePaths = {"category", "restaurant"})
+    @EntityGraph(attributePaths = {"restaurant", "dishes"})
     @NullMarked
     Optional<Menu> findWithRestaurantAndDishesById(Long id);
 }
