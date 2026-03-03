@@ -35,9 +35,14 @@ public class DishController {
         return dishService.findAllDishes();
     }
 
+    @GetMapping("/dishes/{id:\\d+}")
+    public DishDto getDishById(@PathVariable Long id) {
+        return dishService.findDishById(id);
+    }
+
     @PostMapping
-    public DishDto createDish(@RequestBody DishCreateDto dishCreateDto) {
-        return dishService.addDish(dishCreateDto);
+    public DishDto createDish(@RequestParam Long menuId, @RequestBody DishCreateDto dishCreateDto) {
+        return dishService.addDish(menuId, dishCreateDto);
     }
 
     @PutMapping("/{id:\\d+}")

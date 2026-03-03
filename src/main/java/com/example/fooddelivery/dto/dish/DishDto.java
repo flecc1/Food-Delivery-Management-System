@@ -11,4 +11,6 @@ public class DishDto {
     private double price;
     private String description;
     private String categoryName;
+    private Long restaurantId;
+    private String restaurantName;
 }

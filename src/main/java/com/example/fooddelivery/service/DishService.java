@@ -4,23 +4,27 @@ import com.example.fooddelivery.dto.dish.DishCreateDto;
 import com.example.fooddelivery.dto.dish.DishDto;
 import com.example.fooddelivery.entity.Category;
 import com.example.fooddelivery.entity.Dish;
+import com.example.fooddelivery.entity.Menu;
 import com.example.fooddelivery.exception.CategoryNotFoundException;
 import com.example.fooddelivery.exception.DishNotFoundException;
 import com.example.fooddelivery.mapper.DishMapper;
 import com.example.fooddelivery.repository.CategoryRepository;
 import com.example.fooddelivery.repository.DishRepository;
-import jakarta.transaction.Transactional;
+import com.example.fooddelivery.repository.MenuRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
 @RequiredArgsConstructor
+@Transactional(readOnly = true)
 public class DishService {
     private final DishRepository dishRepository;
     private final DishMapper dishMapper;
     private final CategoryRepository categoryRepository;
+    private final MenuRepository menuRepository;
 
     public DishDto findDishById(Long id) {
         return dishRepository.findById(id).map(dishMapper::toDto)
@@ -42,22 +46,28 @@ public class DishService {
     }
 
     @Transactional
-    public DishDto addDish(DishCreateDto dishCreateDto) {
+    public DishDto addDish(Long menuId, DishCreateDto dishCreateDto) {
         Dish dish = dishMapper.toEntity(dishCreateDto);
         Category category = categoryRepository.findById(dishCreateDto.getCategoryId())
-                .orElseThrow(() -> new CategoryNotFoundException("Category not found with id: "
-                        + dishCreateDto.getCategoryId()));
+                .orElseThrow(() -> new CategoryNotFoundException("Category not found"));
         dish.setCategory(category);
-        return dishMapper.toDto(dishRepository.save(dish));
+        dish = dishRepository.save(dish);
+        Menu menu = menuRepository.findById(menuId)
+                .orElseThrow(() -> new RuntimeException("Menu not found"));
+        menu.getDishes().add(dish);
+        menuRepository.save(menu);
+        return dishMapper.toDto(dish);
     }
 
     @Transactional
     public DishDto updateDishById(Long id, DishCreateDto dishCreateDto) {
         Dish exist = dishRepository.findById(id)
                 .orElseThrow(() -> new DishNotFoundException("Dish not found with id: " + id));
+
         exist.setName(dishCreateDto.getName());
         exist.setPrice(dishCreateDto.getPrice());
         exist.setDescription(dishCreateDto.getDescription());
+
         Category category = categoryRepository.findById(dishCreateDto.getCategoryId())
                 .orElseThrow(() -> new CategoryNotFoundException("Category not found with id: "
                         + dishCreateDto.getCategoryId()));
