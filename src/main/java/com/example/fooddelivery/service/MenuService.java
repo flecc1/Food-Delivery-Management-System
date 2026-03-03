@@ -26,7 +26,7 @@ public class MenuService {
     private final DishRepository dishRepository;
 
     public MenuDto findById(Long id) {
-        return menuMapper.toDto(menuRepository.findById(id)
+        return menuMapper.toDto(menuRepository.findWithRestaurantAndDishesById(id)
                 .orElseThrow(() -> new MenuNotFoundException("Menu not found with id: " + id)));
     }
 
@@ -61,7 +61,7 @@ public class MenuService {
 
     @Transactional
     public MenuDto updateMenuById(Long id, MenuCreateDto menuCreateDto) {
-        Menu exist = menuRepository.findById(id)
+        Menu exist = menuRepository.findWithRestaurantAndDishesById(id)
                 .orElseThrow(() -> new MenuNotFoundException("Menu not found with id: " + id));
         exist.setName(menuCreateDto.getName());
         exist.setDescription(menuCreateDto.getDescription());
