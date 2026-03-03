@@ -16,6 +16,7 @@ import java.util.List;
 @RequestMapping("/api/v1/restaurants")
 public class RestaurantController {
     private final RestaurantService restaurantService;
+
     @GetMapping("/{id:\\d+}")
     public RestaurantShortDto getRestaurants(@PathVariable Long id) {
         return restaurantService.findRestaurantById(id);

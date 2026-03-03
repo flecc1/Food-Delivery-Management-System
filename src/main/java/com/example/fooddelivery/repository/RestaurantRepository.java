@@ -74,7 +74,6 @@ public class RestaurantRepository {
         }
     }
 
-
     public Restaurant updateRestaurant(Long id, Restaurant newRestaurant) {
         for (Restaurant res : restaurants) {
             if (res.getId().equals(id)) {

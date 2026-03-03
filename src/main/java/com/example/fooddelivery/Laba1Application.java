@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class Laba1Application {
     protected Laba1Application() {
     }
+
     public static void main(String[] args) {
         SpringApplication.run(Laba1Application.class, args);
     }
