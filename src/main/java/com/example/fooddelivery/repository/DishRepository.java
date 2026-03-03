@@ -9,19 +9,18 @@ import java.util.List;
 import java.util.Optional;
 
 public interface DishRepository extends JpaRepository<Dish, Long> {
-    @Override
-    @EntityGraph(attributePaths = {"category", "menus.restaurant"})
+    @EntityGraph(attributePaths = {"category", "restaurant"})
     @NullMarked
-    Optional<Dish> findById(Long id);
+    Optional<Dish> findWithCategoryAndRestaurantById(Long id);
 
     @Override
-    @EntityGraph(attributePaths = {"category", "menus.restaurant"})
+    @EntityGraph(attributePaths = {"category", "restaurant"})
     @NullMarked
     List<Dish> findAll();
 
-    @EntityGraph(attributePaths = {"category", "menus.restaurant"})
+    @EntityGraph(attributePaths = {"category", "restaurant"})
     List<Dish> findDishByName(String name);
 
-    @EntityGraph(attributePaths = {"category", "menus.restaurant"})
+    @EntityGraph(attributePaths = {"category", "restaurant"})
     List<Dish> findDishByPrice(double price);
 }

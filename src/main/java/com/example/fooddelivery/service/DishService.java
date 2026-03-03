@@ -31,7 +31,7 @@ public class DishService {
     private final RestaurantRepository restaurantRepository;
 
     public DishDto findDishById(Long id) {
-        return dishRepository.findById(id).map(dishMapper::toDto)
+        return dishRepository.findWithCategoryAndRestaurantById(id).map(dishMapper::toDto)
                 .orElseThrow(() -> new DishNotFoundException("Dish not found with id: " + id));
     }
 
