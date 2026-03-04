@@ -96,7 +96,6 @@ public class MenuService {
         return menuMapper.toDto(menu);
     }
 
-
     @Transactional
     public void deleteMenuById(Long id) {
         if (!menuRepository.existsById(id)) {

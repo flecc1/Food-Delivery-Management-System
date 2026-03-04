@@ -1,6 +1,5 @@
 package com.example.fooddelivery.repository;
 
-import com.example.fooddelivery.entity.Dish;
 import com.example.fooddelivery.entity.Menu;
 import org.jspecify.annotations.NullMarked;
 import org.springframework.data.jpa.repository.EntityGraph;

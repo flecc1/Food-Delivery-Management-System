@@ -1,6 +1,5 @@
 package com.example.fooddelivery.controller;
 
-
 import com.example.fooddelivery.dto.menu.MenuCreateDto;
 import com.example.fooddelivery.dto.menu.MenuDto;
 
@@ -46,7 +45,6 @@ public class MenuController {
     public MenuDto addMenu(@RequestBody MenuCreateDto menuCreateDto) {
         return menuService.addMenu(menuCreateDto);
     }
-
 
     @PostMapping("/{menuId}/dishes/{dishId}")
     public MenuDto addExistingDishToMenu(@PathVariable Long menuId, @PathVariable Long dishId) {
