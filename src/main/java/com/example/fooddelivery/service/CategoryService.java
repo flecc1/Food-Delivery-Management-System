@@ -59,4 +59,22 @@ public class CategoryService {
         save.setName(categoryCreateDto.getName());
         return categoryMapper.toDto(categoryRepository.save(save));
     }
+
+    @Transactional
+    public void saveMultipleCategoriesWithStepback(String name) {
+        Category cat1 = new Category();
+        cat1.setName(name);
+        categoryRepository.save(cat1);
+        System.out.println(">>> Первая категория '" + name + "' сохранена в БД");
+
+        if (name.equalsIgnoreCase("error")) {
+            System.out.println(">>> Произошла ошибка! Выбрасываем исключение...");
+            throw new RuntimeException("Демонстрационная ошибка транзакции");
+        }
+
+        Category cat2 = new Category();
+        cat2.setName(name + "_second");
+        categoryRepository.save(cat2);
+        System.out.println(">>> Вторая категория сохранена успешно");
+    }
 }

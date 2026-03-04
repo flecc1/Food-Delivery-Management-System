@@ -45,6 +45,12 @@ public class CategoryController {
         return categoryService.addCategory(categoryDto);
     }
 
+    @PostMapping("/test-transaction")
+    public String testTransaction(@RequestParam String name) {
+        categoryService.saveMultipleCategoriesWithStepback(name);
+        return "Запрос выполнен успешно (без ошибок)";
+    }
+
     @PutMapping("/{id:\\d+}")
     public CategoryDto updateCategory(@PathVariable Long id, @RequestBody CategoryCreateDto categoryCreateDto) {
         return categoryService.updateCategoryById(id, categoryCreateDto);
