@@ -42,6 +42,9 @@ public class OrderService {
 
     @Transactional
     public OrderDto addOrder(OrderCreateDto newOrderDto) {
+        if (newOrderDto.getDishesId() == null || newOrderDto.getDishesId().isEmpty()) {
+            throw new IllegalArgumentException("The list of dishes cannot be empty");
+        }
         Order order = orderMapper.toEntity(newOrderDto);
         Customer customer = customerRepository.findById(newOrderDto.getCustomerId())
                 .orElseThrow(() -> new CustomerNotFoundException("Customer with id "

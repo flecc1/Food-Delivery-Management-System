@@ -41,8 +41,8 @@ public class DishController {
     }
 
     @PostMapping
-    public DishDto createDish(@RequestParam Long menuId, @RequestBody DishCreateDto dishCreateDto) {
-        return dishService.addDish(menuId, dishCreateDto);
+    public DishDto createDish(@RequestBody DishCreateDto dishCreateDto) {
+        return dishService.addDish(dishCreateDto);
     }
 
     @PutMapping("/{id:\\d+}")

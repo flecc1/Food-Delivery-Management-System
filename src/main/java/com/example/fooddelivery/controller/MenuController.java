@@ -1,7 +1,9 @@
 package com.example.fooddelivery.controller;
 
+
 import com.example.fooddelivery.dto.menu.MenuCreateDto;
 import com.example.fooddelivery.dto.menu.MenuDto;
+
 import com.example.fooddelivery.service.MenuService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -43,6 +45,12 @@ public class MenuController {
     @PostMapping
     public MenuDto addMenu(@RequestBody MenuCreateDto menuCreateDto) {
         return menuService.addMenu(menuCreateDto);
+    }
+
+
+    @PostMapping("/{menuId}/dishes/{dishId}")
+    public MenuDto addExistingDishToMenu(@PathVariable Long menuId, @PathVariable Long dishId) {
+        return menuService.addDishToMenu(menuId, dishId);
     }
 
     @PutMapping("/{id:\\d+}")

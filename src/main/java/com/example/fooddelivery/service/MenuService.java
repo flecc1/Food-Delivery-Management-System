@@ -5,6 +5,7 @@ import com.example.fooddelivery.dto.menu.MenuDto;
 import com.example.fooddelivery.entity.Dish;
 import com.example.fooddelivery.entity.Menu;
 import com.example.fooddelivery.entity.Restaurant;
+import com.example.fooddelivery.exception.DishNotFoundException;
 import com.example.fooddelivery.exception.MenuNotFoundException;
 import com.example.fooddelivery.exception.RestaurantNotFoundException;
 import com.example.fooddelivery.mapper.MenuMapper;
@@ -78,6 +79,21 @@ public class MenuService {
             exist.setDishes(updatedDishes);
         }
         return menuMapper.toDto(menuRepository.save(exist));
+    }
+
+    @Transactional
+    public MenuDto addDishToMenu(Long menuId, Long dishId) {
+        Menu menu = menuRepository.findById(menuId)
+                .orElseThrow(() -> new MenuNotFoundException("Menu not found with id: " + menuId));
+
+        Dish dish = dishRepository.findById(dishId)
+                .orElseThrow(() -> new DishNotFoundException("Dish not found with id: " + dishId));
+
+        if (!menu.getDishes().contains(dish)) {
+            menu.getDishes().add(dish);
+        }
+
+        return menuMapper.toDto(menu);
     }
 
 

@@ -35,6 +35,11 @@ public class CategoryController {
         return categoryService.findCategoryById(id);
     }
 
+    @GetMapping("/bad/{id:\\d+}")
+    public CategoryDto getCategoryByIdBad(@PathVariable Long id) {
+        return categoryService.findBadById(id);
+    }
+
     @PostMapping
     public CategoryDto createCategory(@RequestBody CategoryCreateDto categoryDto) {
         return categoryService.addCategory(categoryDto);
