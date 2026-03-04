@@ -4,14 +4,17 @@ import com.example.fooddelivery.dto.category.CategoryCreateDto;
 import com.example.fooddelivery.dto.category.CategoryDto;
 import com.example.fooddelivery.entity.Category;
 import com.example.fooddelivery.exception.CategoryNotFoundException;
+import com.example.fooddelivery.exception.TransactionTestException;
 import com.example.fooddelivery.mapper.CategoryMapper;
 import com.example.fooddelivery.repository.CategoryRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class CategoryService {
@@ -65,16 +68,16 @@ public class CategoryService {
         Category cat1 = new Category();
         cat1.setName(name);
         categoryRepository.save(cat1);
-        System.out.println(">>> Первая категория '" + name + "' сохранена в БД");
+        log.info("Первая категория '{}' сохранена в БД", name);
 
         if (name.equalsIgnoreCase("error")) {
-            System.out.println(">>> Произошла ошибка! Выбрасываем исключение...");
-            throw new RuntimeException("Демонстрационная ошибка транзакции");
+            log.error("Обнаружено ключевое слово 'error'. Инициируем откат транзакции...");
+            throw new TransactionTestException("Демонстрационная ошибка транзакции");
         }
 
         Category cat2 = new Category();
         cat2.setName(name + "_second");
         categoryRepository.save(cat2);
-        System.out.println(">>> Вторая категория сохранена успешно");
+        log.info("Вторая категория сохранена успешно. Транзакция будет зафиксирована (COMMIT).");
     }
 }

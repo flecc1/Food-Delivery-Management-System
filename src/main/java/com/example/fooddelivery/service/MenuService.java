@@ -21,6 +21,7 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class MenuService {
+    private static final String MENU_NOT_FOUND_MSG = "Menu not found with id: ";
     private final MenuRepository menuRepository;
     private final MenuMapper menuMapper;
     private final RestaurantRepository restaurantRepository;
@@ -28,7 +29,7 @@ public class MenuService {
 
     public MenuDto findById(Long id) {
         return menuMapper.toDto(menuRepository.findWithRestaurantAndDishesById(id)
-                .orElseThrow(() -> new MenuNotFoundException("Menu not found with id: " + id)));
+                .orElseThrow(() -> new MenuNotFoundException(MENU_NOT_FOUND_MSG + id)));
     }
 
     public List<MenuDto> findAllMenus() {
@@ -41,7 +42,7 @@ public class MenuService {
 
     public List<MenuDto> findMenuByRestaurantId(Long restaurantId) {
         if (!restaurantRepository.existsById(restaurantId)) {
-            throw new RestaurantNotFoundException("Restaurant not found with id: " + restaurantId);
+            throw new RestaurantNotFoundException(MENU_NOT_FOUND_MSG + restaurantId);
         }
         return menuRepository.findAllByRestaurantId(restaurantId)
                 .stream()
@@ -63,7 +64,7 @@ public class MenuService {
     @Transactional
     public MenuDto updateMenuById(Long id, MenuCreateDto menuCreateDto) {
         Menu exist = menuRepository.findWithRestaurantAndDishesById(id)
-                .orElseThrow(() -> new MenuNotFoundException("Menu not found with id: " + id));
+                .orElseThrow(() -> new MenuNotFoundException(MENU_NOT_FOUND_MSG + id));
         exist.setName(menuCreateDto.getName());
         exist.setDescription(menuCreateDto.getDescription());
 
@@ -84,7 +85,7 @@ public class MenuService {
     @Transactional
     public MenuDto addDishToMenu(Long menuId, Long dishId) {
         Menu menu = menuRepository.findById(menuId)
-                .orElseThrow(() -> new MenuNotFoundException("Menu not found with id: " + menuId));
+                .orElseThrow(() -> new MenuNotFoundException(MENU_NOT_FOUND_MSG + menuId));
 
         Dish dish = dishRepository.findById(dishId)
                 .orElseThrow(() -> new DishNotFoundException("Dish not found with id: " + dishId));
@@ -99,7 +100,7 @@ public class MenuService {
     @Transactional
     public void deleteMenuById(Long id) {
         if (!menuRepository.existsById(id)) {
-            throw new MenuNotFoundException("Menu not found with id: " + id);
+            throw new MenuNotFoundException(MENU_NOT_FOUND_MSG + id);
         }
         menuRepository.deleteById(id);
     }
