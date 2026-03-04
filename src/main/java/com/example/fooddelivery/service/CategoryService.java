@@ -19,7 +19,7 @@ public class CategoryService {
     private final CategoryMapper categoryMapper;
 
     public CategoryDto findCategoryById(Long id) {
-        return categoryRepository.findById(id)
+        return categoryRepository.findWithDishesById(id)
                 .map(categoryMapper::toDto)
                 .orElseThrow(() -> new CategoryNotFoundException("Category not found"));
     }
@@ -48,7 +48,7 @@ public class CategoryService {
 
     @Transactional
     public CategoryDto updateCategoryById(Long id, CategoryCreateDto categoryCreateDto) {
-        Category save = categoryRepository.findById(id)
+        Category save = categoryRepository.findWithDishesById(id)
                 .orElseThrow(() -> new CategoryNotFoundException("Category not found with id: " + id));
         save.setName(categoryCreateDto.getName());
         return categoryMapper.toDto(categoryRepository.save(save));

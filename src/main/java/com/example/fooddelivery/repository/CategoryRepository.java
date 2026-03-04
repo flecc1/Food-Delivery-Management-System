@@ -11,10 +11,9 @@ public interface CategoryRepository extends JpaRepository<Category, Long> {
     @EntityGraph(attributePaths = {"dishes"})
     List<Category> findCategoryByName(String name);
 
-    @Override
     @EntityGraph(attributePaths = {"dishes"})
     @NullMarked
-    Optional<Category> findById(Long id);
+    Optional<Category> findWithDishesById(Long id);
     
     @Override
     @EntityGraph(attributePaths = {"dishes"})
