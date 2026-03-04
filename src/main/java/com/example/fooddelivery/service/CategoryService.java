@@ -24,6 +24,12 @@ public class CategoryService {
                 .orElseThrow(() -> new CategoryNotFoundException("Category not found"));
     }
 
+    public CategoryDto findBadById(Long id) {
+        return categoryRepository.findById(id)
+                .map(categoryMapper::toDto)
+                .orElseThrow(() -> new CategoryNotFoundException("Category not found"));
+    }
+
     public List<CategoryDto> getAllCategories() {
         return categoryRepository.findAll().stream().map(categoryMapper::toDto).toList();
     }
