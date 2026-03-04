@@ -67,7 +67,7 @@ public class DishService {
 
     @Transactional
     public DishDto updateDishById(Long id, DishCreateDto dishCreateDto) {
-        Dish exist = dishRepository.findById(id)
+        Dish exist = dishRepository.findWithCategoryAndRestaurantById(id)
                 .orElseThrow(() -> new DishNotFoundException("Dish not found with id: " + id));
 
         exist.setName(dishCreateDto.getName());
