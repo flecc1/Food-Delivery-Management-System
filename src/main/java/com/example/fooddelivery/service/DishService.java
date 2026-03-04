@@ -52,8 +52,8 @@ public class DishService {
         Category category = categoryRepository.findById(dishCreateDto.getCategoryId())
                 .orElseThrow(() -> new CategoryNotFoundException("Category not found"));
         Restaurant restaurant = restaurantRepository.findById(dishCreateDto.getRestaurantId())
-                        .orElseThrow(() -> new RestaurantNotFoundException("Restaurant not found with id: "
-                                + dishCreateDto.getRestaurantId()));
+                .orElseThrow(() -> new RestaurantNotFoundException("Restaurant not found with id: "
+                        + dishCreateDto.getRestaurantId()));
         dish.setRestaurant(restaurant);
         dish.setCategory(category);
         return dishMapper.toDto(dishRepository.save(dish));
