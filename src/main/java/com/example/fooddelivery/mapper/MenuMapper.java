@@ -48,12 +48,6 @@ public class MenuMapper {
         Menu menu = new Menu();
         menu.setName(menuCreateDto.getName());
         menu.setDescription(menuCreateDto.getDescription());
-        if (menuCreateDto.getDishesIds() != null) {
-            List<Dish> dishList = dishRepository.findAllById(menuCreateDto.getDishesIds());
-            menu.setDishes(dishList);
-        } else {
-            menu.setDishes(Collections.emptyList());
-        }
         return menu;
     }
 }

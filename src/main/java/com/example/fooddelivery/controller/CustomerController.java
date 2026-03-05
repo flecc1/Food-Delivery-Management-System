@@ -28,8 +28,8 @@ public class CustomerController {
     }
 
     @GetMapping
-    public List<CustomerDto> getAllCustomers(@RequestParam(value = "firstName") String firstName,
-                                             @RequestParam(value = "lastName") String lastName) {
+    public List<CustomerDto> getAllCustomers(@RequestParam(value = "firstName", required = false) String firstName,
+                                             @RequestParam(value = "lastName", required = false) String lastName) {
         if (firstName != null) {
             return customerService.findByName(firstName);
         }

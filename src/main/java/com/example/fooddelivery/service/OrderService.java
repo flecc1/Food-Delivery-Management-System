@@ -11,12 +11,14 @@ import com.example.fooddelivery.mapper.OrderMapper;
 import com.example.fooddelivery.repository.CustomerRepository;
 import com.example.fooddelivery.repository.DishRepository;
 import com.example.fooddelivery.repository.OrderRepository;
+import com.example.fooddelivery.status.OrderStatus;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.List;
+
 
 @Service
 @RequiredArgsConstructor
@@ -55,7 +57,7 @@ public class OrderService {
         double totalPrice = dishes.stream().mapToDouble(Dish::getPrice).sum();
         order.setTotalPrice(totalPrice);
         order.setAddress(newOrderDto.getAddress());
-        order.setStatus("CREATED");
+        order.setStatus(OrderStatus.CREATED);
         order.setCreatedAt(LocalDateTime.now());
         order.setAmount(dishes.size());
         orderRepository.save(order);

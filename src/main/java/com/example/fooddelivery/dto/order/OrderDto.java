@@ -1,6 +1,7 @@
 package com.example.fooddelivery.dto.order;
 
 import com.example.fooddelivery.dto.dish.DishDto;
+import com.example.fooddelivery.status.OrderStatus;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -11,7 +12,7 @@ import java.util.List;
 @NoArgsConstructor
 public class OrderDto {
     private Long id;
-    private String status;
+    private OrderStatus status;
     private LocalDateTime createdAt;
     private int amount;
     private List<DishDto> dishes;

@@ -10,5 +10,5 @@ public class DishCreateDto {
     private double price;
     private String description;
     private Long categoryId;
-    private Long restaurantId;
+    private Long menuId;
 }

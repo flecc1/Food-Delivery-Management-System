@@ -20,9 +20,9 @@ public class DishMapper {
             dishDto.setCategoryName(dish.getCategory().getName());
         }
 
-        if (dish.getRestaurant() != null) {
-            dishDto.setRestaurantName(dish.getRestaurant().getName());
-            dishDto.setRestaurantId(dish.getRestaurant().getId());
+        if (dish.getMenu() != null && dish.getMenu().getRestaurant() != null) {
+            dishDto.setRestaurantName(dish.getMenu().getRestaurant().getName());
+            dishDto.setRestaurantId(dish.getMenu().getRestaurant().getId());
         }
         return dishDto;
     }

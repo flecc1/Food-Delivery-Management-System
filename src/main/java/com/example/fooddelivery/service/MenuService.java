@@ -58,6 +58,12 @@ public class MenuService {
                 .orElseThrow(() -> new RestaurantNotFoundException("Restaurant not found with id: "
                         + menuCreateDto.getRestaurantId()));
         menu.setRestaurant(restaurant);
+
+        if (menuCreateDto.getDishesIds() != null) {
+            List<Dish> dishes = dishRepository.findAllById(menuCreateDto.getDishesIds());
+            dishes.forEach(dish -> dish.setMenu(menu));
+            menu.setDishes(dishes);
+        }
         return menuMapper.toDto(menuRepository.save(menu));
     }
 
@@ -89,11 +95,8 @@ public class MenuService {
 
         Dish dish = dishRepository.findById(dishId)
                 .orElseThrow(() -> new DishNotFoundException("Dish not found with id: " + dishId));
-
-        if (!menu.getDishes().contains(dish)) {
-            menu.getDishes().add(dish);
-        }
-
+        dish.setMenu(menu);
+        dishRepository.save(dish);
         return menuMapper.toDto(menu);
     }
 
