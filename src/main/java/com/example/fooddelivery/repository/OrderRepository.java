@@ -17,4 +17,5 @@ public interface OrderRepository extends JpaRepository<Order, Long> {
     @Override
     @NullMarked
     List<Order> findAll();
+    boolean existsByRestaurantId(Long restaurantId);
 }

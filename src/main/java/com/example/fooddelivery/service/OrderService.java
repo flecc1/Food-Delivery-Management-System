@@ -7,6 +7,7 @@ import com.example.fooddelivery.entity.Dish;
 import com.example.fooddelivery.entity.Order;
 import com.example.fooddelivery.exception.CustomerNotFoundException;
 import com.example.fooddelivery.exception.OrderNotFoundException;
+import com.example.fooddelivery.exception.RestaurantHasOrdersException;
 import com.example.fooddelivery.mapper.OrderMapper;
 import com.example.fooddelivery.repository.CustomerRepository;
 import com.example.fooddelivery.repository.DishRepository;

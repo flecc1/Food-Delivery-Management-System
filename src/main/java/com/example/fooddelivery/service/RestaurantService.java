@@ -3,8 +3,10 @@ package com.example.fooddelivery.service;
 import com.example.fooddelivery.dto.restaurant.RestaurantCreateDto;
 import com.example.fooddelivery.dto.restaurant.RestaurantShortDto;
 import com.example.fooddelivery.entity.Restaurant;
+import com.example.fooddelivery.exception.RestaurantHasOrdersException;
 import com.example.fooddelivery.exception.RestaurantNotFoundException;
 import com.example.fooddelivery.mapper.RestaurantMapper;
+import com.example.fooddelivery.repository.OrderRepository;
 import com.example.fooddelivery.repository.RestaurantRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
@@ -17,6 +19,7 @@ import java.util.List;
 public class RestaurantService {
     private final RestaurantRepository restaurantRepository;
     private final RestaurantMapper restaurantMapper;
+    private final OrderRepository orderRepository;
 
     public RestaurantShortDto findRestaurantById(Long id) {
         return restaurantRepository.findById(id)
@@ -57,9 +60,13 @@ public class RestaurantService {
 
     @Transactional
     public void deleteRestaurant(Long id) {
-        if (!restaurantRepository.existsById(id)) {
-            throw new RestaurantNotFoundException("Restaurant not found");
+        Restaurant restaurant = restaurantRepository.findById(id)
+                .orElseThrow(() -> new RestaurantNotFoundException("Restaurant with id " + id + " not found"));
+        if (restaurant.getOrders() != null) {
+            throw new RestaurantHasOrdersException("Restaurant has orders and cannot be delete");
         }
-        restaurantRepository.deleteById(id);
+        else {
+            restaurantRepository.delete(restaurant);
+        }
     }
 }

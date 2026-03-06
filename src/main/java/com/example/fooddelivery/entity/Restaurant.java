@@ -11,6 +11,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -29,5 +30,5 @@ public class Restaurant {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "restaurant")
     private List<Menu> menus;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "restaurant")
-    private List<Order> orders;
+    private List<Order> orders = new ArrayList<>();
 }
