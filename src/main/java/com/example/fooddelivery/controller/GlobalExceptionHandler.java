@@ -23,31 +23,31 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(details, HttpStatus.BAD_REQUEST);
     }
 
-    @ExceptionHandler(RestaurantNotFoundException.class)
+    @ExceptionHandler(OrderNotFoundException.class)
     public ResponseEntity<ErrorMassage> handlerOrderNotFoundException(OrderNotFoundException ex) {
         ErrorMassage details = new ErrorMassage(ex.getMessage(), HttpStatus.NOT_FOUND.value(), LocalDateTime.now());
         return new ResponseEntity<>(details, HttpStatus.BAD_REQUEST);
     }
 
-    @ExceptionHandler(RestaurantNotFoundException.class)
+    @ExceptionHandler(MenuNotFoundException.class)
     public ResponseEntity<ErrorMassage> handleMenuNotFoundException(MenuNotFoundException ex) {
         ErrorMassage details = new ErrorMassage(ex.getMessage(), HttpStatus.NOT_FOUND.value(), LocalDateTime.now());
         return new ResponseEntity<>(details, HttpStatus.BAD_REQUEST);
     }
 
-    @ExceptionHandler(RestaurantNotFoundException.class)
+    @ExceptionHandler(DishNotFoundException.class)
     public ResponseEntity<ErrorMassage> handleDishNotFoundException(DishNotFoundException ex) {
         ErrorMassage details = new ErrorMassage(ex.getMessage(), HttpStatus.NOT_FOUND.value(), LocalDateTime.now());
         return new ResponseEntity<>(details, HttpStatus.BAD_REQUEST);
     }
 
-    @ExceptionHandler(RestaurantNotFoundException.class)
+    @ExceptionHandler(CustomerNotFoundException.class)
     public ResponseEntity<ErrorMassage> handleCustomerNotFoundException(CustomerNotFoundException ex) {
         ErrorMassage details = new ErrorMassage(ex.getMessage(), HttpStatus.NOT_FOUND.value(), LocalDateTime.now());
         return new ResponseEntity<>(details, HttpStatus.BAD_REQUEST);
     }
 
-    @ExceptionHandler(RestaurantNotFoundException.class)
+    @ExceptionHandler(CategoryNotFoundException.class)
     public ResponseEntity<ErrorMassage> handleCategoryNotFoundException(CategoryNotFoundException ex) {
         ErrorMassage details = new ErrorMassage(ex.getMessage(), HttpStatus.NOT_FOUND.value(), LocalDateTime.now());
         return new ResponseEntity<>(details, HttpStatus.BAD_REQUEST);

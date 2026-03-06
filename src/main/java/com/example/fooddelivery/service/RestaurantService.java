@@ -62,11 +62,9 @@ public class RestaurantService {
     public void deleteRestaurant(Long id) {
         Restaurant restaurant = restaurantRepository.findById(id)
                 .orElseThrow(() -> new RestaurantNotFoundException("Restaurant with id " + id + " not found"));
-        if (restaurant.getOrders() != null) {
+        if (orderRepository.existsByRestaurantId(id)) {
             throw new RestaurantHasOrdersException("Restaurant has orders and cannot be delete");
         }
-        else {
-            restaurantRepository.delete(restaurant);
-        }
+        restaurantRepository.delete(restaurant);
     }
 }
