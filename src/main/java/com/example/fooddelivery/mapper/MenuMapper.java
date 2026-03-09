@@ -3,7 +3,6 @@ package com.example.fooddelivery.mapper;
 import com.example.fooddelivery.dto.menu.MenuCreateDto;
 import com.example.fooddelivery.dto.menu.MenuDto;
 import com.example.fooddelivery.entity.Menu;
-import com.example.fooddelivery.repository.DishRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -13,7 +12,6 @@ import java.util.Collections;
 @RequiredArgsConstructor
 public class MenuMapper {
     private final DishMapper dishMapper;
-    private final DishRepository dishRepository;
 
     public MenuDto toDto(Menu menu) {
         if (menu == null) {
