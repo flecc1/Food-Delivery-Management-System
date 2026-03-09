@@ -2,9 +2,7 @@ package com.example.fooddelivery.service;
 
 import com.example.fooddelivery.dto.restaurant.RestaurantCreateDto;
 import com.example.fooddelivery.dto.restaurant.RestaurantShortDto;
-import com.example.fooddelivery.entity.Order;
 import com.example.fooddelivery.entity.Restaurant;
-import com.example.fooddelivery.exception.OrderNotFoundException;
 import com.example.fooddelivery.exception.RestaurantHasOrdersException;
 import com.example.fooddelivery.exception.RestaurantNotFoundException;
 import com.example.fooddelivery.mapper.RestaurantMapper;
