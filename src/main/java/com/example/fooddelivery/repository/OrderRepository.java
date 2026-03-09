@@ -13,7 +13,7 @@ public interface OrderRepository extends JpaRepository<Order, Long> {
     @NullMarked
     Optional<Order> findWithDishesAndCustomerById(Long id);
 
-    @EntityGraph(attributePaths = {"dishes", "customer"})
+    @EntityGraph(attributePaths = {"dishes", "customer", "dishes.category", "dishes.menu", "dishes.menu.restaurant"})
     @Override
     @NullMarked
     List<Order> findAll();
