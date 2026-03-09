@@ -5,13 +5,12 @@ import com.example.fooddelivery.dto.dish.DishDto;
 import com.example.fooddelivery.entity.Category;
 import com.example.fooddelivery.entity.Dish;
 import com.example.fooddelivery.entity.Menu;
-import com.example.fooddelivery.exception.CategoryNotFoundException;
-import com.example.fooddelivery.exception.DishNotFoundException;
-import com.example.fooddelivery.exception.MenuNotFoundException;
+import com.example.fooddelivery.exception.*;
 import com.example.fooddelivery.mapper.DishMapper;
 import com.example.fooddelivery.repository.CategoryRepository;
 import com.example.fooddelivery.repository.DishRepository;
 import com.example.fooddelivery.repository.MenuRepository;
+import com.example.fooddelivery.repository.OrderRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -26,6 +25,7 @@ public class DishService {
     private final DishMapper dishMapper;
     private final CategoryRepository categoryRepository;
     private final MenuRepository menuRepository;
+    private final OrderRepository orderRepository;
 
     public DishDto findDishById(Long id) {
         return dishRepository.findWithCategoryAndMenuById(id).map(dishMapper::toDto)
@@ -79,6 +79,9 @@ public class DishService {
     public void deleteDishById(Long id) {
         if (!dishRepository.existsById(id)) {
             throw new DishNotFoundException("Dish not found with id: " + id);
+        }
+        if (!orderRepository.findByDishId(id).isEmpty()) {
+            throw new OrderHasDishesException("Order has dishes and cannot be delete");
         }
         dishRepository.deleteById(id);
     }

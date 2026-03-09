@@ -63,10 +63,6 @@ public class OrderService {
         order.setStatus(OrderStatus.CREATED);
         order.setCreatedAt(LocalDateTime.now());
         order.setAmount(dishes.size());
-        Restaurant restaurant = restaurantRepository.findById(newOrderDto.getRestaurantId())
-                        .orElseThrow(() -> new RestaurantNotFoundException("Restaurant with id "
-                                + newOrderDto.getRestaurantId() + NOT_FOUND_SUFFIX));
-        order.setRestaurant(restaurant);
         orderRepository.save(order);
         return orderMapper.toOrderDto(order);
     }

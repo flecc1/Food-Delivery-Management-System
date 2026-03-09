@@ -3,6 +3,7 @@ package com.example.fooddelivery.service;
 import com.example.fooddelivery.dto.category.CategoryCreateDto;
 import com.example.fooddelivery.dto.category.CategoryDto;
 import com.example.fooddelivery.entity.Category;
+import com.example.fooddelivery.exception.CategoryHasDishesException;
 import com.example.fooddelivery.exception.CategoryNotFoundException;
 import com.example.fooddelivery.exception.TransactionTestException;
 import com.example.fooddelivery.mapper.CategoryMapper;
@@ -50,8 +51,10 @@ public class CategoryService {
 
     @Transactional
     public void deleteCategoryById(Long id) {
-        if (!categoryRepository.existsById(id)) {
-            throw new CategoryNotFoundException(CATEGORY_NOT_FOUND_MSG + id);
+        Category category = categoryRepository.findById(id)
+                .orElseThrow(() -> new CategoryNotFoundException(CATEGORY_NOT_FOUND_MSG + id));
+        if (!category.getDishes().isEmpty()) {
+            throw new CategoryHasDishesException("category with id: "  + id + " has dishes cannot be deleted");
         }
         categoryRepository.deleteById(id);
     }

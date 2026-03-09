@@ -5,12 +5,11 @@ import com.example.fooddelivery.dto.menu.MenuDto;
 import com.example.fooddelivery.entity.Dish;
 import com.example.fooddelivery.entity.Menu;
 import com.example.fooddelivery.entity.Restaurant;
-import com.example.fooddelivery.exception.DishNotFoundException;
-import com.example.fooddelivery.exception.MenuNotFoundException;
-import com.example.fooddelivery.exception.RestaurantNotFoundException;
+import com.example.fooddelivery.exception.*;
 import com.example.fooddelivery.mapper.MenuMapper;
 import com.example.fooddelivery.repository.DishRepository;
 import com.example.fooddelivery.repository.MenuRepository;
+import com.example.fooddelivery.repository.OrderRepository;
 import com.example.fooddelivery.repository.RestaurantRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
@@ -26,6 +25,7 @@ public class MenuService {
     private final MenuMapper menuMapper;
     private final RestaurantRepository restaurantRepository;
     private final DishRepository dishRepository;
+    private final OrderRepository orderRepository;
 
     public MenuDto findById(Long id) {
         return menuMapper.toDto(menuRepository.findWithRestaurantAndDishesById(id)
@@ -104,6 +104,9 @@ public class MenuService {
     public void deleteMenuById(Long id) {
         if (!menuRepository.existsById(id)) {
             throw new MenuNotFoundException(MENU_NOT_FOUND_MSG + id);
+        }
+        if (!orderRepository.findByMenuId(id).isEmpty()) {
+            throw new MenuHasDishesException("Menu has dishes and cannot be delete");
         }
         menuRepository.deleteById(id);
     }
