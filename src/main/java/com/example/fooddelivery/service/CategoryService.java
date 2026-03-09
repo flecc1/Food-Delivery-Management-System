@@ -54,7 +54,7 @@ public class CategoryService {
         Category category = categoryRepository.findById(id)
                 .orElseThrow(() -> new CategoryNotFoundException(CATEGORY_NOT_FOUND_MSG + id));
         if (!category.getDishes().isEmpty()) {
-            throw new CategoryHasDishesException("category with id: "  + id + " has dishes cannot be deleted");
+            throw new CategoryHasDishesException("category with id: " + id + " has dishes cannot be deleted");
         }
         categoryRepository.deleteById(id);
     }

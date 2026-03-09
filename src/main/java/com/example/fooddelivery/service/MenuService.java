@@ -5,7 +5,10 @@ import com.example.fooddelivery.dto.menu.MenuDto;
 import com.example.fooddelivery.entity.Dish;
 import com.example.fooddelivery.entity.Menu;
 import com.example.fooddelivery.entity.Restaurant;
-import com.example.fooddelivery.exception.*;
+import com.example.fooddelivery.exception.DishNotFoundException;
+import com.example.fooddelivery.exception.MenuHasDishesException;
+import com.example.fooddelivery.exception.MenuNotFoundException;
+import com.example.fooddelivery.exception.RestaurantNotFoundException;
 import com.example.fooddelivery.mapper.MenuMapper;
 import com.example.fooddelivery.repository.DishRepository;
 import com.example.fooddelivery.repository.MenuRepository;
@@ -80,7 +83,6 @@ public class MenuService {
                             + menuCreateDto.getRestaurantId()));
             exist.setRestaurant(newRestaurant);
         }
-
         if (menuCreateDto.getDishesIds() != null) {
             List<Dish> updatedDishes = dishRepository.findAllById(menuCreateDto.getDishesIds());
             exist.setDishes(updatedDishes);

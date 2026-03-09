@@ -20,10 +20,10 @@ public interface OrderRepository extends JpaRepository<Order, Long> {
     List<Order> findAll();
 
     @Query("""
-SELECT o FROM Order o
-        JOIN  o.dishes d
-        JOIN d.menu m
-        JOIN m.restaurant r
+        SELECT o FROM Order o 
+        JOIN o.dishes d 
+        JOIN d.menu m 
+        JOIN m.restaurant r 
         WHERE r.id = :restaurantId
 """)
     List<Order> getByRestaurantId(Long restaurantId);
