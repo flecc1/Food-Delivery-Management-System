@@ -74,10 +74,12 @@ public class OrderService {
         Customer customer = customerRepository.findById(newOrder.getCustomerId())
                 .orElseThrow(() -> new CustomerNotFoundException("Customer with id "
                         + newOrder.getCustomerId() + " NOT_FOUND_SUFFIX"));
-
+        order.setCustomer(customer);
         double totalPrice = dishes.stream().mapToDouble(Dish::getPrice).sum();
         order.setTotalPrice(totalPrice);
         order.setAmount(dishes.size());
+        order.setStatus(OrderStatus.CREATED);
+        order.setCreatedAt(LocalDateTime.now());
         return orderMapper.toOrderDto(orderRepository.save(order));
     }
 
