@@ -5,15 +5,12 @@ import com.example.fooddelivery.dto.order.OrderDto;
 import com.example.fooddelivery.entity.Customer;
 import com.example.fooddelivery.entity.Dish;
 import com.example.fooddelivery.entity.Order;
-import com.example.fooddelivery.entity.Restaurant;
 import com.example.fooddelivery.exception.CustomerNotFoundException;
 import com.example.fooddelivery.exception.OrderNotFoundException;
-import com.example.fooddelivery.exception.RestaurantNotFoundException;
 import com.example.fooddelivery.mapper.OrderMapper;
 import com.example.fooddelivery.repository.CustomerRepository;
 import com.example.fooddelivery.repository.DishRepository;
 import com.example.fooddelivery.repository.OrderRepository;
-import com.example.fooddelivery.repository.RestaurantRepository;
 import com.example.fooddelivery.status.OrderStatus;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
@@ -30,7 +27,6 @@ public class OrderService {
     private final OrderMapper orderMapper;
     private final DishRepository dishRepository;
     private final CustomerRepository customerRepository;
-    private final RestaurantRepository restaurantRepository;
 
     public OrderDto findOrderById(Long id) {
         return orderRepository.findWithDishesAndCustomerById(id)
@@ -74,6 +70,10 @@ public class OrderService {
         order.setAddress(newOrder.getAddress());
         List<Dish> dishes = dishRepository.findAllById(newOrder.getDishesId());
         order.setDishes(dishes);
+
+        Customer customer = customerRepository.findById(newOrder.getCustomerId())
+                .orElseThrow(() -> new CustomerNotFoundException("Customer with id "
+                        + newOrder.getCustomerId() + " NOT_FOUND_SUFFIX"));
 
         double totalPrice = dishes.stream().mapToDouble(Dish::getPrice).sum();
         order.setTotalPrice(totalPrice);

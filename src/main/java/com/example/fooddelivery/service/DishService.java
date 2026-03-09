@@ -72,6 +72,11 @@ public class DishService {
                 .orElseThrow(() -> new CategoryNotFoundException("Category not found with id: "
                         + dishCreateDto.getCategoryId()));
         exist.setCategory(category);
+
+        Menu menu = menuRepository.findById(dishCreateDto.getMenuId())
+                .orElseThrow(() -> new MenuNotFoundException("Menu not found with id: "
+                        + dishCreateDto.getMenuId()));
+        exist.setMenu(menu);
         return dishMapper.toDto(dishRepository.save(exist));
     }
 
