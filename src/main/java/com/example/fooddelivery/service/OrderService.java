@@ -49,7 +49,7 @@ public class OrderService {
         Order order = orderMapper.toEntity(newOrderDto);
         Customer customer = customerRepository.findById(newOrderDto.getCustomerId())
                 .orElseThrow(() -> new CustomerNotFoundException("Customer with id "
-                        + newOrderDto.getCustomerId() + " NOT_FOUND_SUFFIX"));
+                        + newOrderDto.getCustomerId() + NOT_FOUND_SUFFIX));
         order.setCustomer(customer);
         List<Dish> dishes = dishRepository.findAllById(newOrderDto.getDishesId());
         order.setDishes(dishes);
@@ -66,14 +66,14 @@ public class OrderService {
     @Transactional
     public OrderDto updateOrder(Long id, OrderCreateDto newOrder) {
         Order order = orderRepository.findWithDishesAndCustomerById(id)
-                .orElseThrow(() -> new OrderNotFoundException("Cannot update: Order id " + id + " NOT_FOUND_SUFFIX"));
+                .orElseThrow(() -> new OrderNotFoundException("Cannot update: Order id " + id + NOT_FOUND_SUFFIX));
         order.setAddress(newOrder.getAddress());
         List<Dish> dishes = dishRepository.findAllById(newOrder.getDishesId());
         order.setDishes(dishes);
 
         Customer customer = customerRepository.findById(newOrder.getCustomerId())
                 .orElseThrow(() -> new CustomerNotFoundException("Customer with id "
-                        + newOrder.getCustomerId() + " NOT_FOUND_SUFFIX"));
+                        + newOrder.getCustomerId() + NOT_FOUND_SUFFIX));
         order.setCustomer(customer);
         double totalPrice = dishes.stream().mapToDouble(Dish::getPrice).sum();
         order.setTotalPrice(totalPrice);
