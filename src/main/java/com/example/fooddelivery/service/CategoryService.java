@@ -24,13 +24,13 @@ public class CategoryService {
     public CategoryDto findCategoryById(Long id) {
         return categoryRepository.findWithDishesById(id)
                 .map(categoryMapper::toDto)
-                .orElseThrow(() -> new CategoryNotFoundException("Category not found"));
+                .orElseThrow(() -> new CategoryNotFoundException("Category not found with id: " + id));
     }
 
     public CategoryDto findBadById(Long id) {
         return categoryRepository.findById(id)
                 .map(categoryMapper::toDto)
-                .orElseThrow(() -> new CategoryNotFoundException("Category not found"));
+                .orElseThrow(() -> new CategoryNotFoundException("Category not found with id: " + id));
     }
 
     public List<CategoryDto> getAllCategories() {
@@ -68,16 +68,12 @@ public class CategoryService {
         Category cat1 = new Category();
         cat1.setName(name);
         categoryRepository.save(cat1);
-        log.info("Первая категория '{}' сохранена в БД", name);
-
         if (name.equalsIgnoreCase("error")) {
-            log.error("Обнаружено ключевое слово 'error'. Инициируем откат транзакции...");
             throw new TransactionTestException("Демонстрационная ошибка транзакции");
         }
 
         Category cat2 = new Category();
         cat2.setName(name + "_second");
         categoryRepository.save(cat2);
-        log.info("Вторая категория сохранена успешно. Транзакция будет зафиксирована (COMMIT).");
     }
 }
