@@ -17,38 +17,8 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(details, HttpStatus.BAD_REQUEST);
     }
 
-    @ExceptionHandler(RestaurantNotFoundException.class)
-    public ResponseEntity<ErrorMassage> handleRestaurantNotFoundException(RestaurantNotFoundException ex) {
-        ErrorMassage details = new ErrorMassage(ex.getMessage(), HttpStatus.NOT_FOUND.value(), LocalDateTime.now());
-        return new ResponseEntity<>(details, HttpStatus.BAD_REQUEST);
-    }
-
-    @ExceptionHandler(OrderNotFoundException.class)
-    public ResponseEntity<ErrorMassage> handlerOrderNotFoundException(OrderNotFoundException ex) {
-        ErrorMassage details = new ErrorMassage(ex.getMessage(), HttpStatus.NOT_FOUND.value(), LocalDateTime.now());
-        return new ResponseEntity<>(details, HttpStatus.BAD_REQUEST);
-    }
-
-    @ExceptionHandler(MenuNotFoundException.class)
-    public ResponseEntity<ErrorMassage> handleMenuNotFoundException(MenuNotFoundException ex) {
-        ErrorMassage details = new ErrorMassage(ex.getMessage(), HttpStatus.NOT_FOUND.value(), LocalDateTime.now());
-        return new ResponseEntity<>(details, HttpStatus.BAD_REQUEST);
-    }
-
-    @ExceptionHandler(DishNotFoundException.class)
-    public ResponseEntity<ErrorMassage> handleDishNotFoundException(DishNotFoundException ex) {
-        ErrorMassage details = new ErrorMassage(ex.getMessage(), HttpStatus.NOT_FOUND.value(), LocalDateTime.now());
-        return new ResponseEntity<>(details, HttpStatus.BAD_REQUEST);
-    }
-
-    @ExceptionHandler(CustomerNotFoundException.class)
-    public ResponseEntity<ErrorMassage> handleCustomerNotFoundException(CustomerNotFoundException ex) {
-        ErrorMassage details = new ErrorMassage(ex.getMessage(), HttpStatus.NOT_FOUND.value(), LocalDateTime.now());
-        return new ResponseEntity<>(details, HttpStatus.BAD_REQUEST);
-    }
-
-    @ExceptionHandler(CategoryNotFoundException.class)
-    public ResponseEntity<ErrorMassage> handleCategoryNotFoundException(CategoryNotFoundException ex) {
+    @ExceptionHandler(ResourceNotFoundException.class)
+    public ResponseEntity<ErrorMassage> handleRestaurantNotFoundException(ResourceNotFoundException ex) {
         ErrorMassage details = new ErrorMassage(ex.getMessage(), HttpStatus.NOT_FOUND.value(), LocalDateTime.now());
         return new ResponseEntity<>(details, HttpStatus.BAD_REQUEST);
     }

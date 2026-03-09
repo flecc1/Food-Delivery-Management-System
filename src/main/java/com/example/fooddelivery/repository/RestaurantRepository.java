@@ -1,5 +1,7 @@
 package com.example.fooddelivery.repository;
 
+import com.example.fooddelivery.entity.Dish;
+import com.example.fooddelivery.entity.Menu;
 import com.example.fooddelivery.entity.Order;
 import com.example.fooddelivery.entity.Restaurant;
 import org.jspecify.annotations.NullMarked;

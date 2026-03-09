@@ -2,7 +2,9 @@ package com.example.fooddelivery.service;
 
 import com.example.fooddelivery.dto.restaurant.RestaurantCreateDto;
 import com.example.fooddelivery.dto.restaurant.RestaurantShortDto;
+import com.example.fooddelivery.entity.Order;
 import com.example.fooddelivery.entity.Restaurant;
+import com.example.fooddelivery.exception.OrderNotFoundException;
 import com.example.fooddelivery.exception.RestaurantHasOrdersException;
 import com.example.fooddelivery.exception.RestaurantNotFoundException;
 import com.example.fooddelivery.mapper.RestaurantMapper;
@@ -10,12 +12,14 @@ import com.example.fooddelivery.repository.OrderRepository;
 import com.example.fooddelivery.repository.RestaurantRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class RestaurantService {
     private final RestaurantRepository restaurantRepository;
     private final RestaurantMapper restaurantMapper;

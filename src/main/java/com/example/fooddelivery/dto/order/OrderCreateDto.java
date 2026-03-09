@@ -9,4 +9,5 @@ public class OrderCreateDto {
     private List<Long> dishesId;
     private String address;
     private Long customerId;
+    private Long restaurantId;
 }
