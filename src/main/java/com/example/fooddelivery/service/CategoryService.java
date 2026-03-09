@@ -20,17 +20,18 @@ import java.util.List;
 public class CategoryService {
     private final CategoryRepository categoryRepository;
     private final CategoryMapper categoryMapper;
+    private static final String CATEGORY_NOT_FOUND_MSG = "Category not found with id: ";
 
     public CategoryDto findCategoryById(Long id) {
         return categoryRepository.findWithDishesById(id)
                 .map(categoryMapper::toDto)
-                .orElseThrow(() -> new CategoryNotFoundException("Category not found with id: " + id));
+                .orElseThrow(() -> new CategoryNotFoundException(CATEGORY_NOT_FOUND_MSG + id));
     }
 
     public CategoryDto findBadById(Long id) {
         return categoryRepository.findById(id)
                 .map(categoryMapper::toDto)
-                .orElseThrow(() -> new CategoryNotFoundException("Category not found with id: " + id));
+                .orElseThrow(() -> new CategoryNotFoundException(CATEGORY_NOT_FOUND_MSG + id));
     }
 
     public List<CategoryDto> getAllCategories() {
@@ -50,7 +51,7 @@ public class CategoryService {
     @Transactional
     public void deleteCategoryById(Long id) {
         if (!categoryRepository.existsById(id)) {
-            throw new CategoryNotFoundException("Cant delete: category not found with id: " + id);
+            throw new CategoryNotFoundException(CATEGORY_NOT_FOUND_MSG + id);
         }
         categoryRepository.deleteById(id);
     }
@@ -58,7 +59,7 @@ public class CategoryService {
     @Transactional
     public CategoryDto updateCategoryById(Long id, CategoryCreateDto categoryCreateDto) {
         Category save = categoryRepository.findWithDishesById(id)
-                .orElseThrow(() -> new CategoryNotFoundException("Category not found with id: " + id));
+                .orElseThrow(() -> new CategoryNotFoundException(CATEGORY_NOT_FOUND_MSG + id));
         save.setName(categoryCreateDto.getName());
         return categoryMapper.toDto(categoryRepository.save(save));
     }
