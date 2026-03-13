@@ -5,6 +5,7 @@ import com.example.fooddelivery.exception.MenuHasDishesException;
 import com.example.fooddelivery.exception.OrderHasDishesException;
 import com.example.fooddelivery.exception.ResourceNotFoundException;
 import com.example.fooddelivery.exception.RestaurantHasOrdersException;
+import com.example.fooddelivery.exception.TransactionTestException;
 import com.example.fooddelivery.exception.massage.ErrorMassage;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -41,6 +42,12 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(CategoryHasDishesException.class)
     public ResponseEntity<ErrorMassage> handleCategoryHasDishesException(CategoryHasDishesException ex) {
+        ErrorMassage details = new ErrorMassage(ex.getMessage(), HttpStatus.NOT_FOUND.value(), LocalDateTime.now());
+        return new ResponseEntity<>(details, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(TransactionTestException.class)
+    public ResponseEntity<ErrorMassage> handleTransactionTestException(TransactionTestException ex) {
         ErrorMassage details = new ErrorMassage(ex.getMessage(), HttpStatus.NOT_FOUND.value(), LocalDateTime.now());
         return new ResponseEntity<>(details, HttpStatus.BAD_REQUEST);
     }
