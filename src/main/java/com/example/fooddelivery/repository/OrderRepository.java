@@ -5,6 +5,7 @@ import org.jspecify.annotations.NullMarked;
 import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 import java.util.Optional;
@@ -43,4 +44,16 @@ public interface OrderRepository extends JpaRepository<Order, Long> {
 """
     )
     List<Order> findByMenuId(Long menuId);
+
+    @Query("""
+    SELECT o FROM Order o
+    JOIN FETCH o.customer c 
+    JOIN FETCH o.dishes d
+    JOIN FETCH d.menu m
+    JOIN FETCH d.category cat
+    JOIN FETCH m.restaurant
+    WHERE c.lastName =:lastName 
+    ORDER BY c.lastName ASC 
+""")
+    List<Order> findByCustomerLastName(@Param("lastName") String lastName);
 }

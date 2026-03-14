@@ -14,6 +14,7 @@ import com.example.fooddelivery.repository.OrderRepository;
 import com.example.fooddelivery.status.OrderStatus;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -36,6 +37,13 @@ public class OrderService {
 
     public List<OrderDto> getOrders() {
         return orderRepository.findAll()
+                .stream()
+                .map(orderMapper::toOrderDto)
+                .toList();
+    }
+
+    public List<OrderDto> findByCustomerLastName(String lastName) {
+        return orderRepository.findByCustomerLastName(lastName)
                 .stream()
                 .map(orderMapper::toOrderDto)
                 .toList();

@@ -28,7 +28,8 @@ public class OrderMapper {
         orderDto.setTotalPrice(order.getTotalPrice());
         orderDto.setAddress(order.getAddress());
         if (order.getCustomer() != null) {
-            orderDto.setCustomerName(order.getCustomer().getFirstName() + " " + order.getCustomer().getLastName());
+            orderDto.setCustomerFirstName(order.getCustomer().getFirstName());
+            orderDto.setCustomerLastName(order.getCustomer().getLastName());
             orderDto.setCustomerId(order.getCustomer().getId());
         }
 

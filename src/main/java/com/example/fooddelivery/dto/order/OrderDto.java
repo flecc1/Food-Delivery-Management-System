@@ -19,5 +19,6 @@ public class OrderDto {
     private double totalPrice;
     private String address;
     private Long customerId;
-    private String customerName;
+    private String customerFirstName;
+    private String customerLastName;
 }
