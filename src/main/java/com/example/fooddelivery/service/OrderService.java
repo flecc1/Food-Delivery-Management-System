@@ -48,7 +48,7 @@ public class OrderService {
         }
         List<Order> orders = orderRepository.findByCustomerLastName(lastName);
         if (orders.isEmpty()) {
-            throw new OrderNotFoundException("Order with lastName " + lastName + NOT_FOUND_SUFFIX);
+            throw new OrderNotFoundException("Order with lastName: " + lastName + NOT_FOUND_SUFFIX);
         }
         return orderRepository.findByCustomerLastName(lastName)
                 .stream()
