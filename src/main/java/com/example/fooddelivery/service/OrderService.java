@@ -43,6 +43,13 @@ public class OrderService {
     }
 
     public List<OrderDto> findByCustomerLastName(String lastName) {
+        if (lastName == null) {
+            throw new CustomerNotFoundException("lastName is null");
+        }
+        List<Order> orders = orderRepository.findByCustomerLastName(lastName);
+        if (orders.isEmpty()) {
+            throw new OrderNotFoundException("Order with lastName " + lastName + NOT_FOUND_SUFFIX);
+        }
         return orderRepository.findByCustomerLastName(lastName)
                 .stream()
                 .map(orderMapper::toOrderDto)
