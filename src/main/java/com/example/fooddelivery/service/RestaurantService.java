@@ -3,10 +3,10 @@ package com.example.fooddelivery.service;
 import com.example.fooddelivery.dto.restaurant.RestaurantCreateDto;
 import com.example.fooddelivery.dto.restaurant.RestaurantShortDto;
 import com.example.fooddelivery.entity.Restaurant;
+import com.example.fooddelivery.exception.CategoryNotFoundException;
 import com.example.fooddelivery.exception.RestaurantHasOrdersException;
 import com.example.fooddelivery.exception.RestaurantNotFoundException;
 import com.example.fooddelivery.mapper.RestaurantMapper;
-import com.example.fooddelivery.repository.MenuRepository;
 import com.example.fooddelivery.repository.OrderRepository;
 import com.example.fooddelivery.repository.RestaurantRepository;
 import jakarta.transaction.Transactional;
@@ -23,7 +23,6 @@ public class RestaurantService {
     private final RestaurantRepository restaurantRepository;
     private final RestaurantMapper restaurantMapper;
     private final OrderRepository orderRepository;
-    private final MenuRepository menuRepository;
 
     public RestaurantShortDto findRestaurantById(Long id) {
         return restaurantRepository.findById(id)
@@ -40,6 +39,20 @@ public class RestaurantService {
 
     public List<RestaurantShortDto> findByName(String name) {
         return restaurantRepository.findByName(name)
+                .stream()
+                .map(restaurantMapper::toShortDto)
+                .toList();
+    }
+
+    public List<RestaurantShortDto> findByCategoryName(String categoryName) {
+        if (categoryName == null) {
+            throw new CategoryNotFoundException("Category name cannot be empty");
+        }
+        List<Restaurant> restaurants = restaurantRepository.findByDishCategory(categoryName);
+        if (restaurants.isEmpty()) {
+            throw new RestaurantNotFoundException("Restaurant category with name " + categoryName + " not found");
+        }
+        return restaurants
                 .stream()
                 .map(restaurantMapper::toShortDto)
                 .toList();

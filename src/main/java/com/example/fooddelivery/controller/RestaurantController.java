@@ -34,6 +34,11 @@ public class RestaurantController {
                 : restaurantService.findByName(name);
     }
 
+    @GetMapping("/search")
+    public List<RestaurantShortDto> findByCategory(@RequestParam(value = "categoryName") String categoryName) {
+        return restaurantService.findByCategoryName(categoryName);
+    }
+
     @PostMapping
     public RestaurantShortDto createRestaurant(@RequestBody RestaurantCreateDto restaurantCreateDto) {
         return restaurantService.addRestaurant(restaurantCreateDto);

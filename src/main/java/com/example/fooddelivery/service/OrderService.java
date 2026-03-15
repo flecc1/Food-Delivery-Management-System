@@ -14,7 +14,6 @@ import com.example.fooddelivery.repository.OrderRepository;
 import com.example.fooddelivery.status.OrderStatus;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -44,13 +43,13 @@ public class OrderService {
 
     public List<OrderDto> findByCustomerLastName(String lastName) {
         if (lastName == null) {
-            throw new CustomerNotFoundException("lastName is null");
+            throw new CustomerNotFoundException("lastName cannot be empty");
         }
         List<Order> orders = orderRepository.findByCustomerLastName(lastName);
         if (orders.isEmpty()) {
-            throw new OrderNotFoundException("Order with lastName: " + lastName + NOT_FOUND_SUFFIX);
+            throw new OrderNotFoundException("Order with customers lastName: " + lastName + NOT_FOUND_SUFFIX);
         }
-        return orderRepository.findByCustomerLastName(lastName)
+        return orders
                 .stream()
                 .map(orderMapper::toOrderDto)
                 .toList();
