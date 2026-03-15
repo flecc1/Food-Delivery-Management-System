@@ -4,6 +4,9 @@ import com.example.fooddelivery.dto.restaurant.RestaurantCreateDto;
 import com.example.fooddelivery.dto.restaurant.RestaurantShortDto;
 import com.example.fooddelivery.service.RestaurantService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,11 +30,17 @@ public class RestaurantController {
         return restaurantService.findRestaurantById(id);
     }
 
+    @GetMapping("/search-by-name")
+    public List<RestaurantShortDto> getRestaurantsByName(@RequestParam(value = "name") String name) {
+        return restaurantService.findByName(name);
+    }
+
     @GetMapping
-    public List<RestaurantShortDto> getRestaurantsByName(@RequestParam(value = "name", required = false) String name) {
-        return name == null
-                ? restaurantService.getRestaurants()
-                : restaurantService.findByName(name);
+    public Page<RestaurantShortDto> getAllRestaurants (
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size) {
+        Pageable pageable = PageRequest.of(page, size);
+        return restaurantService.getRestaurants(pageable);
     }
 
     @GetMapping("/search")

@@ -12,6 +12,8 @@ import com.example.fooddelivery.repository.RestaurantRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -30,11 +32,9 @@ public class RestaurantService {
                 .orElseThrow(() -> new RestaurantNotFoundException("Restaurant with id " + id + " not found"));
     }
 
-    public List<RestaurantShortDto> getRestaurants() {
-        return restaurantRepository.findAll()
-                .stream()
-                .map(restaurantMapper::toShortDto)
-                .toList();
+    public Page<RestaurantShortDto> getRestaurants(Pageable pageable) {
+        return restaurantRepository.findAll(pageable)
+                .map(restaurantMapper::toShortDto);
     }
 
     public List<RestaurantShortDto> findByName(String name) {

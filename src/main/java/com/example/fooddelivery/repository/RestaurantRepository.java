@@ -1,6 +1,9 @@
 package com.example.fooddelivery.repository;
 
 import com.example.fooddelivery.entity.Restaurant;
+import org.jspecify.annotations.NullMarked;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -20,4 +23,8 @@ public interface RestaurantRepository extends JpaRepository<Restaurant, Long> {
     WHERE c.name =:categoryName
 """,  nativeQuery = true)
     List<Restaurant> findByDishCategory(@Param("categoryName") String categoryName);
+
+    @Override
+    @NullMarked
+    Page<Restaurant> findAll(Pageable pageable);
 }
