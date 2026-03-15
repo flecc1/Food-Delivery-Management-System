@@ -31,8 +31,12 @@ public class RestaurantController {
     }
 
     @GetMapping("/search-by-name")
-    public List<RestaurantShortDto> getRestaurantsByName(@RequestParam(value = "name") String name) {
-        return restaurantService.findByName(name);
+    public Page<RestaurantShortDto> getRestaurantsByName(
+            @RequestParam(value = "name") String name,
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size) {
+        Pageable pageable = PageRequest.of(page, size);
+        return restaurantService.findByName(name, pageable);
     }
 
     @GetMapping

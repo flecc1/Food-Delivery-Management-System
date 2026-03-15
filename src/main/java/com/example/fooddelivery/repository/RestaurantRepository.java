@@ -13,7 +13,7 @@ import java.util.List;
 
 @Repository
 public interface RestaurantRepository extends JpaRepository<Restaurant, Long> {
-    List<Restaurant> findByName(String name);
+    Page<Restaurant> findByName(String name, Pageable pageable);
 
     @Query(value = """
     SELECT DISTINCT r.* FROM restaurant r

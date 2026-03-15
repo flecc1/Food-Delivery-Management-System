@@ -37,11 +37,9 @@ public class RestaurantService {
                 .map(restaurantMapper::toShortDto);
     }
 
-    public List<RestaurantShortDto> findByName(String name) {
-        return restaurantRepository.findByName(name)
-                .stream()
-                .map(restaurantMapper::toShortDto)
-                .toList();
+    public Page<RestaurantShortDto> findByName(String name, Pageable pageable) {
+        return restaurantRepository.findByName(name, pageable)
+                .map(restaurantMapper::toShortDto);
     }
 
     public List<RestaurantShortDto> findByCategoryName(String categoryName) {
