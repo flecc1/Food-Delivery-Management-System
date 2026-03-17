@@ -17,8 +17,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
-
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/v1/restaurants")
@@ -26,7 +24,7 @@ public class RestaurantController {
     private final RestaurantService restaurantService;
 
     @GetMapping("/{id:\\d+}")
-    public RestaurantShortDto getRestaurants(@PathVariable Long id) {
+    public RestaurantShortDto getRestaurantsById(@PathVariable Long id) {
         return restaurantService.findRestaurantById(id);
     }
 
@@ -48,8 +46,12 @@ public class RestaurantController {
     }
 
     @GetMapping("/search")
-    public List<RestaurantShortDto> findByCategory(@RequestParam(value = "categoryName") String categoryName) {
-        return restaurantService.findByCategoryName(categoryName);
+    public Page<RestaurantShortDto> findByCategory(
+            @RequestParam(value = "categoryName") String categoryName,
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size) {
+        Pageable pageable = PageRequest.of(page, size);
+        return restaurantService.findByCategoryName(categoryName, pageable);
     }
 
     @PostMapping

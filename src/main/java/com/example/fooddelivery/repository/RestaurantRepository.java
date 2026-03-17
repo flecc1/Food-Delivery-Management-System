@@ -9,8 +9,6 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
-
 @Repository
 public interface RestaurantRepository extends JpaRepository<Restaurant, Long> {
     Page<Restaurant> findByName(String name, Pageable pageable);
@@ -22,7 +20,7 @@ public interface RestaurantRepository extends JpaRepository<Restaurant, Long> {
     JOIN category c ON d.category_id = c.id
     WHERE c.name =:categoryName
 """,  nativeQuery = true)
-    List<Restaurant> findByDishCategory(@Param("categoryName") String categoryName);
+    Page<Restaurant> findByDishCategory(@Param("categoryName") String categoryName,  Pageable pageable);
 
     @Override
     @NullMarked

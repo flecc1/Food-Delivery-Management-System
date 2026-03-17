@@ -16,8 +16,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Service
 @RequiredArgsConstructor
 @Slf4j
@@ -42,18 +40,15 @@ public class RestaurantService {
                 .map(restaurantMapper::toShortDto);
     }
 
-    public List<RestaurantShortDto> findByCategoryName(String categoryName) {
+    public Page<RestaurantShortDto> findByCategoryName(String categoryName, Pageable pageable) {
         if (categoryName == null) {
             throw new CategoryNotFoundException("Category name cannot be empty");
         }
-        List<Restaurant> restaurants = restaurantRepository.findByDishCategory(categoryName);
+        Page<Restaurant> restaurants = restaurantRepository.findByDishCategory(categoryName,  pageable);
         if (restaurants.isEmpty()) {
             throw new RestaurantNotFoundException("Restaurant category with name " + categoryName + " not found");
         }
-        return restaurants
-                .stream()
-                .map(restaurantMapper::toShortDto)
-                .toList();
+        return restaurants.map(restaurantMapper::toShortDto);
     }
 
     @Transactional
