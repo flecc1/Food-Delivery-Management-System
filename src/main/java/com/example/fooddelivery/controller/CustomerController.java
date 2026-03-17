@@ -4,6 +4,9 @@ import com.example.fooddelivery.dto.customer.CustomerCreateDto;
 import com.example.fooddelivery.dto.customer.CustomerDto;
 import com.example.fooddelivery.service.CustomerService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,8 +16,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/customers")
@@ -28,15 +29,19 @@ public class CustomerController {
     }
 
     @GetMapping
-    public List<CustomerDto> getAllCustomers(@RequestParam(value = "firstName", required = false) String firstName,
-                                             @RequestParam(value = "lastName", required = false) String lastName) {
+    public Page<CustomerDto> getAllCustomers(
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10")  int size,
+            @RequestParam(value = "firstName", required = false) String firstName,
+            @RequestParam(value = "lastName", required = false) String lastName) {
+        Pageable pageable = PageRequest.of(page, size);
         if (firstName != null) {
-            return customerService.findByName(firstName);
+            return customerService.findByName(firstName, pageable);
         }
         if (lastName != null) {
-            return customerService.findByLastName(lastName);
+            return customerService.findByLastName(lastName, pageable);
         }
-        return customerService.getCustomers();
+        return customerService.getCustomers(pageable);
     }
 
     @PostMapping

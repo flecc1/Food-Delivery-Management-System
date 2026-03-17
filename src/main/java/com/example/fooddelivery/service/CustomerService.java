@@ -8,9 +8,9 @@ import com.example.fooddelivery.mapper.CustomerMapper;
 import com.example.fooddelivery.repository.CustomerRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -23,25 +23,16 @@ public class CustomerService {
                 .orElseThrow(() -> new CustomerNotFoundException("Customer not found with id: " + id));
     }
 
-    public List<CustomerDto> getCustomers() {
-        return customerRepository.findAll()
-                .stream()
-                .map(customerMapper::toDto)
-                .toList();
+    public Page<CustomerDto> getCustomers(Pageable pageable) {
+        return customerRepository.findAll(pageable).map(customerMapper::toDto);
     }
 
-    public List<CustomerDto> findByName(String name) {
-        return customerRepository.findByFirstName(name)
-                .stream()
-                .map(customerMapper::toDto)
-                .toList();
+    public Page<CustomerDto> findByName(String name, Pageable pageable) {
+        return customerRepository.findByFirstName(name, pageable).map(customerMapper::toDto);
     }
 
-    public List<CustomerDto> findByLastName(String lastName) {
-        return customerRepository.findByLastName(lastName)
-                .stream()
-                .map(customerMapper::toDto)
-                .toList();
+    public Page<CustomerDto> findByLastName(String lastName, Pageable pageable) {
+        return customerRepository.findByLastName(lastName, pageable).map(customerMapper::toDto);
     }
 
     @Transactional
