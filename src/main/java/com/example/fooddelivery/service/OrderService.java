@@ -14,8 +14,9 @@ import com.example.fooddelivery.repository.OrderRepository;
 import com.example.fooddelivery.status.OrderStatus;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -34,25 +35,20 @@ public class OrderService {
                 .orElseThrow(() -> new OrderNotFoundException("Order with id " + id + NOT_FOUND_SUFFIX));
     }
 
-    public List<OrderDto> getOrders() {
-        return orderRepository.findAll()
-                .stream()
-                .map(orderMapper::toOrderDto)
-                .toList();
+    public Page<OrderDto> getOrders(Pageable pageable) {
+        return orderRepository.findAll(pageable)
+                .map(orderMapper::toOrderDto);
     }
 
-    public List<OrderDto> findByCustomerLastName(String lastName) {
+    public Page<OrderDto> findByCustomerLastName(String lastName, Pageable pageable) {
         if (lastName == null) {
             throw new CustomerNotFoundException("lastName cannot be empty");
         }
-        List<Order> orders = orderRepository.findByCustomerLastName(lastName);
+        Page<Order> orders = orderRepository.findByCustomerLastName(lastName, pageable);
         if (orders.isEmpty()) {
             throw new OrderNotFoundException("Order with customers lastName: " + lastName + NOT_FOUND_SUFFIX);
         }
-        return orders
-                .stream()
-                .map(orderMapper::toOrderDto)
-                .toList();
+        return orders.map(orderMapper::toOrderDto);
     }
 
     @Transactional
