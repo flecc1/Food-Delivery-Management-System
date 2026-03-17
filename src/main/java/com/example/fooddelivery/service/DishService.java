@@ -15,10 +15,10 @@ import com.example.fooddelivery.repository.DishRepository;
 import com.example.fooddelivery.repository.MenuRepository;
 import com.example.fooddelivery.repository.OrderRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -35,18 +35,17 @@ public class DishService {
                 .orElseThrow(() -> new DishNotFoundException("Dish not found with id: " + id));
     }
 
-    public List<DishDto> findDishByName(String name) {
-        return dishRepository.findDishByName(name)
-                .stream().map(dishMapper::toDto).toList();
+    public Page<DishDto> findDishByName(String name, Pageable pageable) {
+        return dishRepository.findDishByName(name, pageable).map(dishMapper::toDto);
     }
 
-    public List<DishDto> findAllDishes() {
-        return dishRepository.findAll().stream().map(dishMapper::toDto).toList();
+    public Page<DishDto> findAllDishes(Pageable pageable) {
+        return dishRepository.findAll(pageable).map(dishMapper::toDto);
     }
 
-    public List<DishDto> findDishByPrice(double price) {
-        return dishRepository.findDishByPrice(price)
-                .stream().map(dishMapper::toDto).toList();
+    public Page<DishDto> findDishByPrice(double price, Pageable pageable) {
+        return dishRepository.findDishByPrice(price, pageable)
+                .map(dishMapper::toDto);
     }
 
     @Transactional

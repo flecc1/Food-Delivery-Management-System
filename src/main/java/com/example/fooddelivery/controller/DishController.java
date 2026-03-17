@@ -4,6 +4,10 @@ import com.example.fooddelivery.dto.dish.DishCreateDto;
 import com.example.fooddelivery.dto.dish.DishDto;
 import com.example.fooddelivery.service.DishService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,8 +18,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
-
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/v1/dishes")
@@ -23,16 +25,21 @@ public class DishController {
     private final DishService dishService;
 
     @GetMapping
-    public List<DishDto> getAllDishes(
+    public Page<DishDto> getAllDishes(
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size,
             @RequestParam(value = "name", required = false) String name,
             @RequestParam(value = "price", required = false) Double price) {
         if (name != null) {
-            return dishService.findDishByName(name);
+            Pageable pageable = PageRequest.of(page, size, Sort.by("name").descending());
+            return dishService.findDishByName(name, pageable);
         }
         if (price != null) {
-            return dishService.findDishByPrice(price);
+            Pageable pageable = PageRequest.of(page, size, Sort.by("price").descending());
+            return dishService.findDishByPrice(price, pageable);
         }
-        return dishService.findAllDishes();
+        Pageable pageable = PageRequest.of(page, size);
+        return dishService.findAllDishes(pageable);
     }
 
     @GetMapping("/dishes/{id:\\d+}")

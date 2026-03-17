@@ -2,10 +2,10 @@ package com.example.fooddelivery.repository;
 
 import com.example.fooddelivery.entity.Dish;
 import org.jspecify.annotations.NullMarked;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.JpaRepository;
-
-import java.util.List;
 import java.util.Optional;
 
 public interface DishRepository extends JpaRepository<Dish, Long> {
@@ -17,11 +17,11 @@ public interface DishRepository extends JpaRepository<Dish, Long> {
     @Override
     @EntityGraph(attributePaths = {"category", "menu", "menu.restaurant"})
     @NullMarked
-    List<Dish> findAll();
+    Page<Dish> findAll(Pageable pageable);
 
-    @EntityGraph(attributePaths = {"category", "menu"})
-    List<Dish> findDishByName(String name);
+    @EntityGraph(attributePaths = {"category", "menu", "menu.restaurant"})
+    Page<Dish> findDishByName(String name, Pageable pageable);
 
-    @EntityGraph(attributePaths = {"category", "menu"})
-    List<Dish> findDishByPrice(double price);
+    @EntityGraph(attributePaths = {"category", "menu", "menu.restaurant"})
+    Page<Dish> findDishByPrice(double price, Pageable pageable);
 }
