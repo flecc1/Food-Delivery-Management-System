@@ -1,5 +1,6 @@
 package com.example.fooddelivery.service;
 
+import com.example.fooddelivery.cache.OrderCacheKey;
 import com.example.fooddelivery.dto.order.OrderCreateDto;
 import com.example.fooddelivery.dto.order.OrderDto;
 import com.example.fooddelivery.entity.Customer;
@@ -18,6 +19,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
+import java.util.HashMap;
 import java.util.List;
 
 @Service
@@ -28,6 +30,7 @@ public class OrderService {
     private final OrderMapper orderMapper;
     private final DishRepository dishRepository;
     private final CustomerRepository customerRepository;
+    private final HashMap<OrderCacheKey, Page<OrderDto>> orderCache = new HashMap<>();
 
     public OrderDto findOrderById(Long id) {
         return orderRepository.findWithDishesAndCustomerById(id)
@@ -35,20 +38,31 @@ public class OrderService {
                 .orElseThrow(() -> new OrderNotFoundException("Order with id " + id + NOT_FOUND_SUFFIX));
     }
 
-    public Page<OrderDto> getOrders(Pageable pageable) {
-        return orderRepository.findAll(pageable)
-                .map(orderMapper::toOrderDto);
-    }
+    public Page<OrderDto> getOrders(String lastName, Pageable pageable) {
+        OrderCacheKey key = new OrderCacheKey(
+                lastName,
+                pageable.getPageNumber(),
+                pageable.getPageSize(),
+                pageable.getSort());
 
-    public Page<OrderDto> findByCustomerLastName(String lastName, Pageable pageable) {
-        if (lastName == null) {
-            throw new CustomerNotFoundException("lastName cannot be empty");
+        if(orderCache.containsKey(key)) {
+            return orderCache.get(key);
         }
-        Page<Order> orders = orderRepository.findByCustomerLastName(lastName, pageable);
-        if (orders.isEmpty()) {
-            throw new OrderNotFoundException("Order with customers lastName: " + lastName + NOT_FOUND_SUFFIX);
+
+        Page<Order> orders;
+        if(lastName != null) {
+            orders = orderRepository.findByCustomerLastName(lastName, pageable);
+            if (orders.isEmpty()) {
+                throw new OrderNotFoundException("Order with customers lastName: " + lastName + NOT_FOUND_SUFFIX);
+            }
         }
-        return orders.map(orderMapper::toOrderDto);
+        else {
+            orders = orderRepository.findAll(pageable);
+        }
+
+        Page<OrderDto> ordersDto = orders.map(orderMapper::toOrderDto);
+        orderCache.put(key, ordersDto);
+        return ordersDto;
     }
 
     @Transactional

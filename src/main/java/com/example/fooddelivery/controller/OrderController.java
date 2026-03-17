@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -28,21 +29,15 @@ public class OrderController {
         return orderService.findOrderById(id);
     }
 
-    @GetMapping
-    public Page<OrderDto> getOrders(
-            @RequestParam(defaultValue = "0") int page,
-            @RequestParam(defaultValue = "10") int size) {
-        Pageable pageable = PageRequest.of(page, size);
-        return orderService.getOrders(pageable);
-    }
-
     @GetMapping("/search")
     public Page<OrderDto> getOrdersByCustomerLastName(
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "10") int size,
-            @RequestParam(value = "lastName") String lastName) {
-        Pageable pageable = PageRequest.of(page, size);
-        return orderService.findByCustomerLastName(lastName, pageable);
+            @RequestParam(value = "lastName", required = false) String lastName) {
+        Pageable pageable = (lastName != null)
+                ? PageRequest.of(page, size, Sort.by("lastName").descending())
+                : PageRequest.of(page, size, Sort.by("createdAt").descending());
+        return orderService.getOrders(lastName, pageable);
     }
 
     @PostMapping
