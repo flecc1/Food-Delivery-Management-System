@@ -11,9 +11,9 @@ import com.example.fooddelivery.repository.CategoryRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Slf4j
 @Service
@@ -29,18 +29,12 @@ public class CategoryService {
                 .orElseThrow(() -> new CategoryNotFoundException(CATEGORY_NOT_FOUND_MSG + id));
     }
 
-    public CategoryDto findBadById(Long id) {
-        return categoryRepository.findById(id)
-                .map(categoryMapper::toDto)
-                .orElseThrow(() -> new CategoryNotFoundException(CATEGORY_NOT_FOUND_MSG + id));
+    public Page<CategoryDto> getAllCategories(Pageable pageable) {
+        return categoryRepository.findAll(pageable).map(categoryMapper::toDto);
     }
 
-    public List<CategoryDto> getAllCategories() {
-        return categoryRepository.findAll().stream().map(categoryMapper::toDto).toList();
-    }
-
-    public List<CategoryDto> findCategoryByName(String name) {
-        return categoryRepository.findCategoryByName(name).stream().map(categoryMapper::toDto).toList();
+    public Page<CategoryDto> findCategoryByName(String name, Pageable pageable) {
+        return categoryRepository.findCategoryByName(name, pageable).map(categoryMapper::toDto);
     }
 
     @Transactional
