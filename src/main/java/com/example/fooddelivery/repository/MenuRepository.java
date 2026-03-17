@@ -2,29 +2,28 @@ package com.example.fooddelivery.repository;
 
 import com.example.fooddelivery.entity.Menu;
 import org.jspecify.annotations.NullMarked;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
-
 import java.util.List;
 import java.util.Optional;
 
 public interface MenuRepository extends JpaRepository<Menu, Long> {
-    @EntityGraph(attributePaths = {"restaurant", "dishes"})
+    @EntityGraph(attributePaths = {"restaurant", "dishes", "dishes.category"})
     @NullMarked
-    List<Menu> findMenuByName(String name);
+    Page<Menu> findMenuByName(String name, Pageable pageable);
 
-    @EntityGraph(attributePaths = {"restaurant", "dishes"})
+    @EntityGraph(attributePaths = {"restaurant", "dishes", "dishes.category"})
     @NullMarked
-    List<Menu> findAllByRestaurantId(Long restaurantId);
+    Page<Menu> findAllByRestaurantId(Long restaurantId,  Pageable pageable);
 
     @EntityGraph(attributePaths = {"restaurant", "dishes", "dishes.category"})
     @Override
     @NullMarked
-    List<Menu> findAll();
+    Page<Menu> findAll(Pageable pageable);
 
-    @EntityGraph(attributePaths = {"restaurant", "dishes"})
+    @EntityGraph(attributePaths = {"restaurant", "dishes", "dishes.category"})
     @NullMarked
     Optional<Menu> findWithRestaurantAndDishesById(Long id);
 }

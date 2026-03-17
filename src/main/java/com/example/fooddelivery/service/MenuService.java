@@ -16,6 +16,8 @@ import com.example.fooddelivery.repository.OrderRepository;
 import com.example.fooddelivery.repository.RestaurantRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -35,22 +37,20 @@ public class MenuService {
                 .orElseThrow(() -> new MenuNotFoundException(MENU_NOT_FOUND_MSG + id)));
     }
 
-    public List<MenuDto> findAllMenus() {
-        return menuRepository.findAll().stream().map(menuMapper::toDto).toList();
+    public Page<MenuDto> findAllMenus(Pageable pageable) {
+        return menuRepository.findAll(pageable).map(menuMapper::toDto);
     }
 
-    public List<MenuDto> findMenuByName(String name) {
-        return menuRepository.findMenuByName(name).stream().map(menuMapper::toDto).toList();
+    public Page<MenuDto> findMenuByName(String name, Pageable pageable) {
+        return menuRepository.findMenuByName(name, pageable).map(menuMapper::toDto);
     }
 
-    public List<MenuDto> findMenuByRestaurantId(Long restaurantId) {
+    public Page<MenuDto> findMenuByRestaurantId(Long restaurantId,  Pageable pageable) {
         if (!restaurantRepository.existsById(restaurantId)) {
             throw new RestaurantNotFoundException(MENU_NOT_FOUND_MSG + restaurantId);
         }
-        return menuRepository.findAllByRestaurantId(restaurantId)
-                .stream()
-                .map(menuMapper::toDto)
-                .toList();
+        return menuRepository.findAllByRestaurantId(restaurantId, pageable)
+                .map(menuMapper::toDto);
     }
 
     @Transactional
