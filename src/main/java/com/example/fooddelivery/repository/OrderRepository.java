@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface OrderRepository extends JpaRepository<Order, Long> {
-    @EntityGraph(attributePaths = {"dishes", "customer"})
+    @EntityGraph(attributePaths = {"dishes", "customer", "dishes.category", "dishes.menu", "dishes.menu.restaurant"})
     @NullMarked
     Optional<Order> findWithDishesAndCustomerById(Long id);
 
