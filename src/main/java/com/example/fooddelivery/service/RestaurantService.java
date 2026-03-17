@@ -44,7 +44,7 @@ public class RestaurantService {
         if (categoryName == null) {
             throw new CategoryNotFoundException("Category name cannot be empty");
         }
-        Page<Restaurant> restaurants = restaurantRepository.findByDishCategory(categoryName,  pageable);
+        Page<Restaurant> restaurants = restaurantRepository.findByDishCategory(categoryName, pageable);
         if (restaurants.isEmpty()) {
             throw new RestaurantNotFoundException("Restaurant category with name " + categoryName + " not found");
         }

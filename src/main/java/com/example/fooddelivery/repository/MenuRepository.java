@@ -15,7 +15,7 @@ public interface MenuRepository extends JpaRepository<Menu, Long> {
 
     @EntityGraph(attributePaths = {"restaurant", "dishes", "dishes.category"})
     @NullMarked
-    Page<Menu> findAllByRestaurantId(Long restaurantId,  Pageable pageable);
+    Page<Menu> findAllByRestaurantId(Long restaurantId, Pageable pageable);
 
     @EntityGraph(attributePaths = {"restaurant", "dishes", "dishes.category"})
     @Override

@@ -45,7 +45,7 @@ public class MenuService {
         return menuRepository.findMenuByName(name, pageable).map(menuMapper::toDto);
     }
 
-    public Page<MenuDto> findMenuByRestaurantId(Long restaurantId,  Pageable pageable) {
+    public Page<MenuDto> findMenuByRestaurantId(Long restaurantId, Pageable pageable) {
         if (!restaurantRepository.existsById(restaurantId)) {
             throw new RestaurantNotFoundException(MENU_NOT_FOUND_MSG + restaurantId);
         }

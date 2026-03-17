@@ -38,7 +38,7 @@ public class RestaurantController {
     }
 
     @GetMapping
-    public Page<RestaurantShortDto> getAllRestaurants (
+    public Page<RestaurantShortDto> getAllRestaurants(
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "10") int size) {
         Pageable pageable = PageRequest.of(page, size);

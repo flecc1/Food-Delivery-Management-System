@@ -19,8 +19,8 @@ public interface RestaurantRepository extends JpaRepository<Restaurant, Long> {
     JOIN dish d ON m.id = d.menu_id
     JOIN category c ON d.category_id = c.id
     WHERE c.name =:categoryName
-""",  nativeQuery = true)
-    Page<Restaurant> findByDishCategory(@Param("categoryName") String categoryName,  Pageable pageable);
+""", nativeQuery = true)
+    Page<Restaurant> findByDishCategory(@Param("categoryName") String categoryName, Pageable pageable);
 
     @Override
     @NullMarked

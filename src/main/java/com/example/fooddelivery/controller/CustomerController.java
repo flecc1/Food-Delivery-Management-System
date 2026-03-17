@@ -31,7 +31,7 @@ public class CustomerController {
     @GetMapping
     public Page<CustomerDto> getAllCustomers(
             @RequestParam(defaultValue = "0") int page,
-            @RequestParam(defaultValue = "10")  int size,
+            @RequestParam(defaultValue = "10") int size,
             @RequestParam(value = "firstName", required = false) String firstName,
             @RequestParam(value = "lastName", required = false) String lastName) {
         Pageable pageable = PageRequest.of(page, size);

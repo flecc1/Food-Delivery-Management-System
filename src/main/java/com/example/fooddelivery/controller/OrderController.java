@@ -42,8 +42,9 @@ public class OrderController {
             @RequestParam(defaultValue = "10") int size,
             @RequestParam(value = "lastName") String lastName) {
         Pageable pageable = PageRequest.of(page, size);
-        return orderService.findByCustomerLastName(lastName,  pageable);
+        return orderService.findByCustomerLastName(lastName, pageable);
     }
+
     @PostMapping
     public OrderDto createOrder(@RequestBody OrderCreateDto orderCreateDto) {
         return orderService.addOrder(orderCreateDto);
