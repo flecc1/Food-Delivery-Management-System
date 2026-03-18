@@ -84,6 +84,7 @@ public class OrderService {
         order.setCreatedAt(LocalDateTime.now());
         order.setAmount(dishes.size());
         orderRepository.save(order);
+        orderCache.clear();
         return orderMapper.toOrderDto(order);
     }
 
@@ -104,7 +105,9 @@ public class OrderService {
         order.setAmount(dishes.size());
         order.setStatus(OrderStatus.CREATED);
         order.setCreatedAt(LocalDateTime.now());
-        return orderMapper.toOrderDto(orderRepository.save(order));
+        orderRepository.save(order);
+        orderCache.clear();
+        return orderMapper.toOrderDto(order);
     }
 
     @Transactional
@@ -113,5 +116,6 @@ public class OrderService {
             throw new OrderNotFoundException("Order with id " + id + NOT_FOUND_SUFFIX);
         }
         orderRepository.deleteById(id);
+        orderCache.clear();
     }
 }
