@@ -45,18 +45,17 @@ public class OrderService {
                 pageable.getPageSize(),
                 pageable.getSort());
 
-        if(orderCache.containsKey(key)) {
+        if (orderCache.containsKey(key)) {
             return orderCache.get(key);
         }
 
         Page<Order> orders;
-        if(lastName != null) {
+        if (lastName != null) {
             orders = orderRepository.findByCustomerLastName(lastName, pageable);
             if (orders.isEmpty()) {
                 throw new OrderNotFoundException("Order with customers lastName: " + lastName + NOT_FOUND_SUFFIX);
             }
-        }
-        else {
+        } else {
             orders = orderRepository.findAll(pageable);
         }
 
