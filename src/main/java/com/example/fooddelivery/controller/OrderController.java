@@ -35,7 +35,7 @@ public class OrderController {
             @RequestParam(defaultValue = "10") int size,
             @RequestParam(value = "lastName", required = false) String lastName) {
         Pageable pageable = (lastName != null)
-                ? PageRequest.of(page, size, Sort.by("lastName").descending())
+                ? PageRequest.of(page, size, Sort.by("customer.lastName").descending())
                 : PageRequest.of(page, size, Sort.by("createdAt").descending());
         return orderService.getOrders(lastName, pageable);
     }
