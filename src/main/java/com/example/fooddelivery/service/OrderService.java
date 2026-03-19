@@ -46,6 +46,7 @@ public class OrderService {
                 pageable.getSort());
 
         if (orderCache.containsKey(key)) {
+            System.out.println("cache: return from HashMap");
             return orderCache.get(key);
         }
 
