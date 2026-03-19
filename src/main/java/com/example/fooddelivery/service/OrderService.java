@@ -15,6 +15,7 @@ import com.example.fooddelivery.repository.OrderRepository;
 import com.example.fooddelivery.status.OrderStatus;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -22,6 +23,7 @@ import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.List;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class OrderService {
@@ -46,7 +48,7 @@ public class OrderService {
                 pageable.getSort());
 
         if (orderCache.containsKey(key)) {
-            System.out.println("cache: return from HashMap");
+            log.info("cache: return from HashMap");
             return orderCache.get(key);
         }
 
