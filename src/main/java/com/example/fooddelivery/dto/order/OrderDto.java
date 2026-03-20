@@ -2,6 +2,9 @@ package com.example.fooddelivery.dto.order;
 
 import com.example.fooddelivery.dto.dish.DishDto;
 import com.example.fooddelivery.status.OrderStatus;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Past;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
