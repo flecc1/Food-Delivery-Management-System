@@ -10,14 +10,14 @@ import lombok.experimental.FieldDefaults;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class RestaurantCreateDto {
     @NotBlank
-    @Size(min = 2, max = 64, message = "must be from 2 to 64 symbols")
+    @Size(min = 2, max = 64)
     String name;
 
     @NotBlank
-    @Size(min = 2, max = 64, message = "must be not empty and from 2 to 64 symbols")
+    @Size(min = 2, max = 64)
     String address;
 
     @NotBlank
-    @Size(min = 2, max = 64, message = "must be not empty and from 2 to 64 symbols")
+    @Size(min = 2, max = 64)
     String city;
 }

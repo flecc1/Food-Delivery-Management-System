@@ -6,18 +6,18 @@ import java.util.List;
 
 @Data
 public class OrderCreateDto {
-    @NotEmpty(message = "must not be empty")
+    @NotEmpty
     private List<Long> dishesId;
 
     @NotBlank
-    @Size(min = 1, max = 64, message = "must be from 1 to 64 symbols")
+    @Size
     private String address;
 
     @NotNull
-    @Positive(message = "must be greater than 0")
+    @Positive
     private Long customerId;
 
     @NotNull
-    @Positive(message = "must be greater than 0")
+    @Positive
     private Long restaurantId;
 }

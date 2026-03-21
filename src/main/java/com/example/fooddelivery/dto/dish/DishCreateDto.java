@@ -11,22 +11,22 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class DishCreateDto {
     @NotBlank
-    @Size(min = 1, max = 64, message = "must be not empty and from 1 to 64 symbols")
+    @Size(min = 1, max = 64)
     private String name;
 
     @NotNull
-    @Positive(message = "must be not empty and greater than 0")
+    @Positive
     private double price;
 
     @NotBlank
-    @Size(min = 1, max = 512, message = "must be not empty and from 1 to 512 symbols")
+    @Size
     private String description;
 
     @Positive
-    @NotNull(message = "must be not empty and greater than 0")
+    @NotNull
     private Long categoryId;
 
     @NotNull
-    @Positive(message = "must be not empty and greater than 0")
+    @Positive
     private Long menuId;
 }

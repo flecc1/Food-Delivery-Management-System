@@ -11,11 +11,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class CustomerCreateDto {
     @NotBlank
-    @Size(min = 1, max = 64, message = "must be not empty and from 1 to 64 symbols")
+    @Size(min = 1, max = 64)
     private String firstName;
 
     @NotBlank
-    @Size(min = 1, max = 64, message = "must be not empty and from 1 to 64 symbols")
+    @Size(min = 1, max = 64)
     private String lastName;
 
     @Email
@@ -23,10 +23,11 @@ public class CustomerCreateDto {
     private String email;
 
     @NotBlank
-    @Size(min = 8, max = 128, message = "must be at least 8 symbols")
+    @Size(min = 8, max = 128)
     private String password;
 
     @NotBlank
-    @Pattern(regexp = "^\\+?[0-9]{10,15}$", message = "invalid phone format")
+    @Pattern(regexp = "^\\+?[0-9]{10,15}$",
+            message = "invalid phone format must contain 10-15 digits should be in format +37529553553")
     private String phoneNumber;
 }

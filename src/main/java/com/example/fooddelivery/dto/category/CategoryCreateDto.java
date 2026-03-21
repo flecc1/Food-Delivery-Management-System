@@ -9,6 +9,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class CategoryCreateDto {
     @NotBlank
-    @Size(min = 1, max = 64, message = "must be not empty from 1 to 64 symbols")
+    @Size(min = 1, max = 64)
     private String name;
 }

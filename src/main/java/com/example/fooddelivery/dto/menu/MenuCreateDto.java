@@ -12,15 +12,15 @@ import java.util.List;
 @NoArgsConstructor
 public class MenuCreateDto {
     @NotBlank
-    @Size(min = 1, max = 64, message = "must be not empty and from 1 to 64 symbols")
+    @Size(min = 1, max = 64)
     private String name;
 
     @NotBlank
-    @Size(min = 1, max = 512, message = "must be not empty from 1 to 512 symbols")
+    @Size(min = 1, max = 512)
     private String description;
 
     private List<Long> dishesIds;
 
-    @NotNull(message = "must be not empty")
+    @NotNull
     private Long restaurantId;
 }
