@@ -6,49 +6,62 @@ import com.example.fooddelivery.exception.OrderHasDishesException;
 import com.example.fooddelivery.exception.ResourceNotFoundException;
 import com.example.fooddelivery.exception.RestaurantHasOrdersException;
 import com.example.fooddelivery.exception.TransactionTestException;
-import com.example.fooddelivery.exception.massage.ErrorMassage;
+import com.example.fooddelivery.exception.message.ErrorMessage;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import java.time.LocalDateTime;
+import java.util.stream.Collectors;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
     @ExceptionHandler(RestaurantHasOrdersException.class)
-    public ResponseEntity<ErrorMassage> handleRestaurantHasOrdersException(RestaurantHasOrdersException ex) {
-        ErrorMassage details = new ErrorMassage(ex.getMessage(), HttpStatus.BAD_REQUEST.value(), LocalDateTime.now());
+    public ResponseEntity<ErrorMessage> handleRestaurantHasOrdersException(RestaurantHasOrdersException ex) {
+        ErrorMessage details = new ErrorMessage(ex.getMessage(), HttpStatus.BAD_REQUEST.value(), LocalDateTime.now());
         return new ResponseEntity<>(details, HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(ResourceNotFoundException.class)
-    public ResponseEntity<ErrorMassage> handleRestaurantNotFoundException(ResourceNotFoundException ex) {
-        ErrorMassage details = new ErrorMassage(ex.getMessage(), HttpStatus.NOT_FOUND.value(), LocalDateTime.now());
-        return new ResponseEntity<>(details, HttpStatus.BAD_REQUEST);
+    public ResponseEntity<ErrorMessage> handleRestaurantNotFoundException(ResourceNotFoundException ex) {
+        ErrorMessage details = new ErrorMessage(ex.getMessage(), HttpStatus.NOT_FOUND.value(), LocalDateTime.now());
+        return new ResponseEntity<>(details, HttpStatus.NOT_FOUND);
     }
 
     @ExceptionHandler(OrderHasDishesException.class)
-    public ResponseEntity<ErrorMassage> handleOrderHasDishesException(OrderHasDishesException ex) {
-        ErrorMassage details = new ErrorMassage(ex.getMessage(), HttpStatus.NOT_FOUND.value(), LocalDateTime.now());
+    public ResponseEntity<ErrorMessage> handleOrderHasDishesException(OrderHasDishesException ex) {
+        ErrorMessage details = new ErrorMessage(ex.getMessage(), HttpStatus.BAD_REQUEST.value(), LocalDateTime.now());
         return new ResponseEntity<>(details, HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(MenuHasDishesException.class)
-    public ResponseEntity<ErrorMassage> handleMenuHasDishesException(MenuHasDishesException ex) {
-        ErrorMassage details = new ErrorMassage(ex.getMessage(), HttpStatus.NOT_FOUND.value(), LocalDateTime.now());
+    public ResponseEntity<ErrorMessage> handleMenuHasDishesException(MenuHasDishesException ex) {
+        ErrorMessage details = new ErrorMessage(ex.getMessage(), HttpStatus.BAD_REQUEST.value(), LocalDateTime.now());
         return new ResponseEntity<>(details, HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(CategoryHasDishesException.class)
-    public ResponseEntity<ErrorMassage> handleCategoryHasDishesException(CategoryHasDishesException ex) {
-        ErrorMassage details = new ErrorMassage(ex.getMessage(), HttpStatus.NOT_FOUND.value(), LocalDateTime.now());
+    public ResponseEntity<ErrorMessage> handleCategoryHasDishesException(CategoryHasDishesException ex) {
+        ErrorMessage details = new ErrorMessage(ex.getMessage(), HttpStatus.BAD_REQUEST.value(), LocalDateTime.now());
         return new ResponseEntity<>(details, HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(TransactionTestException.class)
-    public ResponseEntity<ErrorMassage> handleTransactionTestException(TransactionTestException ex) {
-        ErrorMassage details = new ErrorMassage(ex.getMessage(), HttpStatus.NOT_FOUND.value(), LocalDateTime.now());
+    public ResponseEntity<ErrorMessage> handleTransactionTestException(TransactionTestException ex) {
+        ErrorMessage details = new ErrorMessage(ex.getMessage(), HttpStatus.NOT_FOUND.value(), LocalDateTime.now());
+        return new ResponseEntity<>(details, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public ResponseEntity<ErrorMessage> handleMethodArgumentNotValidException(MethodArgumentNotValidException ex) {
+        ErrorMessage details = new ErrorMessage(
+                ex.getBindingResult().getFieldErrors().stream()
+                        .map(fieldError -> fieldError.getField() + ": " + fieldError.getDefaultMessage())
+                        .collect(Collectors.joining("; ")),
+                HttpStatus.BAD_REQUEST.value(),
+                LocalDateTime.now());
         return new ResponseEntity<>(details, HttpStatus.BAD_REQUEST);
     }
 }

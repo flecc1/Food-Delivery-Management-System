@@ -3,6 +3,7 @@ package com.example.fooddelivery.controller;
 import com.example.fooddelivery.dto.category.CategoryCreateDto;
 import com.example.fooddelivery.dto.category.CategoryDto;
 import com.example.fooddelivery.service.CategoryService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -41,7 +42,7 @@ public class CategoryController {
     }
 
     @PostMapping
-    public CategoryDto createCategory(@RequestBody CategoryCreateDto categoryDto) {
+    public CategoryDto createCategory(@Valid @RequestBody CategoryCreateDto categoryDto) {
         return categoryService.addCategory(categoryDto);
     }
 
@@ -52,7 +53,7 @@ public class CategoryController {
     }
 
     @PutMapping("/{id:\\d+}")
-    public CategoryDto updateCategory(@PathVariable Long id, @RequestBody CategoryCreateDto categoryCreateDto) {
+    public CategoryDto updateCategory(@PathVariable Long id, @Valid @RequestBody CategoryCreateDto categoryCreateDto) {
         return categoryService.updateCategoryById(id, categoryCreateDto);
     }
 

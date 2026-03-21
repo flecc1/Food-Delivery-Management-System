@@ -1,6 +1,5 @@
 package com.example.fooddelivery.dto.menu;
 
-import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -13,15 +12,15 @@ import java.util.List;
 @NoArgsConstructor
 public class MenuCreateDto {
     @NotBlank
-    @Size(min = 1, max = 64)
+    @Size(min = 1, max = 64, message = "must be not empty and from 1 to 64 symbols")
     private String name;
 
     @NotBlank
-    @Size(min = 1, max = 512)
+    @Size(min = 1, max = 512, message = "must be not empty from 1 to 512 symbols")
     private String description;
 
     private List<Long> dishesIds;
 
-    @NotNull
+    @NotNull(message = "must be not empty")
     private Long restaurantId;
 }

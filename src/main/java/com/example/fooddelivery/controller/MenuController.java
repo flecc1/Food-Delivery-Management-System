@@ -3,6 +3,7 @@ package com.example.fooddelivery.controller;
 import com.example.fooddelivery.dto.menu.MenuCreateDto;
 import com.example.fooddelivery.dto.menu.MenuDto;
 import com.example.fooddelivery.service.MenuService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -50,7 +51,7 @@ public class MenuController {
     }
 
     @PostMapping
-    public MenuDto addMenu(@RequestBody MenuCreateDto menuCreateDto) {
+    public MenuDto addMenu(@Valid @RequestBody MenuCreateDto menuCreateDto) {
         return menuService.addMenu(menuCreateDto);
     }
 
@@ -60,7 +61,7 @@ public class MenuController {
     }
 
     @PutMapping("/{id:\\d+}")
-    public MenuDto updateMenuById(@PathVariable Long id, @RequestBody MenuCreateDto menuCreateDto) {
+    public MenuDto updateMenuById(@PathVariable Long id, @Valid @RequestBody MenuCreateDto menuCreateDto) {
         return menuService.updateMenuById(id, menuCreateDto);
     }
 

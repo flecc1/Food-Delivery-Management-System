@@ -3,6 +3,7 @@ package com.example.fooddelivery.controller;
 import com.example.fooddelivery.dto.restaurant.RestaurantCreateDto;
 import com.example.fooddelivery.dto.restaurant.RestaurantShortDto;
 import com.example.fooddelivery.service.RestaurantService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -55,12 +56,12 @@ public class RestaurantController {
     }
 
     @PostMapping
-    public RestaurantShortDto createRestaurant(@RequestBody RestaurantCreateDto restaurantCreateDto) {
+    public RestaurantShortDto createRestaurant(@Valid @RequestBody RestaurantCreateDto restaurantCreateDto) {
         return restaurantService.addRestaurant(restaurantCreateDto);
     }
 
     @PutMapping("/{id:\\d+}")
-    public RestaurantShortDto updateRestaurant(@PathVariable Long id, @RequestBody RestaurantCreateDto restaurantDto) {
+    public RestaurantShortDto updateRestaurant(@PathVariable Long id, @Valid @RequestBody RestaurantCreateDto restaurantDto) {
         return restaurantService.updateRestaurant(id, restaurantDto);
     }
 

@@ -3,6 +3,7 @@ package com.example.fooddelivery.controller;
 import com.example.fooddelivery.dto.order.OrderCreateDto;
 import com.example.fooddelivery.dto.order.OrderDto;
 import com.example.fooddelivery.service.OrderService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -41,12 +42,12 @@ public class OrderController {
     }
 
     @PostMapping
-    public OrderDto createOrder(@RequestBody OrderCreateDto orderCreateDto) {
+    public OrderDto createOrder(@Valid @RequestBody OrderCreateDto orderCreateDto) {
         return orderService.addOrder(orderCreateDto);
     }
 
     @PutMapping("/{id:\\d+}")
-    public OrderDto updateOrder(@PathVariable Long id, @RequestBody OrderCreateDto order) {
+    public OrderDto updateOrder(@PathVariable Long id, @Valid @RequestBody OrderCreateDto order) {
         return orderService.updateOrder(id, order);
     }
 
