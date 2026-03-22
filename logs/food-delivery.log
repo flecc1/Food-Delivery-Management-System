@@ -92,3 +92,475 @@
 2026-03-22 21:02:54 ERROR :   --> name: не должно быть пустым
 2026-03-22 21:02:54 ERROR :   --> price: должно быть больше 0
 2026-03-22 21:02:54 ERROR :   --> name: размер должен находиться в диапазоне от 1 до 64
+2026-03-22 21:09:11 INFO  : Commencing graceful shutdown. Waiting for active requests to complete
+2026-03-22 21:09:11 INFO  : Graceful shutdown complete
+2026-03-22 21:09:11 INFO  : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-03-22 21:09:11 INFO  : HikariPool-1 - Shutdown initiated...
+2026-03-22 21:09:11 INFO  : HikariPool-1 - Shutdown completed.
+2026-03-22 21:09:13 INFO  : Starting Laba1Application using Java 25.0.2 with PID 86472 (/Users/egorleskovskey/java/laba1/build/classes/java/main started by egorleskovskey in /Users/egorleskovskey/java/laba1)
+2026-03-22 21:09:13 DEBUG : Running with Spring Boot v4.0.2, Spring v7.0.3
+2026-03-22 21:09:13 INFO  : No active profile set, falling back to 1 default profile: "default"
+2026-03-22 21:09:13 INFO  : HV000001: Hibernate Validator 9.0.1.Final
+2026-03-22 21:09:13 INFO  : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-22 21:09:13 INFO  : Finished Spring Data repository scanning in 25 ms. Found 6 JPA repository interfaces.
+2026-03-22 21:09:13 INFO  : Tomcat initialized with port 8080 (http)
+2026-03-22 21:09:13 INFO  : Initializing ProtocolHandler ["http-nio-8080"]
+2026-03-22 21:09:13 INFO  : Starting service [Tomcat]
+2026-03-22 21:09:13 INFO  : Starting Servlet engine: [Apache Tomcat/11.0.15]
+2026-03-22 21:09:13 INFO  : Root WebApplicationContext: initialization completed in 564 ms
+2026-03-22 21:09:13 INFO  : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-03-22 21:09:13 INFO  : HHH000001: Hibernate ORM core version 7.2.1.Final
+2026-03-22 21:09:14 INFO  : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-22 21:09:14 INFO  : HikariPool-1 - Starting...
+2026-03-22 21:09:14 INFO  : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@5fafa76d
+2026-03-22 21:09:14 INFO  : HikariPool-1 - Start completed.
+2026-03-22 21:09:14 WARN  : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-03-22 21:09:14 INFO  : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/postgres]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.2
+	Default catalog/schema: postgres/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-03-22 21:09:14 INFO  : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-03-22 21:09:14 WARN  : HHH000247: ErrorCode: 0, SQLState: 00000
+2026-03-22 21:09:14 WARN  : drop cascades to 3 other objects
+2026-03-22 21:09:14 INFO  : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-22 21:09:14 INFO  : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-03-22 21:09:15 WARN  : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-03-22 21:09:15 INFO  : Starting ProtocolHandler ["http-nio-8080"]
+2026-03-22 21:09:15 INFO  : Tomcat started on port 8080 (http) with context path '/'
+2026-03-22 21:09:15 INFO  : Started Laba1Application in 2.387 seconds (process running for 2.645)
+2026-03-22 21:09:24 INFO  : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-03-22 21:09:24 INFO  : Initializing Servlet 'dispatcherServlet'
+2026-03-22 21:09:24 INFO  : Completed initialization in 1 ms
+2026-03-22 21:09:24 ERROR : Validation failed for request:
+2026-03-22 21:09:24 ERROR :   --> price: должно быть больше 0
+2026-03-22 21:09:24 ERROR :   --> name: размер должен находиться в диапазоне от 1 до 64
+2026-03-22 21:09:24 ERROR :   --> name: не должно быть пустым
+2026-03-22 21:09:40 ERROR : Validation failed for request:
+2026-03-22 21:09:40 ERROR :   --> name: размер должен находиться в диапазоне от 1 до 64
+2026-03-22 21:09:40 ERROR :   --> name: не должно быть пустым
+2026-03-22 21:09:40 ERROR :   --> price: должно быть больше 0
+2026-03-22 21:12:58 INFO  : request to create dish with name: хот бургер
+2026-03-22 21:12:58 DEBUG : try add new dish: хот бургер for category ID: 52 and menu id: 102
+2026-03-22 21:12:58 TRACE : binding parameter (1:BIGINT) <- [52]
+2026-03-22 21:12:58 TRACE : binding parameter (1:BIGINT) <- [102]
+2026-03-22 21:12:58 INFO  : dish save successfully: хот бургер
+2026-03-22 21:12:58 TRACE : binding parameter (1:BIGINT) <- [52]
+2026-03-22 21:12:58 TRACE : binding parameter (1:BIGINT) <- [52]
+2026-03-22 21:12:58 TRACE : binding parameter (2:VARCHAR) <- [булочка сыр говядинаX2 кетчуп лук дор блю огурчики перец чили]
+2026-03-22 21:12:58 TRACE : binding parameter (3:BIGINT) <- [102]
+2026-03-22 21:12:58 TRACE : binding parameter (4:VARCHAR) <- [хот бургер]
+2026-03-22 21:12:58 TRACE : binding parameter (5:DOUBLE) <- [23.0]
+2026-03-22 21:12:58 TRACE : binding parameter (6:BIGINT) <- [202]
+2026-03-22 21:15:47 INFO  : Commencing graceful shutdown. Waiting for active requests to complete
+2026-03-22 21:15:47 INFO  : Graceful shutdown complete
+2026-03-22 21:15:47 INFO  : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-03-22 21:15:47 INFO  : HikariPool-1 - Shutdown initiated...
+2026-03-22 21:15:47 INFO  : HikariPool-1 - Shutdown completed.
+2026-03-22 21:15:48 [34mINFO [0;39m : Starting Laba1Application using Java 25.0.2 with PID 86625 (/Users/egorleskovskey/java/laba1/build/classes/java/main started by egorleskovskey in /Users/egorleskovskey/java/laba1)
+2026-03-22 21:15:48 [39mDEBUG[0;39m : Running with Spring Boot v4.0.2, Spring v7.0.3
+2026-03-22 21:15:48 [34mINFO [0;39m : No active profile set, falling back to 1 default profile: "default"
+2026-03-22 21:15:48 [34mINFO [0;39m : HV000001: Hibernate Validator 9.0.1.Final
+2026-03-22 21:15:49 [34mINFO [0;39m : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-22 21:15:49 [34mINFO [0;39m : Finished Spring Data repository scanning in 26 ms. Found 6 JPA repository interfaces.
+2026-03-22 21:15:49 [34mINFO [0;39m : Tomcat initialized with port 8080 (http)
+2026-03-22 21:15:49 [34mINFO [0;39m : Initializing ProtocolHandler ["http-nio-8080"]
+2026-03-22 21:15:49 [34mINFO [0;39m : Starting service [Tomcat]
+2026-03-22 21:15:49 [34mINFO [0;39m : Starting Servlet engine: [Apache Tomcat/11.0.15]
+2026-03-22 21:15:49 [34mINFO [0;39m : Root WebApplicationContext: initialization completed in 572 ms
+2026-03-22 21:15:49 [34mINFO [0;39m : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-03-22 21:15:49 [34mINFO [0;39m : HHH000001: Hibernate ORM core version 7.2.1.Final
+2026-03-22 21:15:49 [34mINFO [0;39m : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-22 21:15:49 [34mINFO [0;39m : HikariPool-1 - Starting...
+2026-03-22 21:15:49 [34mINFO [0;39m : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@5fafa76d
+2026-03-22 21:15:49 [34mINFO [0;39m : HikariPool-1 - Start completed.
+2026-03-22 21:15:49 [31mWARN [0;39m : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-03-22 21:15:49 [34mINFO [0;39m : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/postgres]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.2
+	Default catalog/schema: postgres/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-03-22 21:15:50 [34mINFO [0;39m : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-03-22 21:15:50 [31mWARN [0;39m : HHH000247: ErrorCode: 0, SQLState: 00000
+2026-03-22 21:15:50 [31mWARN [0;39m : drop cascades to 3 other objects
+2026-03-22 21:15:50 [34mINFO [0;39m : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-22 21:15:50 [34mINFO [0;39m : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-03-22 21:15:50 [31mWARN [0;39m : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-03-22 21:15:51 [34mINFO [0;39m : Starting ProtocolHandler ["http-nio-8080"]
+2026-03-22 21:15:51 [34mINFO [0;39m : Tomcat started on port 8080 (http) with context path '/'
+2026-03-22 21:15:51 [34mINFO [0;39m : Started Laba1Application in 2.429 seconds (process running for 2.69)
+2026-03-22 21:18:28 [34mINFO [0;39m : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-03-22 21:18:28 [34mINFO [0;39m : Initializing Servlet 'dispatcherServlet'
+2026-03-22 21:18:28 [34mINFO [0;39m : Completed initialization in 1 ms
+2026-03-22 21:18:28 [34mINFO [0;39m : request to create dish with name: блэк бургер
+2026-03-22 21:18:28 [39mDEBUG[0;39m : try add new dish: блэк бургер for category ID: 52 and menu id: 102
+2026-03-22 21:18:28 [39mTRACE[0;39m : binding parameter (1:BIGINT) <- [52]
+2026-03-22 21:18:28 [39mTRACE[0;39m : binding parameter (1:BIGINT) <- [102]
+2026-03-22 21:18:28 [34mINFO [0;39m : dish save successfully: блэк бургер
+2026-03-22 21:18:28 [39mTRACE[0;39m : binding parameter (1:BIGINT) <- [52]
+2026-03-22 21:18:28 [39mTRACE[0;39m : binding parameter (1:BIGINT) <- [52]
+2026-03-22 21:18:28 [39mTRACE[0;39m : binding parameter (2:VARCHAR) <- [черная булочка сыр говядинаX2 кетчуп лук дор блю огурчики перец чили]
+2026-03-22 21:18:28 [39mTRACE[0;39m : binding parameter (3:BIGINT) <- [102]
+2026-03-22 21:18:28 [39mTRACE[0;39m : binding parameter (4:VARCHAR) <- [блэк бургер]
+2026-03-22 21:18:28 [39mTRACE[0;39m : binding parameter (5:DOUBLE) <- [27.0]
+2026-03-22 21:18:28 [39mTRACE[0;39m : binding parameter (6:BIGINT) <- [252]
+2026-03-22 21:19:05 [34mINFO [0;39m : Commencing graceful shutdown. Waiting for active requests to complete
+2026-03-22 21:19:05 [34mINFO [0;39m : Graceful shutdown complete
+2026-03-22 21:19:05 [34mINFO [0;39m : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-03-22 21:19:05 [34mINFO [0;39m : HikariPool-1 - Shutdown initiated...
+2026-03-22 21:19:05 [34mINFO [0;39m : HikariPool-1 - Shutdown completed.
+2026-03-22 21:19:06 INFO  : Starting Laba1Application using Java 25.0.2 with PID 86695 (/Users/egorleskovskey/java/laba1/build/classes/java/main started by egorleskovskey in /Users/egorleskovskey/java/laba1)
+2026-03-22 21:19:06 DEBUG : Running with Spring Boot v4.0.2, Spring v7.0.3
+2026-03-22 21:19:06 INFO  : No active profile set, falling back to 1 default profile: "default"
+2026-03-22 21:19:06 INFO  : HV000001: Hibernate Validator 9.0.1.Final
+2026-03-22 21:19:06 INFO  : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-22 21:19:06 INFO  : Finished Spring Data repository scanning in 26 ms. Found 6 JPA repository interfaces.
+2026-03-22 21:19:06 INFO  : Tomcat initialized with port 8080 (http)
+2026-03-22 21:19:06 INFO  : Initializing ProtocolHandler ["http-nio-8080"]
+2026-03-22 21:19:06 INFO  : Starting service [Tomcat]
+2026-03-22 21:19:06 INFO  : Starting Servlet engine: [Apache Tomcat/11.0.15]
+2026-03-22 21:19:06 INFO  : Root WebApplicationContext: initialization completed in 487 ms
+2026-03-22 21:19:06 INFO  : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-03-22 21:19:06 INFO  : HHH000001: Hibernate ORM core version 7.2.1.Final
+2026-03-22 21:19:07 INFO  : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-22 21:19:07 INFO  : HikariPool-1 - Starting...
+2026-03-22 21:19:07 INFO  : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@5fafa76d
+2026-03-22 21:19:07 INFO  : HikariPool-1 - Start completed.
+2026-03-22 21:19:07 WARN  : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-03-22 21:19:07 INFO  : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/postgres]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.2
+	Default catalog/schema: postgres/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-03-22 21:19:07 INFO  : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-03-22 21:19:07 WARN  : HHH000247: ErrorCode: 0, SQLState: 00000
+2026-03-22 21:19:07 WARN  : drop cascades to 3 other objects
+2026-03-22 21:19:07 INFO  : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-22 21:19:07 INFO  : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-03-22 21:19:08 WARN  : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-03-22 21:19:08 INFO  : Starting ProtocolHandler ["http-nio-8080"]
+2026-03-22 21:19:08 INFO  : Tomcat started on port 8080 (http) with context path '/'
+2026-03-22 21:19:08 INFO  : Started Laba1Application in 2.232 seconds (process running for 2.47)
+2026-03-22 21:19:56 INFO  : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-03-22 21:19:56 INFO  : Initializing Servlet 'dispatcherServlet'
+2026-03-22 21:19:56 INFO  : Completed initialization in 1 ms
+2026-03-22 21:19:56 INFO  : request to create dish with name: мини бургер
+2026-03-22 21:19:56 DEBUG : try add new dish: мини бургер for category ID: 52 and menu id: 102
+2026-03-22 21:19:56 TRACE : binding parameter (1:BIGINT) <- [52]
+2026-03-22 21:19:56 TRACE : binding parameter (1:BIGINT) <- [102]
+2026-03-22 21:19:56 INFO  : dish save successfully: мини бургер
+2026-03-22 21:19:56 TRACE : binding parameter (1:BIGINT) <- [52]
+2026-03-22 21:19:56 TRACE : binding parameter (1:BIGINT) <- [52]
+2026-03-22 21:19:56 TRACE : binding parameter (2:VARCHAR) <- [булочка сыр кетчуп]
+2026-03-22 21:19:56 TRACE : binding parameter (3:BIGINT) <- [102]
+2026-03-22 21:19:56 TRACE : binding parameter (4:VARCHAR) <- [мини бургер]
+2026-03-22 21:19:56 TRACE : binding parameter (5:DOUBLE) <- [2.0]
+2026-03-22 21:19:56 TRACE : binding parameter (6:BIGINT) <- [302]
+2026-03-22 22:13:31 WARN  : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=14m54s67ms).
+2026-03-22 22:17:24 INFO  : Commencing graceful shutdown. Waiting for active requests to complete
+2026-03-22 22:17:24 INFO  : Graceful shutdown complete
+2026-03-22 22:17:24 INFO  : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-03-22 22:17:24 INFO  : HikariPool-1 - Shutdown initiated...
+2026-03-22 22:17:24 INFO  : HikariPool-1 - Shutdown completed.
+2026-03-22 22:20:36 INFO  : Starting Laba1Application using Java 25.0.2 with PID 87267 (/Users/egorleskovskey/java/laba1/build/classes/java/main started by egorleskovskey in /Users/egorleskovskey/java/laba1)
+2026-03-22 22:20:36 DEBUG : Running with Spring Boot v4.0.2, Spring v7.0.3
+2026-03-22 22:20:36 INFO  : No active profile set, falling back to 1 default profile: "default"
+2026-03-22 22:20:36 INFO  : HV000001: Hibernate Validator 9.0.1.Final
+2026-03-22 22:20:36 INFO  : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-22 22:20:36 INFO  : Finished Spring Data repository scanning in 26 ms. Found 6 JPA repository interfaces.
+2026-03-22 22:20:36 INFO  : Tomcat initialized with port 8080 (http)
+2026-03-22 22:20:36 INFO  : Initializing ProtocolHandler ["http-nio-8080"]
+2026-03-22 22:20:36 INFO  : Starting service [Tomcat]
+2026-03-22 22:20:36 INFO  : Starting Servlet engine: [Apache Tomcat/11.0.15]
+2026-03-22 22:20:36 INFO  : Root WebApplicationContext: initialization completed in 587 ms
+2026-03-22 22:20:36 INFO  : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-03-22 22:20:37 INFO  : HHH000001: Hibernate ORM core version 7.2.1.Final
+2026-03-22 22:20:37 INFO  : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-22 22:20:37 INFO  : HikariPool-1 - Starting...
+2026-03-22 22:20:37 INFO  : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@70700b8a
+2026-03-22 22:20:37 INFO  : HikariPool-1 - Start completed.
+2026-03-22 22:20:37 WARN  : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-03-22 22:20:37 INFO  : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/postgres]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.2
+	Default catalog/schema: postgres/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-03-22 22:20:37 INFO  : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-03-22 22:20:37 WARN  : HHH000247: ErrorCode: 0, SQLState: 00000
+2026-03-22 22:20:37 WARN  : drop cascades to 3 other objects
+2026-03-22 22:20:37 INFO  : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-22 22:20:37 INFO  : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-03-22 22:20:38 WARN  : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-03-22 22:20:38 INFO  : Starting ProtocolHandler ["http-nio-8080"]
+2026-03-22 22:20:38 INFO  : Tomcat started on port 8080 (http) with context path '/'
+2026-03-22 22:20:38 INFO  : Started Laba1Application in 2.474 seconds (process running for 2.785)
+2026-03-22 22:20:50 INFO  : Commencing graceful shutdown. Waiting for active requests to complete
+2026-03-22 22:20:50 INFO  : Graceful shutdown complete
+2026-03-22 22:20:50 INFO  : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-03-22 22:20:50 INFO  : HikariPool-1 - Shutdown initiated...
+2026-03-22 22:20:50 INFO  : HikariPool-1 - Shutdown completed.
+2026-03-22 22:27:07 INFO  : Starting Laba1Application using Java 25.0.2 with PID 87388 (/Users/egorleskovskey/java/laba1/build/classes/java/main started by egorleskovskey in /Users/egorleskovskey/java/laba1)
+2026-03-22 22:27:07 DEBUG : Running with Spring Boot v4.0.2, Spring v7.0.3
+2026-03-22 22:27:07 INFO  : No active profile set, falling back to 1 default profile: "default"
+2026-03-22 22:27:07 INFO  : HV000001: Hibernate Validator 9.0.1.Final
+2026-03-22 22:27:08 INFO  : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-22 22:27:08 INFO  : Finished Spring Data repository scanning in 24 ms. Found 6 JPA repository interfaces.
+2026-03-22 22:27:08 INFO  : Tomcat initialized with port 8080 (http)
+2026-03-22 22:27:08 INFO  : Initializing ProtocolHandler ["http-nio-8080"]
+2026-03-22 22:27:08 INFO  : Starting service [Tomcat]
+2026-03-22 22:27:08 INFO  : Starting Servlet engine: [Apache Tomcat/11.0.15]
+2026-03-22 22:27:08 INFO  : Root WebApplicationContext: initialization completed in 626 ms
+2026-03-22 22:27:08 INFO  : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-03-22 22:27:08 INFO  : HHH000001: Hibernate ORM core version 7.2.1.Final
+2026-03-22 22:27:08 INFO  : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-22 22:27:08 INFO  : HikariPool-1 - Starting...
+2026-03-22 22:27:09 INFO  : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@512dc0e0
+2026-03-22 22:27:09 INFO  : HikariPool-1 - Start completed.
+2026-03-22 22:27:09 WARN  : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-03-22 22:27:09 INFO  : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/postgres]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.2
+	Default catalog/schema: postgres/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-03-22 22:27:09 INFO  : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-03-22 22:27:09 WARN  : HHH000247: ErrorCode: 0, SQLState: 00000
+2026-03-22 22:27:09 WARN  : drop cascades to 3 other objects
+2026-03-22 22:27:09 INFO  : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-22 22:27:09 INFO  : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-03-22 22:27:10 WARN  : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-03-22 22:27:10 INFO  : Starting ProtocolHandler ["http-nio-8080"]
+2026-03-22 22:27:10 INFO  : Tomcat started on port 8080 (http) with context path '/'
+2026-03-22 22:27:10 INFO  : Started Laba1Application in 2.648 seconds (process running for 2.907)
+2026-03-22 22:28:10 INFO  : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-03-22 22:28:10 INFO  : Initializing Servlet 'dispatcherServlet'
+2026-03-22 22:28:10 INFO  : Completed initialization in 1 ms
+2026-03-22 22:28:10 INFO  : request to create dish with name: трипл чизбургер
+2026-03-22 22:28:10 DEBUG : try add new dish: трипл чизбургер for category ID: 52 and menu id: 102
+2026-03-22 22:28:10 TRACE : binding parameter (1:BIGINT) <- [52]
+2026-03-22 22:28:10 TRACE : binding parameter (1:BIGINT) <- [102]
+2026-03-22 22:28:10 INFO  : dish save successfully: трипл чизбургер
+2026-03-22 22:28:10 TRACE : binding parameter (1:BIGINT) <- [52]
+2026-03-22 22:28:10 INFO  : Method [DishService.addDish(..)] executed in 47 ms
+2026-03-22 22:28:10 TRACE : binding parameter (1:BIGINT) <- [52]
+2026-03-22 22:28:10 TRACE : binding parameter (2:VARCHAR) <- [булочка сырX3 чизбургерX3 кетчуп]
+2026-03-22 22:28:10 TRACE : binding parameter (3:BIGINT) <- [102]
+2026-03-22 22:28:10 TRACE : binding parameter (4:VARCHAR) <- [трипл чизбургер]
+2026-03-22 22:28:10 TRACE : binding parameter (5:DOUBLE) <- [13.0]
+2026-03-22 22:28:10 TRACE : binding parameter (6:BIGINT) <- [352]
+2026-03-22 22:35:34 WARN  : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=54s876ms).
+2026-03-22 22:42:41 WARN  : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=7m6s976ms).
+2026-03-22 22:55:04 INFO  : Commencing graceful shutdown. Waiting for active requests to complete
+2026-03-22 22:55:04 INFO  : Graceful shutdown complete
+2026-03-22 22:55:04 INFO  : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-03-22 22:55:04 INFO  : HikariPool-1 - Shutdown initiated...
+2026-03-22 22:55:04 INFO  : HikariPool-1 - Shutdown completed.
+2026-03-22 22:55:06 INFO  : Starting Laba1Application using Java 25.0.2 with PID 87720 (/Users/egorleskovskey/java/laba1/build/classes/java/main started by egorleskovskey in /Users/egorleskovskey/java/laba1)
+2026-03-22 22:55:06 DEBUG : Running with Spring Boot v4.0.2, Spring v7.0.3
+2026-03-22 22:55:06 INFO  : No active profile set, falling back to 1 default profile: "default"
+2026-03-22 22:55:06 INFO  : HV000001: Hibernate Validator 9.0.1.Final
+2026-03-22 22:55:06 INFO  : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-22 22:55:06 INFO  : Finished Spring Data repository scanning in 27 ms. Found 6 JPA repository interfaces.
+2026-03-22 22:55:07 INFO  : Tomcat initialized with port 8080 (http)
+2026-03-22 22:55:07 INFO  : Initializing ProtocolHandler ["http-nio-8080"]
+2026-03-22 22:55:07 INFO  : Starting service [Tomcat]
+2026-03-22 22:55:07 INFO  : Starting Servlet engine: [Apache Tomcat/11.0.15]
+2026-03-22 22:55:07 INFO  : Root WebApplicationContext: initialization completed in 604 ms
+2026-03-22 22:55:07 INFO  : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-03-22 22:55:07 INFO  : HHH000001: Hibernate ORM core version 7.2.1.Final
+2026-03-22 22:55:07 INFO  : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-22 22:55:07 INFO  : HikariPool-1 - Starting...
+2026-03-22 22:55:07 INFO  : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@512dc0e0
+2026-03-22 22:55:07 INFO  : HikariPool-1 - Start completed.
+2026-03-22 22:55:07 WARN  : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-03-22 22:55:07 INFO  : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/postgres]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.2
+	Default catalog/schema: postgres/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-03-22 22:55:08 INFO  : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-03-22 22:55:08 WARN  : HHH000247: ErrorCode: 0, SQLState: 00000
+2026-03-22 22:55:08 WARN  : drop cascades to 3 other objects
+2026-03-22 22:55:08 INFO  : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-22 22:55:08 INFO  : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-03-22 22:55:08 WARN  : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-03-22 22:55:08 INFO  : Starting ProtocolHandler ["http-nio-8080"]
+2026-03-22 22:55:08 INFO  : Tomcat started on port 8080 (http) with context path '/'
+2026-03-22 22:55:08 INFO  : Started Laba1Application in 2.602 seconds (process running for 2.861)
+2026-03-22 22:58:39 INFO  : Commencing graceful shutdown. Waiting for active requests to complete
+2026-03-22 22:58:39 INFO  : Graceful shutdown complete
+2026-03-22 22:58:39 INFO  : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-03-22 22:58:39 INFO  : HikariPool-1 - Shutdown initiated...
+2026-03-22 22:58:39 INFO  : HikariPool-1 - Shutdown completed.
+2026-03-22 22:58:48 INFO  : Starting Laba1Application using Java 25.0.2 with PID 87797 (/Users/egorleskovskey/java/laba1/build/classes/java/main started by egorleskovskey in /Users/egorleskovskey/java/laba1)
+2026-03-22 22:58:48 DEBUG : Running with Spring Boot v4.0.2, Spring v7.0.3
+2026-03-22 22:58:48 INFO  : No active profile set, falling back to 1 default profile: "default"
+2026-03-22 22:58:48 INFO  : HV000001: Hibernate Validator 9.0.1.Final
+2026-03-22 22:58:48 INFO  : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-22 22:58:48 INFO  : Finished Spring Data repository scanning in 28 ms. Found 6 JPA repository interfaces.
+2026-03-22 22:58:48 INFO  : Tomcat initialized with port 8080 (http)
+2026-03-22 22:58:48 INFO  : Initializing ProtocolHandler ["http-nio-8080"]
+2026-03-22 22:58:48 INFO  : Starting service [Tomcat]
+2026-03-22 22:58:48 INFO  : Starting Servlet engine: [Apache Tomcat/11.0.15]
+2026-03-22 22:58:48 INFO  : Root WebApplicationContext: initialization completed in 566 ms
+2026-03-22 22:58:48 INFO  : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-03-22 22:58:48 INFO  : HHH000001: Hibernate ORM core version 7.2.1.Final
+2026-03-22 22:58:48 INFO  : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-22 22:58:48 INFO  : HikariPool-1 - Starting...
+2026-03-22 22:58:49 INFO  : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@512dc0e0
+2026-03-22 22:58:49 INFO  : HikariPool-1 - Start completed.
+2026-03-22 22:58:49 WARN  : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-03-22 22:58:49 INFO  : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/postgres]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.2
+	Default catalog/schema: postgres/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-03-22 22:58:49 INFO  : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-03-22 22:58:49 WARN  : HHH000247: ErrorCode: 0, SQLState: 00000
+2026-03-22 22:58:49 WARN  : drop cascades to 3 other objects
+2026-03-22 22:58:49 INFO  : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-22 22:58:49 INFO  : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-03-22 22:58:50 WARN  : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-03-22 22:58:50 INFO  : Starting ProtocolHandler ["http-nio-8080"]
+2026-03-22 22:58:50 INFO  : Tomcat started on port 8080 (http) with context path '/'
+2026-03-22 22:58:50 INFO  : Started Laba1Application in 2.492 seconds (process running for 2.737)
+2026-03-22 23:00:52 INFO  : Commencing graceful shutdown. Waiting for active requests to complete
+2026-03-22 23:00:52 INFO  : Graceful shutdown complete
+2026-03-22 23:00:52 INFO  : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-03-22 23:00:52 INFO  : HikariPool-1 - Shutdown initiated...
+2026-03-22 23:00:52 INFO  : HikariPool-1 - Shutdown completed.
+2026-03-22 23:11:20 INFO  : Starting Laba1Application using Java 25.0.2 with PID 88134 (/Users/egorleskovskey/java/laba1/build/classes/java/main started by egorleskovskey in /Users/egorleskovskey/java/laba1)
+2026-03-22 23:11:20 DEBUG : Running with Spring Boot v4.0.2, Spring v7.0.3
+2026-03-22 23:11:20 INFO  : No active profile set, falling back to 1 default profile: "default"
+2026-03-22 23:11:20 INFO  : HV000001: Hibernate Validator 9.0.1.Final
+2026-03-22 23:11:20 INFO  : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-22 23:11:20 INFO  : Finished Spring Data repository scanning in 23 ms. Found 6 JPA repository interfaces.
+2026-03-22 23:11:20 INFO  : Tomcat initialized with port 8080 (http)
+2026-03-22 23:11:20 INFO  : Initializing ProtocolHandler ["http-nio-8080"]
+2026-03-22 23:11:20 INFO  : Starting service [Tomcat]
+2026-03-22 23:11:20 INFO  : Starting Servlet engine: [Apache Tomcat/11.0.15]
+2026-03-22 23:11:20 INFO  : Root WebApplicationContext: initialization completed in 674 ms
+2026-03-22 23:11:20 INFO  : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-03-22 23:11:20 INFO  : HHH000001: Hibernate ORM core version 7.2.1.Final
+2026-03-22 23:11:21 INFO  : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-22 23:11:21 INFO  : HikariPool-1 - Starting...
+2026-03-22 23:11:21 INFO  : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@dcdb883
+2026-03-22 23:11:21 INFO  : HikariPool-1 - Start completed.
+2026-03-22 23:11:21 WARN  : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-03-22 23:11:21 INFO  : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/postgres]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.2
+	Default catalog/schema: postgres/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-03-22 23:11:21 INFO  : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-03-22 23:11:21 WARN  : HHH000247: ErrorCode: 0, SQLState: 00000
+2026-03-22 23:11:21 WARN  : drop cascades to 3 other objects
+2026-03-22 23:11:21 INFO  : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-22 23:11:22 INFO  : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-03-22 23:11:22 WARN  : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-03-22 23:11:22 INFO  : Starting ProtocolHandler ["http-nio-8080"]
+2026-03-22 23:11:22 INFO  : Tomcat started on port 8080 (http) with context path '/'
+2026-03-22 23:11:22 INFO  : Started Laba1Application in 2.969 seconds (process running for 3.235)
+2026-03-22 23:11:22 WARN  : SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-03-22 23:11:22 WARN  : SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+2026-03-22 23:11:49 INFO  : Commencing graceful shutdown. Waiting for active requests to complete
+2026-03-22 23:11:49 INFO  : Graceful shutdown complete
+2026-03-22 23:11:49 INFO  : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-03-22 23:11:49 INFO  : HikariPool-1 - Shutdown initiated...
+2026-03-22 23:11:49 INFO  : HikariPool-1 - Shutdown completed.
+2026-03-22 23:29:40 INFO  : Starting Laba1Application using Java 25.0.2 with PID 88644 (/Users/egorleskovskey/java/laba1/build/classes/java/main started by egorleskovskey in /Users/egorleskovskey/java/laba1)
+2026-03-22 23:29:40 DEBUG : Running with Spring Boot v4.0.2, Spring v7.0.3
+2026-03-22 23:29:40 INFO  : No active profile set, falling back to 1 default profile: "default"
+2026-03-22 23:29:40 INFO  : HV000001: Hibernate Validator 9.0.1.Final
+2026-03-22 23:29:41 INFO  : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-22 23:29:41 INFO  : Finished Spring Data repository scanning in 26 ms. Found 6 JPA repository interfaces.
+2026-03-22 23:29:41 INFO  : Tomcat initialized with port 8080 (http)
+2026-03-22 23:29:41 INFO  : Initializing ProtocolHandler ["http-nio-8080"]
+2026-03-22 23:29:41 INFO  : Starting service [Tomcat]
+2026-03-22 23:29:41 INFO  : Starting Servlet engine: [Apache Tomcat/11.0.15]
+2026-03-22 23:29:41 INFO  : Root WebApplicationContext: initialization completed in 807 ms
+2026-03-22 23:29:41 INFO  : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-03-22 23:29:41 INFO  : HHH000001: Hibernate ORM core version 7.2.1.Final
+2026-03-22 23:29:41 INFO  : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-22 23:29:41 INFO  : HikariPool-1 - Starting...
+2026-03-22 23:29:41 INFO  : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@69abeb14
+2026-03-22 23:29:41 INFO  : HikariPool-1 - Start completed.
+2026-03-22 23:29:41 WARN  : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-03-22 23:29:41 INFO  : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/postgres]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.2
+	Default catalog/schema: postgres/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-03-22 23:29:42 INFO  : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-03-22 23:29:42 WARN  : HHH000247: ErrorCode: 0, SQLState: 00000
+2026-03-22 23:29:42 WARN  : drop cascades to 3 other objects
+2026-03-22 23:29:42 INFO  : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-22 23:29:42 INFO  : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-03-22 23:29:43 WARN  : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-03-22 23:29:43 INFO  : Starting ProtocolHandler ["http-nio-8080"]
+2026-03-22 23:29:43 INFO  : Tomcat started on port 8080 (http) with context path '/'
+2026-03-22 23:29:43 INFO  : Started Laba1Application in 2.986 seconds (process running for 3.258)
+2026-03-22 23:29:43 WARN  : SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-03-22 23:29:43 WARN  : SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'

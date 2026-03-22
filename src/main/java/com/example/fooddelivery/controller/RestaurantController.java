@@ -3,6 +3,8 @@ package com.example.fooddelivery.controller;
 import com.example.fooddelivery.dto.restaurant.RestaurantCreateDto;
 import com.example.fooddelivery.dto.restaurant.RestaurantShortDto;
 import com.example.fooddelivery.service.RestaurantService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -23,16 +25,19 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/v1/restaurants")
+@Tag(name = "Рестораны", description = "Управление заведениями и их данными")
 public class RestaurantController {
     private final RestaurantService restaurantService;
 
     @GetMapping("/{id:\\d+}")
+    @Operation(summary = "Найти ресторан по ID")
     public RestaurantShortDto getRestaurantsById(@PathVariable Long id) {
         log.info("request to get restaurant with id {}", id);
         return restaurantService.findRestaurantById(id);
     }
 
     @GetMapping("/search-by-name")
+    @Operation(summary = "Поиск ресторана по названию")
     public Page<RestaurantShortDto> getRestaurantsByName(
             @RequestParam(value = "name") String name,
             @RequestParam(defaultValue = "0") int page,
@@ -43,6 +48,7 @@ public class RestaurantController {
     }
 
     @GetMapping
+    @Operation(summary = "Список всех ресторанов")
     public Page<RestaurantShortDto> getAllRestaurants(
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "10") int size) {
@@ -52,6 +58,8 @@ public class RestaurantController {
     }
 
     @GetMapping("/search")
+    @Operation(summary = "Поиск ресторанов по категории",
+            description = "Находит рестораны, у которых есть блюда в указанной категории")
     public Page<RestaurantShortDto> findByCategory(
             @RequestParam(value = "categoryName") String categoryName,
             @RequestParam(defaultValue = "0") int page,
@@ -62,12 +70,14 @@ public class RestaurantController {
     }
 
     @PostMapping
+    @Operation(summary = "Добавить новый ресторан")
     public RestaurantShortDto createRestaurant(@Valid @RequestBody RestaurantCreateDto restaurantCreateDto) {
         log.info("request to create restaurant with name: {}", restaurantCreateDto.getName());
         return restaurantService.addRestaurant(restaurantCreateDto);
     }
 
     @PutMapping("/{id:\\d+}")
+    @Operation(summary = "Обновить данные ресторана")
     public RestaurantShortDto updateRestaurant(
             @PathVariable Long id,
             @Valid @RequestBody RestaurantCreateDto restaurantDto) {
@@ -76,6 +86,7 @@ public class RestaurantController {
     }
 
     @DeleteMapping("/{id:\\d+}")
+    @Operation(summary = "Удалить ресторан из системы")
     public void deleteRestaurant(@PathVariable Long id) {
         log.info("request to delete restaurant with id {}", id);
         restaurantService.deleteRestaurant(id);
