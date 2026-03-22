@@ -23,12 +23,13 @@ public class RestaurantService {
     private final RestaurantRepository restaurantRepository;
     private final RestaurantMapper restaurantMapper;
     private final OrderRepository orderRepository;
+    private static final String RESTAURANT_NOT_FOUND_MSG = "Restaurant not found with id ";
 
     public RestaurantShortDto findRestaurantById(Long id) {
         log.info("try find restaurant with id: {}", id);
         RestaurantShortDto restaurantDto = restaurantRepository.findById(id)
                 .map(restaurantMapper::toShortDto)
-                .orElseThrow(() -> new RestaurantNotFoundException("Restaurant with id " + id + " not found"));
+                .orElseThrow(() -> new RestaurantNotFoundException(RESTAURANT_NOT_FOUND_MSG + id));
         log.info("restaurant found with id: {} and name: {} successfully", id, restaurantDto.getName());
         return restaurantDto;
     }
@@ -79,7 +80,7 @@ public class RestaurantService {
     public RestaurantShortDto updateRestaurant(Long id, RestaurantCreateDto newRestaurant) {
         log.debug("try to update restaurant with id: {} and name: {}", id, newRestaurant.getName());
         Restaurant saved = restaurantRepository.findById(id)
-                .orElseThrow(() -> new RestaurantNotFoundException("Restaurant with id " + id + " not found"));
+                .orElseThrow(() -> new RestaurantNotFoundException(RESTAURANT_NOT_FOUND_MSG + id));
         saved.setName(newRestaurant.getName());
         saved.setAddress(newRestaurant.getAddress());
         saved.setCity(newRestaurant.getCity());
@@ -94,7 +95,7 @@ public class RestaurantService {
     public void deleteRestaurant(Long id) {
         log.debug("try to delete restaurant with id: {}", id);
         Restaurant restaurant = restaurantRepository.findById(id)
-                .orElseThrow(() -> new RestaurantNotFoundException("Restaurant with id " + id + " not found"));
+                .orElseThrow(() -> new RestaurantNotFoundException(RESTAURANT_NOT_FOUND_MSG + id));
         log.debug("check if restaurant with id: {} has orders", id);
         if (!orderRepository.getByRestaurantId(restaurant.getId()).isEmpty()) {
             log.warn("delete failed restaurant with id: {} has orders", id);

@@ -33,7 +33,8 @@ public class CustomerCreateDto {
     private String password;
 
     @NotBlank
-    @Pattern(regexp = "^\\+?[0-9]{10,15}$")
+    @Pattern(regexp = "^\\+?\\d{10,15}$",
+            message = "Неверный формат номера. Номер должен содержать от 10 до 15 цифр")
     @Schema(description = "Номер телефона в международном формате", example = "+375291234567")
     private String phoneNumber;
 }
