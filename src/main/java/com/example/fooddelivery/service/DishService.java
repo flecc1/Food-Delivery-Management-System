@@ -76,7 +76,7 @@ public class DishService {
                         + dishCreateDto.getMenuId()));
         dish.setMenu(menu);
         dish.setCategory(category);
-        Dish save =  dishRepository.save(dish);
+        Dish save = dishRepository.save(dish);
         log.info("dish save successfully: {}", save.getName());
         return dishMapper.toDto(save);
     }
@@ -100,7 +100,7 @@ public class DishService {
                 .orElseThrow(() -> new MenuNotFoundException("Menu not found with id: "
                         + dishCreateDto.getMenuId()));
         exist.setMenu(menu);
-        Dish save =  dishRepository.save(exist);
+        Dish save = dishRepository.save(exist);
         log.info("dish: {} update successfully", save.getName());
         return dishMapper.toDto(save);
     }

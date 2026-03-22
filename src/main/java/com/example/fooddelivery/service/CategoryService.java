@@ -28,7 +28,7 @@ public class CategoryService {
         CategoryDto dto = categoryRepository.findWithDishesById(id)
                 .map(categoryMapper::toDto)
                 .orElseThrow(() -> new CategoryNotFoundException(CATEGORY_NOT_FOUND_MSG + id));
-        log.info("found category: with name: {}, id:  {} successfully", dto.getName(), id);
+        log.info("found category: with name: {}, id: {} successfully", dto.getName(), id);
         return dto;
     }
 
@@ -53,7 +53,7 @@ public class CategoryService {
         log.debug("try to add category: {}", categoryCreateDto.getName());
         Category category = categoryMapper.toEntity(categoryCreateDto);
         Category save = categoryRepository.save(category);
-        log.info("save category: with name: {}, id:  {} successfully", save.getName(), save.getId());
+        log.info("save category: with name: {}, id: {} successfully", save.getName(), save.getId());
         return categoryMapper.toDto(save);
     }
 
@@ -68,7 +68,7 @@ public class CategoryService {
             throw new CategoryHasDishesException("category with id: " + id + " has dishes cannot be deleted");
         }
         categoryRepository.deleteById(id);
-        log.info("delete category: with name: {}, id:  {} successfully", category.getName(), id);
+        log.info("delete category: with name: {}, id: {} successfully", category.getName(), id);
     }
 
     @Transactional
@@ -77,7 +77,7 @@ public class CategoryService {
         Category save = categoryRepository.findWithDishesById(id)
                 .orElseThrow(() -> new CategoryNotFoundException(CATEGORY_NOT_FOUND_MSG + id));
         save.setName(categoryCreateDto.getName());
-        log.info("update category: with name: {}, id:  {} successfully", save.getName(), id);
+        log.info("update category: with name: {}, id: {} successfully", save.getName(), id);
         return categoryMapper.toDto(categoryRepository.save(save));
     }
 

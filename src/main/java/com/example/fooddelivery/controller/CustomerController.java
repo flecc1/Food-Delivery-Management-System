@@ -58,7 +58,7 @@ public class CustomerController {
     @Operation(summary = "Зарегистрировать нового клиента")
     public CustomerDto addCustomer(@Valid @RequestBody CustomerCreateDto customerCreateDto) {
         log.info("request for addCustomer with name: {}, and last name: {}",
-                customerCreateDto.getFirstName(),  customerCreateDto.getLastName());
+                customerCreateDto.getFirstName(), customerCreateDto.getLastName());
         return customerService.addCustomer(customerCreateDto);
     }
 

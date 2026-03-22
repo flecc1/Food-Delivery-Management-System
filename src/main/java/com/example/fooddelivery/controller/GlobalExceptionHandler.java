@@ -69,7 +69,7 @@ public class GlobalExceptionHandler {
                 .toList();
 
         log.error("Validation failed for request:");
-        errorList.forEach(error -> log.error("  --> {}", error));
+        errorList.forEach(error -> log.error(" --> {}", error));
 
         ErrorMessage details = new ErrorMessage(
                 String.join("; ", errorList),
