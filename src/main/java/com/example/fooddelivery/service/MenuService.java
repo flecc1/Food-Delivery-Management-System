@@ -16,12 +16,14 @@ import com.example.fooddelivery.repository.OrderRepository;
 import com.example.fooddelivery.repository.RestaurantRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class MenuService {
@@ -33,83 +35,122 @@ public class MenuService {
     private final OrderRepository orderRepository;
 
     public MenuDto findById(Long id) {
-        return menuMapper.toDto(menuRepository.findWithRestaurantAndDishesById(id)
+        log.debug("try find menu with id: {}", id);
+        MenuDto menuDto = menuMapper.toDto(menuRepository.findById(id)
                 .orElseThrow(() -> new MenuNotFoundException(MENU_NOT_FOUND_MSG + id)));
+        log.info("menu found with id: {} successfully", id);
+        return menuDto;
     }
 
     public Page<MenuDto> findAllMenus(Pageable pageable) {
-        return menuRepository.findAll(pageable).map(menuMapper::toDto);
+        log.debug("try find all menus");
+        Page<MenuDto> menuPage = menuRepository.findAll(pageable)
+                .map(menuMapper::toDto);
+        log.info("all menus found successfully");
+        return menuPage;
+
     }
 
     public Page<MenuDto> findMenuByName(String name, Pageable pageable) {
-        return menuRepository.findMenuByName(name, pageable).map(menuMapper::toDto);
+        log.debug("try find menu by name: '{}'", name);
+        Page<MenuDto> menuPage = menuRepository.findMenuByName(name, pageable).map(menuMapper::toDto);
+        log.info("menu found with name: {} successfully", name);
+        return menuPage;
     }
 
     public Page<MenuDto> findMenuByRestaurantId(Long restaurantId, Pageable pageable) {
+        log.debug("try find menu by restaurant id: '{}'", restaurantId);
         if (!restaurantRepository.existsById(restaurantId)) {
+            log.warn("restaurant not found with id: {}", restaurantId);
             throw new RestaurantNotFoundException(MENU_NOT_FOUND_MSG + restaurantId);
         }
-        return menuRepository.findAllByRestaurantId(restaurantId, pageable)
+        Page<MenuDto> menuDto = menuRepository.findAllByRestaurantId(restaurantId, pageable)
                 .map(menuMapper::toDto);
+        log.info("menu found with id: {} that exist in restaurant with id: {} successfully",
+                restaurantId, restaurantId);
+        return menuDto;
     }
 
     @Transactional
     public MenuDto addMenu(MenuCreateDto menuCreateDto) {
+        log.debug("try to add menu with name: {}", menuCreateDto.getName());
         Menu menu = menuMapper.toEntity(menuCreateDto);
         menu.setActive(true);
+        log.debug("try to find restaurant with id: {}", menu.getRestaurant().getId());
         Restaurant restaurant = restaurantRepository.findById(menuCreateDto.getRestaurantId())
                 .orElseThrow(() -> new RestaurantNotFoundException("Restaurant not found with id: "
                         + menuCreateDto.getRestaurantId()));
+        log.debug("restaurant found with id: {} successfully", menuCreateDto.getRestaurantId());
         menu.setRestaurant(restaurant);
-
+        log.debug("check list of dishes for new menu");
         if (menuCreateDto.getDishesIds() != null) {
+            log.debug("try to link {} dishes to menu", menuCreateDto.getDishesIds().size());
             List<Dish> dishes = dishRepository.findAllById(menuCreateDto.getDishesIds());
             dishes.forEach(dish -> dish.setMenu(menu));
             menu.setDishes(dishes);
+            log.debug("dishes set successfully");
         }
-        return menuMapper.toDto(menuRepository.save(menu));
+        Menu saved = menuRepository.save(menu);
+        log.info("menu added with id: {} successfully", saved.getId());
+        return menuMapper.toDto(saved);
     }
 
     @Transactional
     public MenuDto updateMenuById(Long id, MenuCreateDto menuCreateDto) {
+        log.debug("try to update menu with id: {}", id);
+        log.debug("try to find menu with id: {}", id);
         Menu exist = menuRepository.findWithRestaurantAndDishesById(id)
                 .orElseThrow(() -> new MenuNotFoundException(MENU_NOT_FOUND_MSG + id));
         exist.setName(menuCreateDto.getName());
         exist.setDescription(menuCreateDto.getDescription());
-
+        log.debug("try to set restaurant with id: {}", menuCreateDto.getRestaurantId());
         if (!menuCreateDto.getRestaurantId().equals(exist.getRestaurant().getId())) {
             Restaurant newRestaurant = restaurantRepository.findById(menuCreateDto.getRestaurantId())
                     .orElseThrow(() -> new RestaurantNotFoundException("Restaurant not found with id: "
                             + menuCreateDto.getRestaurantId()));
+            log.debug("restaurant with id: {} was found successfully", menuCreateDto.getRestaurantId());
             exist.setRestaurant(newRestaurant);
         }
+        log.debug("check if list of dishes is empty in menu with id: {}, name: {}", id, menuCreateDto.getName());
         if (menuCreateDto.getDishesIds() != null) {
             List<Dish> updatedDishes = dishRepository.findAllById(menuCreateDto.getDishesIds());
             exist.setDishes(updatedDishes);
+            log.debug("founded dishes set successfully");
         }
-        return menuMapper.toDto(menuRepository.save(exist));
+        Menu updated = menuRepository.save(exist);
+        log.info("menu updated with id: {} successfully", id);
+        return menuMapper.toDto(updated);
     }
 
     @Transactional
     public MenuDto addDishToMenu(Long menuId, Long dishId) {
+        log.debug("try to add dish to exist menu with id: {}", menuId);
+        log.debug("try to find menu by id: {}", menuId);
         Menu menu = menuRepository.findById(menuId)
                 .orElseThrow(() -> new MenuNotFoundException(MENU_NOT_FOUND_MSG + menuId));
-
+        log.debug("try to find dish by id: {}", dishId);
         Dish dish = dishRepository.findById(dishId)
                 .orElseThrow(() -> new DishNotFoundException("Dish not found with id: " + dishId));
+        log.debug("dish found with id: {} successfully", dishId);
         dish.setMenu(menu);
         dishRepository.save(dish);
+        log.info("dish with id: {} add to menu with id: {} successfully", dishId, menuId);
         return menuMapper.toDto(menu);
     }
 
     @Transactional
     public void deleteMenuById(Long id) {
+        log.debug("check if menu with id: {} exist", id);
         if (!menuRepository.existsById(id)) {
+            log.warn("delete failed menu with id: {} not found", id);
             throw new MenuNotFoundException(MENU_NOT_FOUND_MSG + id);
         }
+        log.debug("check if menu connect with dishes");
         if (!orderRepository.findByMenuId(id).isEmpty()) {
+            log.warn("delete failed menu with id: {} has dishes", id);
             throw new MenuHasDishesException("Menu with id " + id + "has dishes and cannot be delete");
         }
         menuRepository.deleteById(id);
+        log.info("menu with id: {} deleted successfully", id);
     }
 }
