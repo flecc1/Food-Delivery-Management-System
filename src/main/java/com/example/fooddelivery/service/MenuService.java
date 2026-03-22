@@ -108,7 +108,7 @@ public class MenuService {
             throw new MenuNotFoundException(MENU_NOT_FOUND_MSG + id);
         }
         if (!orderRepository.findByMenuId(id).isEmpty()) {
-            throw new MenuHasDishesException("Menu has dishes and cannot be delete");
+            throw new MenuHasDishesException("Menu with id " + id + "has dishes and cannot be delete");
         }
         menuRepository.deleteById(id);
     }

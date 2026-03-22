@@ -88,7 +88,7 @@ public class DishService {
             throw new DishNotFoundException("Dish not found with id: " + id);
         }
         if (!orderRepository.findByDishId(id).isEmpty()) {
-            throw new OrderHasDishesException("Order has dishes and cannot be delete");
+            throw new OrderHasDishesException("Order with id " + id + "has dishes and cannot be delete");
         }
         dishRepository.deleteById(id);
     }

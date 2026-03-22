@@ -73,7 +73,7 @@ public class RestaurantService {
         Restaurant restaurant = restaurantRepository.findById(id)
                 .orElseThrow(() -> new RestaurantNotFoundException("Restaurant with id " + id + " not found"));
         if (!orderRepository.getByRestaurantId(restaurant.getId()).isEmpty()) {
-            throw new RestaurantHasOrdersException("Restaurant has orders and cannot be delete");
+            throw new RestaurantHasOrdersException("Restaurant with id " + id + "has orders and cannot be delete");
         }
         restaurantRepository.delete(restaurant);
     }
