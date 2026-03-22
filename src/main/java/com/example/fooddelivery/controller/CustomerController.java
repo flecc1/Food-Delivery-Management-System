@@ -5,6 +5,7 @@ import com.example.fooddelivery.dto.customer.CustomerDto;
 import com.example.fooddelivery.service.CustomerService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+@Slf4j
 @RestController
 @RequestMapping("/api/v1/customers")
 @RequiredArgsConstructor
@@ -26,6 +28,7 @@ public class CustomerController {
 
     @GetMapping("/{id:\\d+}")
     public CustomerDto getCustomerById(@PathVariable Long id) {
+        log.info("getCustomerById {}", id);
         return customerService.findCustomerById(id);
     }
 
@@ -35,6 +38,7 @@ public class CustomerController {
             @RequestParam(defaultValue = "10") int size,
             @RequestParam(value = "firstName", required = false) String firstName,
             @RequestParam(value = "lastName", required = false) String lastName) {
+
         Pageable pageable = PageRequest.of(page, size);
         if (firstName != null) {
             return customerService.findByName(firstName, pageable);
