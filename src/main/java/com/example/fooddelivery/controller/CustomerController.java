@@ -28,7 +28,7 @@ public class CustomerController {
 
     @GetMapping("/{id:\\d+}")
     public CustomerDto getCustomerById(@PathVariable Long id) {
-        log.info("getCustomerById {}", id);
+        log.info("request for getCustomerById {}", id);
         return customerService.findCustomerById(id);
     }
 
@@ -38,7 +38,7 @@ public class CustomerController {
             @RequestParam(defaultValue = "10") int size,
             @RequestParam(value = "firstName", required = false) String firstName,
             @RequestParam(value = "lastName", required = false) String lastName) {
-
+        log.info("request for getAllCustomers with first name {}, last name: {}", firstName, lastName);
         Pageable pageable = PageRequest.of(page, size);
         if (firstName != null) {
             return customerService.findByName(firstName, pageable);
@@ -51,16 +51,20 @@ public class CustomerController {
 
     @PostMapping
     public CustomerDto addCustomer(@Valid @RequestBody CustomerCreateDto customerCreateDto) {
+        log.info("request for addCustomer with name: {}, and last name: {}",
+                customerCreateDto.getFirstName(),  customerCreateDto.getLastName());
         return customerService.addCustomer(customerCreateDto);
     }
 
     @PutMapping("/{id:\\d+}")
     public CustomerDto updateCustomer(@PathVariable Long id, @Valid @RequestBody CustomerCreateDto customerCreateDto) {
+        log.info("request for updateCustomer with id: {}, name: {}", id, customerCreateDto.getFirstName());
         return customerService.updateCustomer(id, customerCreateDto);
     }
 
     @DeleteMapping("/{id:\\d+}")
     public void deleteCustomer(@PathVariable Long id) {
+        log.info("request for deleteCustomer with id: {}", id);
         customerService.deleteCustomerById(id);
     }
 }

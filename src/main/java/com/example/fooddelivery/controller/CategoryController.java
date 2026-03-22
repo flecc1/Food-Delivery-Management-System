@@ -31,7 +31,7 @@ public class CategoryController {
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "10") int size,
             @RequestParam(required = false) String name) {
-        log.info("Getting categories");
+        log.info("requst to get categories with page {} and size {}", page, size);
         Pageable pageable = PageRequest.of(page, size);
         if (name != null) {
             return categoryService.findCategoryByName(name, pageable);
@@ -66,7 +66,7 @@ public class CategoryController {
 
     @DeleteMapping("/{id:\\d+}")
     public void deleteCategory(@PathVariable Long id) {
-        log.info("request to delete category : {} with id {}", categoryService.findCategoryById(id).getName(), id);
+        log.info("request to delete category : with id {}", id);
         categoryService.deleteCategoryById(id);
     }
 
