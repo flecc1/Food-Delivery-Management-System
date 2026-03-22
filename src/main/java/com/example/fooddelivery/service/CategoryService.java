@@ -53,7 +53,7 @@ public class CategoryService {
         log.debug("try to add category: {}", categoryCreateDto.getName());
         Category category = categoryMapper.toEntity(categoryCreateDto);
         Category save = categoryRepository.save(category);
-        log.info("save category: with name: {}, id:  {})", category.getName(), category.getId());
+        log.info("save category: with name: {}, id:  {})", save.getName(), save.getId());
         return categoryMapper.toDto(save);
     }
 

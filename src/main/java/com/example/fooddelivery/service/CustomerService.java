@@ -19,6 +19,7 @@ public class CustomerService {
     private final CustomerMapper customerMapper;
 
     public CustomerDto findCustomerById(Long id) {
+
         return customerRepository.findById(id).map(customerMapper::toDto)
                 .orElseThrow(() -> new CustomerNotFoundException("Customer not found with id: " + id));
     }
