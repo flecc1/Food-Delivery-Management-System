@@ -564,3 +564,57 @@
 2026-03-22 23:29:43 INFO  : Started Laba1Application in 2.986 seconds (process running for 3.258)
 2026-03-22 23:29:43 WARN  : SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
 2026-03-22 23:29:43 WARN  : SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+2026-03-22 23:31:42 INFO  : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-03-22 23:31:42 INFO  : Initializing Servlet 'dispatcherServlet'
+2026-03-22 23:31:42 INFO  : Completed initialization in 1 ms
+2026-03-22 23:31:42 INFO  : Init duration for springdoc-openapi is: 221 ms
+2026-03-22 23:57:13 INFO  : Commencing graceful shutdown. Waiting for active requests to complete
+2026-03-22 23:57:13 INFO  : Graceful shutdown complete
+2026-03-22 23:57:13 INFO  : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-03-22 23:57:13 INFO  : HikariPool-1 - Shutdown initiated...
+2026-03-22 23:57:13 INFO  : HikariPool-1 - Shutdown completed.
+2026-03-22 23:57:15 INFO  : Starting Laba1Application using Java 25.0.2 with PID 89535 (/Users/egorleskovskey/java/laba1/build/classes/java/main started by egorleskovskey in /Users/egorleskovskey/java/laba1)
+2026-03-22 23:57:15 DEBUG : Running with Spring Boot v4.0.2, Spring v7.0.3
+2026-03-22 23:57:15 INFO  : No active profile set, falling back to 1 default profile: "default"
+2026-03-22 23:57:16 INFO  : HV000001: Hibernate Validator 9.0.1.Final
+2026-03-22 23:57:16 INFO  : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-22 23:57:16 INFO  : Finished Spring Data repository scanning in 26 ms. Found 6 JPA repository interfaces.
+2026-03-22 23:57:16 INFO  : Tomcat initialized with port 8080 (http)
+2026-03-22 23:57:16 INFO  : Initializing ProtocolHandler ["http-nio-8080"]
+2026-03-22 23:57:16 INFO  : Starting service [Tomcat]
+2026-03-22 23:57:16 INFO  : Starting Servlet engine: [Apache Tomcat/11.0.15]
+2026-03-22 23:57:16 INFO  : Root WebApplicationContext: initialization completed in 716 ms
+2026-03-22 23:57:16 INFO  : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-03-22 23:57:16 INFO  : HHH000001: Hibernate ORM core version 7.2.1.Final
+2026-03-22 23:57:16 INFO  : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-22 23:57:16 INFO  : HikariPool-1 - Starting...
+2026-03-22 23:57:16 INFO  : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@72b53f27
+2026-03-22 23:57:16 INFO  : HikariPool-1 - Start completed.
+2026-03-22 23:57:17 WARN  : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-03-22 23:57:17 INFO  : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/postgres]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.2
+	Default catalog/schema: postgres/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-03-22 23:57:17 INFO  : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-03-22 23:57:17 WARN  : HHH000247: ErrorCode: 0, SQLState: 00000
+2026-03-22 23:57:17 WARN  : drop cascades to 3 other objects
+2026-03-22 23:57:17 INFO  : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-22 23:57:17 INFO  : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-03-22 23:57:18 WARN  : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-03-22 23:57:18 INFO  : Starting ProtocolHandler ["http-nio-8080"]
+2026-03-22 23:57:18 INFO  : Tomcat started on port 8080 (http) with context path '/'
+2026-03-22 23:57:18 INFO  : Started Laba1Application in 2.76 seconds (process running for 3.022)
+2026-03-22 23:57:18 WARN  : SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-03-22 23:57:18 WARN  : SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+2026-03-22 23:57:29 INFO  : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-03-22 23:57:29 INFO  : Initializing Servlet 'dispatcherServlet'
+2026-03-22 23:57:29 INFO  : Completed initialization in 1 ms
+2026-03-22 23:57:29 INFO  : Init duration for springdoc-openapi is: 225 ms
