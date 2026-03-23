@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import java.time.LocalDateTime;
-import java.util.List;
+import java.util.stream.Collectors;
 
 @Slf4j
 @RestControllerAdvice
@@ -64,15 +64,14 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<ErrorMessage> handleMethodArgumentNotValidException(MethodArgumentNotValidException ex) {
-        List<String> errorList = ex.getBindingResult().getFieldErrors().stream()
-                .map(fieldError -> fieldError.getField() + ": " + fieldError.getDefaultMessage())
-                .toList();
+        String errors = ex.getBindingResult()
+                .getFieldErrors()
+                .stream()
+                .map(error -> error.getField() + ": " + error.getDefaultMessage())
+                .collect(Collectors.joining("; "));
 
-        log.error("Validation failed for request:");
-        errorList.forEach(error -> log.error(" --> {}", error));
-
-        ErrorMessage details = new ErrorMessage(
-                String.join("; ", errorList),
+        log.error("Validation failed: {}", errors);
+        ErrorMessage details = new ErrorMessage(errors,
                 HttpStatus.BAD_REQUEST.value(),
                 LocalDateTime.now());
         return new ResponseEntity<>(details, HttpStatus.BAD_REQUEST);
