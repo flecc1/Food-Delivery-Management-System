@@ -43,3 +43,162 @@
 2026-03-23 00:03:12 INFO  : Initializing Servlet 'dispatcherServlet'
 2026-03-23 00:03:12 INFO  : Completed initialization in 1 ms
 2026-03-23 00:03:12 INFO  : Init duration for springdoc-openapi is: 216 ms
+2026-03-23 00:28:34 ERROR : Validation failed for request:
+2026-03-23 00:28:34 ERROR :   --> name: размер должен находиться в диапазоне от 1 до 64
+2026-03-23 00:28:34 ERROR :   --> name: не должно быть пустым
+2026-03-23 00:28:34 ERROR :   --> price: должно быть больше 0
+2026-03-23 00:31:56 INFO  : request to create dish with name: мачо бургер
+2026-03-23 00:31:56 DEBUG : try add new dish: мачо бургер for category ID: 52 and menu id: 102
+2026-03-23 00:31:56 TRACE : binding parameter (1:BIGINT) <- [52]
+2026-03-23 00:31:56 TRACE : binding parameter (1:BIGINT) <- [102]
+2026-03-23 00:31:56 INFO  : dish save successfully: мачо бургер
+2026-03-23 00:31:56 TRACE : binding parameter (1:BIGINT) <- [52]
+2026-03-23 00:31:56 INFO  : Method [DishDto com.example.fooddelivery.service.DishService.addDish(DishCreateDto)] executed in 59 ms
+2026-03-23 00:31:56 TRACE : binding parameter (1:BIGINT) <- [52]
+2026-03-23 00:31:56 TRACE : binding parameter (2:VARCHAR) <- [булочка сырX3 говядинаX3 беконX2 кетчуп острый соус]
+2026-03-23 00:31:56 TRACE : binding parameter (3:BIGINT) <- [102]
+2026-03-23 00:31:56 TRACE : binding parameter (4:VARCHAR) <- [мачо бургер]
+2026-03-23 00:31:56 TRACE : binding parameter (5:DOUBLE) <- [13.0]
+2026-03-23 00:31:56 TRACE : binding parameter (6:BIGINT) <- [402]
+2026-03-23 00:33:27 WARN  : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=54s518ms).
+2026-03-23 00:37:25 WARN  : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m57s895ms).
+2026-03-23 00:44:09 WARN  : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=6m44s558ms).
+2026-03-23 00:53:02 WARN  : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=7m53s243ms).
+2026-03-23 00:55:44 WARN  : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m41s169ms).
+2026-03-23 00:57:15 INFO  : request to get restaurant with id 1
+2026-03-23 00:57:15 INFO  : try find restaurant with id: 1
+2026-03-23 00:57:15 TRACE : binding parameter (1:BIGINT) <- [1]
+2026-03-23 00:57:15 ERROR : Restaurant with id 1 not found
+2026-03-23 01:14:37 WARN  : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=17m23s118ms).
+2026-03-23 01:16:21 WARN  : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m44s684ms).
+2026-03-23 01:34:26 WARN  : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=18m4s335ms).
+2026-03-23 01:39:13 WARN  : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=4m47s591ms).
+2026-03-23 01:56:25 WARN  : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=17m11s888ms).
+2026-03-23 01:58:35 WARN  : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m9s607ms).
+2026-03-23 02:16:26 WARN  : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=17m51s141ms).
+2026-03-23 02:33:36 WARN  : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=17m9s670ms).
+2026-03-23 02:51:05 WARN  : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=17m29s235ms).
+2026-03-23 03:00:10 WARN  : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=9m5s390ms).
+2026-03-23 03:17:37 WARN  : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=17m26s917ms).
+2026-03-23 03:34:28 WARN  : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=16m51s56ms).
+2026-03-23 03:36:38 WARN  : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m9s638ms).
+2026-03-23 03:54:49 WARN  : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=18m11s37ms).
+2026-03-23 03:56:34 WARN  : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m44s695ms).
+2026-03-23 04:15:10 WARN  : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=18m36s681ms).
+2026-03-23 04:34:30 WARN  : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=19m20s6ms).
+2026-03-23 04:53:48 WARN  : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=19m17s335ms).
+2026-03-23 04:55:57 WARN  : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m9s557ms).
+2026-03-23 05:14:53 WARN  : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=18m56s283ms).
+2026-03-23 05:33:38 WARN  : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=18m44s562ms).
+2026-03-23 05:35:48 WARN  : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m9s610ms).
+2026-03-23 05:52:44 WARN  : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=16m55s940ms).
+2026-03-23 06:10:00 WARN  : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=17m16s410ms).
+2026-03-23 06:12:10 WARN  : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m9s514ms).
+2026-03-23 06:31:32 WARN  : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=19m22s481ms).
+2026-03-23 06:50:35 WARN  : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=19m3s472ms).
+2026-03-23 06:52:45 WARN  : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m9s610ms).
+2026-03-23 06:54:49 WARN  : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m3s513ms).
+2026-03-23 07:12:25 WARN  : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=17m36s187ms).
+2026-03-23 07:29:13 WARN  : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=16m48s357ms).
+2026-03-23 07:30:33 WARN  : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m19s771ms).
+2026-03-23 07:47:48 WARN  : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=17m15s547ms).
+2026-03-23 08:00:49 WARN  : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=13m702ms).
+2026-03-23 08:31:35 WARN  : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=30m46s350ms).
+2026-03-23 08:32:50 WARN  : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m15s4ms).
+2026-03-23 09:55:05 WARN  : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=4m14s62ms).
+2026-03-23 10:04:25 WARN  : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=9m19s677ms).
+2026-03-23 10:05:21 WARN  : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=56s421ms).
+2026-03-23 10:57:18 INFO  : Starting Laba1Application using Java 25.0.2 with PID 1843 (/Users/egorleskovskey/java/laba1/build/classes/java/main started by egorleskovskey in /Users/egorleskovskey/java/laba1)
+2026-03-23 10:57:18 DEBUG : Running with Spring Boot v4.0.2, Spring v7.0.3
+2026-03-23 10:57:18 INFO  : No active profile set, falling back to 1 default profile: "default"
+2026-03-23 10:57:18 INFO  : HV000001: Hibernate Validator 9.0.1.Final
+2026-03-23 10:57:18 INFO  : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-23 10:57:18 INFO  : Finished Spring Data repository scanning in 22 ms. Found 6 JPA repository interfaces.
+2026-03-23 10:57:18 INFO  : Tomcat initialized with port 8080 (http)
+2026-03-23 10:57:18 INFO  : Initializing ProtocolHandler ["http-nio-8080"]
+2026-03-23 10:57:18 INFO  : Starting service [Tomcat]
+2026-03-23 10:57:18 INFO  : Starting Servlet engine: [Apache Tomcat/11.0.15]
+2026-03-23 10:57:19 INFO  : Root WebApplicationContext: initialization completed in 695 ms
+2026-03-23 10:57:19 INFO  : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-03-23 10:57:19 INFO  : HHH000001: Hibernate ORM core version 7.2.1.Final
+2026-03-23 10:57:19 INFO  : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-23 10:57:19 INFO  : HikariPool-1 - Starting...
+2026-03-23 10:57:19 INFO  : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@1860b107
+2026-03-23 10:57:19 INFO  : HikariPool-1 - Start completed.
+2026-03-23 10:57:19 WARN  : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-03-23 10:57:19 INFO  : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/postgres]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.2
+	Default catalog/schema: postgres/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-03-23 10:57:20 INFO  : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-03-23 10:57:20 WARN  : HHH000247: ErrorCode: 0, SQLState: 00000
+2026-03-23 10:57:20 WARN  : drop cascades to 3 other objects
+2026-03-23 10:57:20 INFO  : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-23 10:57:20 INFO  : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-03-23 10:57:20 WARN  : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-03-23 10:57:20 INFO  : Starting ProtocolHandler ["http-nio-8080"]
+2026-03-23 10:57:20 INFO  : Tomcat started on port 8080 (http) with context path '/'
+2026-03-23 10:57:20 INFO  : Started Laba1Application in 2.947 seconds (process running for 3.238)
+2026-03-23 10:57:20 WARN  : SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-03-23 10:57:20 WARN  : SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+2026-03-23 10:57:42 INFO  : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-03-23 10:57:42 INFO  : Initializing Servlet 'dispatcherServlet'
+2026-03-23 10:57:42 INFO  : Completed initialization in 1 ms
+2026-03-23 10:57:42 ERROR : Validation failed for request:
+2026-03-23 10:57:42 ERROR :  --> name: размер должен находиться в диапазоне от 1 до 64
+2026-03-23 10:57:42 ERROR :  --> price: должно быть больше 0
+2026-03-23 10:57:42 ERROR :  --> name: не должно быть пустым
+2026-03-23 11:23:17 INFO  : Commencing graceful shutdown. Waiting for active requests to complete
+2026-03-23 11:23:17 INFO  : Graceful shutdown complete
+2026-03-23 11:23:17 INFO  : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-03-23 11:23:17 INFO  : HikariPool-1 - Shutdown initiated...
+2026-03-23 11:23:17 INFO  : HikariPool-1 - Shutdown completed.
+2026-03-23 11:23:50 INFO  : Starting Laba1Application using Java 25.0.2 with PID 2184 (/Users/egorleskovskey/java/laba1/build/classes/java/main started by egorleskovskey in /Users/egorleskovskey/java/laba1)
+2026-03-23 11:23:50 DEBUG : Running with Spring Boot v4.0.2, Spring v7.0.3
+2026-03-23 11:23:50 INFO  : No active profile set, falling back to 1 default profile: "default"
+2026-03-23 11:23:51 INFO  : HV000001: Hibernate Validator 9.0.1.Final
+2026-03-23 11:23:51 INFO  : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-23 11:23:51 INFO  : Finished Spring Data repository scanning in 24 ms. Found 6 JPA repository interfaces.
+2026-03-23 11:23:51 INFO  : Tomcat initialized with port 8080 (http)
+2026-03-23 11:23:51 INFO  : Initializing ProtocolHandler ["http-nio-8080"]
+2026-03-23 11:23:51 INFO  : Starting service [Tomcat]
+2026-03-23 11:23:51 INFO  : Starting Servlet engine: [Apache Tomcat/11.0.15]
+2026-03-23 11:23:51 INFO  : Root WebApplicationContext: initialization completed in 662 ms
+2026-03-23 11:23:51 INFO  : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-03-23 11:23:51 INFO  : HHH000001: Hibernate ORM core version 7.2.1.Final
+2026-03-23 11:23:51 INFO  : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-23 11:23:51 INFO  : HikariPool-1 - Starting...
+2026-03-23 11:23:52 INFO  : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@21dd9203
+2026-03-23 11:23:52 INFO  : HikariPool-1 - Start completed.
+2026-03-23 11:23:52 WARN  : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-03-23 11:23:52 INFO  : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/postgres]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.2
+	Default catalog/schema: postgres/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-03-23 11:23:52 INFO  : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-03-23 11:23:52 WARN  : HHH000247: ErrorCode: 0, SQLState: 00000
+2026-03-23 11:23:52 WARN  : drop cascades to 3 other objects
+2026-03-23 11:23:52 INFO  : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-23 11:23:52 INFO  : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-03-23 11:23:53 WARN  : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-03-23 11:23:53 INFO  : Starting ProtocolHandler ["http-nio-8080"]
+2026-03-23 11:23:53 INFO  : Tomcat started on port 8080 (http) with context path '/'
+2026-03-23 11:23:53 INFO  : Started Laba1Application in 2.723 seconds (process running for 2.962)
+2026-03-23 11:23:53 WARN  : SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-03-23 11:23:53 WARN  : SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
