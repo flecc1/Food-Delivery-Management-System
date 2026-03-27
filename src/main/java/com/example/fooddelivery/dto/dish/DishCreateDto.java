@@ -23,7 +23,7 @@ public class DishCreateDto {
     private double price;
 
     @NotBlank
-    @Size
+    @Size(min = 1, max = 512)
     @Schema(description = "Описание состава или веса", example = "Традиционный свекольный суп, 400г")
     private String description;
 
