@@ -174,9 +174,7 @@ public class MenuService {
                 })
                 .toList();
         dishRepository.saveAll(dishes);
-        if (menu.getDishes() != null) {
-            menu.getDishes().addAll(dishes);
-        }
+        menu.getDishes().addAll(dishes);
         log.info("dishes added {} dishes in menu with id: {} successfully", dishes.size(), menuId);
         return menuMapper.toDto(menu);
     }

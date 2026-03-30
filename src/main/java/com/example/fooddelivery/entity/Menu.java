@@ -12,6 +12,8 @@ import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -29,5 +31,5 @@ public class Menu {
     @JoinColumn(name = "restaurant_id")
     private Restaurant restaurant;
     @OneToMany(mappedBy = "menu", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Dish> dishes;
+    private List<Dish> dishes = new ArrayList<>();
 }
