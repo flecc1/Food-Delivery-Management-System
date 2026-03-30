@@ -1,5 +1,6 @@
 package com.example.fooddelivery.controller;
 
+import com.example.fooddelivery.dto.dish.DishCreateDto;
 import com.example.fooddelivery.dto.menu.MenuCreateDto;
 import com.example.fooddelivery.dto.menu.MenuDto;
 import com.example.fooddelivery.service.MenuService;
@@ -20,6 +21,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @Slf4j
 @RestController
@@ -63,10 +66,18 @@ public class MenuController {
 
     @PostMapping
     @Operation(summary = "Создать новое меню")
-    public MenuDto addMenu(@Valid @RequestBody MenuCreateDto menuCreateDto) {
+    public MenuDto createMenu(@Valid @RequestBody MenuCreateDto menuCreateDto) {
         log.info("request to add menu: with name: {}", menuCreateDto.getName());
         return menuService.addMenu(menuCreateDto);
     }
+
+    @PostMapping("/{menuId}/dishes/bulk")
+    @Operation(summary = "Добавить несколько блюд в сущестующее меню")
+    public MenuDto addDishesToMenu(@PathVariable Long menuId, @RequestBody @Valid List<DishCreateDto> dishesList) {
+        log.info("request to add some dishes to menu with id: {}", menuId);
+        return menuService.addDishesToMenu(menuId, dishesList);
+    }
+
 
     @PostMapping("/{menuId}/dishes/{dishId}")
     @Operation(summary = "Добавить существующее блюдо в меню")

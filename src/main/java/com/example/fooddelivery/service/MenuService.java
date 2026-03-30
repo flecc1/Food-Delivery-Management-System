@@ -1,19 +1,16 @@
 package com.example.fooddelivery.service;
 
+import com.example.fooddelivery.dto.dish.DishCreateDto;
 import com.example.fooddelivery.dto.menu.MenuCreateDto;
 import com.example.fooddelivery.dto.menu.MenuDto;
+import com.example.fooddelivery.entity.Category;
 import com.example.fooddelivery.entity.Dish;
 import com.example.fooddelivery.entity.Menu;
 import com.example.fooddelivery.entity.Restaurant;
-import com.example.fooddelivery.exception.DishNotFoundException;
-import com.example.fooddelivery.exception.MenuHasDishesException;
-import com.example.fooddelivery.exception.MenuNotFoundException;
-import com.example.fooddelivery.exception.RestaurantNotFoundException;
+import com.example.fooddelivery.exception.*;
+import com.example.fooddelivery.mapper.DishMapper;
 import com.example.fooddelivery.mapper.MenuMapper;
-import com.example.fooddelivery.repository.DishRepository;
-import com.example.fooddelivery.repository.MenuRepository;
-import com.example.fooddelivery.repository.OrderRepository;
-import com.example.fooddelivery.repository.RestaurantRepository;
+import com.example.fooddelivery.repository.*;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -33,6 +30,8 @@ public class MenuService {
     private final RestaurantRepository restaurantRepository;
     private final DishRepository dishRepository;
     private final OrderRepository orderRepository;
+    private final DishMapper dishMapper;
+    private final CategoryRepository categoryRepository;
 
     public MenuDto findById(Long id) {
         log.debug("try find menu with id: {}", id);
@@ -152,5 +151,33 @@ public class MenuService {
         }
         menuRepository.deleteById(id);
         log.info("menu with id: {} deleted successfully", id);
+    }
+
+    @Transactional
+    public MenuDto addDishesToMenu(Long menuId, List<DishCreateDto> dishList) {
+        log.debug("try to add dishes(bulk) to exist menu with id: {}", menuId);
+        Menu menu = menuRepository.findById(menuId)
+                .orElseThrow(() -> new MenuNotFoundException(MENU_NOT_FOUND_MSG + menuId));
+
+        List<Dish> dishes = dishList
+                .stream()
+                .map(dto -> {
+                    Dish dish = dishMapper.toEntity(dto);
+                    if(dto.getCategoryId() != null) {
+                        Category category = categoryRepository.findById(dto.getCategoryId())
+                                .orElseThrow(() -> new CategoryNotFoundException(
+                                        "Category not found with id: " + dto.getCategoryId()));
+                        dish.setCategory(category);
+                    }
+                    dish.setMenu(menu);
+                    return dish;
+                })
+                .toList();
+        dishRepository.saveAll(dishes);
+        if (menu.getDishes() != null) {
+            menu.getDishes().addAll(dishes);
+        }
+        log.info("dishes added {} dishes in menu with id: {} successfully", dishes.size(), menuId);
+        return menuMapper.toDto(menu);
     }
 }
