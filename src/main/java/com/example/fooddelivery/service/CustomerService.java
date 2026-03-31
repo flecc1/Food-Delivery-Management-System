@@ -47,7 +47,7 @@ public class CustomerService {
     public Page<CustomerDto> findByLastName(String lastName, Pageable pageable) {
         log.debug("try find all customers by last name: {}", lastName);
         Page<CustomerDto> customers = customerRepository
-                .findByFirstName(lastName, pageable)
+                .findByLastName(lastName, pageable)
                 .map(customerMapper::toDto);
         log.info("all customers found by last name: {} successfully", lastName);
         return customers;

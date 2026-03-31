@@ -437,3 +437,8 @@
 2026-03-30 17:24:54 TRACE : binding parameter (4:VARCHAR) <- [Вишневый сок]
 2026-03-30 17:24:54 TRACE : binding parameter (5:DOUBLE) <- [6.0]
 2026-03-30 17:24:54 TRACE : binding parameter (6:BIGINT) <- [556]
+2026-03-30 17:46:03 INFO  : Commencing graceful shutdown. Waiting for active requests to complete
+2026-03-30 17:46:03 INFO  : Graceful shutdown complete
+2026-03-30 17:46:03 INFO  : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-03-30 17:46:03 INFO  : HikariPool-1 - Shutdown initiated...
+2026-03-30 17:46:03 INFO  : HikariPool-1 - Shutdown completed.
