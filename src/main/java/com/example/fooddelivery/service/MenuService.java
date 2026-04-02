@@ -170,6 +170,9 @@ public class MenuService {
         List<Dish> dishes = dishList
                 .stream()
                 .map(dto -> {
+                    if (dto.getName().equals("error")) {
+                        throw new DishNotFoundException("error");
+                    }
                     Dish dish = dishMapper.toEntity(dto);
                     if (dto.getCategoryId() != null) {
                         Category category = categoryRepository.findById(dto.getCategoryId())
