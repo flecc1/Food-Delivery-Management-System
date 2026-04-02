@@ -305,8 +305,13 @@ class MenuServiceTest {
         Menu menu = new Menu();
         menu.setDishes(new ArrayList<>());
 
-        DishCreateDto d1 = new DishCreateDto(); d1.setCategoryId(10L);
-        DishCreateDto d2 = new DishCreateDto(); d2.setCategoryId(null);
+        DishCreateDto d1 = new DishCreateDto();
+        d1.setName("Pizza");
+        d1.setCategoryId(10L);
+
+        DishCreateDto d2 = new DishCreateDto();
+        d2.setName("Burger");
+        d2.setCategoryId(null);
 
         when(menuRepository.findById(menuId)).thenReturn(Optional.of(menu));
         when(dishMapper.toEntity(any())).thenReturn(new Dish());
@@ -323,6 +328,7 @@ class MenuServiceTest {
     @DisplayName("addDishesToMenu: bulk category not found")
     void addDishesToMenu_Bulk_CategoryNotFound() {
         DishCreateDto d1 = new DishCreateDto();
+        d1.setName("Pasta");
         d1.setCategoryId(10L);
         List<DishCreateDto> dishesDto = List.of(d1);
         when(menuRepository.findById(1L)).thenReturn(Optional.of(new Menu()));
@@ -330,5 +336,30 @@ class MenuServiceTest {
         when(categoryRepository.findById(10L)).thenReturn(Optional.empty());
         assertThatThrownBy(() -> menuService.addDishesToMenu(1L, dishesDto))
                 .isInstanceOf(CategoryNotFoundException.class);
+    }
+
+    @Test
+    @DisplayName("addDishesToMenu: throw DishNotFoundException when dish name is 'error' (Branch Coverage)")
+    void addDishesToMenu_ThrowException_WhenNameIsError() {
+        Long menuId = 1L;
+
+        DishCreateDto validDish = new DishCreateDto();
+        validDish.setName("Pizza");
+
+        DishCreateDto errorDish = new DishCreateDto();
+        errorDish.setName("error");
+
+        List<DishCreateDto> dishList = List.of(validDish, errorDish);
+
+        when(menuRepository.findById(menuId)).thenReturn(Optional.of(new Menu()));
+
+        when(dishMapper.toEntity(validDish)).thenReturn(new Dish());
+
+        assertThatThrownBy(() -> menuService.addDishesToMenu(menuId, dishList))
+                .isInstanceOf(DishNotFoundException.class)
+                .hasMessage("error");
+
+        verify(dishRepository, never()).saveAll(any());
+        verify(categoryRepository, never()).findById(any());
     }
 }
