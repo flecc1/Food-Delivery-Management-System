@@ -78,7 +78,6 @@ public class MenuController {
         return menuService.addDishesToMenu(menuId, dishesList);
     }
 
-
     @PostMapping("/{menuId}/dishes/{dishId}")
     @Operation(summary = "Добавить существующее блюдо в меню")
     public MenuDto addExistingDishToMenu(@PathVariable Long menuId, @PathVariable Long dishId) {

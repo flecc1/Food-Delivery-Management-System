@@ -7,10 +7,18 @@ import com.example.fooddelivery.entity.Category;
 import com.example.fooddelivery.entity.Dish;
 import com.example.fooddelivery.entity.Menu;
 import com.example.fooddelivery.entity.Restaurant;
-import com.example.fooddelivery.exception.*;
+import com.example.fooddelivery.exception.CategoryNotFoundException;
+import com.example.fooddelivery.exception.DishNotFoundException;
+import com.example.fooddelivery.exception.MenuHasDishesException;
+import com.example.fooddelivery.exception.MenuNotFoundException;
+import com.example.fooddelivery.exception.RestaurantNotFoundException;
 import com.example.fooddelivery.mapper.DishMapper;
 import com.example.fooddelivery.mapper.MenuMapper;
-import com.example.fooddelivery.repository.*;
+import com.example.fooddelivery.repository.CategoryRepository;
+import com.example.fooddelivery.repository.DishRepository;
+import com.example.fooddelivery.repository.MenuRepository;
+import com.example.fooddelivery.repository.OrderRepository;
+import com.example.fooddelivery.repository.RestaurantRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -163,7 +171,7 @@ public class MenuService {
                 .stream()
                 .map(dto -> {
                     Dish dish = dishMapper.toEntity(dto);
-                    if(dto.getCategoryId() != null) {
+                    if (dto.getCategoryId() != null) {
                         Category category = categoryRepository.findById(dto.getCategoryId())
                                 .orElseThrow(() -> new CategoryNotFoundException(
                                         "Category not found with id: " + dto.getCategoryId()));

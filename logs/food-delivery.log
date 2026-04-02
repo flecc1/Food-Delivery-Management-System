@@ -1,22 +1,17 @@
-2026-03-30 16:54:46 INFO  : Starting Laba1Application using Java 25.0.2 with PID 8738 (/Users/egorleskovskey/java/laba1/build/classes/java/main started by egorleskovskey in /Users/egorleskovskey/java/laba1)
-2026-03-30 16:54:46 DEBUG : Running with Spring Boot v4.0.2, Spring v7.0.3
-2026-03-30 16:54:46 INFO  : No active profile set, falling back to 1 default profile: "default"
-2026-03-30 16:54:46 INFO  : HV000001: Hibernate Validator 9.0.1.Final
-2026-03-30 16:54:47 INFO  : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-03-30 16:54:47 INFO  : Finished Spring Data repository scanning in 26 ms. Found 6 JPA repository interfaces.
-2026-03-30 16:54:47 INFO  : Tomcat initialized with port 8080 (http)
-2026-03-30 16:54:47 INFO  : Initializing ProtocolHandler ["http-nio-8080"]
-2026-03-30 16:54:47 INFO  : Starting service [Tomcat]
-2026-03-30 16:54:47 INFO  : Starting Servlet engine: [Apache Tomcat/11.0.15]
-2026-03-30 16:54:47 INFO  : Root WebApplicationContext: initialization completed in 710 ms
-2026-03-30 16:54:47 INFO  : HHH008540: Processing PersistenceUnitInfo [name: default]
-2026-03-30 16:54:47 INFO  : HHH000001: Hibernate ORM core version 7.2.1.Final
-2026-03-30 16:54:47 INFO  : No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-03-30 16:54:47 INFO  : HikariPool-1 - Starting...
-2026-03-30 16:54:47 INFO  : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@69abeb14
-2026-03-30 16:54:47 INFO  : HikariPool-1 - Start completed.
-2026-03-30 16:54:47 WARN  : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-03-30 16:54:47 INFO  : HHH10001005: Database info:
+2026-04-02 01:39:32 INFO  : Starting Laba1ApplicationTests using Java 25.0.2 with PID 51915 (started by egorleskovskey in /Users/egorleskovskey/java/laba1)
+2026-04-02 01:39:32 DEBUG : Running with Spring Boot v4.0.2, Spring v7.0.3
+2026-04-02 01:39:32 INFO  : No active profile set, falling back to 1 default profile: "default"
+2026-04-02 01:39:32 INFO  : HV000001: Hibernate Validator 9.0.1.Final
+2026-04-02 01:39:32 INFO  : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-02 01:39:32 INFO  : Finished Spring Data repository scanning in 28 ms. Found 6 JPA repository interfaces.
+2026-04-02 01:39:33 INFO  : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-04-02 01:39:33 INFO  : HHH000001: Hibernate ORM core version 7.2.1.Final
+2026-04-02 01:39:33 INFO  : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-02 01:39:33 INFO  : HikariPool-1 - Starting...
+2026-04-02 01:39:33 INFO  : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@6593f4fd
+2026-04-02 01:39:33 INFO  : HikariPool-1 - Start completed.
+2026-04-02 01:39:33 WARN  : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-04-02 01:39:33 INFO  : HHH10001005: Database info:
 	Database JDBC URL [jdbc:postgresql://localhost:5432/postgres]
 	Database driver: PostgreSQL JDBC Driver
 	Database dialect: PostgreSQLDialect
@@ -28,417 +23,41 @@
 	Pool: DataSourceConnectionProvider
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2026-03-30 16:54:48 INFO  : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-03-30 16:54:48 WARN  : HHH000247: ErrorCode: 0, SQLState: 00000
-2026-03-30 16:54:48 WARN  : drop cascades to 3 other objects
-2026-03-30 16:54:48 INFO  : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-03-30 16:54:48 INFO  : Hibernate is in classpath; If applicable, HQL parser will be used.
-2026-03-30 16:54:49 WARN  : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-03-30 16:54:49 INFO  : Starting ProtocolHandler ["http-nio-8080"]
-2026-03-30 16:54:49 INFO  : Tomcat started on port 8080 (http) with context path '/'
-2026-03-30 16:54:49 INFO  : Started Laba1Application in 2.933 seconds (process running for 3.229)
-2026-03-30 16:54:49 WARN  : SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
-2026-03-30 16:54:49 WARN  : SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
-2026-03-30 16:55:32 INFO  : Commencing graceful shutdown. Waiting for active requests to complete
-2026-03-30 16:55:32 INFO  : Graceful shutdown complete
-2026-03-30 16:55:32 INFO  : Closing JPA EntityManagerFactory for persistence unit 'default'
-2026-03-30 16:55:32 INFO  : HikariPool-1 - Shutdown initiated...
-2026-03-30 16:55:32 INFO  : HikariPool-1 - Shutdown completed.
-2026-03-30 16:55:34 INFO  : Starting Laba1Application using Java 25.0.2 with PID 8779 (/Users/egorleskovskey/java/laba1/build/classes/java/main started by egorleskovskey in /Users/egorleskovskey/java/laba1)
-2026-03-30 16:55:34 DEBUG : Running with Spring Boot v4.0.2, Spring v7.0.3
-2026-03-30 16:55:34 INFO  : No active profile set, falling back to 1 default profile: "default"
-2026-03-30 16:55:34 INFO  : HV000001: Hibernate Validator 9.0.1.Final
-2026-03-30 16:55:35 INFO  : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-03-30 16:55:35 INFO  : Finished Spring Data repository scanning in 22 ms. Found 6 JPA repository interfaces.
-2026-03-30 16:55:35 INFO  : Tomcat initialized with port 8080 (http)
-2026-03-30 16:55:35 INFO  : Initializing ProtocolHandler ["http-nio-8080"]
-2026-03-30 16:55:35 INFO  : Starting service [Tomcat]
-2026-03-30 16:55:35 INFO  : Starting Servlet engine: [Apache Tomcat/11.0.15]
-2026-03-30 16:55:35 INFO  : Root WebApplicationContext: initialization completed in 662 ms
-2026-03-30 16:55:35 INFO  : HHH008540: Processing PersistenceUnitInfo [name: default]
-2026-03-30 16:55:35 INFO  : HHH000001: Hibernate ORM core version 7.2.1.Final
-2026-03-30 16:55:35 INFO  : No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-03-30 16:55:35 INFO  : HikariPool-1 - Starting...
-2026-03-30 16:55:35 INFO  : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@1afa048a
-2026-03-30 16:55:35 INFO  : HikariPool-1 - Start completed.
-2026-03-30 16:55:35 WARN  : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-03-30 16:55:35 INFO  : HHH10001005: Database info:
-	Database JDBC URL [jdbc:postgresql://localhost:5432/postgres]
-	Database driver: PostgreSQL JDBC Driver
-	Database dialect: PostgreSQLDialect
-	Database version: 18.2
-	Default catalog/schema: postgres/public
-	Autocommit mode: undefined/unknown
-	Isolation level: READ_COMMITTED [default READ_COMMITTED]
-	JDBC fetch size: none
-	Pool: DataSourceConnectionProvider
-	Minimum pool size: undefined/unknown
-	Maximum pool size: undefined/unknown
-2026-03-30 16:55:36 INFO  : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-03-30 16:55:36 WARN  : HHH000247: ErrorCode: 0, SQLState: 00000
-2026-03-30 16:55:36 WARN  : drop cascades to 3 other objects
-2026-03-30 16:55:36 INFO  : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-03-30 16:55:36 INFO  : Hibernate is in classpath; If applicable, HQL parser will be used.
-2026-03-30 16:55:37 WARN  : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-03-30 16:55:37 INFO  : Starting ProtocolHandler ["http-nio-8080"]
-2026-03-30 16:55:37 INFO  : Tomcat started on port 8080 (http) with context path '/'
-2026-03-30 16:55:37 INFO  : Started Laba1Application in 2.755 seconds (process running for 3.047)
-2026-03-30 16:55:37 WARN  : SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
-2026-03-30 16:55:37 WARN  : SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
-2026-03-30 17:00:04 INFO  : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-03-30 17:00:04 INFO  : Initializing Servlet 'dispatcherServlet'
-2026-03-30 17:00:04 INFO  : Completed initialization in 1 ms
-2026-03-30 17:00:04 INFO  : request to getAllMenus with name: null, page: 0, size: 10
-2026-03-30 17:00:04 DEBUG : try find all menus
-2026-03-30 17:00:04 WARN  : HHH90003004: firstResult/maxResults specified with collection fetch; applying in memory
-2026-03-30 17:00:04 INFO  : all menus found successfully
-2026-03-30 17:00:04 INFO  : Method [Page com.example.fooddelivery.service.MenuService.findAllMenus(Pageable)] executed in 76 ms
-2026-03-30 17:00:04 WARN  : Serializing PageImpl instances as-is is not supported, meaning that there is no guarantee about the stability of the resulting JSON structure!
-	For a stable JSON structure, please use Spring Data's PagedModel (globally via @EnableSpringDataWebSupport(pageSerializationMode = VIA_DTO))
-	or Spring HATEOAS and Spring Data's PagedResourcesAssembler as documented in https://docs.spring.io/spring-data/commons/reference/repositories/core-extensions.html#core.web.pageables.
-
-2026-03-30 17:02:00 INFO  : request to getAllMenus with name: null, page: 0, size: 10
-2026-03-30 17:02:00 DEBUG : try find all menus
-2026-03-30 17:02:00 WARN  : HHH90003004: firstResult/maxResults specified with collection fetch; applying in memory
-2026-03-30 17:02:00 INFO  : all menus found successfully
-2026-03-30 17:02:00 INFO  : Method [Page com.example.fooddelivery.service.MenuService.findAllMenus(Pageable)] executed in 16 ms
-2026-03-30 17:02:48 INFO  : request to getMenuById with id: 53
-2026-03-30 17:02:48 DEBUG : try find menu with id: 53
-2026-03-30 17:02:48 TRACE : binding parameter (1:BIGINT) <- [53]
-2026-03-30 17:02:48 TRACE : binding parameter (1:BIGINT) <- [53]
-2026-03-30 17:02:48 TRACE : binding parameter (1:BIGINT) <- [53]
-2026-03-30 17:02:48 TRACE : binding parameter (1:BIGINT) <- [52]
-2026-03-30 17:02:48 INFO  : menu found with id: 53 successfully
-2026-03-30 17:02:48 INFO  : Method [MenuDto com.example.fooddelivery.service.MenuService.findById(Long)] executed in 33 ms
-2026-03-30 17:03:17 WARN  : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' is not supported]
-2026-03-30 17:03:27 WARN  : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public com.example.fooddelivery.dto.menu.MenuDto com.example.fooddelivery.controller.MenuController.addDishesToMenu(java.lang.Long,java.util.List<com.example.fooddelivery.dto.dish.DishCreateDto>)]
-2026-03-30 17:07:34 INFO  : request to get categories with page 0 and size 10
-2026-03-30 17:07:34 DEBUG : try to find all categories
-2026-03-30 17:07:34 WARN  : HHH90003004: firstResult/maxResults specified with collection fetch; applying in memory
-2026-03-30 17:07:34 INFO  : found all categories successfully
-2026-03-30 17:07:34 INFO  : Method [Page com.example.fooddelivery.service.CategoryService.getAllCategories(Pageable)] executed in 16 ms
-2026-03-30 17:11:41 INFO  : request to add some dishes to menu with id: 53
-2026-03-30 17:11:41 DEBUG : try to add dishes(bulk) to exist menu with id: 53
-2026-03-30 17:11:41 TRACE : binding parameter (1:BIGINT) <- [53]
-2026-03-30 17:11:41 INFO  : dishes added 5 dishes in menu with id: 53 successfully
-2026-03-30 17:11:41 TRACE : binding parameter (1:BIGINT) <- [53]
-2026-03-30 17:11:41 TRACE : binding parameter (1:BIGINT) <- [53]
-2026-03-30 17:11:41 TRACE : binding parameter (1:BIGINT) <- [52]
-2026-03-30 17:11:41 INFO  : Method [MenuDto com.example.fooddelivery.service.MenuService.addDishesToMenu(Long,List)] executed in 16 ms
-2026-03-30 17:11:41 TRACE : binding parameter (1:BIGINT) <- [null]
-2026-03-30 17:11:41 TRACE : binding parameter (2:VARCHAR) <- [булочка курицаX3 беконX2 кетчуп огурцы острый соус]
-2026-03-30 17:11:41 TRACE : binding parameter (3:BIGINT) <- [53]
-2026-03-30 17:11:41 TRACE : binding parameter (4:VARCHAR) <- [Трипл чикен]
-2026-03-30 17:11:41 TRACE : binding parameter (5:DOUBLE) <- [20.0]
-2026-03-30 17:11:41 TRACE : binding parameter (6:BIGINT) <- [452]
-2026-03-30 17:11:41 TRACE : binding parameter (1:BIGINT) <- [null]
-2026-03-30 17:11:41 TRACE : binding parameter (2:VARCHAR) <- [булочка курицаX2 беконX2 кетчуп огурцы острый соус]
-2026-03-30 17:11:41 TRACE : binding parameter (3:BIGINT) <- [53]
-2026-03-30 17:11:41 TRACE : binding parameter (4:VARCHAR) <- [Дабл чикен]
-2026-03-30 17:11:41 TRACE : binding parameter (5:DOUBLE) <- [15.0]
-2026-03-30 17:11:41 TRACE : binding parameter (6:BIGINT) <- [453]
-2026-03-30 17:11:41 TRACE : binding parameter (1:BIGINT) <- [null]
-2026-03-30 17:11:41 TRACE : binding parameter (2:VARCHAR) <- [вода]
-2026-03-30 17:11:41 TRACE : binding parameter (3:BIGINT) <- [53]
-2026-03-30 17:11:41 TRACE : binding parameter (4:VARCHAR) <- [Вода]
-2026-03-30 17:11:41 TRACE : binding parameter (5:DOUBLE) <- [3.0]
-2026-03-30 17:11:41 TRACE : binding parameter (6:BIGINT) <- [454]
-2026-03-30 17:11:41 TRACE : binding parameter (1:BIGINT) <- [null]
-2026-03-30 17:11:41 TRACE : binding parameter (2:VARCHAR) <- [вода сахар апельсины]
-2026-03-30 17:11:41 TRACE : binding parameter (3:BIGINT) <- [53]
-2026-03-30 17:11:41 TRACE : binding parameter (4:VARCHAR) <- [Апельсиновый сок]
-2026-03-30 17:11:41 TRACE : binding parameter (5:DOUBLE) <- [6.0]
-2026-03-30 17:11:41 TRACE : binding parameter (6:BIGINT) <- [455]
-2026-03-30 17:11:41 TRACE : binding parameter (1:BIGINT) <- [null]
-2026-03-30 17:11:41 TRACE : binding parameter (2:VARCHAR) <- [вода сахар вишня]
-2026-03-30 17:11:41 TRACE : binding parameter (3:BIGINT) <- [53]
-2026-03-30 17:11:41 TRACE : binding parameter (4:VARCHAR) <- [Вишневый сок]
-2026-03-30 17:11:41 TRACE : binding parameter (5:DOUBLE) <- [6.0]
-2026-03-30 17:11:41 TRACE : binding parameter (6:BIGINT) <- [456]
-2026-03-30 17:20:47 INFO  : Commencing graceful shutdown. Waiting for active requests to complete
-2026-03-30 17:20:47 INFO  : Graceful shutdown complete
-2026-03-30 17:20:47 INFO  : Closing JPA EntityManagerFactory for persistence unit 'default'
-2026-03-30 17:20:47 INFO  : HikariPool-1 - Shutdown initiated...
-2026-03-30 17:20:47 INFO  : HikariPool-1 - Shutdown completed.
-2026-03-30 17:20:49 INFO  : Starting Laba1Application using Java 25.0.2 with PID 8990 (/Users/egorleskovskey/java/laba1/build/classes/java/main started by egorleskovskey in /Users/egorleskovskey/java/laba1)
-2026-03-30 17:20:49 DEBUG : Running with Spring Boot v4.0.2, Spring v7.0.3
-2026-03-30 17:20:49 INFO  : No active profile set, falling back to 1 default profile: "default"
-2026-03-30 17:20:49 INFO  : HV000001: Hibernate Validator 9.0.1.Final
-2026-03-30 17:20:50 INFO  : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-03-30 17:20:50 INFO  : Finished Spring Data repository scanning in 30 ms. Found 6 JPA repository interfaces.
-2026-03-30 17:20:50 INFO  : Tomcat initialized with port 8080 (http)
-2026-03-30 17:20:50 INFO  : Initializing ProtocolHandler ["http-nio-8080"]
-2026-03-30 17:20:50 INFO  : Starting service [Tomcat]
-2026-03-30 17:20:50 INFO  : Starting Servlet engine: [Apache Tomcat/11.0.15]
-2026-03-30 17:20:50 INFO  : Root WebApplicationContext: initialization completed in 692 ms
-2026-03-30 17:20:50 INFO  : HHH008540: Processing PersistenceUnitInfo [name: default]
-2026-03-30 17:20:50 INFO  : HHH000001: Hibernate ORM core version 7.2.1.Final
-2026-03-30 17:20:50 INFO  : No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-03-30 17:20:50 INFO  : HikariPool-1 - Starting...
-2026-03-30 17:20:50 INFO  : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@5b324447
-2026-03-30 17:20:50 INFO  : HikariPool-1 - Start completed.
-2026-03-30 17:20:50 WARN  : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-03-30 17:20:50 INFO  : HHH10001005: Database info:
-	Database JDBC URL [jdbc:postgresql://localhost:5432/postgres]
-	Database driver: PostgreSQL JDBC Driver
-	Database dialect: PostgreSQLDialect
-	Database version: 18.2
-	Default catalog/schema: postgres/public
-	Autocommit mode: undefined/unknown
-	Isolation level: READ_COMMITTED [default READ_COMMITTED]
-	JDBC fetch size: none
-	Pool: DataSourceConnectionProvider
-	Minimum pool size: undefined/unknown
-	Maximum pool size: undefined/unknown
-2026-03-30 17:20:51 INFO  : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-03-30 17:20:51 WARN  : HHH000247: ErrorCode: 0, SQLState: 00000
-2026-03-30 17:20:51 WARN  : drop cascades to 3 other objects
-2026-03-30 17:20:51 INFO  : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-03-30 17:20:51 INFO  : Hibernate is in classpath; If applicable, HQL parser will be used.
-2026-03-30 17:20:52 WARN  : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-03-30 17:20:52 INFO  : Starting ProtocolHandler ["http-nio-8080"]
-2026-03-30 17:20:52 INFO  : Tomcat started on port 8080 (http) with context path '/'
-2026-03-30 17:20:52 INFO  : Started Laba1Application in 2.756 seconds (process running for 3.008)
-2026-03-30 17:20:52 WARN  : SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
-2026-03-30 17:20:52 WARN  : SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
-2026-03-30 17:21:37 INFO  : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-03-30 17:21:37 INFO  : Initializing Servlet 'dispatcherServlet'
-2026-03-30 17:21:37 INFO  : Completed initialization in 1 ms
-2026-03-30 17:21:37 INFO  : request to delete dish with id: 452
-2026-03-30 17:21:37 DEBUG : try delete dish with id: 452
-2026-03-30 17:21:37 TRACE : binding parameter (1:BIGINT) <- [452]
-2026-03-30 17:21:37 DEBUG : check if dish id: 452 is part of orders
-2026-03-30 17:21:37 TRACE : binding parameter (1:BIGINT) <- [452]
-2026-03-30 17:21:37 TRACE : binding parameter (1:BIGINT) <- [452]
-2026-03-30 17:21:37 INFO  : dish delete successfully with id: 452
-2026-03-30 17:21:37 INFO  : Method [void com.example.fooddelivery.service.DishService.deleteDishById(Long)] executed in 66 ms
-2026-03-30 17:21:37 TRACE : binding parameter (1:BIGINT) <- [452]
-2026-03-30 17:21:41 INFO  : request to delete dish with id: 453
-2026-03-30 17:21:41 DEBUG : try delete dish with id: 453
-2026-03-30 17:21:41 TRACE : binding parameter (1:BIGINT) <- [453]
-2026-03-30 17:21:41 DEBUG : check if dish id: 453 is part of orders
-2026-03-30 17:21:41 TRACE : binding parameter (1:BIGINT) <- [453]
-2026-03-30 17:21:41 TRACE : binding parameter (1:BIGINT) <- [453]
-2026-03-30 17:21:41 INFO  : dish delete successfully with id: 453
-2026-03-30 17:21:41 INFO  : Method [void com.example.fooddelivery.service.DishService.deleteDishById(Long)] executed in 12 ms
-2026-03-30 17:21:41 TRACE : binding parameter (1:BIGINT) <- [453]
-2026-03-30 17:21:45 INFO  : request to delete dish with id: 454
-2026-03-30 17:21:45 DEBUG : try delete dish with id: 454
-2026-03-30 17:21:45 TRACE : binding parameter (1:BIGINT) <- [454]
-2026-03-30 17:21:45 DEBUG : check if dish id: 454 is part of orders
-2026-03-30 17:21:45 TRACE : binding parameter (1:BIGINT) <- [454]
-2026-03-30 17:21:45 TRACE : binding parameter (1:BIGINT) <- [454]
-2026-03-30 17:21:45 INFO  : dish delete successfully with id: 454
-2026-03-30 17:21:45 INFO  : Method [void com.example.fooddelivery.service.DishService.deleteDishById(Long)] executed in 8 ms
-2026-03-30 17:21:45 TRACE : binding parameter (1:BIGINT) <- [454]
-2026-03-30 17:21:46 INFO  : request to delete dish with id: 455
-2026-03-30 17:21:46 DEBUG : try delete dish with id: 455
-2026-03-30 17:21:46 TRACE : binding parameter (1:BIGINT) <- [455]
-2026-03-30 17:21:46 DEBUG : check if dish id: 455 is part of orders
-2026-03-30 17:21:46 TRACE : binding parameter (1:BIGINT) <- [455]
-2026-03-30 17:21:46 TRACE : binding parameter (1:BIGINT) <- [455]
-2026-03-30 17:21:46 INFO  : dish delete successfully with id: 455
-2026-03-30 17:21:46 INFO  : Method [void com.example.fooddelivery.service.DishService.deleteDishById(Long)] executed in 10 ms
-2026-03-30 17:21:46 TRACE : binding parameter (1:BIGINT) <- [455]
-2026-03-30 17:21:49 INFO  : request to delete dish with id: 456
-2026-03-30 17:21:49 DEBUG : try delete dish with id: 456
-2026-03-30 17:21:49 TRACE : binding parameter (1:BIGINT) <- [456]
-2026-03-30 17:21:49 DEBUG : check if dish id: 456 is part of orders
-2026-03-30 17:21:49 TRACE : binding parameter (1:BIGINT) <- [456]
-2026-03-30 17:21:49 TRACE : binding parameter (1:BIGINT) <- [456]
-2026-03-30 17:21:49 INFO  : dish delete successfully with id: 456
-2026-03-30 17:21:49 INFO  : Method [void com.example.fooddelivery.service.DishService.deleteDishById(Long)] executed in 7 ms
-2026-03-30 17:21:49 TRACE : binding parameter (1:BIGINT) <- [456]
-2026-03-30 17:21:55 INFO  : request to get all dishes for page: 0 and size: 10
-2026-03-30 17:21:55 DEBUG : try find dishes by price: 22.0
-2026-03-30 17:21:55 TRACE : binding parameter (1:DOUBLE) <- [22.0]
-2026-03-30 17:21:55 TRACE : binding parameter (2:INTEGER) <- [10]
-2026-03-30 17:21:55 INFO  : dishes with price: 22.0 found successfully
-2026-03-30 17:21:55 INFO  : Method [Page com.example.fooddelivery.service.DishService.findDishByPrice(double,Pageable)] executed in 45 ms
-2026-03-30 17:21:55 WARN  : Serializing PageImpl instances as-is is not supported, meaning that there is no guarantee about the stability of the resulting JSON structure!
-	For a stable JSON structure, please use Spring Data's PagedModel (globally via @EnableSpringDataWebSupport(pageSerializationMode = VIA_DTO))
-	or Spring HATEOAS and Spring Data's PagedResourcesAssembler as documented in https://docs.spring.io/spring-data/commons/reference/repositories/core-extensions.html#core.web.pageables.
-
-2026-03-30 17:22:08 INFO  : request to get all dishes for page: 0 and size: 10
-2026-03-30 17:22:08 DEBUG : try find all dishes
-2026-03-30 17:22:08 TRACE : binding parameter (1:INTEGER) <- [0]
-2026-03-30 17:22:08 TRACE : binding parameter (2:INTEGER) <- [10]
-2026-03-30 17:22:08 INFO  : dishes found successfully
-2026-03-30 17:22:08 INFO  : Method [Page com.example.fooddelivery.service.DishService.findAllDishes(Pageable)] executed in 30 ms
-2026-03-30 17:22:18 INFO  : request to add some dishes to menu with id: 53
-2026-03-30 17:22:18 DEBUG : try to add dishes(bulk) to exist menu with id: 53
-2026-03-30 17:22:18 TRACE : binding parameter (1:BIGINT) <- [53]
-2026-03-30 17:22:18 TRACE : binding parameter (1:BIGINT) <- [52]
-2026-03-30 17:22:18 TRACE : binding parameter (1:BIGINT) <- [53]
-2026-03-30 17:22:18 INFO  : dishes added 5 dishes in menu with id: 53 successfully
-2026-03-30 17:22:18 TRACE : binding parameter (1:BIGINT) <- [53]
-2026-03-30 17:22:18 TRACE : binding parameter (1:BIGINT) <- [53]
-2026-03-30 17:22:18 INFO  : Method [MenuDto com.example.fooddelivery.service.MenuService.addDishesToMenu(Long,List)] executed in 14 ms
-2026-03-30 17:22:18 TRACE : binding parameter (1:BIGINT) <- [52]
-2026-03-30 17:22:18 TRACE : binding parameter (2:VARCHAR) <- [булочка курицаX3 беконX2 кетчуп огурцы острый соус]
-2026-03-30 17:22:18 TRACE : binding parameter (3:BIGINT) <- [53]
-2026-03-30 17:22:18 TRACE : binding parameter (4:VARCHAR) <- [Трипл чикен]
-2026-03-30 17:22:18 TRACE : binding parameter (5:DOUBLE) <- [20.0]
-2026-03-30 17:22:18 TRACE : binding parameter (6:BIGINT) <- [502]
-2026-03-30 17:22:18 TRACE : binding parameter (1:BIGINT) <- [52]
-2026-03-30 17:22:18 TRACE : binding parameter (2:VARCHAR) <- [булочка курицаX2 беконX2 кетчуп огурцы острый соус]
-2026-03-30 17:22:18 TRACE : binding parameter (3:BIGINT) <- [53]
-2026-03-30 17:22:18 TRACE : binding parameter (4:VARCHAR) <- [Дабл чикен]
-2026-03-30 17:22:18 TRACE : binding parameter (5:DOUBLE) <- [15.0]
-2026-03-30 17:22:18 TRACE : binding parameter (6:BIGINT) <- [503]
-2026-03-30 17:22:18 TRACE : binding parameter (1:BIGINT) <- [53]
-2026-03-30 17:22:18 TRACE : binding parameter (2:VARCHAR) <- [вода]
-2026-03-30 17:22:18 TRACE : binding parameter (3:BIGINT) <- [53]
-2026-03-30 17:22:18 TRACE : binding parameter (4:VARCHAR) <- [Вода]
-2026-03-30 17:22:18 TRACE : binding parameter (5:DOUBLE) <- [3.0]
-2026-03-30 17:22:18 TRACE : binding parameter (6:BIGINT) <- [504]
-2026-03-30 17:22:18 TRACE : binding parameter (1:BIGINT) <- [53]
-2026-03-30 17:22:18 TRACE : binding parameter (2:VARCHAR) <- [вода сахар апельсины]
-2026-03-30 17:22:18 TRACE : binding parameter (3:BIGINT) <- [53]
-2026-03-30 17:22:18 TRACE : binding parameter (4:VARCHAR) <- [Апельсиновый сок]
-2026-03-30 17:22:18 TRACE : binding parameter (5:DOUBLE) <- [6.0]
-2026-03-30 17:22:18 TRACE : binding parameter (6:BIGINT) <- [505]
-2026-03-30 17:22:18 TRACE : binding parameter (1:BIGINT) <- [53]
-2026-03-30 17:22:18 TRACE : binding parameter (2:VARCHAR) <- [вода сахар вишня]
-2026-03-30 17:22:18 TRACE : binding parameter (3:BIGINT) <- [53]
-2026-03-30 17:22:18 TRACE : binding parameter (4:VARCHAR) <- [Вишневый сок]
-2026-03-30 17:22:18 TRACE : binding parameter (5:DOUBLE) <- [6.0]
-2026-03-30 17:22:18 TRACE : binding parameter (6:BIGINT) <- [506]
-2026-03-30 17:24:09 INFO  : Commencing graceful shutdown. Waiting for active requests to complete
-2026-03-30 17:24:09 INFO  : Graceful shutdown complete
-2026-03-30 17:24:09 INFO  : Closing JPA EntityManagerFactory for persistence unit 'default'
-2026-03-30 17:24:09 INFO  : HikariPool-1 - Shutdown initiated...
-2026-03-30 17:24:09 INFO  : HikariPool-1 - Shutdown completed.
-2026-03-30 17:24:10 INFO  : Starting Laba1Application using Java 25.0.2 with PID 9036 (/Users/egorleskovskey/java/laba1/build/classes/java/main started by egorleskovskey in /Users/egorleskovskey/java/laba1)
-2026-03-30 17:24:10 DEBUG : Running with Spring Boot v4.0.2, Spring v7.0.3
-2026-03-30 17:24:10 INFO  : No active profile set, falling back to 1 default profile: "default"
-2026-03-30 17:24:10 INFO  : HV000001: Hibernate Validator 9.0.1.Final
-2026-03-30 17:24:11 INFO  : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-03-30 17:24:11 INFO  : Finished Spring Data repository scanning in 23 ms. Found 6 JPA repository interfaces.
-2026-03-30 17:24:11 INFO  : Tomcat initialized with port 8080 (http)
-2026-03-30 17:24:11 INFO  : Initializing ProtocolHandler ["http-nio-8080"]
-2026-03-30 17:24:11 INFO  : Starting service [Tomcat]
-2026-03-30 17:24:11 INFO  : Starting Servlet engine: [Apache Tomcat/11.0.15]
-2026-03-30 17:24:11 INFO  : Root WebApplicationContext: initialization completed in 657 ms
-2026-03-30 17:24:11 INFO  : HHH008540: Processing PersistenceUnitInfo [name: default]
-2026-03-30 17:24:11 INFO  : HHH000001: Hibernate ORM core version 7.2.1.Final
-2026-03-30 17:24:11 INFO  : No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-03-30 17:24:11 INFO  : HikariPool-1 - Starting...
-2026-03-30 17:24:11 INFO  : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@1e466d
-2026-03-30 17:24:11 INFO  : HikariPool-1 - Start completed.
-2026-03-30 17:24:11 WARN  : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-03-30 17:24:11 INFO  : HHH10001005: Database info:
-	Database JDBC URL [jdbc:postgresql://localhost:5432/postgres]
-	Database driver: PostgreSQL JDBC Driver
-	Database dialect: PostgreSQLDialect
-	Database version: 18.2
-	Default catalog/schema: postgres/public
-	Autocommit mode: undefined/unknown
-	Isolation level: READ_COMMITTED [default READ_COMMITTED]
-	JDBC fetch size: none
-	Pool: DataSourceConnectionProvider
-	Minimum pool size: undefined/unknown
-	Maximum pool size: undefined/unknown
-2026-03-30 17:24:12 INFO  : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-03-30 17:24:12 WARN  : HHH000247: ErrorCode: 0, SQLState: 00000
-2026-03-30 17:24:12 WARN  : drop cascades to 3 other objects
-2026-03-30 17:24:12 INFO  : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-03-30 17:24:12 INFO  : Hibernate is in classpath; If applicable, HQL parser will be used.
-2026-03-30 17:24:13 WARN  : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-03-30 17:24:13 INFO  : Starting ProtocolHandler ["http-nio-8080"]
-2026-03-30 17:24:13 INFO  : Tomcat started on port 8080 (http) with context path '/'
-2026-03-30 17:24:13 INFO  : Started Laba1Application in 2.76 seconds (process running for 3.029)
-2026-03-30 17:24:13 WARN  : SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
-2026-03-30 17:24:13 WARN  : SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
-2026-03-30 17:24:35 INFO  : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-03-30 17:24:35 INFO  : Initializing Servlet 'dispatcherServlet'
-2026-03-30 17:24:35 INFO  : Completed initialization in 1 ms
-2026-03-30 17:24:35 INFO  : request to delete dish with id: 502
-2026-03-30 17:24:35 DEBUG : try delete dish with id: 502
-2026-03-30 17:24:35 TRACE : binding parameter (1:BIGINT) <- [502]
-2026-03-30 17:24:35 DEBUG : check if dish id: 502 is part of orders
-2026-03-30 17:24:35 TRACE : binding parameter (1:BIGINT) <- [502]
-2026-03-30 17:24:35 TRACE : binding parameter (1:BIGINT) <- [502]
-2026-03-30 17:24:35 INFO  : dish delete successfully with id: 502
-2026-03-30 17:24:35 INFO  : Method [void com.example.fooddelivery.service.DishService.deleteDishById(Long)] executed in 76 ms
-2026-03-30 17:24:35 TRACE : binding parameter (1:BIGINT) <- [502]
-2026-03-30 17:24:36 INFO  : request to delete dish with id: 503
-2026-03-30 17:24:36 DEBUG : try delete dish with id: 503
-2026-03-30 17:24:36 TRACE : binding parameter (1:BIGINT) <- [503]
-2026-03-30 17:24:36 DEBUG : check if dish id: 503 is part of orders
-2026-03-30 17:24:36 TRACE : binding parameter (1:BIGINT) <- [503]
-2026-03-30 17:24:36 TRACE : binding parameter (1:BIGINT) <- [503]
-2026-03-30 17:24:36 INFO  : dish delete successfully with id: 503
-2026-03-30 17:24:36 INFO  : Method [void com.example.fooddelivery.service.DishService.deleteDishById(Long)] executed in 12 ms
-2026-03-30 17:24:36 TRACE : binding parameter (1:BIGINT) <- [503]
-2026-03-30 17:24:37 INFO  : request to delete dish with id: 504
-2026-03-30 17:24:37 DEBUG : try delete dish with id: 504
-2026-03-30 17:24:37 TRACE : binding parameter (1:BIGINT) <- [504]
-2026-03-30 17:24:37 DEBUG : check if dish id: 504 is part of orders
-2026-03-30 17:24:37 TRACE : binding parameter (1:BIGINT) <- [504]
-2026-03-30 17:24:37 TRACE : binding parameter (1:BIGINT) <- [504]
-2026-03-30 17:24:37 INFO  : dish delete successfully with id: 504
-2026-03-30 17:24:37 INFO  : Method [void com.example.fooddelivery.service.DishService.deleteDishById(Long)] executed in 12 ms
-2026-03-30 17:24:37 TRACE : binding parameter (1:BIGINT) <- [504]
-2026-03-30 17:24:38 INFO  : request to delete dish with id: 505
-2026-03-30 17:24:38 DEBUG : try delete dish with id: 505
-2026-03-30 17:24:38 TRACE : binding parameter (1:BIGINT) <- [505]
-2026-03-30 17:24:38 DEBUG : check if dish id: 505 is part of orders
-2026-03-30 17:24:38 TRACE : binding parameter (1:BIGINT) <- [505]
-2026-03-30 17:24:38 TRACE : binding parameter (1:BIGINT) <- [505]
-2026-03-30 17:24:38 INFO  : dish delete successfully with id: 505
-2026-03-30 17:24:38 INFO  : Method [void com.example.fooddelivery.service.DishService.deleteDishById(Long)] executed in 9 ms
-2026-03-30 17:24:38 TRACE : binding parameter (1:BIGINT) <- [505]
-2026-03-30 17:24:39 INFO  : request to delete dish with id: 506
-2026-03-30 17:24:39 DEBUG : try delete dish with id: 506
-2026-03-30 17:24:39 TRACE : binding parameter (1:BIGINT) <- [506]
-2026-03-30 17:24:39 DEBUG : check if dish id: 506 is part of orders
-2026-03-30 17:24:39 TRACE : binding parameter (1:BIGINT) <- [506]
-2026-03-30 17:24:39 TRACE : binding parameter (1:BIGINT) <- [506]
-2026-03-30 17:24:39 INFO  : dish delete successfully with id: 506
-2026-03-30 17:24:39 INFO  : Method [void com.example.fooddelivery.service.DishService.deleteDishById(Long)] executed in 11 ms
-2026-03-30 17:24:39 TRACE : binding parameter (1:BIGINT) <- [506]
-2026-03-30 17:24:54 INFO  : request to add some dishes to menu with id: 53
-2026-03-30 17:24:54 DEBUG : try to add dishes(bulk) to exist menu with id: 53
-2026-03-30 17:24:54 TRACE : binding parameter (1:BIGINT) <- [53]
-2026-03-30 17:24:54 TRACE : binding parameter (1:BIGINT) <- [52]
-2026-03-30 17:24:54 TRACE : binding parameter (1:BIGINT) <- [53]
-2026-03-30 17:24:54 INFO  : dishes added 5 dishes in menu with id: 53 successfully
-2026-03-30 17:24:54 TRACE : binding parameter (1:BIGINT) <- [53]
-2026-03-30 17:24:54 TRACE : binding parameter (1:BIGINT) <- [53]
-2026-03-30 17:24:54 INFO  : Method [MenuDto com.example.fooddelivery.service.MenuService.addDishesToMenu(Long,List)] executed in 20 ms
-2026-03-30 17:24:54 TRACE : binding parameter (1:BIGINT) <- [52]
-2026-03-30 17:24:54 TRACE : binding parameter (2:VARCHAR) <- [булочка курицаX3 беконX2 кетчуп огурцы острый соус]
-2026-03-30 17:24:54 TRACE : binding parameter (3:BIGINT) <- [53]
-2026-03-30 17:24:54 TRACE : binding parameter (4:VARCHAR) <- [Трипл чикен]
-2026-03-30 17:24:54 TRACE : binding parameter (5:DOUBLE) <- [20.0]
-2026-03-30 17:24:54 TRACE : binding parameter (6:BIGINT) <- [552]
-2026-03-30 17:24:54 TRACE : binding parameter (1:BIGINT) <- [52]
-2026-03-30 17:24:54 TRACE : binding parameter (2:VARCHAR) <- [булочка курицаX2 беконX2 кетчуп огурцы острый соус]
-2026-03-30 17:24:54 TRACE : binding parameter (3:BIGINT) <- [53]
-2026-03-30 17:24:54 TRACE : binding parameter (4:VARCHAR) <- [Дабл чикен]
-2026-03-30 17:24:54 TRACE : binding parameter (5:DOUBLE) <- [15.0]
-2026-03-30 17:24:54 TRACE : binding parameter (6:BIGINT) <- [553]
-2026-03-30 17:24:54 TRACE : binding parameter (1:BIGINT) <- [53]
-2026-03-30 17:24:54 TRACE : binding parameter (2:VARCHAR) <- [вода]
-2026-03-30 17:24:54 TRACE : binding parameter (3:BIGINT) <- [53]
-2026-03-30 17:24:54 TRACE : binding parameter (4:VARCHAR) <- [Вода]
-2026-03-30 17:24:54 TRACE : binding parameter (5:DOUBLE) <- [3.0]
-2026-03-30 17:24:54 TRACE : binding parameter (6:BIGINT) <- [554]
-2026-03-30 17:24:54 TRACE : binding parameter (1:BIGINT) <- [53]
-2026-03-30 17:24:54 TRACE : binding parameter (2:VARCHAR) <- [вода сахар апельсины]
-2026-03-30 17:24:54 TRACE : binding parameter (3:BIGINT) <- [53]
-2026-03-30 17:24:54 TRACE : binding parameter (4:VARCHAR) <- [Апельсиновый сок]
-2026-03-30 17:24:54 TRACE : binding parameter (5:DOUBLE) <- [6.0]
-2026-03-30 17:24:54 TRACE : binding parameter (6:BIGINT) <- [555]
-2026-03-30 17:24:54 TRACE : binding parameter (1:BIGINT) <- [53]
-2026-03-30 17:24:54 TRACE : binding parameter (2:VARCHAR) <- [вода сахар вишня]
-2026-03-30 17:24:54 TRACE : binding parameter (3:BIGINT) <- [53]
-2026-03-30 17:24:54 TRACE : binding parameter (4:VARCHAR) <- [Вишневый сок]
-2026-03-30 17:24:54 TRACE : binding parameter (5:DOUBLE) <- [6.0]
-2026-03-30 17:24:54 TRACE : binding parameter (6:BIGINT) <- [556]
-2026-03-30 17:46:03 INFO  : Commencing graceful shutdown. Waiting for active requests to complete
-2026-03-30 17:46:03 INFO  : Graceful shutdown complete
-2026-03-30 17:46:03 INFO  : Closing JPA EntityManagerFactory for persistence unit 'default'
-2026-03-30 17:46:03 INFO  : HikariPool-1 - Shutdown initiated...
-2026-03-30 17:46:03 INFO  : HikariPool-1 - Shutdown completed.
+2026-04-02 01:39:33 INFO  : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-02 01:39:33 WARN  : HHH000247: ErrorCode: 0, SQLState: 00000
+2026-04-02 01:39:33 WARN  : drop cascades to 3 other objects
+2026-04-02 01:39:33 INFO  : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-02 01:39:34 INFO  : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-04-02 01:39:34 WARN  : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-02 01:39:35 INFO  : Started Laba1ApplicationTests in 2.813 seconds (process running for 4.246)
+2026-04-02 01:39:35 WARN  : SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-04-02 01:39:35 WARN  : SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+2026-04-02 01:39:35 DEBUG : try adding customer with first name: null, lastname: null
+2026-04-02 01:39:35 INFO  : customer created successfully: with first name: null, last name: null
+2026-04-02 01:39:35 DEBUG : try deleting customer with id: 1
+2026-04-02 01:39:35 DEBUG : check customer exist: 1
+2026-04-02 01:39:35 WARN  : delete failed customer with id: 1 not found
+2026-04-02 01:39:35 DEBUG : try updating customer with id: 1
+2026-04-02 01:39:35 INFO  : Customer with ID: 1 updated successfully
+2026-04-02 01:39:35 DEBUG : try find all customers
+2026-04-02 01:39:35 INFO  : all customers found successfully
+2026-04-02 01:39:35 DEBUG : try deleting customer with id: 1
+2026-04-02 01:39:35 DEBUG : check customer exist: 1
+2026-04-02 01:39:35 INFO  : customer deleted: with id successfully
+2026-04-02 01:39:35 DEBUG : try find customer with id: 1
+2026-04-02 01:39:35 INFO  : customer found: with first name: null, last name: null successfully
+2026-04-02 01:39:35 DEBUG : try to add restaurant with dto: RestaurantCreateDto(name=null, address=null, city=null)
+2026-04-02 01:39:35 INFO  : restaurant with id: null add successfully
+2026-04-02 01:39:35 DEBUG : try to delete restaurant with id: 1
+2026-04-02 01:39:35 DEBUG : check if restaurant with id: 1 has orders
+2026-04-02 01:39:35 WARN  : delete failed restaurant with id: 1 has orders
+2026-04-02 01:39:35 INFO  : try find restaurant with id: 1
+2026-04-02 01:39:35 INFO  : restaurant found with id: 1 and name: null successfully
+2026-04-02 01:39:35 DEBUG : try to update restaurant with id: 1 and name: New Grill
+2026-04-02 01:39:35 INFO  : restaurant with id: 1 updated successfully
+2026-04-02 01:39:35 DEBUG : try to delete restaurant with id: 1
+2026-04-02 01:39:35 DEBUG : check if restaurant with id: 1 has orders
+2026-04-02 01:39:35 INFO  : restaurant with id: 1 delete successfully
+2026-04-02 01:39:35 INFO  : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-02 01:39:35 INFO  : HikariPool-1 - Shutdown initiated...
+2026-04-02 01:39:35 INFO  : HikariPool-1 - Shutdown completed.
