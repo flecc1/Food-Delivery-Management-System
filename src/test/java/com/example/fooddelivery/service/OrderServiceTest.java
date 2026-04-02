@@ -205,4 +205,15 @@ class OrderServiceTest {
         assertThatThrownBy(() -> orderService.deleteOrder(1L))
                 .isInstanceOf(OrderNotFoundException.class);
     }
+
+    @Test
+    void addOrder_NullDishes_ThrowsException() {
+        orderCreateDto.setDishesId(null);
+
+        assertThatThrownBy(() -> orderService.addOrder(orderCreateDto))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("The list of dishes cannot be empty");
+
+        verifyNoInteractions(orderMapper, customerRepository, dishRepository, orderRepository);
+    }
 }
