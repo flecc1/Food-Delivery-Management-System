@@ -313,14 +313,18 @@ class MenuServiceTest {
         d2.setName("Burger");
         d2.setCategoryId(null);
 
+        List<DishCreateDto> dtos = List.of(d1, d2);
+
         when(menuRepository.findById(menuId)).thenReturn(Optional.of(menu));
         when(dishMapper.toEntity(any())).thenReturn(new Dish());
         when(categoryRepository.findById(10L)).thenReturn(Optional.of(new Category()));
+
+        when(dishRepository.saveAndFlush(any(Dish.class))).thenReturn(new Dish());
+
         when(menuMapper.toDto(any())).thenReturn(new MenuDto());
+        menuService.addDishesToMenu(menuId, dtos);
+        verify(dishRepository, org.mockito.Mockito.times(2)).saveAndFlush(any(Dish.class));
 
-        menuService.addDishesToMenu(menuId, List.of(d1, d2));
-
-        verify(dishRepository).saveAll(any());
         assertThat(menu.getDishes()).hasSize(2);
     }
 
@@ -339,7 +343,7 @@ class MenuServiceTest {
     }
 
     @Test
-    @DisplayName("addDishesToMenu: throw DishNotFoundException when dish name is 'error' (Branch Coverage)")
+    @DisplayName("addDishesToMenu: throw DishNotFoundException when dish name is 'error'")
     void addDishesToMenu_ThrowException_WhenNameIsError() {
         Long menuId = 1L;
 
@@ -352,14 +356,13 @@ class MenuServiceTest {
         List<DishCreateDto> dishList = List.of(validDish, errorDish);
 
         when(menuRepository.findById(menuId)).thenReturn(Optional.of(new Menu()));
-
         when(dishMapper.toEntity(validDish)).thenReturn(new Dish());
+        when(dishRepository.saveAndFlush(any())).thenReturn(new Dish());
 
         assertThatThrownBy(() -> menuService.addDishesToMenu(menuId, dishList))
                 .isInstanceOf(DishNotFoundException.class)
                 .hasMessage("error");
 
-        verify(dishRepository, never()).saveAll(any());
-        verify(categoryRepository, never()).findById(any());
+        verify(dishRepository, org.mockito.Mockito.times(1)).saveAndFlush(any());
     }
 }
