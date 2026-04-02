@@ -104,8 +104,12 @@ class MenuServiceTest {
     @Test
     @DisplayName("findMenuByRestaurantId: restaurant not found")
     void findMenuByRestaurantId_NotFound() {
-        when(restaurantRepository.existsById(1L)).thenReturn(false);
-        assertThatThrownBy(() -> menuService.findMenuByRestaurantId(1L, PageRequest.of(0, 10)))
+        Long id = 1L;
+        PageRequest pageable = PageRequest.of(0, 10);
+
+        when(restaurantRepository.existsById(id)).thenReturn(false);
+
+        assertThatThrownBy(() -> menuService.findMenuByRestaurantId(id, pageable))
                 .isInstanceOf(RestaurantNotFoundException.class);
     }
 
@@ -218,8 +222,10 @@ class MenuServiceTest {
     @Test
     @DisplayName("updateMenuById: not found")
     void updateMenuById_NotFound() {
-        when(menuRepository.findWithRestaurantAndDishesById(1L)).thenReturn(Optional.empty());
-        assertThatThrownBy(() -> menuService.updateMenuById(1L, new MenuCreateDto()))
+        Long id = 1L;
+        MenuCreateDto dto = new MenuCreateDto();
+        when(menuRepository.findWithRestaurantAndDishesById(id)).thenReturn(Optional.empty());
+        assertThatThrownBy(() -> menuService.updateMenuById(id, dto))
                 .isInstanceOf(MenuNotFoundException.class);
     }
 
@@ -316,12 +322,13 @@ class MenuServiceTest {
     @Test
     @DisplayName("addDishesToMenu: bulk category not found")
     void addDishesToMenu_Bulk_CategoryNotFound() {
-        DishCreateDto d1 = new DishCreateDto(); d1.setCategoryId(10L);
+        DishCreateDto d1 = new DishCreateDto();
+        d1.setCategoryId(10L);
+        List<DishCreateDto> dishesDto = List.of(d1);
         when(menuRepository.findById(1L)).thenReturn(Optional.of(new Menu()));
         when(dishMapper.toEntity(any())).thenReturn(new Dish());
         when(categoryRepository.findById(10L)).thenReturn(Optional.empty());
-
-        assertThatThrownBy(() -> menuService.addDishesToMenu(1L, List.of(d1)))
+        assertThatThrownBy(() -> menuService.addDishesToMenu(1L, dishesDto))
                 .isInstanceOf(CategoryNotFoundException.class);
     }
 }

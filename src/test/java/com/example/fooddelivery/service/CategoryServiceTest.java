@@ -179,9 +179,11 @@ class CategoryServiceTest {
     @DisplayName("updateCategoryById: not found")
     void updateCategoryById_ShouldThrowException_WhenNotFound() {
         Long id = 1L;
+        CategoryCreateDto dto = new CategoryCreateDto();
+
         when(categoryRepository.findWithDishesById(id)).thenReturn(Optional.empty());
 
-        assertThatThrownBy(() -> categoryService.updateCategoryById(id, new CategoryCreateDto()))
+        assertThatThrownBy(() -> categoryService.updateCategoryById(id, dto))
                 .isInstanceOf(CategoryNotFoundException.class);
     }
 

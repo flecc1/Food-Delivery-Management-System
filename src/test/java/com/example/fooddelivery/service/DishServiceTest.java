@@ -200,8 +200,12 @@ class DishServiceTest {
     @Test
     @DisplayName("updateDishById: dish not found")
     void updateDishById_DishNotFound() {
-        when(dishRepository.findWithCategoryAndMenuById(1L)).thenReturn(Optional.empty());
-        assertThatThrownBy(() -> dishService.updateDishById(1L, new DishCreateDto()))
+        Long id = 1L;
+        DishCreateDto dto = new DishCreateDto();
+
+        when(dishRepository.findWithCategoryAndMenuById(id)).thenReturn(Optional.empty());
+
+        assertThatThrownBy(() -> dishService.updateDishById(id, dto))
                 .isInstanceOf(DishNotFoundException.class);
     }
 

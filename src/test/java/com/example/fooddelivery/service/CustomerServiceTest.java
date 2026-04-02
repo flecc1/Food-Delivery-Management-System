@@ -193,9 +193,11 @@ class CustomerServiceTest {
     @DisplayName("updateCustomer: not found")
     void updateCustomer_NotFound() {
         Long id = 1L;
+        CustomerCreateDto dto = new CustomerCreateDto();
+
         when(customerRepository.findById(id)).thenReturn(Optional.empty());
 
-        assertThatThrownBy(() -> customerService.updateCustomer(id, new CustomerCreateDto()))
+        assertThatThrownBy(() -> customerService.updateCustomer(id, dto))
                 .isInstanceOf(CustomerNotFoundException.class);
     }
 
