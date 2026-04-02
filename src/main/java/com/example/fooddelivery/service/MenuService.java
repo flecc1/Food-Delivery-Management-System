@@ -167,26 +167,23 @@ public class MenuService {
         Menu menu = menuRepository.findById(menuId)
                 .orElseThrow(() -> new MenuNotFoundException(MENU_NOT_FOUND_MSG + menuId));
 
-        List<Dish> dishes = dishList
-                .stream()
+        List<Dish> dishes = dishList.stream()
                 .map(dto -> {
                     if (dto.getName().equals("error")) {
                         throw new DishNotFoundException("error");
                     }
+
                     Dish dish = dishMapper.toEntity(dto);
                     if (dto.getCategoryId() != null) {
                         Category category = categoryRepository.findById(dto.getCategoryId())
-                                .orElseThrow(() -> new CategoryNotFoundException(
-                                        "Category not found with id: " + dto.getCategoryId()));
+                                .orElseThrow(() -> new CategoryNotFoundException("Category not found"));
                         dish.setCategory(category);
                     }
                     dish.setMenu(menu);
-                    return dish;
+                    return dishRepository.saveAndFlush(dish);
                 })
                 .toList();
-        dishRepository.saveAll(dishes);
         menu.getDishes().addAll(dishes);
-        log.info("dishes added {} dishes in menu with id: {} successfully", dishes.size(), menuId);
         return menuMapper.toDto(menu);
     }
 }
