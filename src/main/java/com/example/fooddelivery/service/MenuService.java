@@ -161,7 +161,7 @@ public class MenuService {
         log.info("menu with id: {} deleted successfully", id);
     }
 
-    //@Transactional
+    @Transactional
     public MenuDto addDishesToMenu(Long menuId, List<DishCreateDto> dishList) {
         log.debug("try to add dishes(bulk) to exist menu with id: {}", menuId);
         Menu menu = menuRepository.findById(menuId)

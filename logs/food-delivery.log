@@ -635,3 +635,117 @@
 2026-04-02 14:07:17 TRACE : binding parameter (1:BIGINT) <- [53]
 2026-04-02 14:07:17 INFO  : menu found with id: 53 successfully
 2026-04-02 14:07:17 INFO  : Method [MenuDto com.example.fooddelivery.service.MenuService.findById(Long)] executed in 26 ms
+2026-04-02 14:13:17 INFO  : request to delete dish with id: 702
+2026-04-02 14:13:17 DEBUG : try delete dish with id: 702
+2026-04-02 14:13:18 TRACE : binding parameter (1:BIGINT) <- [702]
+2026-04-02 14:13:18 DEBUG : check if dish id: 702 is part of orders
+2026-04-02 14:13:18 TRACE : binding parameter (1:BIGINT) <- [702]
+2026-04-02 14:13:18 TRACE : binding parameter (1:BIGINT) <- [702]
+2026-04-02 14:13:18 INFO  : dish delete successfully with id: 702
+2026-04-02 14:13:18 INFO  : Method [void com.example.fooddelivery.service.DishService.deleteDishById(Long)] executed in 84 ms
+2026-04-02 14:13:18 TRACE : binding parameter (1:BIGINT) <- [702]
+2026-04-02 14:13:28 INFO  : request to getMenuById with id: 53
+2026-04-02 14:13:28 DEBUG : try find menu with id: 53
+2026-04-02 14:13:28 TRACE : binding parameter (1:BIGINT) <- [53]
+2026-04-02 14:13:28 TRACE : binding parameter (1:BIGINT) <- [53]
+2026-04-02 14:13:28 TRACE : binding parameter (1:BIGINT) <- [53]
+2026-04-02 14:13:28 TRACE : binding parameter (1:BIGINT) <- [52]
+2026-04-02 14:13:28 TRACE : binding parameter (1:BIGINT) <- [53]
+2026-04-02 14:13:28 INFO  : menu found with id: 53 successfully
+2026-04-02 14:13:28 INFO  : Method [MenuDto com.example.fooddelivery.service.MenuService.findById(Long)] executed in 17 ms
+2026-04-02 14:16:10 INFO  : request to add some dishes to menu with id: 53
+2026-04-02 14:16:10 DEBUG : try to add dishes(bulk) to exist menu with id: 53
+2026-04-02 14:16:10 TRACE : binding parameter (1:BIGINT) <- [53]
+2026-04-02 14:16:10 TRACE : binding parameter (1:BIGINT) <- [53]
+2026-04-02 14:16:10 TRACE : binding parameter (1:BIGINT) <- [53]
+2026-04-02 14:16:10 TRACE : binding parameter (2:VARCHAR) <- [сахар арбуз вода газированая]
+2026-04-02 14:16:10 TRACE : binding parameter (3:BIGINT) <- [53]
+2026-04-02 14:16:10 TRACE : binding parameter (4:VARCHAR) <- [asdasdad]
+2026-04-02 14:16:10 TRACE : binding parameter (5:DOUBLE) <- [3.0]
+2026-04-02 14:16:10 TRACE : binding parameter (6:BIGINT) <- [703]
+2026-04-02 14:16:10 ERROR : error
+2026-04-02 14:16:14 INFO  : request to add menu: with name: ХАЙП
+2026-04-02 14:16:14 DEBUG : try to add menu with name: ХАЙП
+2026-04-02 14:16:14 ERROR : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: java.lang.NullPointerException: Cannot invoke "com.example.fooddelivery.entity.Restaurant.getId()" because the return value of "com.example.fooddelivery.entity.Menu.getRestaurant()" is null] with root cause
+java.lang.NullPointerException: Cannot invoke "com.example.fooddelivery.entity.Restaurant.getId()" because the return value of "com.example.fooddelivery.entity.Menu.getRestaurant()" is null
+	at com.example.fooddelivery.service.MenuService.addMenu(MenuService.java:86)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:190)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:158)
+	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:82)
+	at com.example.fooddelivery.aspect.ExecutionTimeAspect.logExecutionTime(ExecutionTimeAspect.java:17)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:648)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:630)
+	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:70)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:133)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:371)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:130)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:96)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:719)
+	at com.example.fooddelivery.service.MenuService$$SpringCGLIB$$0.addMenu(<generated>)
+	at com.example.fooddelivery.controller.MenuController.createMenu(MenuController.java:71)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:190)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:934)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:853)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:86)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:866)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1003)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:649)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:874)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:710)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:128)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:199)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:77)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1778)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:946)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:480)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:57)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+2026-04-02 14:16:19 INFO  : request to getMenuById with id: 53
+2026-04-02 14:16:19 DEBUG : try find menu with id: 53
+2026-04-02 14:16:19 TRACE : binding parameter (1:BIGINT) <- [53]
+2026-04-02 14:16:19 TRACE : binding parameter (1:BIGINT) <- [53]
+2026-04-02 14:16:19 TRACE : binding parameter (1:BIGINT) <- [53]
+2026-04-02 14:16:19 TRACE : binding parameter (1:BIGINT) <- [52]
+2026-04-02 14:16:19 TRACE : binding parameter (1:BIGINT) <- [53]
+2026-04-02 14:16:19 INFO  : menu found with id: 53 successfully
+2026-04-02 14:16:19 INFO  : Method [MenuDto com.example.fooddelivery.service.MenuService.findById(Long)] executed in 20 ms
+2026-04-02 14:20:15 WARN  : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m13s46ms).
+2026-04-02 14:20:17 INFO  : Commencing graceful shutdown. Waiting for active requests to complete
+2026-04-02 14:20:17 INFO  : Graceful shutdown complete
+2026-04-02 14:20:17 INFO  : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-02 14:20:17 INFO  : HikariPool-1 - Shutdown initiated...
+2026-04-02 14:20:17 INFO  : HikariPool-1 - Shutdown completed.
