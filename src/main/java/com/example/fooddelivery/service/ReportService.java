@@ -24,7 +24,7 @@ public class ReportService {
             Thread.sleep(10000);
             taskTracker.updateTask(taskId, TaskStatus.COMPLETED);
             log.debug("Task {} completed successfully", taskId);
-        } catch (InterruptedException ex) {
+        } catch (InterruptedException _) {
             taskTracker.updateTask(taskId, TaskStatus.FAILED);
             log.error("Task {} was interrupted", taskId);
             Thread.currentThread().interrupt();
