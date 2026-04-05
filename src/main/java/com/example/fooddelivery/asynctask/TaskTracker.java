@@ -1,4 +1,4 @@
-package com.example.fooddelivery.asyncTask;
+package com.example.fooddelivery.asynctask;
 
 import com.example.fooddelivery.status.TaskStatus;
 import org.springframework.stereotype.Component;

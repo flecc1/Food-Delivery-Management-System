@@ -1,6 +1,6 @@
 package com.example.fooddelivery.service;
 
-import com.example.fooddelivery.asyncTask.TaskTracker;
+import com.example.fooddelivery.asynctask.TaskTracker;
 import com.example.fooddelivery.status.TaskStatus;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -24,7 +24,7 @@ public class ReportService {
             Thread.sleep(10000);
             taskTracker.updateTask(taskId, TaskStatus.COMPLETED);
             log.debug("Task {} completed successfully", taskId);
-        } catch (InterruptedException e) {
+        } catch (InterruptedException ex) {
             taskTracker.updateTask(taskId, TaskStatus.FAILED);
             log.error("Task {} was interrupted", taskId);
             Thread.currentThread().interrupt();
