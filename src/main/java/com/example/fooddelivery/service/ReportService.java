@@ -13,7 +13,7 @@ import java.util.concurrent.CompletableFuture;
 @Service
 @RequiredArgsConstructor
 @Slf4j
-public class TaskService {
+public class ReportService {
     private final TaskTracker taskTracker;
 
     @Async("taskExecutor")

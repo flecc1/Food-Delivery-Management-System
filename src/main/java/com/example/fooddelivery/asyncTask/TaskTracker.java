@@ -16,7 +16,7 @@ public class TaskTracker {
         return taskId;
     }
 
-    public TaskStatus getTaskStatus(UUID taskId) {
+    public TaskStatus getStatus(UUID taskId) {
         return tasks.get(taskId);
     }
 
