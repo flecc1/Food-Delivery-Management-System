@@ -18,13 +18,15 @@ public class ReportService {
 
     @Async("taskExecutor")
     public CompletableFuture<Void> createReport(UUID taskId) {
+        log.debug("starting background task: {}", taskId);
         taskTracker.updateTask(taskId, TaskStatus.IN_PROGRESS);
-
         try {
-            Thread.sleep(5000);
+            Thread.sleep(10000);
             taskTracker.updateTask(taskId, TaskStatus.COMPLETED);
+            log.debug("Task {} completed successfully", taskId);
         } catch (InterruptedException e) {
             taskTracker.updateTask(taskId, TaskStatus.FAILED);
+            log.error("Task {} was interrupted", taskId);
             Thread.currentThread().interrupt();
         }
         return CompletableFuture.completedFuture(null);
