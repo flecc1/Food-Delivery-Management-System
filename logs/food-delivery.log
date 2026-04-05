@@ -205,3 +205,72 @@
 2026-04-05 16:42:47 INFO  : Closing JPA EntityManagerFactory for persistence unit 'default'
 2026-04-05 16:42:47 INFO  : HikariPool-1 - Shutdown initiated...
 2026-04-05 16:42:47 INFO  : HikariPool-1 - Shutdown completed.
+2026-04-05 16:47:52 INFO  : Starting Laba1Application using Java 25.0.2 with PID 69118 (/Users/egorleskovskey/java/laba1/build/classes/java/main started by egorleskovskey in /Users/egorleskovskey/java/laba1)
+2026-04-05 16:47:52 DEBUG : Running with Spring Boot v4.0.2, Spring v7.0.3
+2026-04-05 16:47:52 INFO  : No active profile set, falling back to 1 default profile: "default"
+2026-04-05 16:47:52 INFO  : HV000001: Hibernate Validator 9.0.1.Final
+2026-04-05 16:47:52 INFO  : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-05 16:47:52 INFO  : Finished Spring Data repository scanning in 22 ms. Found 6 JPA repository interfaces.
+2026-04-05 16:47:52 INFO  : Tomcat initialized with port 8080 (http)
+2026-04-05 16:47:52 INFO  : Initializing ProtocolHandler ["http-nio-8080"]
+2026-04-05 16:47:52 INFO  : Starting service [Tomcat]
+2026-04-05 16:47:52 INFO  : Starting Servlet engine: [Apache Tomcat/11.0.15]
+2026-04-05 16:47:52 INFO  : Root WebApplicationContext: initialization completed in 688 ms
+2026-04-05 16:47:52 INFO  : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-04-05 16:47:52 INFO  : HHH000001: Hibernate ORM core version 7.2.1.Final
+2026-04-05 16:47:53 INFO  : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-05 16:47:53 INFO  : HikariPool-1 - Starting...
+2026-04-05 16:47:53 INFO  : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@6219006a
+2026-04-05 16:47:53 INFO  : HikariPool-1 - Start completed.
+2026-04-05 16:47:53 WARN  : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-04-05 16:47:53 INFO  : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/postgres]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.2
+	Default catalog/schema: postgres/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-04-05 16:47:53 INFO  : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-05 16:47:53 WARN  : HHH000247: ErrorCode: 0, SQLState: 00000
+2026-04-05 16:47:53 WARN  : drop cascades to 3 other objects
+2026-04-05 16:47:53 INFO  : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-05 16:47:53 INFO  : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-04-05 16:47:54 WARN  : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-05 16:47:54 INFO  : Starting ProtocolHandler ["http-nio-8080"]
+2026-04-05 16:47:54 INFO  : Tomcat started on port 8080 (http) with context path '/'
+2026-04-05 16:47:54 INFO  : Started Laba1Application in 2.847 seconds (process running for 3.112)
+2026-04-05 16:47:54 WARN  : SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-04-05 16:47:54 WARN  : SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+2026-04-05 16:48:14 INFO  : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-05 16:48:14 INFO  : Initializing Servlet 'dispatcherServlet'
+2026-04-05 16:48:14 INFO  : Completed initialization in 2 ms
+2026-04-05 16:48:25 INFO  : request to start generation of reports
+2026-04-05 16:48:25 DEBUG : starting background task: e28881b0-e4c1-46cc-b412-9c9e077bae7e
+2026-04-05 16:48:25 INFO  : request to start generation of reports
+2026-04-05 16:48:25 DEBUG : starting background task: bb4f9443-5bfa-45cd-985e-0d581f8d210c
+2026-04-05 16:48:26 INFO  : request to start generation of reports
+2026-04-05 16:48:26 DEBUG : starting background task: c0162323-b418-414c-b7ba-f08c35631089
+2026-04-05 16:48:26 INFO  : request to start generation of reports
+2026-04-05 16:48:26 DEBUG : starting background task: 130ebb2d-5c66-434d-aff6-68d2cb6a56be
+2026-04-05 16:48:27 INFO  : request to start generation of reports
+2026-04-05 16:48:27 DEBUG : starting background task: ab1f77d4-def3-4fc1-9d0d-a344c808824a
+2026-04-05 16:48:27 INFO  : request to start generation of reports
+2026-04-05 16:48:27 DEBUG : starting background task: ea3591b6-ca61-44e6-ba65-4944f247d9ac
+2026-04-05 16:48:35 DEBUG : Task e28881b0-e4c1-46cc-b412-9c9e077bae7e completed successfully
+2026-04-05 16:48:35 INFO  : Method [CompletableFuture com.example.fooddelivery.service.ReportService.createReport(UUID)] executed in 10009 ms
+2026-04-05 16:48:35 DEBUG : Task bb4f9443-5bfa-45cd-985e-0d581f8d210c completed successfully
+2026-04-05 16:48:35 INFO  : Method [CompletableFuture com.example.fooddelivery.service.ReportService.createReport(UUID)] executed in 10006 ms
+2026-04-05 16:48:36 DEBUG : Task c0162323-b418-414c-b7ba-f08c35631089 completed successfully
+2026-04-05 16:48:36 INFO  : Method [CompletableFuture com.example.fooddelivery.service.ReportService.createReport(UUID)] executed in 10003 ms
+2026-04-05 16:48:36 DEBUG : Task 130ebb2d-5c66-434d-aff6-68d2cb6a56be completed successfully
+2026-04-05 16:48:36 INFO  : Method [CompletableFuture com.example.fooddelivery.service.ReportService.createReport(UUID)] executed in 10007 ms
+2026-04-05 16:48:37 DEBUG : Task ab1f77d4-def3-4fc1-9d0d-a344c808824a completed successfully
+2026-04-05 16:48:37 INFO  : Method [CompletableFuture com.example.fooddelivery.service.ReportService.createReport(UUID)] executed in 10008 ms
+2026-04-05 16:48:37 DEBUG : Task ea3591b6-ca61-44e6-ba65-4944f247d9ac completed successfully
+2026-04-05 16:48:37 INFO  : Method [CompletableFuture com.example.fooddelivery.service.ReportService.createReport(UUID)] executed in 10008 ms
+2026-04-05 16:48:38 INFO  : request to get status of task 5091ebd5-1bb5-4fa6-b3ca-12ec45e00576

@@ -53,4 +53,12 @@ public class ReportController {
         ));
     }
 
+    @GetMapping("/stats")
+    @Operation(summary = "Получение статистики счетчиков")
+    public ResponseEntity<Map<String, Integer>> getStats() {
+        return ResponseEntity.ok(Map.of(
+                "totalTasks", taskTracker.getTotalTasksCount()
+        ));
+    }
+
 }
