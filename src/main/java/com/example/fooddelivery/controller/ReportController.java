@@ -8,7 +8,11 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Map;
 import java.util.UUID;
@@ -25,8 +29,8 @@ public class ReportController {
     @PostMapping()
     @Operation(
             summary = "Запуск генерации отчета",
-            description = "Создает фоновую задачу на формирование отчета." +
-                    " Возвращает UUID задачи для отслеживания статуса."
+            description = "Создает фоновую задачу на формирование отчета."
+                    + " Возвращает UUID задачи для отслеживания статуса."
     )
     public ResponseEntity<Map<String, UUID>> startReportGeneration() {
         log.info("request to start generation of reports");
@@ -38,8 +42,8 @@ public class ReportController {
     @GetMapping("/status/{taskId}")
     @Operation(
             summary = "Проверка статуса задачи",
-            description = "Позволяет узнать текущее состояние задачи" +
-                    " по её идентификатору (PENDING, IN_PROGRESS, COMPLETED, FAILED)."
+            description = "Позволяет узнать текущее состояние задачи"
+                    + " по её идентификатору (PENDING, IN_PROGRESS, COMPLETED, FAILED)."
     )
     public ResponseEntity<Map<String, String>> getTaskStatus(@PathVariable UUID taskId) {
         log.info("request to get status of task {}", taskId);
