@@ -21,7 +21,7 @@ public class RaceConditionService {
         final int[] unsafeCounter = {0};
         final AtomicInteger atomicCounter = new AtomicInteger(0);
         final int[] syncCounter = {0};
-        final Object lock = new Object(); // Объект, по которому будем синхронизироваться
+        final Object lock = new Object();
 
         ExecutorService executor = Executors.newFixedThreadPool(numberOfThreads);
         CountDownLatch latch = new CountDownLatch(totalExpected);
