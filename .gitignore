@@ -40,3 +40,7 @@ out/
 *.log
 *.jtl
 logs/
+result-110/
+result-200/
+.DS_Store
+.jtl
