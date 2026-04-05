@@ -27,12 +27,18 @@ public class RaceConditionService {
         ExecutorService executor = Executors.newFixedThreadPool(numberOfThreads);
         CountDownLatch latch = new CountDownLatch(totalExpected);
 
+        log.debug("Starting Race Condition Demo. Expected total: {}", totalExpected);
         for (int i = 0; i < totalExpected; i++) {
             executor.submit(() -> {
-                unsafeCounter++;
-                atomicCounter.incrementAndGet();
-                incrementSync();
-                latch.countDown();
+                try {
+                    unsafeCounter++;
+                    atomicCounter.incrementAndGet();
+                    incrementSync();
+                } catch (Exception e) {
+                    log.error("Error: {}", e.getMessage());
+                } finally {
+                    latch.countDown();
+                }
             });
         }
 
