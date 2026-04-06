@@ -90,7 +90,7 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(details, HttpStatus.BAD_REQUEST);
     }
 
-    @ExceptionHandler(IllegalArgumentException.class)
+    @ExceptionHandler(DishHasOrdersException.class)
     public ResponseEntity<ErrorMessage> handleDishHasOrdersException(DishHasOrdersException ex) {
         log.error(ex.getMessage());
         ErrorMessage details = new ErrorMessage(ex.getMessage(), HttpStatus.BAD_REQUEST.value(), LocalDateTime.now());
