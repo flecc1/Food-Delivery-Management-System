@@ -5,10 +5,7 @@ import com.example.fooddelivery.dto.dish.DishDto;
 import com.example.fooddelivery.entity.Category;
 import com.example.fooddelivery.entity.Dish;
 import com.example.fooddelivery.entity.Menu;
-import com.example.fooddelivery.exception.CategoryNotFoundException;
-import com.example.fooddelivery.exception.DishNotFoundException;
-import com.example.fooddelivery.exception.MenuNotFoundException;
-import com.example.fooddelivery.exception.OrderHasDishesException;
+import com.example.fooddelivery.exception.*;
 import com.example.fooddelivery.mapper.DishMapper;
 import com.example.fooddelivery.repository.CategoryRepository;
 import com.example.fooddelivery.repository.DishRepository;
@@ -114,7 +111,7 @@ public class DishService {
         log.debug("check if dish id: {} is part of orders", id);
         if (!orderRepository.findByDishId(id).isEmpty()) {
             log.warn("delete failed: dish id {} is linked to existing orders", id);
-            throw new OrderHasDishesException("Order with id " + id + "has dishes and cannot be delete");
+            throw new DishHasOrdersException("Dish with id " + id + " is linked to orders and cannot be deleted");
         }
         dishRepository.deleteById(id);
         log.info("dish delete successfully with id: {}", id);

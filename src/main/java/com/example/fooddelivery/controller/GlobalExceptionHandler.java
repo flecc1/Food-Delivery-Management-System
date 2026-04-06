@@ -1,11 +1,6 @@
 package com.example.fooddelivery.controller;
 
-import com.example.fooddelivery.exception.CategoryHasDishesException;
-import com.example.fooddelivery.exception.MenuHasDishesException;
-import com.example.fooddelivery.exception.OrderHasDishesException;
-import com.example.fooddelivery.exception.ResourceNotFoundException;
-import com.example.fooddelivery.exception.RestaurantHasOrdersException;
-import com.example.fooddelivery.exception.TransactionTestException;
+import com.example.fooddelivery.exception.*;
 import com.example.fooddelivery.exception.message.ErrorMessage;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -86,5 +81,19 @@ public class GlobalExceptionHandler {
                 LocalDateTime.now()
         );
         return new ResponseEntity<>(details, HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
+    @ExceptionHandler(IllegalArgumentException.class)
+    public ResponseEntity<ErrorMessage> handleIllegalArgumentException(IllegalArgumentException ex) {
+        log.error(ex.getMessage());
+        ErrorMessage details = new ErrorMessage(ex.getMessage(), HttpStatus.BAD_REQUEST.value(), LocalDateTime.now());
+        return new ResponseEntity<>(details, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(IllegalArgumentException.class)
+    public ResponseEntity<ErrorMessage> handleDishHasOrdersException(DishHasOrdersException ex) {
+        log.error(ex.getMessage());
+        ErrorMessage details = new ErrorMessage(ex.getMessage(), HttpStatus.BAD_REQUEST.value(), LocalDateTime.now());
+        return new ResponseEntity<>(details, HttpStatus.BAD_REQUEST);
     }
 }
