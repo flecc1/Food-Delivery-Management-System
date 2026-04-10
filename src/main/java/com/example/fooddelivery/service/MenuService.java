@@ -172,8 +172,8 @@ public class MenuService {
         List<Dish> dishes = dishList.stream()
                 .map(dto -> {
                     if (!dto.getMenuId().equals(menu.getId())) {
-                        throw new DishHasAnotherRestaurantException("you can add dishes only in " +
-                                "menu with id: " + menuId);
+                        throw new DishHasAnotherRestaurantException("you can add dishes only with " +
+                                "menu id: " + menuId);
                     }
 
                     Dish dish = dishMapper.toEntity(dto);

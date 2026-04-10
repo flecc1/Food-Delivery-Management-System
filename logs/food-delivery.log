@@ -3299,3 +3299,26 @@ java.lang.NullPointerException: Cannot invoke "com.example.fooddelivery.entity.R
 2026-04-10 21:58:52 TRACE : binding parameter (2:INTEGER) <- [200]
 2026-04-10 21:58:52 INFO  : dishes found successfully
 2026-04-10 21:58:52 INFO  : Method [Page com.example.fooddelivery.service.DishService.findAllDishes(Pageable)] executed in 5 ms
+2026-04-10 22:01:21 INFO  : request to add some dishes to menu with id: 53
+2026-04-10 22:01:21 DEBUG : try to add dishes(bulk) to exist menu with id: 53
+2026-04-10 22:01:21 TRACE : binding parameter (1:BIGINT) <- [53]
+2026-04-10 22:01:21 TRACE : binding parameter (1:BIGINT) <- [53]
+2026-04-10 22:01:21 TRACE : binding parameter (1:BIGINT) <- [53]
+2026-04-10 22:01:21 TRACE : binding parameter (2:VARCHAR) <- [сахар арбуз вода газированая]
+2026-04-10 22:01:21 TRACE : binding parameter (3:BIGINT) <- [53]
+2026-04-10 22:01:21 TRACE : binding parameter (4:VARCHAR) <- [asdasdad]
+2026-04-10 22:01:21 TRACE : binding parameter (5:DOUBLE) <- [3.0]
+2026-04-10 22:01:21 TRACE : binding parameter (6:BIGINT) <- [752]
+2026-04-10 22:01:21 TRACE : binding parameter (1:BIGINT) <- [53]
+2026-04-10 22:01:21 TRACE : binding parameter (2:VARCHAR) <- [морковь вода сахар соль]
+2026-04-10 22:01:21 TRACE : binding parameter (3:BIGINT) <- [53]
+2026-04-10 22:01:21 TRACE : binding parameter (4:VARCHAR) <- [error]
+2026-04-10 22:01:21 TRACE : binding parameter (5:DOUBLE) <- [3.0]
+2026-04-10 22:01:21 TRACE : binding parameter (6:BIGINT) <- [753]
+2026-04-10 22:01:21 TRACE : binding parameter (1:BIGINT) <- [53]
+2026-04-10 22:01:21 TRACE : binding parameter (2:VARCHAR) <- [виноград вода сахар соль]
+2026-04-10 22:01:21 TRACE : binding parameter (3:BIGINT) <- [53]
+2026-04-10 22:01:21 TRACE : binding parameter (4:VARCHAR) <- [виноградный сок]
+2026-04-10 22:01:21 TRACE : binding parameter (5:DOUBLE) <- [3.0]
+2026-04-10 22:01:21 TRACE : binding parameter (6:BIGINT) <- [754]
+2026-04-10 22:01:21 ERROR : you can add dishes only in menu with id: 53
