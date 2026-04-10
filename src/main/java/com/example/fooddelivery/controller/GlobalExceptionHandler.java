@@ -96,4 +96,11 @@ public class GlobalExceptionHandler {
         ErrorMessage details = new ErrorMessage(ex.getMessage(), HttpStatus.BAD_REQUEST.value(), LocalDateTime.now());
         return new ResponseEntity<>(details, HttpStatus.BAD_REQUEST);
     }
+
+    @ExceptionHandler(DishHasAnotherRestaurantException.class)
+    public ResponseEntity<ErrorMessage> handleDishHasAnotherRestaurantException(DishHasAnotherRestaurantException ex) {
+        log.error(ex.getMessage());
+        ErrorMessage details = new ErrorMessage(ex.getMessage(), HttpStatus.BAD_REQUEST.value(), LocalDateTime.now());
+        return new ResponseEntity<>(details, HttpStatus.BAD_REQUEST);
+    }
 }

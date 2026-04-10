@@ -7,18 +7,10 @@ import com.example.fooddelivery.entity.Category;
 import com.example.fooddelivery.entity.Dish;
 import com.example.fooddelivery.entity.Menu;
 import com.example.fooddelivery.entity.Restaurant;
-import com.example.fooddelivery.exception.CategoryNotFoundException;
-import com.example.fooddelivery.exception.DishNotFoundException;
-import com.example.fooddelivery.exception.MenuHasDishesException;
-import com.example.fooddelivery.exception.MenuNotFoundException;
-import com.example.fooddelivery.exception.RestaurantNotFoundException;
+import com.example.fooddelivery.exception.*;
 import com.example.fooddelivery.mapper.DishMapper;
 import com.example.fooddelivery.mapper.MenuMapper;
-import com.example.fooddelivery.repository.CategoryRepository;
-import com.example.fooddelivery.repository.DishRepository;
-import com.example.fooddelivery.repository.MenuRepository;
-import com.example.fooddelivery.repository.OrderRepository;
-import com.example.fooddelivery.repository.RestaurantRepository;
+import com.example.fooddelivery.repository.*;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -83,7 +75,7 @@ public class MenuService {
         log.debug("try to add menu with name: {}", menuCreateDto.getName());
         Menu menu = menuMapper.toEntity(menuCreateDto);
         menu.setActive(true);
-        log.debug("try to find restaurant with id: {}", menu.getRestaurant().getId());
+        log.debug("try to find restaurant with id: {}", menuCreateDto.getRestaurantId());
         Restaurant restaurant = restaurantRepository.findById(menuCreateDto.getRestaurantId())
                 .orElseThrow(() -> new RestaurantNotFoundException("Restaurant not found with id: "
                         + menuCreateDto.getRestaurantId()));
@@ -139,7 +131,11 @@ public class MenuService {
         Dish dish = dishRepository.findById(dishId)
                 .orElseThrow(() -> new DishNotFoundException("Dish not found with id: " + dishId));
         log.debug("dish found with id: {} successfully", dishId);
-        dish.setMenu(menu);
+        if (dish.getMenu().getRestaurant().getId().equals(menu.getRestaurant().getId())) {
+            dish.setMenu(menu);
+        }
+        else throw new DishHasAnotherRestaurantException("Dish with id " + dishId + " linked to another" +
+                " another restaurant " + dish.getMenu().getRestaurant().getName());
         dishRepository.save(dish);
         log.info("dish with id: {} add to menu with id: {} successfully", dishId, menuId);
         return menuMapper.toDto(menu);
