@@ -85,6 +85,11 @@ public class MenuService {
         if (menuCreateDto.getDishesIds() != null) {
             log.debug("try to link {} dishes to menu", menuCreateDto.getDishesIds().size());
             List<Dish> dishes = dishRepository.findAllById(menuCreateDto.getDishesIds());
+            if (!dishes
+                    .stream()
+                    .allMatch(dish -> dish.getMenu().getRestaurant().getId().equals(restaurant.getId()))) {
+                throw new IllegalArgumentException("you can add dishes only from restaurant " + restaurant.getName());
+            }
             dishes.forEach(dish -> dish.setMenu(menu));
             menu.setDishes(dishes);
             log.debug("dishes set successfully");
@@ -163,10 +168,12 @@ public class MenuService {
         Menu menu = menuRepository.findById(menuId)
                 .orElseThrow(() -> new MenuNotFoundException(MENU_NOT_FOUND_MSG + menuId));
 
+
         List<Dish> dishes = dishList.stream()
                 .map(dto -> {
-                    if (dto.getName().equals("error")) {
-                        throw new DishNotFoundException("error");
+                    if (!dto.getMenuId().equals(menu.getId())) {
+                        throw new DishHasAnotherRestaurantException("you can add dishes only in " +
+                                "menu with id: " + menuId);
                     }
 
                     Dish dish = dishMapper.toEntity(dto);
