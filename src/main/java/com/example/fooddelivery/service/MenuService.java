@@ -7,10 +7,19 @@ import com.example.fooddelivery.entity.Category;
 import com.example.fooddelivery.entity.Dish;
 import com.example.fooddelivery.entity.Menu;
 import com.example.fooddelivery.entity.Restaurant;
-import com.example.fooddelivery.exception.*;
+import com.example.fooddelivery.exception.CategoryNotFoundException;
+import com.example.fooddelivery.exception.DishHasAnotherRestaurantException;
+import com.example.fooddelivery.exception.DishNotFoundException;
+import com.example.fooddelivery.exception.MenuHasDishesException;
+import com.example.fooddelivery.exception.MenuNotFoundException;
+import com.example.fooddelivery.exception.RestaurantNotFoundException;
 import com.example.fooddelivery.mapper.DishMapper;
 import com.example.fooddelivery.mapper.MenuMapper;
-import com.example.fooddelivery.repository.*;
+import com.example.fooddelivery.repository.CategoryRepository;
+import com.example.fooddelivery.repository.DishRepository;
+import com.example.fooddelivery.repository.MenuRepository;
+import com.example.fooddelivery.repository.OrderRepository;
+import com.example.fooddelivery.repository.RestaurantRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -138,9 +147,10 @@ public class MenuService {
         log.debug("dish found with id: {} successfully", dishId);
         if (dish.getMenu().getRestaurant().getId().equals(menu.getRestaurant().getId())) {
             dish.setMenu(menu);
+        } else {
+            throw new DishHasAnotherRestaurantException("Dish with id " + dishId + " linked to another"
+                    + " another restaurant " + dish.getMenu().getRestaurant().getName());
         }
-        else throw new DishHasAnotherRestaurantException("Dish with id " + dishId + " linked to another" +
-                " another restaurant " + dish.getMenu().getRestaurant().getName());
         dishRepository.save(dish);
         log.info("dish with id: {} add to menu with id: {} successfully", dishId, menuId);
         return menuMapper.toDto(menu);
@@ -172,8 +182,8 @@ public class MenuService {
         List<Dish> dishes = dishList.stream()
                 .map(dto -> {
                     if (!dto.getMenuId().equals(menu.getId())) {
-                        throw new DishHasAnotherRestaurantException("you can add dishes only with " +
-                                "menu id: " + menuId);
+                        throw new DishHasAnotherRestaurantException("you can add dishes only with "
+                                + "menu id: " + menuId);
                     }
 
                     Dish dish = dishMapper.toEntity(dto);
