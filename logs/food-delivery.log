@@ -6270,3 +6270,1306 @@
 2026-04-15 22:57:57 WARN  : HHH90003004: firstResult/maxResults specified with collection fetch; applying in memory
 2026-04-15 22:57:57 INFO  : all menus found successfully
 2026-04-15 22:57:57 INFO  : Method [Page com.example.fooddelivery.service.MenuService.findAllMenus(Pageable)] executed in 3 ms
+2026-04-16 13:33:56 INFO  : Starting Laba1Application using Java 25.0.2 with PID 49805 (/Users/egorleskovskey/java/laba1/build/classes/java/main started by egorleskovskey in /Users/egorleskovskey/java/laba1)
+2026-04-16 13:33:56 DEBUG : Running with Spring Boot v4.0.2, Spring v7.0.3
+2026-04-16 13:33:56 INFO  : No active profile set, falling back to 1 default profile: "default"
+2026-04-16 13:33:56 INFO  : HV000001: Hibernate Validator 9.0.1.Final
+2026-04-16 13:33:56 INFO  : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-16 13:33:56 INFO  : Finished Spring Data repository scanning in 29 ms. Found 6 JPA repository interfaces.
+2026-04-16 13:33:57 INFO  : Tomcat initialized with port 8080 (http)
+2026-04-16 13:33:57 INFO  : Initializing ProtocolHandler ["http-nio-8080"]
+2026-04-16 13:33:57 INFO  : Starting service [Tomcat]
+2026-04-16 13:33:57 INFO  : Starting Servlet engine: [Apache Tomcat/11.0.15]
+2026-04-16 13:33:57 INFO  : Root WebApplicationContext: initialization completed in 833 ms
+2026-04-16 13:33:57 INFO  : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-04-16 13:33:57 INFO  : HHH000001: Hibernate ORM core version 7.2.1.Final
+2026-04-16 13:33:57 INFO  : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-16 13:33:57 INFO  : HikariPool-1 - Starting...
+2026-04-16 13:33:57 INFO  : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@4be3de36
+2026-04-16 13:33:57 INFO  : HikariPool-1 - Start completed.
+2026-04-16 13:33:57 WARN  : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-04-16 13:33:57 INFO  : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/postgres]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.2
+	Default catalog/schema: postgres/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-04-16 13:33:58 INFO  : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-16 13:33:58 WARN  : HHH000247: ErrorCode: 0, SQLState: 00000
+2026-04-16 13:33:58 WARN  : drop cascades to 3 other objects
+2026-04-16 13:33:58 INFO  : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-16 13:33:58 INFO  : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-04-16 13:33:59 WARN  : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-16 13:33:59 INFO  : Starting ProtocolHandler ["http-nio-8080"]
+2026-04-16 13:33:59 INFO  : Tomcat started on port 8080 (http) with context path '/'
+2026-04-16 13:33:59 INFO  : Started Laba1Application in 3.218 seconds (process running for 3.495)
+2026-04-16 13:33:59 WARN  : SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-04-16 13:33:59 WARN  : SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+2026-04-16 13:34:13 INFO  : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-16 13:34:13 INFO  : Initializing Servlet 'dispatcherServlet'
+2026-04-16 13:34:13 INFO  : Completed initialization in 2 ms
+2026-04-16 13:34:13 INFO  : request to get all restaurants page: 0, size: 1
+2026-04-16 13:34:13 INFO  : request to get Orders by lastName null, page: 0, size: 8
+2026-04-16 13:34:13 INFO  : request to get categories with page 0 and size 1
+2026-04-16 13:34:13 INFO  : request for getAllCustomers with first name null, last name: null
+2026-04-16 13:34:13 INFO  : request to get all dishes for page: 0 and size: 1
+2026-04-16 13:34:13 INFO  : request to getAllMenus with name: null, page: 0, size: 1
+2026-04-16 13:34:13 DEBUG : try find orders by users last name: null
+2026-04-16 13:34:13 DEBUG : try to find all categories
+2026-04-16 13:34:13 DEBUG : try to all getRestaurants
+2026-04-16 13:34:13 DEBUG : try find all menus
+2026-04-16 13:34:13 DEBUG : try find all customers
+2026-04-16 13:34:13 DEBUG : check cache for key (lastName: OrderCacheKey[lastName=null, page=0, size=8, sort=createdAt: DESC], page number: 0, page size: 8)
+2026-04-16 13:34:13 INFO  : fetching orders from data base
+2026-04-16 13:34:13 DEBUG : request contains last name: null
+2026-04-16 13:34:13 DEBUG : fetching all orders from data base
+2026-04-16 13:34:13 DEBUG : try find all dishes
+2026-04-16 13:34:13 WARN  : HHH90003004: firstResult/maxResults specified with collection fetch; applying in memory
+2026-04-16 13:34:13 WARN  : HHH90003004: firstResult/maxResults specified with collection fetch; applying in memory
+2026-04-16 13:34:13 WARN  : HHH90003004: firstResult/maxResults specified with collection fetch; applying in memory
+2026-04-16 13:34:13 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 13:34:13 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 13:34:13 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 13:34:13 TRACE : binding parameter (2:INTEGER) <- [1]
+2026-04-16 13:34:13 TRACE : binding parameter (2:INTEGER) <- [1]
+2026-04-16 13:34:13 TRACE : binding parameter (2:INTEGER) <- [1]
+2026-04-16 13:34:13 INFO  : dishes found successfully
+2026-04-16 13:34:13 INFO  : Method [Page com.example.fooddelivery.service.DishService.findAllDishes(Pageable)] executed in 82 ms
+2026-04-16 13:34:13 INFO  : all customers found successfully
+2026-04-16 13:34:13 INFO  : Method [Page com.example.fooddelivery.service.CustomerService.getCustomers(Pageable)] executed in 90 ms
+2026-04-16 13:34:13 INFO  : all restaurants found successfully
+2026-04-16 13:34:13 INFO  : found all categories successfully
+2026-04-16 13:34:13 INFO  : Method [Page com.example.fooddelivery.service.RestaurantService.getRestaurants(Pageable)] executed in 91 ms
+2026-04-16 13:34:13 INFO  : Method [Page com.example.fooddelivery.service.CategoryService.getAllCategories(Pageable)] executed in 91 ms
+2026-04-16 13:34:13 INFO  : all menus found successfully
+2026-04-16 13:34:13 INFO  : Method [Page com.example.fooddelivery.service.MenuService.findAllMenus(Pageable)] executed in 91 ms
+2026-04-16 13:34:13 INFO  : save to cache successfully
+2026-04-16 13:34:13 INFO  : Method [Page com.example.fooddelivery.service.OrderService.getOrders(String,Pageable)] executed in 91 ms
+2026-04-16 13:34:13 WARN  : Serializing PageImpl instances as-is is not supported, meaning that there is no guarantee about the stability of the resulting JSON structure!
+	For a stable JSON structure, please use Spring Data's PagedModel (globally via @EnableSpringDataWebSupport(pageSerializationMode = VIA_DTO))
+	or Spring HATEOAS and Spring Data's PagedResourcesAssembler as documented in https://docs.spring.io/spring-data/commons/reference/repositories/core-extensions.html#core.web.pageables.
+
+2026-04-16 13:34:13 WARN  : Serializing PageImpl instances as-is is not supported, meaning that there is no guarantee about the stability of the resulting JSON structure!
+	For a stable JSON structure, please use Spring Data's PagedModel (globally via @EnableSpringDataWebSupport(pageSerializationMode = VIA_DTO))
+	or Spring HATEOAS and Spring Data's PagedResourcesAssembler as documented in https://docs.spring.io/spring-data/commons/reference/repositories/core-extensions.html#core.web.pageables.
+
+2026-04-16 13:34:13 WARN  : Serializing PageImpl instances as-is is not supported, meaning that there is no guarantee about the stability of the resulting JSON structure!
+	For a stable JSON structure, please use Spring Data's PagedModel (globally via @EnableSpringDataWebSupport(pageSerializationMode = VIA_DTO))
+	or Spring HATEOAS and Spring Data's PagedResourcesAssembler as documented in https://docs.spring.io/spring-data/commons/reference/repositories/core-extensions.html#core.web.pageables.
+
+2026-04-16 13:34:13 INFO  : request to get categories with page 0 and size 1
+2026-04-16 13:34:13 DEBUG : try to find all categories
+2026-04-16 13:34:13 INFO  : request to getAllMenus with name: null, page: 0, size: 1
+2026-04-16 13:34:13 DEBUG : try find all menus
+2026-04-16 13:34:13 WARN  : HHH90003004: firstResult/maxResults specified with collection fetch; applying in memory
+2026-04-16 13:34:13 WARN  : HHH90003004: firstResult/maxResults specified with collection fetch; applying in memory
+2026-04-16 13:34:13 INFO  : request to get all dishes for page: 0 and size: 1
+2026-04-16 13:34:13 DEBUG : try find all dishes
+2026-04-16 13:34:13 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 13:34:13 TRACE : binding parameter (2:INTEGER) <- [1]
+2026-04-16 13:34:13 INFO  : request for getAllCustomers with first name null, last name: null
+2026-04-16 13:34:13 DEBUG : try find all customers
+2026-04-16 13:34:13 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 13:34:13 TRACE : binding parameter (2:INTEGER) <- [1]
+2026-04-16 13:34:13 INFO  : request to get Orders by lastName null, page: 0, size: 8
+2026-04-16 13:34:13 DEBUG : try find orders by users last name: null
+2026-04-16 13:34:13 DEBUG : check cache for key (lastName: OrderCacheKey[lastName=null, page=0, size=8, sort=createdAt: DESC], page number: 0, page size: 8)
+2026-04-16 13:34:13 INFO  : cache: return from HashMap
+2026-04-16 13:34:13 INFO  : Method [Page com.example.fooddelivery.service.OrderService.getOrders(String,Pageable)] executed in 0 ms
+2026-04-16 13:34:13 INFO  : request to get all restaurants page: 0, size: 1
+2026-04-16 13:34:13 DEBUG : try to all getRestaurants
+2026-04-16 13:34:13 INFO  : found all categories successfully
+2026-04-16 13:34:13 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 13:34:13 INFO  : Method [Page com.example.fooddelivery.service.CategoryService.getAllCategories(Pageable)] executed in 9 ms
+2026-04-16 13:34:13 TRACE : binding parameter (2:INTEGER) <- [1]
+2026-04-16 13:34:13 INFO  : dishes found successfully
+2026-04-16 13:34:13 INFO  : Method [Page com.example.fooddelivery.service.DishService.findAllDishes(Pageable)] executed in 9 ms
+2026-04-16 13:34:13 INFO  : all customers found successfully
+2026-04-16 13:34:13 INFO  : Method [Page com.example.fooddelivery.service.CustomerService.getCustomers(Pageable)] executed in 5 ms
+2026-04-16 13:34:13 INFO  : all menus found successfully
+2026-04-16 13:34:13 INFO  : Method [Page com.example.fooddelivery.service.MenuService.findAllMenus(Pageable)] executed in 11 ms
+2026-04-16 13:34:13 INFO  : all restaurants found successfully
+2026-04-16 13:34:13 INFO  : Method [Page com.example.fooddelivery.service.RestaurantService.getRestaurants(Pageable)] executed in 7 ms
+2026-04-16 13:35:16 INFO  : request to getAllMenus with name: null, page: 0, size: 12
+2026-04-16 13:35:16 INFO  : request to get all restaurants page: 0, size: 100
+2026-04-16 13:35:16 DEBUG : try find all menus
+2026-04-16 13:35:16 DEBUG : try to all getRestaurants
+2026-04-16 13:35:16 WARN  : HHH90003004: firstResult/maxResults specified with collection fetch; applying in memory
+2026-04-16 13:35:16 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 13:35:16 TRACE : binding parameter (2:INTEGER) <- [100]
+2026-04-16 13:35:16 INFO  : all restaurants found successfully
+2026-04-16 13:35:16 INFO  : Method [Page com.example.fooddelivery.service.RestaurantService.getRestaurants(Pageable)] executed in 14 ms
+2026-04-16 13:35:16 INFO  : all menus found successfully
+2026-04-16 13:35:16 INFO  : Method [Page com.example.fooddelivery.service.MenuService.findAllMenus(Pageable)] executed in 15 ms
+2026-04-16 13:35:16 INFO  : request to getAllMenus with name: null, page: 0, size: 12
+2026-04-16 13:35:16 INFO  : request to get all restaurants page: 0, size: 100
+2026-04-16 13:35:16 DEBUG : try find all menus
+2026-04-16 13:35:16 DEBUG : try to all getRestaurants
+2026-04-16 13:35:16 WARN  : HHH90003004: firstResult/maxResults specified with collection fetch; applying in memory
+2026-04-16 13:35:16 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 13:35:16 TRACE : binding parameter (2:INTEGER) <- [100]
+2026-04-16 13:35:16 INFO  : all restaurants found successfully
+2026-04-16 13:35:16 INFO  : Method [Page com.example.fooddelivery.service.RestaurantService.getRestaurants(Pageable)] executed in 3 ms
+2026-04-16 13:35:16 INFO  : all menus found successfully
+2026-04-16 13:35:16 INFO  : Method [Page com.example.fooddelivery.service.MenuService.findAllMenus(Pageable)] executed in 7 ms
+2026-04-16 13:35:17 INFO  : request to get all dishes for page: 0 and size: 10
+2026-04-16 13:35:17 DEBUG : try find all dishes
+2026-04-16 13:35:17 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 13:35:17 TRACE : binding parameter (2:INTEGER) <- [10]
+2026-04-16 13:35:17 INFO  : dishes found successfully
+2026-04-16 13:35:17 INFO  : Method [Page com.example.fooddelivery.service.DishService.findAllDishes(Pageable)] executed in 6 ms
+2026-04-16 13:35:17 INFO  : request to get all dishes for page: 0 and size: 10
+2026-04-16 13:35:17 DEBUG : try find all dishes
+2026-04-16 13:35:17 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 13:35:17 TRACE : binding parameter (2:INTEGER) <- [10]
+2026-04-16 13:35:17 INFO  : dishes found successfully
+2026-04-16 13:35:17 INFO  : Method [Page com.example.fooddelivery.service.DishService.findAllDishes(Pageable)] executed in 8 ms
+2026-04-16 13:35:17 INFO  : request to get categories with page 0 and size 12
+2026-04-16 13:35:17 DEBUG : try to find all categories
+2026-04-16 13:35:17 WARN  : HHH90003004: firstResult/maxResults specified with collection fetch; applying in memory
+2026-04-16 13:35:17 INFO  : found all categories successfully
+2026-04-16 13:35:17 INFO  : Method [Page com.example.fooddelivery.service.CategoryService.getAllCategories(Pageable)] executed in 5 ms
+2026-04-16 13:35:17 INFO  : request to get categories with page 0 and size 12
+2026-04-16 13:35:17 DEBUG : try to find all categories
+2026-04-16 13:35:17 WARN  : HHH90003004: firstResult/maxResults specified with collection fetch; applying in memory
+2026-04-16 13:35:17 INFO  : found all categories successfully
+2026-04-16 13:35:17 INFO  : Method [Page com.example.fooddelivery.service.CategoryService.getAllCategories(Pageable)] executed in 4 ms
+2026-04-16 13:35:18 INFO  : request for getAllCustomers with first name null, last name: null
+2026-04-16 13:35:18 DEBUG : try find all customers
+2026-04-16 13:35:18 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 13:35:18 TRACE : binding parameter (2:INTEGER) <- [10]
+2026-04-16 13:35:18 INFO  : all customers found successfully
+2026-04-16 13:35:18 INFO  : Method [Page com.example.fooddelivery.service.CustomerService.getCustomers(Pageable)] executed in 8 ms
+2026-04-16 13:35:18 INFO  : request for getAllCustomers with first name null, last name: null
+2026-04-16 13:35:18 DEBUG : try find all customers
+2026-04-16 13:35:18 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 13:35:18 TRACE : binding parameter (2:INTEGER) <- [10]
+2026-04-16 13:35:18 INFO  : all customers found successfully
+2026-04-16 13:35:18 INFO  : Method [Page com.example.fooddelivery.service.CustomerService.getCustomers(Pageable)] executed in 5 ms
+2026-04-16 13:35:20 INFO  : request to get all restaurants page: 0, size: 10
+2026-04-16 13:35:20 DEBUG : try to all getRestaurants
+2026-04-16 13:35:20 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 13:35:20 TRACE : binding parameter (2:INTEGER) <- [10]
+2026-04-16 13:35:20 INFO  : all restaurants found successfully
+2026-04-16 13:35:20 INFO  : Method [Page com.example.fooddelivery.service.RestaurantService.getRestaurants(Pageable)] executed in 3 ms
+2026-04-16 13:35:20 INFO  : request to get all restaurants page: 0, size: 10
+2026-04-16 13:35:20 DEBUG : try to all getRestaurants
+2026-04-16 13:35:20 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 13:35:20 TRACE : binding parameter (2:INTEGER) <- [10]
+2026-04-16 13:35:20 INFO  : all restaurants found successfully
+2026-04-16 13:35:20 INFO  : Method [Page com.example.fooddelivery.service.RestaurantService.getRestaurants(Pageable)] executed in 5 ms
+2026-04-16 13:35:21 INFO  : request to get Orders by lastName null, page: 0, size: 10
+2026-04-16 13:35:21 DEBUG : try find orders by users last name: null
+2026-04-16 13:35:21 DEBUG : check cache for key (lastName: OrderCacheKey[lastName=null, page=0, size=10, sort=createdAt: DESC], page number: 0, page size: 10)
+2026-04-16 13:35:21 INFO  : fetching orders from data base
+2026-04-16 13:35:21 DEBUG : request contains last name: null
+2026-04-16 13:35:21 DEBUG : fetching all orders from data base
+2026-04-16 13:35:21 WARN  : HHH90003004: firstResult/maxResults specified with collection fetch; applying in memory
+2026-04-16 13:35:21 INFO  : save to cache successfully
+2026-04-16 13:35:21 INFO  : Method [Page com.example.fooddelivery.service.OrderService.getOrders(String,Pageable)] executed in 13 ms
+2026-04-16 13:35:21 INFO  : request to get Orders by lastName null, page: 0, size: 10
+2026-04-16 13:35:21 DEBUG : try find orders by users last name: null
+2026-04-16 13:35:21 DEBUG : check cache for key (lastName: OrderCacheKey[lastName=null, page=0, size=10, sort=createdAt: DESC], page number: 0, page size: 10)
+2026-04-16 13:35:21 INFO  : cache: return from HashMap
+2026-04-16 13:35:21 INFO  : Method [Page com.example.fooddelivery.service.OrderService.getOrders(String,Pageable)] executed in 0 ms
+2026-04-16 13:42:04 INFO  : request to get Orders by lastName null, page: 0, size: 8
+2026-04-16 13:42:04 INFO  : request to get all restaurants page: 0, size: 1
+2026-04-16 13:42:04 INFO  : request to get all dishes for page: 0 and size: 1
+2026-04-16 13:42:04 INFO  : request for getAllCustomers with first name null, last name: null
+2026-04-16 13:42:04 INFO  : request to getAllMenus with name: null, page: 0, size: 1
+2026-04-16 13:42:04 INFO  : request to get categories with page 0 and size 1
+2026-04-16 13:42:04 DEBUG : try find all customers
+2026-04-16 13:42:04 DEBUG : try to all getRestaurants
+2026-04-16 13:42:04 DEBUG : try find all menus
+2026-04-16 13:42:04 DEBUG : try to find all categories
+2026-04-16 13:42:04 DEBUG : try find orders by users last name: null
+2026-04-16 13:42:04 DEBUG : check cache for key (lastName: OrderCacheKey[lastName=null, page=0, size=8, sort=createdAt: DESC], page number: 0, page size: 8)
+2026-04-16 13:42:04 INFO  : cache: return from HashMap
+2026-04-16 13:42:04 DEBUG : try find all dishes
+2026-04-16 13:42:04 INFO  : Method [Page com.example.fooddelivery.service.OrderService.getOrders(String,Pageable)] executed in 1 ms
+2026-04-16 13:42:04 WARN  : HHH90003004: firstResult/maxResults specified with collection fetch; applying in memory
+2026-04-16 13:42:04 WARN  : HHH90003004: firstResult/maxResults specified with collection fetch; applying in memory
+2026-04-16 13:42:04 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 13:42:04 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 13:42:04 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 13:42:04 TRACE : binding parameter (2:INTEGER) <- [1]
+2026-04-16 13:42:04 TRACE : binding parameter (2:INTEGER) <- [1]
+2026-04-16 13:42:04 TRACE : binding parameter (2:INTEGER) <- [1]
+2026-04-16 13:42:04 INFO  : dishes found successfully
+2026-04-16 13:42:04 INFO  : all restaurants found successfully
+2026-04-16 13:42:04 INFO  : Method [Page com.example.fooddelivery.service.DishService.findAllDishes(Pageable)] executed in 10 ms
+2026-04-16 13:42:04 INFO  : Method [Page com.example.fooddelivery.service.RestaurantService.getRestaurants(Pageable)] executed in 11 ms
+2026-04-16 13:42:04 INFO  : all menus found successfully
+2026-04-16 13:42:04 INFO  : Method [Page com.example.fooddelivery.service.MenuService.findAllMenus(Pageable)] executed in 12 ms
+2026-04-16 13:42:04 INFO  : all customers found successfully
+2026-04-16 13:42:04 INFO  : Method [Page com.example.fooddelivery.service.CustomerService.getCustomers(Pageable)] executed in 13 ms
+2026-04-16 13:42:04 INFO  : found all categories successfully
+2026-04-16 13:42:04 INFO  : Method [Page com.example.fooddelivery.service.CategoryService.getAllCategories(Pageable)] executed in 14 ms
+2026-04-16 13:42:04 INFO  : request to get Orders by lastName null, page: 0, size: 8
+2026-04-16 13:42:04 DEBUG : try find orders by users last name: null
+2026-04-16 13:42:04 DEBUG : check cache for key (lastName: OrderCacheKey[lastName=null, page=0, size=8, sort=createdAt: DESC], page number: 0, page size: 8)
+2026-04-16 13:42:04 INFO  : cache: return from HashMap
+2026-04-16 13:42:04 INFO  : Method [Page com.example.fooddelivery.service.OrderService.getOrders(String,Pageable)] executed in 0 ms
+2026-04-16 13:42:04 INFO  : request to get all dishes for page: 0 and size: 1
+2026-04-16 13:42:04 DEBUG : try find all dishes
+2026-04-16 13:42:04 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 13:42:04 TRACE : binding parameter (2:INTEGER) <- [1]
+2026-04-16 13:42:04 INFO  : request to get all restaurants page: 0, size: 1
+2026-04-16 13:42:04 DEBUG : try to all getRestaurants
+2026-04-16 13:42:04 INFO  : request to getAllMenus with name: null, page: 0, size: 1
+2026-04-16 13:42:04 DEBUG : try find all menus
+2026-04-16 13:42:04 WARN  : HHH90003004: firstResult/maxResults specified with collection fetch; applying in memory
+2026-04-16 13:42:04 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 13:42:04 TRACE : binding parameter (2:INTEGER) <- [1]
+2026-04-16 13:42:04 INFO  : dishes found successfully
+2026-04-16 13:42:04 INFO  : Method [Page com.example.fooddelivery.service.DishService.findAllDishes(Pageable)] executed in 5 ms
+2026-04-16 13:42:04 INFO  : request for getAllCustomers with first name null, last name: null
+2026-04-16 13:42:04 DEBUG : try find all customers
+2026-04-16 13:42:04 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 13:42:04 TRACE : binding parameter (2:INTEGER) <- [1]
+2026-04-16 13:42:04 INFO  : all restaurants found successfully
+2026-04-16 13:42:04 INFO  : Method [Page com.example.fooddelivery.service.RestaurantService.getRestaurants(Pageable)] executed in 4 ms
+2026-04-16 13:42:04 INFO  : request to get categories with page 0 and size 1
+2026-04-16 13:42:04 DEBUG : try to find all categories
+2026-04-16 13:42:04 INFO  : all customers found successfully
+2026-04-16 13:42:04 WARN  : HHH90003004: firstResult/maxResults specified with collection fetch; applying in memory
+2026-04-16 13:42:04 INFO  : Method [Page com.example.fooddelivery.service.CustomerService.getCustomers(Pageable)] executed in 4 ms
+2026-04-16 13:42:04 INFO  : all menus found successfully
+2026-04-16 13:42:04 INFO  : Method [Page com.example.fooddelivery.service.MenuService.findAllMenus(Pageable)] executed in 6 ms
+2026-04-16 13:42:04 INFO  : found all categories successfully
+2026-04-16 13:42:04 INFO  : Method [Page com.example.fooddelivery.service.CategoryService.getAllCategories(Pageable)] executed in 4 ms
+2026-04-16 13:42:05 INFO  : request to get all restaurants page: 0, size: 10
+2026-04-16 13:42:05 DEBUG : try to all getRestaurants
+2026-04-16 13:42:05 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 13:42:05 TRACE : binding parameter (2:INTEGER) <- [10]
+2026-04-16 13:42:05 INFO  : all restaurants found successfully
+2026-04-16 13:42:05 INFO  : Method [Page com.example.fooddelivery.service.RestaurantService.getRestaurants(Pageable)] executed in 2 ms
+2026-04-16 13:42:05 INFO  : request to get all restaurants page: 0, size: 10
+2026-04-16 13:42:05 DEBUG : try to all getRestaurants
+2026-04-16 13:42:05 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 13:42:05 TRACE : binding parameter (2:INTEGER) <- [10]
+2026-04-16 13:42:05 INFO  : all restaurants found successfully
+2026-04-16 13:42:05 INFO  : Method [Page com.example.fooddelivery.service.RestaurantService.getRestaurants(Pageable)] executed in 2 ms
+2026-04-16 13:42:05 INFO  : request to getAllMenus with name: null, page: 0, size: 12
+2026-04-16 13:42:05 INFO  : request to get all restaurants page: 0, size: 100
+2026-04-16 13:42:05 DEBUG : try find all menus
+2026-04-16 13:42:05 DEBUG : try to all getRestaurants
+2026-04-16 13:42:05 WARN  : HHH90003004: firstResult/maxResults specified with collection fetch; applying in memory
+2026-04-16 13:42:05 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 13:42:05 TRACE : binding parameter (2:INTEGER) <- [100]
+2026-04-16 13:42:05 INFO  : all restaurants found successfully
+2026-04-16 13:42:05 INFO  : Method [Page com.example.fooddelivery.service.RestaurantService.getRestaurants(Pageable)] executed in 3 ms
+2026-04-16 13:42:05 INFO  : all menus found successfully
+2026-04-16 13:42:05 INFO  : Method [Page com.example.fooddelivery.service.MenuService.findAllMenus(Pageable)] executed in 4 ms
+2026-04-16 13:42:05 INFO  : request to get all restaurants page: 0, size: 100
+2026-04-16 13:42:05 DEBUG : try to all getRestaurants
+2026-04-16 13:42:05 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 13:42:05 TRACE : binding parameter (2:INTEGER) <- [100]
+2026-04-16 13:42:05 INFO  : request to getAllMenus with name: null, page: 0, size: 12
+2026-04-16 13:42:05 DEBUG : try find all menus
+2026-04-16 13:42:05 INFO  : all restaurants found successfully
+2026-04-16 13:42:05 INFO  : Method [Page com.example.fooddelivery.service.RestaurantService.getRestaurants(Pageable)] executed in 2 ms
+2026-04-16 13:42:05 WARN  : HHH90003004: firstResult/maxResults specified with collection fetch; applying in memory
+2026-04-16 13:42:05 INFO  : all menus found successfully
+2026-04-16 13:42:05 INFO  : Method [Page com.example.fooddelivery.service.MenuService.findAllMenus(Pageable)] executed in 3 ms
+2026-04-16 13:42:06 INFO  : request to get all dishes for page: 0 and size: 10
+2026-04-16 13:42:06 DEBUG : try find all dishes
+2026-04-16 13:42:06 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 13:42:06 TRACE : binding parameter (2:INTEGER) <- [10]
+2026-04-16 13:42:06 INFO  : dishes found successfully
+2026-04-16 13:42:06 INFO  : Method [Page com.example.fooddelivery.service.DishService.findAllDishes(Pageable)] executed in 4 ms
+2026-04-16 13:42:06 INFO  : request to get all dishes for page: 0 and size: 10
+2026-04-16 13:42:06 DEBUG : try find all dishes
+2026-04-16 13:42:06 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 13:42:06 TRACE : binding parameter (2:INTEGER) <- [10]
+2026-04-16 13:42:06 INFO  : dishes found successfully
+2026-04-16 13:42:06 INFO  : Method [Page com.example.fooddelivery.service.DishService.findAllDishes(Pageable)] executed in 4 ms
+2026-04-16 13:42:06 INFO  : request to get categories with page 0 and size 12
+2026-04-16 13:42:06 DEBUG : try to find all categories
+2026-04-16 13:42:06 WARN  : HHH90003004: firstResult/maxResults specified with collection fetch; applying in memory
+2026-04-16 13:42:06 INFO  : found all categories successfully
+2026-04-16 13:42:06 INFO  : Method [Page com.example.fooddelivery.service.CategoryService.getAllCategories(Pageable)] executed in 4 ms
+2026-04-16 13:42:06 INFO  : request to get categories with page 0 and size 12
+2026-04-16 13:42:06 DEBUG : try to find all categories
+2026-04-16 13:42:06 WARN  : HHH90003004: firstResult/maxResults specified with collection fetch; applying in memory
+2026-04-16 13:42:06 INFO  : found all categories successfully
+2026-04-16 13:42:06 INFO  : Method [Page com.example.fooddelivery.service.CategoryService.getAllCategories(Pageable)] executed in 4 ms
+2026-04-16 13:42:07 INFO  : request to get categories with page 0 and size 1
+2026-04-16 13:42:07 DEBUG : try to find all categories
+2026-04-16 13:42:07 INFO  : request to get all restaurants page: 0, size: 1
+2026-04-16 13:42:07 INFO  : request to get all dishes for page: 0 and size: 1
+2026-04-16 13:42:07 DEBUG : try to all getRestaurants
+2026-04-16 13:42:07 DEBUG : try find all dishes
+2026-04-16 13:42:07 INFO  : request to get Orders by lastName null, page: 0, size: 8
+2026-04-16 13:42:07 DEBUG : try find orders by users last name: null
+2026-04-16 13:42:07 DEBUG : check cache for key (lastName: OrderCacheKey[lastName=null, page=0, size=8, sort=createdAt: DESC], page number: 0, page size: 8)
+2026-04-16 13:42:07 INFO  : cache: return from HashMap
+2026-04-16 13:42:07 INFO  : Method [Page com.example.fooddelivery.service.OrderService.getOrders(String,Pageable)] executed in 0 ms
+2026-04-16 13:42:07 INFO  : request to getAllMenus with name: null, page: 0, size: 1
+2026-04-16 13:42:07 WARN  : HHH90003004: firstResult/maxResults specified with collection fetch; applying in memory
+2026-04-16 13:42:07 INFO  : request for getAllCustomers with first name null, last name: null
+2026-04-16 13:42:07 DEBUG : try find all customers
+2026-04-16 13:42:07 DEBUG : try find all menus
+2026-04-16 13:42:07 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 13:42:07 TRACE : binding parameter (2:INTEGER) <- [1]
+2026-04-16 13:42:07 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 13:42:07 TRACE : binding parameter (2:INTEGER) <- [1]
+2026-04-16 13:42:07 WARN  : HHH90003004: firstResult/maxResults specified with collection fetch; applying in memory
+2026-04-16 13:42:07 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 13:42:07 TRACE : binding parameter (2:INTEGER) <- [1]
+2026-04-16 13:42:07 INFO  : dishes found successfully
+2026-04-16 13:42:07 INFO  : Method [Page com.example.fooddelivery.service.DishService.findAllDishes(Pageable)] executed in 5 ms
+2026-04-16 13:42:07 INFO  : all customers found successfully
+2026-04-16 13:42:07 INFO  : Method [Page com.example.fooddelivery.service.CustomerService.getCustomers(Pageable)] executed in 4 ms
+2026-04-16 13:42:07 INFO  : all restaurants found successfully
+2026-04-16 13:42:07 INFO  : Method [Page com.example.fooddelivery.service.RestaurantService.getRestaurants(Pageable)] executed in 5 ms
+2026-04-16 13:42:07 INFO  : found all categories successfully
+2026-04-16 13:42:07 INFO  : Method [Page com.example.fooddelivery.service.CategoryService.getAllCategories(Pageable)] executed in 7 ms
+2026-04-16 13:42:07 INFO  : all menus found successfully
+2026-04-16 13:42:07 INFO  : Method [Page com.example.fooddelivery.service.MenuService.findAllMenus(Pageable)] executed in 5 ms
+2026-04-16 13:42:07 INFO  : request to get Orders by lastName null, page: 0, size: 8
+2026-04-16 13:42:07 DEBUG : try find orders by users last name: null
+2026-04-16 13:42:07 DEBUG : check cache for key (lastName: OrderCacheKey[lastName=null, page=0, size=8, sort=createdAt: DESC], page number: 0, page size: 8)
+2026-04-16 13:42:07 INFO  : cache: return from HashMap
+2026-04-16 13:42:07 INFO  : Method [Page com.example.fooddelivery.service.OrderService.getOrders(String,Pageable)] executed in 0 ms
+2026-04-16 13:42:07 INFO  : request for getAllCustomers with first name null, last name: null
+2026-04-16 13:42:07 INFO  : request to get all dishes for page: 0 and size: 1
+2026-04-16 13:42:07 DEBUG : try find all customers
+2026-04-16 13:42:07 DEBUG : try find all dishes
+2026-04-16 13:42:07 INFO  : request to get all restaurants page: 0, size: 1
+2026-04-16 13:42:07 DEBUG : try to all getRestaurants
+2026-04-16 13:42:07 INFO  : request to getAllMenus with name: null, page: 0, size: 1
+2026-04-16 13:42:07 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 13:42:07 DEBUG : try find all menus
+2026-04-16 13:42:07 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 13:42:07 TRACE : binding parameter (2:INTEGER) <- [1]
+2026-04-16 13:42:07 TRACE : binding parameter (2:INTEGER) <- [1]
+2026-04-16 13:42:07 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 13:42:07 TRACE : binding parameter (2:INTEGER) <- [1]
+2026-04-16 13:42:07 INFO  : request to get categories with page 0 and size 1
+2026-04-16 13:42:07 DEBUG : try to find all categories
+2026-04-16 13:42:07 WARN  : HHH90003004: firstResult/maxResults specified with collection fetch; applying in memory
+2026-04-16 13:42:07 WARN  : HHH90003004: firstResult/maxResults specified with collection fetch; applying in memory
+2026-04-16 13:42:07 INFO  : all customers found successfully
+2026-04-16 13:42:07 INFO  : Method [Page com.example.fooddelivery.service.CustomerService.getCustomers(Pageable)] executed in 4 ms
+2026-04-16 13:42:07 INFO  : all restaurants found successfully
+2026-04-16 13:42:07 INFO  : Method [Page com.example.fooddelivery.service.RestaurantService.getRestaurants(Pageable)] executed in 3 ms
+2026-04-16 13:42:07 INFO  : dishes found successfully
+2026-04-16 13:42:07 INFO  : Method [Page com.example.fooddelivery.service.DishService.findAllDishes(Pageable)] executed in 5 ms
+2026-04-16 13:42:07 INFO  : found all categories successfully
+2026-04-16 13:42:07 INFO  : Method [Page com.example.fooddelivery.service.CategoryService.getAllCategories(Pageable)] executed in 3 ms
+2026-04-16 13:42:07 INFO  : all menus found successfully
+2026-04-16 13:42:07 INFO  : Method [Page com.example.fooddelivery.service.MenuService.findAllMenus(Pageable)] executed in 5 ms
+2026-04-16 13:42:18 INFO  : request to get all restaurants page: 0, size: 10
+2026-04-16 13:42:18 DEBUG : try to all getRestaurants
+2026-04-16 13:42:18 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 13:42:18 TRACE : binding parameter (2:INTEGER) <- [10]
+2026-04-16 13:42:18 INFO  : all restaurants found successfully
+2026-04-16 13:42:18 INFO  : Method [Page com.example.fooddelivery.service.RestaurantService.getRestaurants(Pageable)] executed in 3 ms
+2026-04-16 13:42:18 INFO  : request to get all restaurants page: 0, size: 10
+2026-04-16 13:42:18 DEBUG : try to all getRestaurants
+2026-04-16 13:42:18 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 13:42:18 TRACE : binding parameter (2:INTEGER) <- [10]
+2026-04-16 13:42:18 INFO  : all restaurants found successfully
+2026-04-16 13:42:18 INFO  : Method [Page com.example.fooddelivery.service.RestaurantService.getRestaurants(Pageable)] executed in 3 ms
+2026-04-16 13:42:19 INFO  : request to get all restaurants page: 0, size: 1
+2026-04-16 13:42:19 INFO  : request to get all dishes for page: 0 and size: 1
+2026-04-16 13:42:19 INFO  : request for getAllCustomers with first name null, last name: null
+2026-04-16 13:42:19 INFO  : request to get categories with page 0 and size 1
+2026-04-16 13:42:19 DEBUG : try to find all categories
+2026-04-16 13:42:19 DEBUG : try to all getRestaurants
+2026-04-16 13:42:19 DEBUG : try find all customers
+2026-04-16 13:42:19 INFO  : request to get Orders by lastName null, page: 0, size: 8
+2026-04-16 13:42:19 INFO  : request to getAllMenus with name: null, page: 0, size: 1
+2026-04-16 13:42:19 DEBUG : try find orders by users last name: null
+2026-04-16 13:42:19 DEBUG : try find all menus
+2026-04-16 13:42:19 DEBUG : check cache for key (lastName: OrderCacheKey[lastName=null, page=0, size=8, sort=createdAt: DESC], page number: 0, page size: 8)
+2026-04-16 13:42:19 DEBUG : try find all dishes
+2026-04-16 13:42:19 INFO  : cache: return from HashMap
+2026-04-16 13:42:19 INFO  : Method [Page com.example.fooddelivery.service.OrderService.getOrders(String,Pageable)] executed in 1 ms
+2026-04-16 13:42:19 WARN  : HHH90003004: firstResult/maxResults specified with collection fetch; applying in memory
+2026-04-16 13:42:19 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 13:42:19 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 13:42:19 TRACE : binding parameter (2:INTEGER) <- [1]
+2026-04-16 13:42:19 TRACE : binding parameter (2:INTEGER) <- [1]
+2026-04-16 13:42:19 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 13:42:19 TRACE : binding parameter (2:INTEGER) <- [1]
+2026-04-16 13:42:19 WARN  : HHH90003004: firstResult/maxResults specified with collection fetch; applying in memory
+2026-04-16 13:42:19 INFO  : all customers found successfully
+2026-04-16 13:42:19 INFO  : all restaurants found successfully
+2026-04-16 13:42:19 INFO  : Method [Page com.example.fooddelivery.service.CustomerService.getCustomers(Pageable)] executed in 3 ms
+2026-04-16 13:42:19 INFO  : Method [Page com.example.fooddelivery.service.RestaurantService.getRestaurants(Pageable)] executed in 4 ms
+2026-04-16 13:42:19 INFO  : dishes found successfully
+2026-04-16 13:42:19 INFO  : Method [Page com.example.fooddelivery.service.DishService.findAllDishes(Pageable)] executed in 3 ms
+2026-04-16 13:42:19 INFO  : found all categories successfully
+2026-04-16 13:42:19 INFO  : Method [Page com.example.fooddelivery.service.CategoryService.getAllCategories(Pageable)] executed in 5 ms
+2026-04-16 13:42:19 INFO  : all menus found successfully
+2026-04-16 13:42:19 INFO  : Method [Page com.example.fooddelivery.service.MenuService.findAllMenus(Pageable)] executed in 5 ms
+2026-04-16 13:42:19 INFO  : request to get Orders by lastName null, page: 0, size: 8
+2026-04-16 13:42:19 DEBUG : try find orders by users last name: null
+2026-04-16 13:42:19 DEBUG : check cache for key (lastName: OrderCacheKey[lastName=null, page=0, size=8, sort=createdAt: DESC], page number: 0, page size: 8)
+2026-04-16 13:42:19 INFO  : cache: return from HashMap
+2026-04-16 13:42:19 INFO  : Method [Page com.example.fooddelivery.service.OrderService.getOrders(String,Pageable)] executed in 0 ms
+2026-04-16 13:42:19 INFO  : request to get all restaurants page: 0, size: 1
+2026-04-16 13:42:19 DEBUG : try to all getRestaurants
+2026-04-16 13:42:19 INFO  : request for getAllCustomers with first name null, last name: null
+2026-04-16 13:42:19 DEBUG : try find all customers
+2026-04-16 13:42:19 INFO  : request to get categories with page 0 and size 1
+2026-04-16 13:42:19 DEBUG : try to find all categories
+2026-04-16 13:42:19 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 13:42:19 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 13:42:19 INFO  : request to get all dishes for page: 0 and size: 1
+2026-04-16 13:42:19 TRACE : binding parameter (2:INTEGER) <- [1]
+2026-04-16 13:42:19 TRACE : binding parameter (2:INTEGER) <- [1]
+2026-04-16 13:42:19 DEBUG : try find all dishes
+2026-04-16 13:42:19 INFO  : request to getAllMenus with name: null, page: 0, size: 1
+2026-04-16 13:42:19 DEBUG : try find all menus
+2026-04-16 13:42:19 WARN  : HHH90003004: firstResult/maxResults specified with collection fetch; applying in memory
+2026-04-16 13:42:19 WARN  : HHH90003004: firstResult/maxResults specified with collection fetch; applying in memory
+2026-04-16 13:42:19 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 13:42:19 TRACE : binding parameter (2:INTEGER) <- [1]
+2026-04-16 13:42:19 INFO  : dishes found successfully
+2026-04-16 13:42:19 INFO  : Method [Page com.example.fooddelivery.service.DishService.findAllDishes(Pageable)] executed in 3 ms
+2026-04-16 13:42:19 INFO  : all customers found successfully
+2026-04-16 13:42:19 INFO  : Method [Page com.example.fooddelivery.service.CustomerService.getCustomers(Pageable)] executed in 5 ms
+2026-04-16 13:42:19 INFO  : all restaurants found successfully
+2026-04-16 13:42:19 INFO  : Method [Page com.example.fooddelivery.service.RestaurantService.getRestaurants(Pageable)] executed in 5 ms
+2026-04-16 13:42:19 INFO  : found all categories successfully
+2026-04-16 13:42:19 INFO  : Method [Page com.example.fooddelivery.service.CategoryService.getAllCategories(Pageable)] executed in 5 ms
+2026-04-16 13:42:19 INFO  : all menus found successfully
+2026-04-16 13:42:19 INFO  : Method [Page com.example.fooddelivery.service.MenuService.findAllMenus(Pageable)] executed in 4 ms
+2026-04-16 13:42:20 INFO  : request to get all restaurants page: 0, size: 100
+2026-04-16 13:42:20 DEBUG : try to all getRestaurants
+2026-04-16 13:42:20 INFO  : request to getAllMenus with name: null, page: 0, size: 12
+2026-04-16 13:42:20 DEBUG : try find all menus
+2026-04-16 13:42:20 WARN  : HHH90003004: firstResult/maxResults specified with collection fetch; applying in memory
+2026-04-16 13:42:20 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 13:42:20 TRACE : binding parameter (2:INTEGER) <- [100]
+2026-04-16 13:42:20 INFO  : all restaurants found successfully
+2026-04-16 13:42:20 INFO  : Method [Page com.example.fooddelivery.service.RestaurantService.getRestaurants(Pageable)] executed in 2 ms
+2026-04-16 13:42:20 INFO  : all menus found successfully
+2026-04-16 13:42:20 INFO  : Method [Page com.example.fooddelivery.service.MenuService.findAllMenus(Pageable)] executed in 4 ms
+2026-04-16 13:42:20 INFO  : request to get all restaurants page: 0, size: 100
+2026-04-16 13:42:20 DEBUG : try to all getRestaurants
+2026-04-16 13:42:20 INFO  : request to getAllMenus with name: null, page: 0, size: 12
+2026-04-16 13:42:20 DEBUG : try find all menus
+2026-04-16 13:42:20 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 13:42:20 TRACE : binding parameter (2:INTEGER) <- [100]
+2026-04-16 13:42:20 WARN  : HHH90003004: firstResult/maxResults specified with collection fetch; applying in memory
+2026-04-16 13:42:20 INFO  : all restaurants found successfully
+2026-04-16 13:42:20 INFO  : Method [Page com.example.fooddelivery.service.RestaurantService.getRestaurants(Pageable)] executed in 3 ms
+2026-04-16 13:42:20 INFO  : all menus found successfully
+2026-04-16 13:42:20 INFO  : Method [Page com.example.fooddelivery.service.MenuService.findAllMenus(Pageable)] executed in 4 ms
+2026-04-16 13:42:21 INFO  : request to get all dishes for page: 0 and size: 10
+2026-04-16 13:42:21 DEBUG : try find all dishes
+2026-04-16 13:42:21 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 13:42:21 TRACE : binding parameter (2:INTEGER) <- [10]
+2026-04-16 13:42:21 INFO  : dishes found successfully
+2026-04-16 13:42:21 INFO  : Method [Page com.example.fooddelivery.service.DishService.findAllDishes(Pageable)] executed in 5 ms
+2026-04-16 13:42:21 INFO  : request to get all dishes for page: 0 and size: 10
+2026-04-16 13:42:21 DEBUG : try find all dishes
+2026-04-16 13:42:21 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 13:42:21 TRACE : binding parameter (2:INTEGER) <- [10]
+2026-04-16 13:42:21 INFO  : dishes found successfully
+2026-04-16 13:42:21 INFO  : Method [Page com.example.fooddelivery.service.DishService.findAllDishes(Pageable)] executed in 4 ms
+2026-04-16 13:42:22 INFO  : request to get categories with page 0 and size 12
+2026-04-16 13:42:22 DEBUG : try to find all categories
+2026-04-16 13:42:22 WARN  : HHH90003004: firstResult/maxResults specified with collection fetch; applying in memory
+2026-04-16 13:42:22 INFO  : found all categories successfully
+2026-04-16 13:42:22 INFO  : Method [Page com.example.fooddelivery.service.CategoryService.getAllCategories(Pageable)] executed in 4 ms
+2026-04-16 13:42:22 INFO  : request to get categories with page 0 and size 12
+2026-04-16 13:42:22 DEBUG : try to find all categories
+2026-04-16 13:42:22 WARN  : HHH90003004: firstResult/maxResults specified with collection fetch; applying in memory
+2026-04-16 13:42:22 INFO  : found all categories successfully
+2026-04-16 13:42:22 INFO  : Method [Page com.example.fooddelivery.service.CategoryService.getAllCategories(Pageable)] executed in 3 ms
+2026-04-16 13:42:23 INFO  : request to get categories with page 0 and size 12
+2026-04-16 13:42:23 DEBUG : try to find all categories
+2026-04-16 13:42:23 WARN  : HHH90003004: firstResult/maxResults specified with collection fetch; applying in memory
+2026-04-16 13:42:23 INFO  : found all categories successfully
+2026-04-16 13:42:23 INFO  : Method [Page com.example.fooddelivery.service.CategoryService.getAllCategories(Pageable)] executed in 2 ms
+2026-04-16 13:42:23 INFO  : request to get categories with page 0 and size 12
+2026-04-16 13:42:23 DEBUG : try to find all categories
+2026-04-16 13:42:23 WARN  : HHH90003004: firstResult/maxResults specified with collection fetch; applying in memory
+2026-04-16 13:42:23 INFO  : found all categories successfully
+2026-04-16 13:42:23 INFO  : Method [Page com.example.fooddelivery.service.CategoryService.getAllCategories(Pageable)] executed in 2 ms
+2026-04-16 13:42:37 INFO  : request to get all restaurants page: 0, size: 10
+2026-04-16 13:42:37 DEBUG : try to all getRestaurants
+2026-04-16 13:42:37 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 13:42:37 TRACE : binding parameter (2:INTEGER) <- [10]
+2026-04-16 13:42:37 INFO  : all restaurants found successfully
+2026-04-16 13:42:37 INFO  : Method [Page com.example.fooddelivery.service.RestaurantService.getRestaurants(Pageable)] executed in 4 ms
+2026-04-16 13:42:37 INFO  : request to get all restaurants page: 0, size: 10
+2026-04-16 13:42:37 DEBUG : try to all getRestaurants
+2026-04-16 13:42:37 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 13:42:37 TRACE : binding parameter (2:INTEGER) <- [10]
+2026-04-16 13:42:37 INFO  : all restaurants found successfully
+2026-04-16 13:42:37 INFO  : Method [Page com.example.fooddelivery.service.RestaurantService.getRestaurants(Pageable)] executed in 2 ms
+2026-04-16 13:42:37 INFO  : request to get all restaurants page: 0, size: 1
+2026-04-16 13:42:37 INFO  : request to getAllMenus with name: null, page: 0, size: 1
+2026-04-16 13:42:37 DEBUG : try to all getRestaurants
+2026-04-16 13:42:37 INFO  : request to get Orders by lastName null, page: 0, size: 8
+2026-04-16 13:42:37 INFO  : request for getAllCustomers with first name null, last name: null
+2026-04-16 13:42:37 INFO  : request to get categories with page 0 and size 1
+2026-04-16 13:42:37 DEBUG : try find all menus
+2026-04-16 13:42:37 DEBUG : try to find all categories
+2026-04-16 13:42:37 DEBUG : try find orders by users last name: null
+2026-04-16 13:42:37 INFO  : request to get all dishes for page: 0 and size: 1
+2026-04-16 13:42:37 DEBUG : try find all customers
+2026-04-16 13:42:37 DEBUG : check cache for key (lastName: OrderCacheKey[lastName=null, page=0, size=8, sort=createdAt: DESC], page number: 0, page size: 8)
+2026-04-16 13:42:37 INFO  : cache: return from HashMap
+2026-04-16 13:42:37 INFO  : Method [Page com.example.fooddelivery.service.OrderService.getOrders(String,Pageable)] executed in 0 ms
+2026-04-16 13:42:37 DEBUG : try find all dishes
+2026-04-16 13:42:37 WARN  : HHH90003004: firstResult/maxResults specified with collection fetch; applying in memory
+2026-04-16 13:42:37 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 13:42:37 TRACE : binding parameter (2:INTEGER) <- [1]
+2026-04-16 13:42:37 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 13:42:37 TRACE : binding parameter (2:INTEGER) <- [1]
+2026-04-16 13:42:37 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 13:42:37 TRACE : binding parameter (2:INTEGER) <- [1]
+2026-04-16 13:42:37 WARN  : HHH90003004: firstResult/maxResults specified with collection fetch; applying in memory
+2026-04-16 13:42:37 INFO  : all restaurants found successfully
+2026-04-16 13:42:37 INFO  : Method [Page com.example.fooddelivery.service.RestaurantService.getRestaurants(Pageable)] executed in 4 ms
+2026-04-16 13:42:37 INFO  : request to get Orders by lastName null, page: 0, size: 8
+2026-04-16 13:42:37 DEBUG : try find orders by users last name: null
+2026-04-16 13:42:37 DEBUG : check cache for key (lastName: OrderCacheKey[lastName=null, page=0, size=8, sort=createdAt: DESC], page number: 0, page size: 8)
+2026-04-16 13:42:37 INFO  : cache: return from HashMap
+2026-04-16 13:42:37 INFO  : Method [Page com.example.fooddelivery.service.OrderService.getOrders(String,Pageable)] executed in 0 ms
+2026-04-16 13:42:37 INFO  : all customers found successfully
+2026-04-16 13:42:37 INFO  : Method [Page com.example.fooddelivery.service.CustomerService.getCustomers(Pageable)] executed in 5 ms
+2026-04-16 13:42:37 INFO  : dishes found successfully
+2026-04-16 13:42:37 INFO  : Method [Page com.example.fooddelivery.service.DishService.findAllDishes(Pageable)] executed in 5 ms
+2026-04-16 13:42:37 INFO  : all menus found successfully
+2026-04-16 13:42:37 INFO  : found all categories successfully
+2026-04-16 13:42:37 INFO  : Method [Page com.example.fooddelivery.service.CategoryService.getAllCategories(Pageable)] executed in 7 ms
+2026-04-16 13:42:37 INFO  : Method [Page com.example.fooddelivery.service.MenuService.findAllMenus(Pageable)] executed in 7 ms
+2026-04-16 13:42:37 INFO  : request to get all restaurants page: 0, size: 1
+2026-04-16 13:42:37 INFO  : request for getAllCustomers with first name null, last name: null
+2026-04-16 13:42:37 DEBUG : try to all getRestaurants
+2026-04-16 13:42:37 DEBUG : try find all customers
+2026-04-16 13:42:37 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 13:42:37 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 13:42:37 TRACE : binding parameter (2:INTEGER) <- [1]
+2026-04-16 13:42:37 TRACE : binding parameter (2:INTEGER) <- [1]
+2026-04-16 13:42:37 INFO  : request to get all dishes for page: 0 and size: 1
+2026-04-16 13:42:37 DEBUG : try find all dishes
+2026-04-16 13:42:37 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 13:42:37 TRACE : binding parameter (2:INTEGER) <- [1]
+2026-04-16 13:42:37 INFO  : all restaurants found successfully
+2026-04-16 13:42:37 INFO  : Method [Page com.example.fooddelivery.service.RestaurantService.getRestaurants(Pageable)] executed in 2 ms
+2026-04-16 13:42:37 INFO  : all customers found successfully
+2026-04-16 13:42:37 INFO  : Method [Page com.example.fooddelivery.service.CustomerService.getCustomers(Pageable)] executed in 2 ms
+2026-04-16 13:42:37 INFO  : dishes found successfully
+2026-04-16 13:42:37 INFO  : Method [Page com.example.fooddelivery.service.DishService.findAllDishes(Pageable)] executed in 3 ms
+2026-04-16 13:42:37 INFO  : request to get categories with page 0 and size 1
+2026-04-16 13:42:37 DEBUG : try to find all categories
+2026-04-16 13:42:37 INFO  : request to getAllMenus with name: null, page: 0, size: 1
+2026-04-16 13:42:37 DEBUG : try find all menus
+2026-04-16 13:42:37 WARN  : HHH90003004: firstResult/maxResults specified with collection fetch; applying in memory
+2026-04-16 13:42:37 WARN  : HHH90003004: firstResult/maxResults specified with collection fetch; applying in memory
+2026-04-16 13:42:37 INFO  : found all categories successfully
+2026-04-16 13:42:37 INFO  : Method [Page com.example.fooddelivery.service.CategoryService.getAllCategories(Pageable)] executed in 4 ms
+2026-04-16 13:42:37 INFO  : all menus found successfully
+2026-04-16 13:42:37 INFO  : Method [Page com.example.fooddelivery.service.MenuService.findAllMenus(Pageable)] executed in 5 ms
+2026-04-16 13:43:37 INFO  : request to get all restaurants page: 0, size: 10
+2026-04-16 13:43:37 DEBUG : try to all getRestaurants
+2026-04-16 13:43:37 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 13:43:37 TRACE : binding parameter (2:INTEGER) <- [10]
+2026-04-16 13:43:37 INFO  : all restaurants found successfully
+2026-04-16 13:43:37 INFO  : Method [Page com.example.fooddelivery.service.RestaurantService.getRestaurants(Pageable)] executed in 6 ms
+2026-04-16 13:43:37 INFO  : request to get all restaurants page: 0, size: 10
+2026-04-16 13:43:37 DEBUG : try to all getRestaurants
+2026-04-16 13:43:37 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 13:43:37 TRACE : binding parameter (2:INTEGER) <- [10]
+2026-04-16 13:43:37 INFO  : all restaurants found successfully
+2026-04-16 13:43:37 INFO  : Method [Page com.example.fooddelivery.service.RestaurantService.getRestaurants(Pageable)] executed in 3 ms
+2026-04-16 13:43:38 INFO  : request to getMenusByRestaurantId with id: 52, page: 0, size: 50
+2026-04-16 13:43:38 DEBUG : try find menu by restaurant id: '52'
+2026-04-16 13:43:38 TRACE : binding parameter (1:BIGINT) <- [52]
+2026-04-16 13:43:38 WARN  : HHH90003004: firstResult/maxResults specified with collection fetch; applying in memory
+2026-04-16 13:43:38 TRACE : binding parameter (1:BIGINT) <- [52]
+2026-04-16 13:43:38 INFO  : menu found with id: 52 that exist in restaurant with id: 52 successfully
+2026-04-16 13:43:38 INFO  : Method [Page com.example.fooddelivery.service.MenuService.findMenuByRestaurantId(Long,Pageable)] executed in 37 ms
+2026-04-16 13:43:38 INFO  : request to getMenusByRestaurantId with id: 52, page: 0, size: 50
+2026-04-16 13:43:38 DEBUG : try find menu by restaurant id: '52'
+2026-04-16 13:43:38 TRACE : binding parameter (1:BIGINT) <- [52]
+2026-04-16 13:43:38 WARN  : HHH90003004: firstResult/maxResults specified with collection fetch; applying in memory
+2026-04-16 13:43:38 TRACE : binding parameter (1:BIGINT) <- [52]
+2026-04-16 13:43:38 INFO  : menu found with id: 52 that exist in restaurant with id: 52 successfully
+2026-04-16 13:43:38 INFO  : Method [Page com.example.fooddelivery.service.MenuService.findMenuByRestaurantId(Long,Pageable)] executed in 5 ms
+2026-04-16 13:43:41 INFO  : request to get all restaurants page: 0, size: 100
+2026-04-16 13:43:41 INFO  : request to getAllMenus with name: null, page: 0, size: 12
+2026-04-16 13:43:41 DEBUG : try to all getRestaurants
+2026-04-16 13:43:41 DEBUG : try find all menus
+2026-04-16 13:43:41 WARN  : HHH90003004: firstResult/maxResults specified with collection fetch; applying in memory
+2026-04-16 13:43:41 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 13:43:41 TRACE : binding parameter (2:INTEGER) <- [100]
+2026-04-16 13:43:41 INFO  : all restaurants found successfully
+2026-04-16 13:43:41 INFO  : Method [Page com.example.fooddelivery.service.RestaurantService.getRestaurants(Pageable)] executed in 3 ms
+2026-04-16 13:43:41 INFO  : all menus found successfully
+2026-04-16 13:43:41 INFO  : Method [Page com.example.fooddelivery.service.MenuService.findAllMenus(Pageable)] executed in 3 ms
+2026-04-16 13:43:41 INFO  : request to get all restaurants page: 0, size: 100
+2026-04-16 13:43:41 INFO  : request to getAllMenus with name: null, page: 0, size: 12
+2026-04-16 13:43:41 DEBUG : try to all getRestaurants
+2026-04-16 13:43:41 DEBUG : try find all menus
+2026-04-16 13:43:41 WARN  : HHH90003004: firstResult/maxResults specified with collection fetch; applying in memory
+2026-04-16 13:43:41 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 13:43:41 TRACE : binding parameter (2:INTEGER) <- [100]
+2026-04-16 13:43:41 INFO  : all restaurants found successfully
+2026-04-16 13:43:41 INFO  : Method [Page com.example.fooddelivery.service.RestaurantService.getRestaurants(Pageable)] executed in 2 ms
+2026-04-16 13:43:41 INFO  : all menus found successfully
+2026-04-16 13:43:41 INFO  : Method [Page com.example.fooddelivery.service.MenuService.findAllMenus(Pageable)] executed in 3 ms
+2026-04-16 13:43:46 INFO  : request to get all dishes for page: 0 and size: 200
+2026-04-16 13:43:46 DEBUG : try find all dishes
+2026-04-16 13:43:46 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 13:43:46 TRACE : binding parameter (2:INTEGER) <- [200]
+2026-04-16 13:43:46 INFO  : dishes found successfully
+2026-04-16 13:43:46 INFO  : Method [Page com.example.fooddelivery.service.DishService.findAllDishes(Pageable)] executed in 6 ms
+2026-04-16 13:43:46 INFO  : request to get all dishes for page: 0 and size: 200
+2026-04-16 13:43:46 DEBUG : try find all dishes
+2026-04-16 13:43:46 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 13:43:46 TRACE : binding parameter (2:INTEGER) <- [200]
+2026-04-16 13:43:46 INFO  : dishes found successfully
+2026-04-16 13:43:46 INFO  : Method [Page com.example.fooddelivery.service.DishService.findAllDishes(Pageable)] executed in 6 ms
+2026-04-16 13:43:48 INFO  : request to get all dishes for page: 0 and size: 10
+2026-04-16 13:43:48 DEBUG : try find all dishes
+2026-04-16 13:43:48 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 13:43:48 TRACE : binding parameter (2:INTEGER) <- [10]
+2026-04-16 13:43:48 INFO  : dishes found successfully
+2026-04-16 13:43:48 INFO  : Method [Page com.example.fooddelivery.service.DishService.findAllDishes(Pageable)] executed in 9 ms
+2026-04-16 13:43:48 INFO  : request to get all dishes for page: 0 and size: 10
+2026-04-16 13:43:48 DEBUG : try find all dishes
+2026-04-16 13:43:48 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 13:43:48 TRACE : binding parameter (2:INTEGER) <- [10]
+2026-04-16 13:43:48 INFO  : dishes found successfully
+2026-04-16 13:43:48 INFO  : Method [Page com.example.fooddelivery.service.DishService.findAllDishes(Pageable)] executed in 3 ms
+2026-04-16 13:43:52 INFO  : request for getAllCustomers with first name null, last name: null
+2026-04-16 13:43:52 DEBUG : try find all customers
+2026-04-16 13:43:52 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 13:43:52 TRACE : binding parameter (2:INTEGER) <- [10]
+2026-04-16 13:43:52 INFO  : all customers found successfully
+2026-04-16 13:43:52 INFO  : Method [Page com.example.fooddelivery.service.CustomerService.getCustomers(Pageable)] executed in 3 ms
+2026-04-16 13:43:52 INFO  : request for getAllCustomers with first name null, last name: null
+2026-04-16 13:43:52 DEBUG : try find all customers
+2026-04-16 13:43:52 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 13:43:52 TRACE : binding parameter (2:INTEGER) <- [10]
+2026-04-16 13:43:52 INFO  : all customers found successfully
+2026-04-16 13:43:52 INFO  : Method [Page com.example.fooddelivery.service.CustomerService.getCustomers(Pageable)] executed in 6 ms
+2026-04-16 13:43:53 INFO  : request to get Orders by lastName Нагорный, page: 0, size: 20
+2026-04-16 13:43:53 DEBUG : try find orders by users last name: Нагорный
+2026-04-16 13:43:53 DEBUG : check cache for key (lastName: OrderCacheKey[lastName=Нагорный, page=0, size=20, sort=customer.lastName: DESC], page number: 0, page size: 20)
+2026-04-16 13:43:53 INFO  : fetching orders from data base
+2026-04-16 13:43:53 DEBUG : request contains last name: Нагорный
+2026-04-16 13:43:53 DEBUG : try find orders by users last name: Нагорный
+2026-04-16 13:43:53 WARN  : HHH90003004: firstResult/maxResults specified with collection fetch; applying in memory
+2026-04-16 13:43:53 TRACE : binding parameter (1:VARCHAR) <- [Нагорный]
+2026-04-16 13:43:53 INFO  : save to cache successfully
+2026-04-16 13:43:53 INFO  : Method [Page com.example.fooddelivery.service.OrderService.getOrders(String,Pageable)] executed in 27 ms
+2026-04-16 13:43:53 INFO  : request to get Orders by lastName Нагорный, page: 0, size: 20
+2026-04-16 13:43:53 DEBUG : try find orders by users last name: Нагорный
+2026-04-16 13:43:53 DEBUG : check cache for key (lastName: OrderCacheKey[lastName=Нагорный, page=0, size=20, sort=customer.lastName: DESC], page number: 0, page size: 20)
+2026-04-16 13:43:53 INFO  : cache: return from HashMap
+2026-04-16 13:43:53 INFO  : Method [Page com.example.fooddelivery.service.OrderService.getOrders(String,Pageable)] executed in 0 ms
+2026-04-16 13:43:55 INFO  : request to get Orders by lastName null, page: 0, size: 10
+2026-04-16 13:43:55 DEBUG : try find orders by users last name: null
+2026-04-16 13:43:55 DEBUG : check cache for key (lastName: OrderCacheKey[lastName=null, page=0, size=10, sort=createdAt: DESC], page number: 0, page size: 10)
+2026-04-16 13:43:55 INFO  : cache: return from HashMap
+2026-04-16 13:43:55 INFO  : Method [Page com.example.fooddelivery.service.OrderService.getOrders(String,Pageable)] executed in 0 ms
+2026-04-16 13:43:55 INFO  : request to get Orders by lastName null, page: 0, size: 10
+2026-04-16 13:43:55 DEBUG : try find orders by users last name: null
+2026-04-16 13:43:55 DEBUG : check cache for key (lastName: OrderCacheKey[lastName=null, page=0, size=10, sort=createdAt: DESC], page number: 0, page size: 10)
+2026-04-16 13:43:55 INFO  : cache: return from HashMap
+2026-04-16 13:43:55 INFO  : Method [Page com.example.fooddelivery.service.OrderService.getOrders(String,Pageable)] executed in 0 ms
+2026-04-16 13:43:56 INFO  : request to get Order with id 307
+2026-04-16 13:43:56 DEBUG : try find order with id: 307
+2026-04-16 13:43:56 TRACE : binding parameter (1:BIGINT) <- [307]
+2026-04-16 13:43:56 INFO  : order found with id: 307 successfully
+2026-04-16 13:43:56 INFO  : Method [OrderDto com.example.fooddelivery.service.OrderService.findOrderById(Long)] executed in 11 ms
+2026-04-16 13:43:56 INFO  : request to get Order with id 307
+2026-04-16 13:43:56 DEBUG : try find order with id: 307
+2026-04-16 13:43:56 TRACE : binding parameter (1:BIGINT) <- [307]
+2026-04-16 13:43:56 INFO  : order found with id: 307 successfully
+2026-04-16 13:43:56 INFO  : Method [OrderDto com.example.fooddelivery.service.OrderService.findOrderById(Long)] executed in 6 ms
+2026-04-16 13:44:05 INFO  : request to get all restaurants page: 0, size: 1
+2026-04-16 13:44:05 INFO  : request to get categories with page 0 and size 1
+2026-04-16 13:44:05 DEBUG : try to all getRestaurants
+2026-04-16 13:44:05 DEBUG : try to find all categories
+2026-04-16 13:44:05 INFO  : request for getAllCustomers with first name null, last name: null
+2026-04-16 13:44:05 DEBUG : try find all customers
+2026-04-16 13:44:05 INFO  : request to getAllMenus with name: null, page: 0, size: 1
+2026-04-16 13:44:05 DEBUG : try find all menus
+2026-04-16 13:44:05 INFO  : request to get all dishes for page: 0 and size: 1
+2026-04-16 13:44:05 INFO  : request to get Orders by lastName null, page: 0, size: 8
+2026-04-16 13:44:05 WARN  : HHH90003004: firstResult/maxResults specified with collection fetch; applying in memory
+2026-04-16 13:44:05 DEBUG : try find orders by users last name: null
+2026-04-16 13:44:05 DEBUG : check cache for key (lastName: OrderCacheKey[lastName=null, page=0, size=8, sort=createdAt: DESC], page number: 0, page size: 8)
+2026-04-16 13:44:05 DEBUG : try find all dishes
+2026-04-16 13:44:05 WARN  : HHH90003004: firstResult/maxResults specified with collection fetch; applying in memory
+2026-04-16 13:44:05 INFO  : cache: return from HashMap
+2026-04-16 13:44:05 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 13:44:05 TRACE : binding parameter (2:INTEGER) <- [1]
+2026-04-16 13:44:05 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 13:44:05 TRACE : binding parameter (2:INTEGER) <- [1]
+2026-04-16 13:44:05 INFO  : Method [Page com.example.fooddelivery.service.OrderService.getOrders(String,Pageable)] executed in 0 ms
+2026-04-16 13:44:05 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 13:44:05 TRACE : binding parameter (2:INTEGER) <- [1]
+2026-04-16 13:44:05 INFO  : all customers found successfully
+2026-04-16 13:44:05 INFO  : Method [Page com.example.fooddelivery.service.CustomerService.getCustomers(Pageable)] executed in 2 ms
+2026-04-16 13:44:05 INFO  : all restaurants found successfully
+2026-04-16 13:44:05 INFO  : Method [Page com.example.fooddelivery.service.RestaurantService.getRestaurants(Pageable)] executed in 3 ms
+2026-04-16 13:44:05 INFO  : found all categories successfully
+2026-04-16 13:44:05 INFO  : Method [Page com.example.fooddelivery.service.CategoryService.getAllCategories(Pageable)] executed in 3 ms
+2026-04-16 13:44:05 INFO  : dishes found successfully
+2026-04-16 13:44:05 INFO  : all menus found successfully
+2026-04-16 13:44:05 INFO  : Method [Page com.example.fooddelivery.service.DishService.findAllDishes(Pageable)] executed in 2 ms
+2026-04-16 13:44:05 INFO  : Method [Page com.example.fooddelivery.service.MenuService.findAllMenus(Pageable)] executed in 3 ms
+2026-04-16 13:44:05 INFO  : request for getAllCustomers with first name null, last name: null
+2026-04-16 13:44:05 INFO  : request to get Orders by lastName null, page: 0, size: 8
+2026-04-16 13:44:05 INFO  : request to get categories with page 0 and size 1
+2026-04-16 13:44:05 DEBUG : try find orders by users last name: null
+2026-04-16 13:44:05 DEBUG : try find all customers
+2026-04-16 13:44:05 INFO  : request to get all restaurants page: 0, size: 1
+2026-04-16 13:44:05 DEBUG : try to all getRestaurants
+2026-04-16 13:44:05 DEBUG : try to find all categories
+2026-04-16 13:44:05 DEBUG : check cache for key (lastName: OrderCacheKey[lastName=null, page=0, size=8, sort=createdAt: DESC], page number: 0, page size: 8)
+2026-04-16 13:44:05 INFO  : cache: return from HashMap
+2026-04-16 13:44:05 INFO  : Method [Page com.example.fooddelivery.service.OrderService.getOrders(String,Pageable)] executed in 1 ms
+2026-04-16 13:44:05 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 13:44:05 TRACE : binding parameter (2:INTEGER) <- [1]
+2026-04-16 13:44:05 WARN  : HHH90003004: firstResult/maxResults specified with collection fetch; applying in memory
+2026-04-16 13:44:05 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 13:44:05 TRACE : binding parameter (2:INTEGER) <- [1]
+2026-04-16 13:44:05 INFO  : request to getAllMenus with name: null, page: 0, size: 1
+2026-04-16 13:44:05 INFO  : request to get all dishes for page: 0 and size: 1
+2026-04-16 13:44:05 DEBUG : try find all menus
+2026-04-16 13:44:05 DEBUG : try find all dishes
+2026-04-16 13:44:05 WARN  : HHH90003004: firstResult/maxResults specified with collection fetch; applying in memory
+2026-04-16 13:44:05 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 13:44:05 TRACE : binding parameter (2:INTEGER) <- [1]
+2026-04-16 13:44:05 INFO  : all restaurants found successfully
+2026-04-16 13:44:05 INFO  : Method [Page com.example.fooddelivery.service.RestaurantService.getRestaurants(Pageable)] executed in 5 ms
+2026-04-16 13:44:05 INFO  : all customers found successfully
+2026-04-16 13:44:05 INFO  : found all categories successfully
+2026-04-16 13:44:05 INFO  : Method [Page com.example.fooddelivery.service.CategoryService.getAllCategories(Pageable)] executed in 6 ms
+2026-04-16 13:44:05 INFO  : Method [Page com.example.fooddelivery.service.CustomerService.getCustomers(Pageable)] executed in 6 ms
+2026-04-16 13:44:05 INFO  : dishes found successfully
+2026-04-16 13:44:05 INFO  : all menus found successfully
+2026-04-16 13:44:05 INFO  : Method [Page com.example.fooddelivery.service.DishService.findAllDishes(Pageable)] executed in 5 ms
+2026-04-16 13:44:05 INFO  : Method [Page com.example.fooddelivery.service.MenuService.findAllMenus(Pageable)] executed in 5 ms
+2026-04-16 13:47:30 WARN  : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m32s577ms).
+2026-04-16 13:48:47 WARN  : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m16s825ms).
+2026-04-16 14:23:15 INFO  : request to get all restaurants page: 0, size: 100
+2026-04-16 14:23:15 INFO  : request to getAllMenus with name: null, page: 0, size: 12
+2026-04-16 14:23:15 DEBUG : try to all getRestaurants
+2026-04-16 14:23:15 DEBUG : try find all menus
+2026-04-16 14:23:15 WARN  : HHH90003004: firstResult/maxResults specified with collection fetch; applying in memory
+2026-04-16 14:23:15 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 14:23:15 TRACE : binding parameter (2:INTEGER) <- [100]
+2026-04-16 14:23:15 INFO  : all restaurants found successfully
+2026-04-16 14:23:15 INFO  : Method [Page com.example.fooddelivery.service.RestaurantService.getRestaurants(Pageable)] executed in 10 ms
+2026-04-16 14:23:15 INFO  : all menus found successfully
+2026-04-16 14:23:15 INFO  : Method [Page com.example.fooddelivery.service.MenuService.findAllMenus(Pageable)] executed in 10 ms
+2026-04-16 14:23:15 INFO  : request to get all restaurants page: 0, size: 100
+2026-04-16 14:23:15 DEBUG : try to all getRestaurants
+2026-04-16 14:23:15 INFO  : request to getAllMenus with name: null, page: 0, size: 12
+2026-04-16 14:23:15 DEBUG : try find all menus
+2026-04-16 14:23:15 WARN  : HHH90003004: firstResult/maxResults specified with collection fetch; applying in memory
+2026-04-16 14:23:15 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 14:23:15 TRACE : binding parameter (2:INTEGER) <- [100]
+2026-04-16 14:23:15 INFO  : all restaurants found successfully
+2026-04-16 14:23:15 INFO  : Method [Page com.example.fooddelivery.service.RestaurantService.getRestaurants(Pageable)] executed in 2 ms
+2026-04-16 14:23:15 INFO  : all menus found successfully
+2026-04-16 14:23:15 INFO  : Method [Page com.example.fooddelivery.service.MenuService.findAllMenus(Pageable)] executed in 2 ms
+2026-04-16 14:24:42 INFO  : request to get all restaurants page: 0, size: 10
+2026-04-16 14:24:42 DEBUG : try to all getRestaurants
+2026-04-16 14:24:42 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 14:24:42 TRACE : binding parameter (2:INTEGER) <- [10]
+2026-04-16 14:24:42 INFO  : all restaurants found successfully
+2026-04-16 14:24:42 INFO  : Method [Page com.example.fooddelivery.service.RestaurantService.getRestaurants(Pageable)] executed in 4 ms
+2026-04-16 14:24:42 INFO  : request to get all restaurants page: 0, size: 10
+2026-04-16 14:24:42 DEBUG : try to all getRestaurants
+2026-04-16 14:24:42 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 14:24:42 TRACE : binding parameter (2:INTEGER) <- [10]
+2026-04-16 14:24:42 INFO  : all restaurants found successfully
+2026-04-16 14:24:42 INFO  : Method [Page com.example.fooddelivery.service.RestaurantService.getRestaurants(Pageable)] executed in 3 ms
+2026-04-16 14:24:47 INFO  : request to get all restaurants page: 0, size: 1
+2026-04-16 14:24:47 DEBUG : try to all getRestaurants
+2026-04-16 14:24:47 INFO  : request to get all dishes for page: 0 and size: 1
+2026-04-16 14:24:47 INFO  : request to get categories with page 0 and size 1
+2026-04-16 14:24:47 DEBUG : try to find all categories
+2026-04-16 14:24:47 INFO  : request to get Orders by lastName null, page: 0, size: 8
+2026-04-16 14:24:47 INFO  : request to getAllMenus with name: null, page: 0, size: 1
+2026-04-16 14:24:47 DEBUG : try find all menus
+2026-04-16 14:24:47 DEBUG : try find orders by users last name: null
+2026-04-16 14:24:47 DEBUG : check cache for key (lastName: OrderCacheKey[lastName=null, page=0, size=8, sort=createdAt: DESC], page number: 0, page size: 8)
+2026-04-16 14:24:47 INFO  : cache: return from HashMap
+2026-04-16 14:24:47 INFO  : Method [Page com.example.fooddelivery.service.OrderService.getOrders(String,Pageable)] executed in 0 ms
+2026-04-16 14:24:47 WARN  : HHH90003004: firstResult/maxResults specified with collection fetch; applying in memory
+2026-04-16 14:24:47 INFO  : request for getAllCustomers with first name null, last name: null
+2026-04-16 14:24:47 WARN  : HHH90003004: firstResult/maxResults specified with collection fetch; applying in memory
+2026-04-16 14:24:47 DEBUG : try find all customers
+2026-04-16 14:24:47 DEBUG : try find all dishes
+2026-04-16 14:24:47 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 14:24:47 TRACE : binding parameter (2:INTEGER) <- [1]
+2026-04-16 14:24:47 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 14:24:47 TRACE : binding parameter (2:INTEGER) <- [1]
+2026-04-16 14:24:47 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 14:24:47 TRACE : binding parameter (2:INTEGER) <- [1]
+2026-04-16 14:24:47 INFO  : request to get Orders by lastName null, page: 0, size: 8
+2026-04-16 14:24:47 DEBUG : try find orders by users last name: null
+2026-04-16 14:24:47 DEBUG : check cache for key (lastName: OrderCacheKey[lastName=null, page=0, size=8, sort=createdAt: DESC], page number: 0, page size: 8)
+2026-04-16 14:24:47 INFO  : cache: return from HashMap
+2026-04-16 14:24:47 INFO  : Method [Page com.example.fooddelivery.service.OrderService.getOrders(String,Pageable)] executed in 0 ms
+2026-04-16 14:24:47 INFO  : all restaurants found successfully
+2026-04-16 14:24:47 INFO  : Method [Page com.example.fooddelivery.service.RestaurantService.getRestaurants(Pageable)] executed in 7 ms
+2026-04-16 14:24:47 INFO  : dishes found successfully
+2026-04-16 14:24:47 INFO  : Method [Page com.example.fooddelivery.service.DishService.findAllDishes(Pageable)] executed in 7 ms
+2026-04-16 14:24:47 INFO  : all customers found successfully
+2026-04-16 14:24:47 INFO  : Method [Page com.example.fooddelivery.service.CustomerService.getCustomers(Pageable)] executed in 8 ms
+2026-04-16 14:24:47 INFO  : all menus found successfully
+2026-04-16 14:24:47 INFO  : Method [Page com.example.fooddelivery.service.MenuService.findAllMenus(Pageable)] executed in 9 ms
+2026-04-16 14:24:47 INFO  : found all categories successfully
+2026-04-16 14:24:47 INFO  : Method [Page com.example.fooddelivery.service.CategoryService.getAllCategories(Pageable)] executed in 10 ms
+2026-04-16 14:24:47 INFO  : request to get all restaurants page: 0, size: 1
+2026-04-16 14:24:47 DEBUG : try to all getRestaurants
+2026-04-16 14:24:47 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 14:24:47 TRACE : binding parameter (2:INTEGER) <- [1]
+2026-04-16 14:24:47 INFO  : request for getAllCustomers with first name null, last name: null
+2026-04-16 14:24:47 INFO  : all restaurants found successfully
+2026-04-16 14:24:47 DEBUG : try find all customers
+2026-04-16 14:24:47 INFO  : Method [Page com.example.fooddelivery.service.RestaurantService.getRestaurants(Pageable)] executed in 3 ms
+2026-04-16 14:24:47 INFO  : request to get categories with page 0 and size 1
+2026-04-16 14:24:47 DEBUG : try to find all categories
+2026-04-16 14:24:47 INFO  : request to get all dishes for page: 0 and size: 1
+2026-04-16 14:24:47 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 14:24:47 WARN  : HHH90003004: firstResult/maxResults specified with collection fetch; applying in memory
+2026-04-16 14:24:47 TRACE : binding parameter (2:INTEGER) <- [1]
+2026-04-16 14:24:47 DEBUG : try find all dishes
+2026-04-16 14:24:47 INFO  : request to getAllMenus with name: null, page: 0, size: 1
+2026-04-16 14:24:47 DEBUG : try find all menus
+2026-04-16 14:24:47 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 14:24:47 WARN  : HHH90003004: firstResult/maxResults specified with collection fetch; applying in memory
+2026-04-16 14:24:47 TRACE : binding parameter (2:INTEGER) <- [1]
+2026-04-16 14:24:47 INFO  : all customers found successfully
+2026-04-16 14:24:47 INFO  : Method [Page com.example.fooddelivery.service.CustomerService.getCustomers(Pageable)] executed in 3 ms
+2026-04-16 14:24:47 INFO  : found all categories successfully
+2026-04-16 14:24:47 INFO  : Method [Page com.example.fooddelivery.service.CategoryService.getAllCategories(Pageable)] executed in 3 ms
+2026-04-16 14:24:47 INFO  : dishes found successfully
+2026-04-16 14:24:47 INFO  : Method [Page com.example.fooddelivery.service.DishService.findAllDishes(Pageable)] executed in 3 ms
+2026-04-16 14:24:47 INFO  : all menus found successfully
+2026-04-16 14:24:47 INFO  : Method [Page com.example.fooddelivery.service.MenuService.findAllMenus(Pageable)] executed in 6 ms
+2026-04-16 14:25:25 INFO  : request to get all restaurants page: 0, size: 10
+2026-04-16 14:25:25 DEBUG : try to all getRestaurants
+2026-04-16 14:25:25 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 14:25:25 TRACE : binding parameter (2:INTEGER) <- [10]
+2026-04-16 14:25:25 INFO  : all restaurants found successfully
+2026-04-16 14:25:25 INFO  : Method [Page com.example.fooddelivery.service.RestaurantService.getRestaurants(Pageable)] executed in 3 ms
+2026-04-16 14:25:25 INFO  : request to get all restaurants page: 0, size: 10
+2026-04-16 14:25:25 DEBUG : try to all getRestaurants
+2026-04-16 14:25:25 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 14:25:25 TRACE : binding parameter (2:INTEGER) <- [10]
+2026-04-16 14:25:25 INFO  : all restaurants found successfully
+2026-04-16 14:25:25 INFO  : Method [Page com.example.fooddelivery.service.RestaurantService.getRestaurants(Pageable)] executed in 4 ms
+2026-04-16 14:25:26 INFO  : request to get all restaurants page: 0, size: 100
+2026-04-16 14:25:26 DEBUG : try to all getRestaurants
+2026-04-16 14:25:26 INFO  : request to getAllMenus with name: null, page: 0, size: 12
+2026-04-16 14:25:26 DEBUG : try find all menus
+2026-04-16 14:25:26 WARN  : HHH90003004: firstResult/maxResults specified with collection fetch; applying in memory
+2026-04-16 14:25:26 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 14:25:26 TRACE : binding parameter (2:INTEGER) <- [100]
+2026-04-16 14:25:26 INFO  : all restaurants found successfully
+2026-04-16 14:25:26 INFO  : Method [Page com.example.fooddelivery.service.RestaurantService.getRestaurants(Pageable)] executed in 2 ms
+2026-04-16 14:25:26 INFO  : all menus found successfully
+2026-04-16 14:25:26 INFO  : Method [Page com.example.fooddelivery.service.MenuService.findAllMenus(Pageable)] executed in 2 ms
+2026-04-16 14:25:26 INFO  : request to get all restaurants page: 0, size: 100
+2026-04-16 14:25:26 INFO  : request to getAllMenus with name: null, page: 0, size: 12
+2026-04-16 14:25:26 DEBUG : try to all getRestaurants
+2026-04-16 14:25:26 DEBUG : try find all menus
+2026-04-16 14:25:26 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 14:25:26 WARN  : HHH90003004: firstResult/maxResults specified with collection fetch; applying in memory
+2026-04-16 14:25:26 TRACE : binding parameter (2:INTEGER) <- [100]
+2026-04-16 14:25:26 INFO  : all restaurants found successfully
+2026-04-16 14:25:26 INFO  : Method [Page com.example.fooddelivery.service.RestaurantService.getRestaurants(Pageable)] executed in 5 ms
+2026-04-16 14:25:26 INFO  : all menus found successfully
+2026-04-16 14:25:26 INFO  : Method [Page com.example.fooddelivery.service.MenuService.findAllMenus(Pageable)] executed in 5 ms
+2026-04-16 14:25:26 INFO  : request to get categories with page 0 and size 12
+2026-04-16 14:25:26 DEBUG : try to find all categories
+2026-04-16 14:25:26 WARN  : HHH90003004: firstResult/maxResults specified with collection fetch; applying in memory
+2026-04-16 14:25:26 INFO  : found all categories successfully
+2026-04-16 14:25:26 INFO  : Method [Page com.example.fooddelivery.service.CategoryService.getAllCategories(Pageable)] executed in 3 ms
+2026-04-16 14:25:26 INFO  : request to get categories with page 0 and size 12
+2026-04-16 14:25:26 DEBUG : try to find all categories
+2026-04-16 14:25:26 WARN  : HHH90003004: firstResult/maxResults specified with collection fetch; applying in memory
+2026-04-16 14:25:26 INFO  : found all categories successfully
+2026-04-16 14:25:26 INFO  : Method [Page com.example.fooddelivery.service.CategoryService.getAllCategories(Pageable)] executed in 3 ms
+2026-04-16 14:25:34 INFO  : request for getAllCustomers with first name null, last name: null
+2026-04-16 14:25:34 DEBUG : try find all customers
+2026-04-16 14:25:34 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 14:25:34 TRACE : binding parameter (2:INTEGER) <- [10]
+2026-04-16 14:25:34 INFO  : all customers found successfully
+2026-04-16 14:25:34 INFO  : Method [Page com.example.fooddelivery.service.CustomerService.getCustomers(Pageable)] executed in 3 ms
+2026-04-16 14:25:34 INFO  : request for getAllCustomers with first name null, last name: null
+2026-04-16 14:25:34 DEBUG : try find all customers
+2026-04-16 14:25:34 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 14:25:34 TRACE : binding parameter (2:INTEGER) <- [10]
+2026-04-16 14:25:34 INFO  : all customers found successfully
+2026-04-16 14:25:34 INFO  : Method [Page com.example.fooddelivery.service.CustomerService.getCustomers(Pageable)] executed in 2 ms
+2026-04-16 14:39:29 WARN  : HikariPool-1 - Retrograde clock change detected (housekeeper delta=29s850ms), soft-evicting connections from pool.
+2026-04-16 15:16:12 WARN  : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=17m12s661ms).
+2026-04-16 15:18:19 WARN  : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m6s989ms).
+2026-04-16 15:20:19 WARN  : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m48ms).
+2026-04-16 16:27:15 WARN  : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h6m56s590ms).
+2026-04-16 16:45:38 WARN  : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=18m22s521ms).
+2026-04-16 16:47:48 WARN  : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m9s598ms).
+2026-04-16 17:01:25 WARN  : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=13m37s352ms).
+2026-04-16 17:18:20 WARN  : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=16m55s36ms).
+2026-04-16 17:20:30 WARN  : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m9s710ms).
+2026-04-16 17:36:03 WARN  : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=15m32s885ms).
+2026-04-16 17:38:59 INFO  : request for getAllCustomers with first name null, last name: null
+2026-04-16 17:38:59 DEBUG : try find all customers
+2026-04-16 17:38:59 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 17:38:59 TRACE : binding parameter (2:INTEGER) <- [10]
+2026-04-16 17:38:59 INFO  : all customers found successfully
+2026-04-16 17:38:59 INFO  : Method [Page com.example.fooddelivery.service.CustomerService.getCustomers(Pageable)] executed in 8 ms
+2026-04-16 17:38:59 INFO  : request for getAllCustomers with first name null, last name: null
+2026-04-16 17:38:59 DEBUG : try find all customers
+2026-04-16 17:38:59 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 17:38:59 TRACE : binding parameter (2:INTEGER) <- [10]
+2026-04-16 17:38:59 INFO  : all customers found successfully
+2026-04-16 17:38:59 INFO  : Method [Page com.example.fooddelivery.service.CustomerService.getCustomers(Pageable)] executed in 2 ms
+2026-04-16 17:39:04 INFO  : request for getAllCustomers with first name null, last name: null
+2026-04-16 17:39:04 DEBUG : try find all customers
+2026-04-16 17:39:04 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 17:39:04 TRACE : binding parameter (2:INTEGER) <- [10]
+2026-04-16 17:39:04 INFO  : all customers found successfully
+2026-04-16 17:39:04 INFO  : Method [Page com.example.fooddelivery.service.CustomerService.getCustomers(Pageable)] executed in 11 ms
+2026-04-16 17:39:04 INFO  : request for getAllCustomers with first name null, last name: null
+2026-04-16 17:39:04 DEBUG : try find all customers
+2026-04-16 17:39:04 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 17:39:04 TRACE : binding parameter (2:INTEGER) <- [10]
+2026-04-16 17:39:04 INFO  : all customers found successfully
+2026-04-16 17:39:04 INFO  : Method [Page com.example.fooddelivery.service.CustomerService.getCustomers(Pageable)] executed in 4 ms
+2026-04-16 17:39:09 INFO  : request for getAllCustomers with first name null, last name: null
+2026-04-16 17:39:09 DEBUG : try find all customers
+2026-04-16 17:39:09 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 17:39:09 TRACE : binding parameter (2:INTEGER) <- [10]
+2026-04-16 17:39:09 INFO  : all customers found successfully
+2026-04-16 17:39:09 INFO  : Method [Page com.example.fooddelivery.service.CustomerService.getCustomers(Pageable)] executed in 9 ms
+2026-04-16 17:39:09 INFO  : request for getAllCustomers with first name null, last name: null
+2026-04-16 17:39:09 DEBUG : try find all customers
+2026-04-16 17:39:09 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 17:39:09 TRACE : binding parameter (2:INTEGER) <- [10]
+2026-04-16 17:39:09 INFO  : all customers found successfully
+2026-04-16 17:39:09 INFO  : Method [Page com.example.fooddelivery.service.CustomerService.getCustomers(Pageable)] executed in 4 ms
+2026-04-16 17:39:12 INFO  : request for getAllCustomers with first name null, last name: null
+2026-04-16 17:39:12 INFO  : request to get all dishes for page: 0 and size: 1
+2026-04-16 17:39:12 INFO  : request to get categories with page 0 and size 1
+2026-04-16 17:39:12 DEBUG : try find all customers
+2026-04-16 17:39:12 INFO  : request to get all restaurants page: 0, size: 1
+2026-04-16 17:39:12 DEBUG : try to all getRestaurants
+2026-04-16 17:39:12 INFO  : request to getAllMenus with name: null, page: 0, size: 1
+2026-04-16 17:39:12 INFO  : request to get Orders by lastName null, page: 0, size: 8
+2026-04-16 17:39:12 DEBUG : try find all menus
+2026-04-16 17:39:12 DEBUG : try to find all categories
+2026-04-16 17:39:12 DEBUG : try find orders by users last name: null
+2026-04-16 17:39:12 DEBUG : try find all dishes
+2026-04-16 17:39:12 DEBUG : check cache for key (lastName: OrderCacheKey[lastName=null, page=0, size=8, sort=createdAt: DESC], page number: 0, page size: 8)
+2026-04-16 17:39:12 INFO  : cache: return from HashMap
+2026-04-16 17:39:12 INFO  : Method [Page com.example.fooddelivery.service.OrderService.getOrders(String,Pageable)] executed in 0 ms
+2026-04-16 17:39:12 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 17:39:12 TRACE : binding parameter (2:INTEGER) <- [1]
+2026-04-16 17:39:12 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 17:39:12 TRACE : binding parameter (2:INTEGER) <- [1]
+2026-04-16 17:39:12 WARN  : HHH90003004: firstResult/maxResults specified with collection fetch; applying in memory
+2026-04-16 17:39:12 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 17:39:12 TRACE : binding parameter (2:INTEGER) <- [1]
+2026-04-16 17:39:12 WARN  : HHH90003004: firstResult/maxResults specified with collection fetch; applying in memory
+2026-04-16 17:39:12 INFO  : request to get Orders by lastName null, page: 0, size: 8
+2026-04-16 17:39:12 DEBUG : try find orders by users last name: null
+2026-04-16 17:39:12 DEBUG : check cache for key (lastName: OrderCacheKey[lastName=null, page=0, size=8, sort=createdAt: DESC], page number: 0, page size: 8)
+2026-04-16 17:39:12 INFO  : cache: return from HashMap
+2026-04-16 17:39:12 INFO  : Method [Page com.example.fooddelivery.service.OrderService.getOrders(String,Pageable)] executed in 0 ms
+2026-04-16 17:39:12 INFO  : dishes found successfully
+2026-04-16 17:39:12 INFO  : Method [Page com.example.fooddelivery.service.DishService.findAllDishes(Pageable)] executed in 12 ms
+2026-04-16 17:39:12 INFO  : all restaurants found successfully
+2026-04-16 17:39:12 INFO  : Method [Page com.example.fooddelivery.service.RestaurantService.getRestaurants(Pageable)] executed in 12 ms
+2026-04-16 17:39:12 INFO  : found all categories successfully
+2026-04-16 17:39:12 INFO  : Method [Page com.example.fooddelivery.service.CategoryService.getAllCategories(Pageable)] executed in 12 ms
+2026-04-16 17:39:12 INFO  : all customers found successfully
+2026-04-16 17:39:12 INFO  : Method [Page com.example.fooddelivery.service.CustomerService.getCustomers(Pageable)] executed in 12 ms
+2026-04-16 17:39:12 INFO  : all menus found successfully
+2026-04-16 17:39:12 INFO  : Method [Page com.example.fooddelivery.service.MenuService.findAllMenus(Pageable)] executed in 14 ms
+2026-04-16 17:39:12 INFO  : request to get all dishes for page: 0 and size: 1
+2026-04-16 17:39:12 INFO  : request for getAllCustomers with first name null, last name: null
+2026-04-16 17:39:12 DEBUG : try find all dishes
+2026-04-16 17:39:12 DEBUG : try find all customers
+2026-04-16 17:39:12 INFO  : request to get categories with page 0 and size 1
+2026-04-16 17:39:12 INFO  : request to get all restaurants page: 0, size: 1
+2026-04-16 17:39:12 DEBUG : try to find all categories
+2026-04-16 17:39:12 DEBUG : try to all getRestaurants
+2026-04-16 17:39:12 WARN  : HHH90003004: firstResult/maxResults specified with collection fetch; applying in memory
+2026-04-16 17:39:12 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 17:39:12 TRACE : binding parameter (2:INTEGER) <- [1]
+2026-04-16 17:39:12 INFO  : request to getAllMenus with name: null, page: 0, size: 1
+2026-04-16 17:39:12 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 17:39:12 DEBUG : try find all menus
+2026-04-16 17:39:12 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 17:39:12 TRACE : binding parameter (2:INTEGER) <- [1]
+2026-04-16 17:39:12 TRACE : binding parameter (2:INTEGER) <- [1]
+2026-04-16 17:39:12 WARN  : HHH90003004: firstResult/maxResults specified with collection fetch; applying in memory
+2026-04-16 17:39:12 INFO  : dishes found successfully
+2026-04-16 17:39:12 INFO  : Method [Page com.example.fooddelivery.service.DishService.findAllDishes(Pageable)] executed in 3 ms
+2026-04-16 17:39:12 INFO  : all restaurants found successfully
+2026-04-16 17:39:12 INFO  : Method [Page com.example.fooddelivery.service.RestaurantService.getRestaurants(Pageable)] executed in 3 ms
+2026-04-16 17:39:12 INFO  : found all categories successfully
+2026-04-16 17:39:12 INFO  : Method [Page com.example.fooddelivery.service.CategoryService.getAllCategories(Pageable)] executed in 4 ms
+2026-04-16 17:39:12 INFO  : all customers found successfully
+2026-04-16 17:39:12 INFO  : Method [Page com.example.fooddelivery.service.CustomerService.getCustomers(Pageable)] executed in 4 ms
+2026-04-16 17:39:12 INFO  : all menus found successfully
+2026-04-16 17:39:12 INFO  : Method [Page com.example.fooddelivery.service.MenuService.findAllMenus(Pageable)] executed in 4 ms
+2026-04-16 17:39:14 WARN  : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3m10s965ms).
+2026-04-16 17:39:17 INFO  : request to get all dishes for page: 0 and size: 1
+2026-04-16 17:39:17 INFO  : request to getAllMenus with name: null, page: 0, size: 1
+2026-04-16 17:39:17 DEBUG : try find all menus
+2026-04-16 17:39:17 INFO  : request to get all restaurants page: 0, size: 1
+2026-04-16 17:39:17 DEBUG : try to all getRestaurants
+2026-04-16 17:39:17 INFO  : request to get categories with page 0 and size 1
+2026-04-16 17:39:17 DEBUG : try to find all categories
+2026-04-16 17:39:17 INFO  : request to get Orders by lastName null, page: 0, size: 8
+2026-04-16 17:39:17 INFO  : request for getAllCustomers with first name null, last name: null
+2026-04-16 17:39:17 DEBUG : try find all customers
+2026-04-16 17:39:17 DEBUG : try find orders by users last name: null
+2026-04-16 17:39:17 DEBUG : check cache for key (lastName: OrderCacheKey[lastName=null, page=0, size=8, sort=createdAt: DESC], page number: 0, page size: 8)
+2026-04-16 17:39:17 INFO  : cache: return from HashMap
+2026-04-16 17:39:17 DEBUG : try find all dishes
+2026-04-16 17:39:17 INFO  : Method [Page com.example.fooddelivery.service.OrderService.getOrders(String,Pageable)] executed in 0 ms
+2026-04-16 17:39:17 WARN  : HHH90003004: firstResult/maxResults specified with collection fetch; applying in memory
+2026-04-16 17:39:17 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 17:39:17 TRACE : binding parameter (2:INTEGER) <- [1]
+2026-04-16 17:39:17 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 17:39:17 TRACE : binding parameter (2:INTEGER) <- [1]
+2026-04-16 17:39:17 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 17:39:17 WARN  : HHH90003004: firstResult/maxResults specified with collection fetch; applying in memory
+2026-04-16 17:39:17 TRACE : binding parameter (2:INTEGER) <- [1]
+2026-04-16 17:39:17 INFO  : all restaurants found successfully
+2026-04-16 17:39:17 INFO  : Method [Page com.example.fooddelivery.service.RestaurantService.getRestaurants(Pageable)] executed in 7 ms
+2026-04-16 17:39:17 INFO  : request to get Orders by lastName null, page: 0, size: 8
+2026-04-16 17:39:17 DEBUG : try find orders by users last name: null
+2026-04-16 17:39:17 INFO  : all customers found successfully
+2026-04-16 17:39:17 DEBUG : check cache for key (lastName: OrderCacheKey[lastName=null, page=0, size=8, sort=createdAt: DESC], page number: 0, page size: 8)
+2026-04-16 17:39:17 INFO  : found all categories successfully
+2026-04-16 17:39:17 INFO  : Method [Page com.example.fooddelivery.service.CustomerService.getCustomers(Pageable)] executed in 7 ms
+2026-04-16 17:39:17 INFO  : Method [Page com.example.fooddelivery.service.CategoryService.getAllCategories(Pageable)] executed in 7 ms
+2026-04-16 17:39:17 INFO  : cache: return from HashMap
+2026-04-16 17:39:17 INFO  : Method [Page com.example.fooddelivery.service.OrderService.getOrders(String,Pageable)] executed in 0 ms
+2026-04-16 17:39:17 INFO  : dishes found successfully
+2026-04-16 17:39:17 INFO  : Method [Page com.example.fooddelivery.service.DishService.findAllDishes(Pageable)] executed in 7 ms
+2026-04-16 17:39:17 INFO  : all menus found successfully
+2026-04-16 17:39:17 INFO  : Method [Page com.example.fooddelivery.service.MenuService.findAllMenus(Pageable)] executed in 9 ms
+2026-04-16 17:39:17 INFO  : request to get all restaurants page: 0, size: 1
+2026-04-16 17:39:17 DEBUG : try to all getRestaurants
+2026-04-16 17:39:17 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 17:39:17 TRACE : binding parameter (2:INTEGER) <- [1]
+2026-04-16 17:39:17 INFO  : all restaurants found successfully
+2026-04-16 17:39:17 INFO  : Method [Page com.example.fooddelivery.service.RestaurantService.getRestaurants(Pageable)] executed in 4 ms
+2026-04-16 17:39:17 INFO  : request for getAllCustomers with first name null, last name: null
+2026-04-16 17:39:17 DEBUG : try find all customers
+2026-04-16 17:39:17 INFO  : request to get categories with page 0 and size 1
+2026-04-16 17:39:17 DEBUG : try to find all categories
+2026-04-16 17:39:17 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 17:39:17 TRACE : binding parameter (2:INTEGER) <- [1]
+2026-04-16 17:39:17 INFO  : request to get all dishes for page: 0 and size: 1
+2026-04-16 17:39:17 DEBUG : try find all dishes
+2026-04-16 17:39:17 INFO  : request to getAllMenus with name: null, page: 0, size: 1
+2026-04-16 17:39:17 DEBUG : try find all menus
+2026-04-16 17:39:17 WARN  : HHH90003004: firstResult/maxResults specified with collection fetch; applying in memory
+2026-04-16 17:39:17 WARN  : HHH90003004: firstResult/maxResults specified with collection fetch; applying in memory
+2026-04-16 17:39:17 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 17:39:17 TRACE : binding parameter (2:INTEGER) <- [1]
+2026-04-16 17:39:17 INFO  : dishes found successfully
+2026-04-16 17:39:17 INFO  : all customers found successfully
+2026-04-16 17:39:17 INFO  : Method [Page com.example.fooddelivery.service.DishService.findAllDishes(Pageable)] executed in 6 ms
+2026-04-16 17:39:17 INFO  : found all categories successfully
+2026-04-16 17:39:17 INFO  : Method [Page com.example.fooddelivery.service.CustomerService.getCustomers(Pageable)] executed in 7 ms
+2026-04-16 17:39:17 INFO  : Method [Page com.example.fooddelivery.service.CategoryService.getAllCategories(Pageable)] executed in 6 ms
+2026-04-16 17:39:17 INFO  : all menus found successfully
+2026-04-16 17:39:17 INFO  : Method [Page com.example.fooddelivery.service.MenuService.findAllMenus(Pageable)] executed in 9 ms
+2026-04-16 17:39:22 INFO  : request to get categories with page 0 and size 1
+2026-04-16 17:39:22 INFO  : request to get all dishes for page: 0 and size: 1
+2026-04-16 17:39:22 DEBUG : try to find all categories
+2026-04-16 17:39:22 INFO  : request to get all restaurants page: 0, size: 1
+2026-04-16 17:39:22 DEBUG : try to all getRestaurants
+2026-04-16 17:39:22 INFO  : request for getAllCustomers with first name null, last name: null
+2026-04-16 17:39:22 DEBUG : try find all customers
+2026-04-16 17:39:22 INFO  : request to get Orders by lastName null, page: 0, size: 8
+2026-04-16 17:39:22 DEBUG : try find orders by users last name: null
+2026-04-16 17:39:22 INFO  : request to getAllMenus with name: null, page: 0, size: 1
+2026-04-16 17:39:22 DEBUG : check cache for key (lastName: OrderCacheKey[lastName=null, page=0, size=8, sort=createdAt: DESC], page number: 0, page size: 8)
+2026-04-16 17:39:22 DEBUG : try find all menus
+2026-04-16 17:39:22 INFO  : cache: return from HashMap
+2026-04-16 17:39:22 INFO  : Method [Page com.example.fooddelivery.service.OrderService.getOrders(String,Pageable)] executed in 0 ms
+2026-04-16 17:39:22 DEBUG : try find all dishes
+2026-04-16 17:39:22 WARN  : HHH90003004: firstResult/maxResults specified with collection fetch; applying in memory
+2026-04-16 17:39:22 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 17:39:22 TRACE : binding parameter (2:INTEGER) <- [1]
+2026-04-16 17:39:22 WARN  : HHH90003004: firstResult/maxResults specified with collection fetch; applying in memory
+2026-04-16 17:39:22 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 17:39:22 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 17:39:22 TRACE : binding parameter (2:INTEGER) <- [1]
+2026-04-16 17:39:22 TRACE : binding parameter (2:INTEGER) <- [1]
+2026-04-16 17:39:22 INFO  : request to get Orders by lastName null, page: 0, size: 8
+2026-04-16 17:39:22 DEBUG : try find orders by users last name: null
+2026-04-16 17:39:22 DEBUG : check cache for key (lastName: OrderCacheKey[lastName=null, page=0, size=8, sort=createdAt: DESC], page number: 0, page size: 8)
+2026-04-16 17:39:22 INFO  : cache: return from HashMap
+2026-04-16 17:39:22 INFO  : Method [Page com.example.fooddelivery.service.OrderService.getOrders(String,Pageable)] executed in 0 ms
+2026-04-16 17:39:22 INFO  : dishes found successfully
+2026-04-16 17:39:22 INFO  : Method [Page com.example.fooddelivery.service.DishService.findAllDishes(Pageable)] executed in 2 ms
+2026-04-16 17:39:22 INFO  : all restaurants found successfully
+2026-04-16 17:39:22 INFO  : Method [Page com.example.fooddelivery.service.RestaurantService.getRestaurants(Pageable)] executed in 8 ms
+2026-04-16 17:39:22 INFO  : found all categories successfully
+2026-04-16 17:39:22 INFO  : Method [Page com.example.fooddelivery.service.CategoryService.getAllCategories(Pageable)] executed in 8 ms
+2026-04-16 17:39:22 INFO  : all customers found successfully
+2026-04-16 17:39:22 INFO  : Method [Page com.example.fooddelivery.service.CustomerService.getCustomers(Pageable)] executed in 9 ms
+2026-04-16 17:39:22 INFO  : all menus found successfully
+2026-04-16 17:39:22 INFO  : Method [Page com.example.fooddelivery.service.MenuService.findAllMenus(Pageable)] executed in 14 ms
+2026-04-16 17:39:22 INFO  : request to get all restaurants page: 0, size: 1
+2026-04-16 17:39:22 INFO  : request to get categories with page 0 and size 1
+2026-04-16 17:39:22 DEBUG : try to find all categories
+2026-04-16 17:39:22 DEBUG : try to all getRestaurants
+2026-04-16 17:39:22 WARN  : HHH90003004: firstResult/maxResults specified with collection fetch; applying in memory
+2026-04-16 17:39:22 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 17:39:22 TRACE : binding parameter (2:INTEGER) <- [1]
+2026-04-16 17:39:22 INFO  : request for getAllCustomers with first name null, last name: null
+2026-04-16 17:39:22 DEBUG : try find all customers
+2026-04-16 17:39:22 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 17:39:22 INFO  : request to get all dishes for page: 0 and size: 1
+2026-04-16 17:39:22 DEBUG : try find all dishes
+2026-04-16 17:39:22 TRACE : binding parameter (2:INTEGER) <- [1]
+2026-04-16 17:39:22 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 17:39:22 TRACE : binding parameter (2:INTEGER) <- [1]
+2026-04-16 17:39:22 INFO  : all restaurants found successfully
+2026-04-16 17:39:22 INFO  : Method [Page com.example.fooddelivery.service.RestaurantService.getRestaurants(Pageable)] executed in 4 ms
+2026-04-16 17:39:22 INFO  : found all categories successfully
+2026-04-16 17:39:22 INFO  : Method [Page com.example.fooddelivery.service.CategoryService.getAllCategories(Pageable)] executed in 4 ms
+2026-04-16 17:39:22 INFO  : request to getAllMenus with name: null, page: 0, size: 1
+2026-04-16 17:39:22 DEBUG : try find all menus
+2026-04-16 17:39:22 INFO  : all customers found successfully
+2026-04-16 17:39:22 WARN  : HHH90003004: firstResult/maxResults specified with collection fetch; applying in memory
+2026-04-16 17:39:22 INFO  : Method [Page com.example.fooddelivery.service.CustomerService.getCustomers(Pageable)] executed in 4 ms
+2026-04-16 17:39:22 INFO  : dishes found successfully
+2026-04-16 17:39:22 INFO  : Method [Page com.example.fooddelivery.service.DishService.findAllDishes(Pageable)] executed in 3 ms
+2026-04-16 17:39:22 INFO  : all menus found successfully
+2026-04-16 17:39:22 INFO  : Method [Page com.example.fooddelivery.service.MenuService.findAllMenus(Pageable)] executed in 3 ms
+2026-04-16 17:39:53 INFO  : request to get all dishes for page: 0 and size: 10
+2026-04-16 17:39:53 DEBUG : try find all dishes
+2026-04-16 17:39:53 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 17:39:53 TRACE : binding parameter (2:INTEGER) <- [10]
+2026-04-16 17:39:53 INFO  : dishes found successfully
+2026-04-16 17:39:53 INFO  : Method [Page com.example.fooddelivery.service.DishService.findAllDishes(Pageable)] executed in 4 ms
+2026-04-16 17:39:53 INFO  : request to get all dishes for page: 0 and size: 10
+2026-04-16 17:39:53 DEBUG : try find all dishes
+2026-04-16 17:39:53 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 17:39:53 TRACE : binding parameter (2:INTEGER) <- [10]
+2026-04-16 17:39:53 INFO  : dishes found successfully
+2026-04-16 17:39:53 INFO  : Method [Page com.example.fooddelivery.service.DishService.findAllDishes(Pageable)] executed in 4 ms
+2026-04-16 17:40:16 INFO  : request to get all dishes for page: 1 and size: 10
+2026-04-16 17:40:16 DEBUG : try find all dishes
+2026-04-16 17:40:16 TRACE : binding parameter (1:INTEGER) <- [10]
+2026-04-16 17:40:16 TRACE : binding parameter (2:INTEGER) <- [10]
+2026-04-16 17:40:16 INFO  : dishes found successfully
+2026-04-16 17:40:16 INFO  : Method [Page com.example.fooddelivery.service.DishService.findAllDishes(Pageable)] executed in 4 ms
+2026-04-16 17:40:22 INFO  : request to get all restaurants page: 0, size: 100
+2026-04-16 17:40:22 DEBUG : try to all getRestaurants
+2026-04-16 17:40:22 INFO  : request to getAllMenus with name: null, page: 0, size: 12
+2026-04-16 17:40:22 DEBUG : try find all menus
+2026-04-16 17:40:22 WARN  : HHH90003004: firstResult/maxResults specified with collection fetch; applying in memory
+2026-04-16 17:40:22 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 17:40:22 TRACE : binding parameter (2:INTEGER) <- [100]
+2026-04-16 17:40:22 INFO  : all restaurants found successfully
+2026-04-16 17:40:22 INFO  : Method [Page com.example.fooddelivery.service.RestaurantService.getRestaurants(Pageable)] executed in 4 ms
+2026-04-16 17:40:22 INFO  : all menus found successfully
+2026-04-16 17:40:22 INFO  : Method [Page com.example.fooddelivery.service.MenuService.findAllMenus(Pageable)] executed in 4 ms
+2026-04-16 17:40:22 INFO  : request to get all restaurants page: 0, size: 100
+2026-04-16 17:40:22 INFO  : request to getAllMenus with name: null, page: 0, size: 12
+2026-04-16 17:40:22 DEBUG : try to all getRestaurants
+2026-04-16 17:40:22 DEBUG : try find all menus
+2026-04-16 17:40:22 WARN  : HHH90003004: firstResult/maxResults specified with collection fetch; applying in memory
+2026-04-16 17:40:22 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 17:40:22 TRACE : binding parameter (2:INTEGER) <- [100]
+2026-04-16 17:40:22 INFO  : all restaurants found successfully
+2026-04-16 17:40:22 INFO  : Method [Page com.example.fooddelivery.service.RestaurantService.getRestaurants(Pageable)] executed in 2 ms
+2026-04-16 17:40:22 INFO  : all menus found successfully
+2026-04-16 17:40:22 INFO  : Method [Page com.example.fooddelivery.service.MenuService.findAllMenus(Pageable)] executed in 3 ms
+2026-04-16 17:40:25 INFO  : request to get all restaurants page: 0, size: 10
+2026-04-16 17:40:25 DEBUG : try to all getRestaurants
+2026-04-16 17:40:25 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 17:40:25 TRACE : binding parameter (2:INTEGER) <- [10]
+2026-04-16 17:40:25 INFO  : all restaurants found successfully
+2026-04-16 17:40:25 INFO  : Method [Page com.example.fooddelivery.service.RestaurantService.getRestaurants(Pageable)] executed in 3 ms
+2026-04-16 17:40:25 INFO  : request to get all restaurants page: 0, size: 10
+2026-04-16 17:40:25 DEBUG : try to all getRestaurants
+2026-04-16 17:40:25 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 17:40:25 TRACE : binding parameter (2:INTEGER) <- [10]
+2026-04-16 17:40:25 INFO  : all restaurants found successfully
+2026-04-16 17:40:25 INFO  : Method [Page com.example.fooddelivery.service.RestaurantService.getRestaurants(Pageable)] executed in 2 ms
+2026-04-16 17:40:33 INFO  : request to getMenusByRestaurantId with id: 52, page: 0, size: 50
+2026-04-16 17:40:33 DEBUG : try find menu by restaurant id: '52'
+2026-04-16 17:40:33 TRACE : binding parameter (1:BIGINT) <- [52]
+2026-04-16 17:40:33 WARN  : HHH90003004: firstResult/maxResults specified with collection fetch; applying in memory
+2026-04-16 17:40:33 TRACE : binding parameter (1:BIGINT) <- [52]
+2026-04-16 17:40:33 INFO  : menu found with id: 52 that exist in restaurant with id: 52 successfully
+2026-04-16 17:40:33 INFO  : Method [Page com.example.fooddelivery.service.MenuService.findMenuByRestaurantId(Long,Pageable)] executed in 8 ms
+2026-04-16 17:40:33 INFO  : request to getMenusByRestaurantId with id: 52, page: 0, size: 50
+2026-04-16 17:40:33 DEBUG : try find menu by restaurant id: '52'
+2026-04-16 17:40:33 TRACE : binding parameter (1:BIGINT) <- [52]
+2026-04-16 17:40:33 WARN  : HHH90003004: firstResult/maxResults specified with collection fetch; applying in memory
+2026-04-16 17:40:33 TRACE : binding parameter (1:BIGINT) <- [52]
+2026-04-16 17:40:33 INFO  : menu found with id: 52 that exist in restaurant with id: 52 successfully
+2026-04-16 17:40:33 INFO  : Method [Page com.example.fooddelivery.service.MenuService.findMenuByRestaurantId(Long,Pageable)] executed in 3 ms
+2026-04-16 17:40:41 INFO  : request to getAllMenus with name: null, page: 0, size: 12
+2026-04-16 17:40:41 DEBUG : try find all menus
+2026-04-16 17:40:41 INFO  : request to get all restaurants page: 0, size: 100
+2026-04-16 17:40:41 DEBUG : try to all getRestaurants
+2026-04-16 17:40:41 WARN  : HHH90003004: firstResult/maxResults specified with collection fetch; applying in memory
+2026-04-16 17:40:41 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 17:40:41 TRACE : binding parameter (2:INTEGER) <- [100]
+2026-04-16 17:40:41 INFO  : all restaurants found successfully
+2026-04-16 17:40:41 INFO  : Method [Page com.example.fooddelivery.service.RestaurantService.getRestaurants(Pageable)] executed in 3 ms
+2026-04-16 17:40:41 INFO  : all menus found successfully
+2026-04-16 17:40:41 INFO  : Method [Page com.example.fooddelivery.service.MenuService.findAllMenus(Pageable)] executed in 5 ms
+2026-04-16 17:40:41 INFO  : request to getAllMenus with name: null, page: 0, size: 12
+2026-04-16 17:40:41 INFO  : request to get all restaurants page: 0, size: 100
+2026-04-16 17:40:41 DEBUG : try find all menus
+2026-04-16 17:40:41 DEBUG : try to all getRestaurants
+2026-04-16 17:40:41 WARN  : HHH90003004: firstResult/maxResults specified with collection fetch; applying in memory
+2026-04-16 17:40:41 TRACE : binding parameter (1:INTEGER) <- [0]
+2026-04-16 17:40:41 TRACE : binding parameter (2:INTEGER) <- [100]
+2026-04-16 17:40:41 INFO  : all restaurants found successfully
+2026-04-16 17:40:41 INFO  : Method [Page com.example.fooddelivery.service.RestaurantService.getRestaurants(Pageable)] executed in 2 ms
+2026-04-16 17:40:41 INFO  : all menus found successfully
+2026-04-16 17:40:41 INFO  : Method [Page com.example.fooddelivery.service.MenuService.findAllMenus(Pageable)] executed in 3 ms
+2026-04-16 17:42:35 WARN  : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m51s812ms).
+2026-04-16 19:06:51 WARN  : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m44s771ms).
+2026-04-16 19:20:05 WARN  : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=13m13s510ms).
+2026-04-16 19:33:19 WARN  : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m44s614ms).
+2026-04-16 19:49:39 WARN  : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=16m19s874ms).
+2026-04-16 20:08:12 WARN  : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=18m32s732ms).
+2026-04-16 20:09:57 WARN  : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m44s691ms).
+2026-04-16 20:26:46 WARN  : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=16m49s436ms).
+2026-04-16 20:43:32 WARN  : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=16m46s183ms).
+2026-04-16 21:01:04 WARN  : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=17m32s196ms).
+2026-04-16 21:17:38 WARN  : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=16m33s212ms).
+2026-04-16 21:19:47 WARN  : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m9s602ms).
+2026-04-16 21:33:52 WARN  : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=14m5s101ms).
+2026-04-16 21:53:32 WARN  : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=11m2s585ms).
+2026-04-16 21:57:06 WARN  : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m3s208ms).
+2026-04-16 22:13:50 WARN  : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=16m44s293ms).
+2026-04-16 22:33:25 WARN  : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=19m35s340ms).
+2026-04-16 22:35:35 WARN  : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m9s488ms).
+2026-04-16 22:53:08 WARN  : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=17m33s248ms).
+2026-04-16 23:09:45 WARN  : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=16m37s305ms).
