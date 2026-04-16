@@ -7,7 +7,7 @@ build/
 src/main/resources/application.yaml
 
 files/
-
+food-delivery-spa/
 ### STS ###
 .apt_generated
 .classpath
