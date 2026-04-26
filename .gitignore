@@ -1,13 +1,28 @@
 HELP.md
-.gradle
+.gradle/
 build/
+out/
+bin/
 !gradle/wrapper/gradle-wrapper.jar
-!**/src/main/**/build/
-!**/src/test/**/build/
-src/main/resources/application.yaml
 
-files/
-### STS ###
+**/node_modules/
+**/dist/
+**/.env
+**/.env.local
+
+.idea/
+*.iws
+*.iml
+*.ipr
+/out/
+
+.vscode/
+
+.DS_Store
+*.log
+logs/
+*.jtl
+
 .apt_generated
 .classpath
 .factorypath
@@ -15,33 +30,11 @@ files/
 .settings
 .springBeans
 .sts4-cache
-bin/
-!**/src/main/**/bin/
-!**/src/test/**/bin/
-
-### IntelliJ IDEA ###
-.idea
-*.iws
-*.iml
-*.ipr
-out/
-!**/src/main/**/out/
-!**/src/test/**/out/
-
-### NetBeans ###
 /nbproject/private/
 /nbbuild/
-/dist/
 /nbdist/
 /.nb-gradle/
 
-### VS Code ###
-.vscode/
-
-*.log
-*.jtl
-logs/
-result-110/
-result-200/
-.DS_Store
-.jtl
+.env
+.env.*
+!.env.example

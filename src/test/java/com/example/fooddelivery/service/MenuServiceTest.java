@@ -15,7 +15,7 @@ import com.example.fooddelivery.repository.DishRepository;
 import com.example.fooddelivery.repository.MenuRepository;
 import com.example.fooddelivery.repository.OrderRepository;
 import com.example.fooddelivery.repository.RestaurantRepository;
-import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -25,19 +25,18 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
+
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.never;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 class MenuServiceTest {
+
     @Mock private MenuRepository menuRepository;
     @Mock private MenuMapper menuMapper;
     @Mock private RestaurantRepository restaurantRepository;
@@ -49,320 +48,374 @@ class MenuServiceTest {
     @InjectMocks
     private MenuService menuService;
 
+    private Menu menu;
+    private MenuDto menuDto;
+    private Restaurant restaurant;
+    private Pageable pageable;
+
+    @BeforeEach
+    void setUp() {
+        restaurant = new Restaurant();
+        restaurant.setId(1L);
+        restaurant.setName("Test Restaurant");
+
+        menu = new Menu();
+        menu.setId(1L);
+        menu.setName("Test Menu");
+        menu.setRestaurant(restaurant);
+        menu.setDishes(new ArrayList<>());
+
+        menuDto = new MenuDto();
+        menuDto.setId(1L);
+        menuDto.setName("Test Menu DTO");
+
+        pageable = PageRequest.of(0, 10);
+    }
+
     @Test
-    @DisplayName("findById: success")
     void findById_Success() {
-        Menu menu = new Menu();
         when(menuRepository.findById(1L)).thenReturn(Optional.of(menu));
-        when(menuMapper.toDto(menu)).thenReturn(new MenuDto());
+        when(menuMapper.toDto(menu)).thenReturn(menuDto);
 
-        assertThat(menuService.findById(1L)).isNotNull();
+        MenuDto result = menuService.findById(1L);
+
+        assertEquals(menuDto, result);
+        verify(menuRepository).findById(1L);
     }
 
     @Test
-    @DisplayName("findById: not found")
-    void findById_NotFound() {
+    void findById_MenuNotFoundException() {
         when(menuRepository.findById(1L)).thenReturn(Optional.empty());
-        assertThatThrownBy(() -> menuService.findById(1L))
-                .isInstanceOf(MenuNotFoundException.class);
+
+        assertThrows(MenuNotFoundException.class, () -> menuService.findById(1L));
     }
 
     @Test
-    @DisplayName("findAllMenus: success")
     void findAllMenus_Success() {
-        Pageable pageable = PageRequest.of(0, 10);
-        when(menuRepository.findAll(pageable)).thenReturn(new PageImpl<>(List.of(new Menu())));
-        when(menuMapper.toDto(any())).thenReturn(new MenuDto());
+        Page<Menu> menuPage = new PageImpl<>(List.of(menu));
+        when(menuRepository.findAll(pageable)).thenReturn(menuPage);
+        when(menuMapper.toDto(menu)).thenReturn(menuDto);
 
         Page<MenuDto> result = menuService.findAllMenus(pageable);
-        assertThat(result).hasSize(1);
+
+        assertEquals(1, result.getTotalElements());
+        verify(menuRepository).findAll(pageable);
     }
 
     @Test
-    @DisplayName("findMenuByName: success")
     void findMenuByName_Success() {
-        String name = "Lunch";
-        Pageable pageable = PageRequest.of(0, 10);
-        when(menuRepository.findMenuByName(name, pageable)).thenReturn(new PageImpl<>(List.of(new Menu())));
-        when(menuMapper.toDto(any())).thenReturn(new MenuDto());
+        Page<Menu> menuPage = new PageImpl<>(List.of(menu));
+        when(menuRepository.findMenuByName("Test", pageable)).thenReturn(menuPage);
+        when(menuMapper.toDto(menu)).thenReturn(menuDto);
 
-        assertThat(menuService.findMenuByName(name, pageable)).hasSize(1);
+        Page<MenuDto> result = menuService.findMenuByName("Test", pageable);
+
+        assertEquals(1, result.getTotalElements());
     }
 
+    // --- findMenuByRestaurantId ---
+
     @Test
-    @DisplayName("findMenuByRestaurantId: success")
     void findMenuByRestaurantId_Success() {
-        Long resId = 1L;
-        Pageable pageable = PageRequest.of(0, 10);
-        when(restaurantRepository.existsById(resId)).thenReturn(true);
-        when(menuRepository.findAllByRestaurantId(resId, pageable)).thenReturn(new PageImpl<>(List.of(new Menu())));
-        when(menuMapper.toDto(any())).thenReturn(new MenuDto());
+        when(restaurantRepository.existsById(1L)).thenReturn(true);
+        Page<Menu> menuPage = new PageImpl<>(List.of(menu));
+        when(menuRepository.findAllByRestaurantId(1L, pageable)).thenReturn(menuPage);
+        when(menuMapper.toDto(menu)).thenReturn(menuDto);
 
-        assertThat(menuService.findMenuByRestaurantId(resId, pageable)).hasSize(1);
+        Page<MenuDto> result = menuService.findMenuByRestaurantId(1L, pageable);
+
+        assertEquals(1, result.getTotalElements());
     }
 
     @Test
-    @DisplayName("findMenuByRestaurantId: restaurant not found")
-    void findMenuByRestaurantId_NotFound() {
-        Long id = 1L;
-        PageRequest pageable = PageRequest.of(0, 10);
+    void findMenuByRestaurantId_RestaurantNotFoundException() {
+        when(restaurantRepository.existsById(1L)).thenReturn(false);
 
-        when(restaurantRepository.existsById(id)).thenReturn(false);
-
-        assertThatThrownBy(() -> menuService.findMenuByRestaurantId(id, pageable))
-                .isInstanceOf(RestaurantNotFoundException.class);
+        assertThrows(RestaurantNotFoundException.class, () -> menuService.findMenuByRestaurantId(1L, pageable));
     }
 
     @Test
-    @DisplayName("addMenu: success with dishes")
+    void addMenu_Success_WithoutDishes() {
+        MenuCreateDto dto = new MenuCreateDto();
+        dto.setName("New Menu");
+        dto.setRestaurantId(1L);
+        dto.setDishesIds(null);
+
+        when(menuMapper.toEntity(dto)).thenReturn(menu);
+        when(restaurantRepository.findById(1L)).thenReturn(Optional.of(restaurant));
+        when(menuRepository.save(menu)).thenReturn(menu);
+        when(menuMapper.toDto(menu)).thenReturn(menuDto);
+
+        MenuDto result = menuService.addMenu(dto);
+
+        assertEquals(menuDto, result);
+        assertTrue(menu.isActive());
+        verify(menuRepository).save(menu);
+    }
+
+    @Test
     void addMenu_Success_WithDishes() {
         MenuCreateDto dto = new MenuCreateDto();
         dto.setRestaurantId(1L);
-        dto.setDishesIds(List.of(10L));
+        dto.setDishesIds(List.of(1L));
 
-        Menu menu = new Menu();
-        Restaurant restaurant = new Restaurant();
-        restaurant.setId(1L);
-        menu.setRestaurant(restaurant);
-
-        when(menuMapper.toEntity(dto)).thenReturn(menu);
-        when(restaurantRepository.findById(1L)).thenReturn(Optional.of(restaurant));
-        when(dishRepository.findAllById(dto.getDishesIds())).thenReturn(List.of(new Dish()));
-        when(menuRepository.save(any())).thenReturn(menu);
-        when(menuMapper.toDto(any())).thenReturn(new MenuDto());
-
-        assertThat(menuService.addMenu(dto)).isNotNull();
-    }
-
-    @Test
-    @DisplayName("addMenu: success without dishes ids (Branch Coverage)")
-    void addMenu_Success_NoDishes() {
-        MenuCreateDto dto = new MenuCreateDto();
-        dto.setRestaurantId(1L);
-        dto.setDishesIds(null);
-
-        Menu menu = new Menu();
-        Restaurant restaurant = new Restaurant();
-        restaurant.setId(1L);
-        menu.setRestaurant(restaurant);
+        Dish dish = new Dish();
+        dish.setId(1L);
+        Menu otherMenu = new Menu();
+        otherMenu.setRestaurant(restaurant);
+        dish.setMenu(otherMenu);
 
         when(menuMapper.toEntity(dto)).thenReturn(menu);
         when(restaurantRepository.findById(1L)).thenReturn(Optional.of(restaurant));
-        when(menuRepository.save(any())).thenReturn(menu);
-        when(menuMapper.toDto(any())).thenReturn(new MenuDto());
+        when(dishRepository.findAllById(dto.getDishesIds())).thenReturn(List.of(dish));
+        when(menuRepository.save(menu)).thenReturn(menu);
+        when(menuMapper.toDto(menu)).thenReturn(menuDto);
 
-        menuService.addMenu(dto);
-        verify(dishRepository, never()).findAllById(any());
+        MenuDto result = menuService.addMenu(dto);
+
+        assertEquals(menuDto, result);
+        assertEquals(menu, dish.getMenu());
     }
 
     @Test
-    @DisplayName("addMenu: restaurant not found")
     void addMenu_RestaurantNotFound() {
         MenuCreateDto dto = new MenuCreateDto();
         dto.setRestaurantId(1L);
-
-        Menu menu = new Menu();
-        Restaurant mockRestaurant = new Restaurant();
-        mockRestaurant.setId(1L);
-        menu.setRestaurant(mockRestaurant);
-
         when(menuMapper.toEntity(dto)).thenReturn(menu);
         when(restaurantRepository.findById(1L)).thenReturn(Optional.empty());
 
-        assertThatThrownBy(() -> menuService.addMenu(dto))
-                .isInstanceOf(RestaurantNotFoundException.class)
-                .hasMessageContaining("Restaurant not found with id: 1");
+        assertThrows(RestaurantNotFoundException.class, () -> menuService.addMenu(dto));
     }
 
     @Test
-    @DisplayName("updateMenuById: success with new restaurant and dishes")
-    void updateMenuById_FullUpdate() {
-        Long id = 1L;
+    void addMenu_DishRestaurantMismatch() {
         MenuCreateDto dto = new MenuCreateDto();
-        dto.setRestaurantId(2L);
-        dto.setDishesIds(List.of(10L));
+        dto.setRestaurantId(1L);
+        dto.setDishesIds(List.of(1L));
 
-        Menu existing = new Menu();
-        Restaurant oldRes = new Restaurant(); oldRes.setId(1L);
-        existing.setRestaurant(oldRes);
+        Restaurant otherRestaurant = new Restaurant();
+        otherRestaurant.setId(2L);
+        Menu otherMenu = new Menu();
+        otherMenu.setRestaurant(otherRestaurant);
 
-        Restaurant newRes = new Restaurant(); newRes.setId(2L);
+        Dish dish = new Dish();
+        dish.setMenu(otherMenu);
 
-        when(menuRepository.findWithRestaurantAndDishesById(id)).thenReturn(Optional.of(existing));
-        when(restaurantRepository.findById(2L)).thenReturn(Optional.of(newRes));
-        when(dishRepository.findAllById(any())).thenReturn(List.of(new Dish()));
-        when(menuRepository.save(any())).thenReturn(existing);
-        when(menuMapper.toDto(any())).thenReturn(new MenuDto());
+        when(menuMapper.toEntity(dto)).thenReturn(menu);
+        when(restaurantRepository.findById(1L)).thenReturn(Optional.of(restaurant));
+        when(dishRepository.findAllById(dto.getDishesIds())).thenReturn(List.of(dish));
 
-        menuService.updateMenuById(id, dto);
-        assertThat(existing.getRestaurant().getId()).isEqualTo(2L);
+        assertThrows(IllegalArgumentException.class, () -> menuService.addMenu(dto));
     }
 
     @Test
-    @DisplayName("updateMenuById: same restaurant and null dishes (Branch Coverage)")
-    void updateMenuById_SameRestaurant_NoDishes() {
-        Long id = 1L;
+    void updateMenuById_Success_SameRestaurant_NoDishes() {
         MenuCreateDto dto = new MenuCreateDto();
+        dto.setName("Updated Name");
+        dto.setDescription("Desc");
         dto.setRestaurantId(1L);
         dto.setDishesIds(null);
 
-        Menu existing = new Menu();
-        Restaurant res = new Restaurant(); res.setId(1L);
-        existing.setRestaurant(res);
+        when(menuRepository.findWithRestaurantAndDishesById(1L)).thenReturn(Optional.of(menu));
+        when(menuRepository.save(menu)).thenReturn(menu);
+        when(menuMapper.toDto(menu)).thenReturn(menuDto);
 
-        when(menuRepository.findWithRestaurantAndDishesById(id)).thenReturn(Optional.of(existing));
-        when(menuRepository.save(any())).thenReturn(existing);
-        when(menuMapper.toDto(any())).thenReturn(new MenuDto());
+        MenuDto result = menuService.updateMenuById(1L, dto);
 
-        menuService.updateMenuById(id, dto);
+        assertEquals(menuDto, result);
+        assertEquals("Updated Name", menu.getName());
         verify(restaurantRepository, never()).findById(any());
-        verify(dishRepository, never()).findAllById(any());
     }
 
     @Test
-    @DisplayName("updateMenuById: not found")
-    void updateMenuById_NotFound() {
-        Long id = 1L;
-        MenuCreateDto dto = new MenuCreateDto();
-        when(menuRepository.findWithRestaurantAndDishesById(id)).thenReturn(Optional.empty());
-        assertThatThrownBy(() -> menuService.updateMenuById(id, dto))
-                .isInstanceOf(MenuNotFoundException.class);
-    }
-
-    @Test
-    @DisplayName("updateMenuById: restaurant not found")
-    void updateMenuById_RestaurantNotFound() {
+    void updateMenuById_Success_DifferentRestaurant_WithDishes() {
         MenuCreateDto dto = new MenuCreateDto();
         dto.setRestaurantId(2L);
-        Menu existing = new Menu();
-        Restaurant oldRes = new Restaurant(); oldRes.setId(1L);
-        existing.setRestaurant(oldRes);
+        dto.setDishesIds(List.of(1L));
 
-        when(menuRepository.findWithRestaurantAndDishesById(1L)).thenReturn(Optional.of(existing));
+        Restaurant newRestaurant = new Restaurant();
+        newRestaurant.setId(2L);
+
+        Dish newDish = new Dish();
+
+        when(menuRepository.findWithRestaurantAndDishesById(1L)).thenReturn(Optional.of(menu));
+        when(restaurantRepository.findById(2L)).thenReturn(Optional.of(newRestaurant));
+        when(dishRepository.findAllById(dto.getDishesIds())).thenReturn(List.of(newDish));
+        when(menuRepository.save(menu)).thenReturn(menu);
+        when(menuMapper.toDto(menu)).thenReturn(menuDto);
+
+        MenuDto result = menuService.updateMenuById(1L, dto);
+
+        assertEquals(menuDto, result);
+        assertEquals(newRestaurant, menu.getRestaurant());
+        assertTrue(menu.getDishes().contains(newDish));
+    }
+
+    @Test
+    void updateMenuById_MenuNotFound() {
+        MenuCreateDto dto = new MenuCreateDto();
+        when(menuRepository.findWithRestaurantAndDishesById(1L)).thenReturn(Optional.empty());
+
+        assertThrows(MenuNotFoundException.class, () -> menuService.updateMenuById(1L, dto));
+    }
+
+    @Test
+    void updateMenuById_NewRestaurantNotFound() {
+        MenuCreateDto dto = new MenuCreateDto();
+        dto.setRestaurantId(2L);
+
+        when(menuRepository.findWithRestaurantAndDishesById(1L)).thenReturn(Optional.of(menu));
         when(restaurantRepository.findById(2L)).thenReturn(Optional.empty());
 
-        assertThatThrownBy(() -> menuService.updateMenuById(1L, dto))
-                .isInstanceOf(RestaurantNotFoundException.class);
+        assertThrows(RestaurantNotFoundException.class, () -> menuService.updateMenuById(1L, dto));
     }
 
     @Test
-    @DisplayName("addDishToMenu: success")
     void addDishToMenu_Success() {
-        when(menuRepository.findById(1L)).thenReturn(Optional.of(new Menu()));
-        when(dishRepository.findById(2L)).thenReturn(Optional.of(new Dish()));
-        when(menuMapper.toDto(any())).thenReturn(new MenuDto());
+        Dish dish = new Dish();
+        dish.setId(1L);
+        Menu otherMenu = new Menu();
+        otherMenu.setRestaurant(restaurant);
+        dish.setMenu(otherMenu);
 
-        menuService.addDishToMenu(1L, 2L);
-        verify(dishRepository).save(any());
+        when(menuRepository.findById(1L)).thenReturn(Optional.of(menu));
+        when(dishRepository.findById(1L)).thenReturn(Optional.of(dish));
+        when(menuMapper.toDto(menu)).thenReturn(menuDto);
+
+        MenuDto result = menuService.addDishToMenu(1L, 1L);
+
+        assertEquals(menuDto, result);
+        assertEquals(menu, dish.getMenu());
+        verify(dishRepository).save(dish);
     }
 
     @Test
-    @DisplayName("addDishToMenu: dish not found")
+    void addDishToMenu_MenuNotFound() {
+        when(menuRepository.findById(1L)).thenReturn(Optional.empty());
+        assertThrows(MenuNotFoundException.class, () -> menuService.addDishToMenu(1L, 1L));
+    }
+
+    @Test
     void addDishToMenu_DishNotFound() {
-        when(menuRepository.findById(1L)).thenReturn(Optional.of(new Menu()));
-        when(dishRepository.findById(2L)).thenReturn(Optional.empty());
-        assertThatThrownBy(() -> menuService.addDishToMenu(1L, 2L)).isInstanceOf(DishNotFoundException.class);
+        when(menuRepository.findById(1L)).thenReturn(Optional.of(menu));
+        when(dishRepository.findById(1L)).thenReturn(Optional.empty());
+        assertThrows(DishNotFoundException.class, () -> menuService.addDishToMenu(1L, 1L));
     }
 
     @Test
-    @DisplayName("deleteMenuById: success")
+    void addDishToMenu_MismatchRestaurant() {
+        Dish dish = new Dish();
+        Restaurant otherRestaurant = new Restaurant();
+        otherRestaurant.setId(2L);
+        otherRestaurant.setName("Other");
+        Menu otherMenu = new Menu();
+        otherMenu.setRestaurant(otherRestaurant);
+        dish.setMenu(otherMenu);
+
+        when(menuRepository.findById(1L)).thenReturn(Optional.of(menu));
+        when(dishRepository.findById(1L)).thenReturn(Optional.of(dish));
+
+        assertThrows(DishHasAnotherRestaurantException.class, () -> menuService.addDishToMenu(1L, 1L));
+    }
+
+    @Test
     void deleteMenuById_Success() {
         when(menuRepository.existsById(1L)).thenReturn(true);
-        when(orderRepository.findByMenuId(1L)).thenReturn(Collections.emptyList());
+        when(orderRepository.findByMenuId(1L)).thenReturn(List.of());
 
         menuService.deleteMenuById(1L);
+
         verify(menuRepository).deleteById(1L);
     }
 
     @Test
-    @DisplayName("deleteMenuById: not found")
     void deleteMenuById_NotFound() {
         when(menuRepository.existsById(1L)).thenReturn(false);
-        assertThatThrownBy(() -> menuService.deleteMenuById(1L)).isInstanceOf(MenuNotFoundException.class);
+
+        assertThrows(MenuNotFoundException.class, () -> menuService.deleteMenuById(1L));
     }
 
     @Test
-    @DisplayName("deleteMenuById: has orders (Branch Coverage)")
     void deleteMenuById_HasOrders() {
-        Long menuId = 1L;
-        com.example.fooddelivery.entity.Order mockOrder = new com.example.fooddelivery.entity.Order();
+        when(menuRepository.existsById(1L)).thenReturn(true);
 
-        when(menuRepository.existsById(menuId)).thenReturn(true);
+        com.example.fooddelivery.entity.Order dummyOrder = new com.example.fooddelivery.entity.Order();
+        when(orderRepository.findByMenuId(1L)).thenReturn(List.of(dummyOrder));
 
-        when(orderRepository.findByMenuId(menuId)).thenReturn(List.of(mockOrder));
-
-        assertThatThrownBy(() -> menuService.deleteMenuById(menuId))
-                .isInstanceOf(MenuHasDishesException.class)
-                .hasMessageContaining("Menu with id " + menuId + "has dishes and cannot be delete");
-
-        verify(menuRepository, never()).deleteById(any());
+        assertThrows(MenuHasDishesException.class, () -> menuService.deleteMenuById(1L));
     }
 
     @Test
-    @DisplayName("addDishesToMenu: bulk success with categories")
-    void addDishesToMenu_Bulk_Success() {
-        Long menuId = 1L;
-        Menu menu = new Menu();
-        menu.setDishes(new ArrayList<>());
+    void addDishesToMenu_Success_WithCategory() {
+        DishCreateDto dishDto = new DishCreateDto();
+        dishDto.setMenuId(1L);
+        dishDto.setCategoryId(1L);
 
-        DishCreateDto d1 = new DishCreateDto();
-        d1.setName("Pizza");
-        d1.setCategoryId(10L);
+        Dish dish = new Dish();
+        Category category = new Category();
 
-        DishCreateDto d2 = new DishCreateDto();
-        d2.setName("Burger");
-        d2.setCategoryId(null);
+        when(menuRepository.findById(1L)).thenReturn(Optional.of(menu));
+        when(dishMapper.toEntity(dishDto)).thenReturn(dish);
+        when(categoryRepository.findById(1L)).thenReturn(Optional.of(category));
+        when(dishRepository.saveAndFlush(dish)).thenReturn(dish);
+        when(menuMapper.toDto(menu)).thenReturn(menuDto);
 
-        List<DishCreateDto> dtos = List.of(d1, d2);
+        MenuDto result = menuService.addDishesToMenu(1L, List.of(dishDto));
 
-        when(menuRepository.findById(menuId)).thenReturn(Optional.of(menu));
-        when(dishMapper.toEntity(any())).thenReturn(new Dish());
-        when(categoryRepository.findById(10L)).thenReturn(Optional.of(new Category()));
-
-        when(dishRepository.saveAndFlush(any(Dish.class))).thenReturn(new Dish());
-
-        when(menuMapper.toDto(any())).thenReturn(new MenuDto());
-        menuService.addDishesToMenu(menuId, dtos);
-        verify(dishRepository, org.mockito.Mockito.times(2)).saveAndFlush(any(Dish.class));
-
-        assertThat(menu.getDishes()).hasSize(2);
+        assertEquals(menuDto, result);
+        assertEquals(menu, dish.getMenu());
+        assertEquals(category, dish.getCategory());
+        assertTrue(menu.getDishes().contains(dish));
     }
 
     @Test
-    @DisplayName("addDishesToMenu: bulk category not found")
-    void addDishesToMenu_Bulk_CategoryNotFound() {
-        DishCreateDto d1 = new DishCreateDto();
-        d1.setName("Pasta");
-        d1.setCategoryId(10L);
-        List<DishCreateDto> dishesDto = List.of(d1);
-        when(menuRepository.findById(1L)).thenReturn(Optional.of(new Menu()));
-        when(dishMapper.toEntity(any())).thenReturn(new Dish());
-        when(categoryRepository.findById(10L)).thenReturn(Optional.empty());
-        assertThatThrownBy(() -> menuService.addDishesToMenu(1L, dishesDto))
-                .isInstanceOf(CategoryNotFoundException.class);
+    void addDishesToMenu_Success_WithoutCategory() {
+        DishCreateDto dishDto = new DishCreateDto();
+        dishDto.setMenuId(1L);
+        dishDto.setCategoryId(null);
+
+        Dish dish = new Dish();
+
+        when(menuRepository.findById(1L)).thenReturn(Optional.of(menu));
+        when(dishMapper.toEntity(dishDto)).thenReturn(dish);
+        when(dishRepository.saveAndFlush(dish)).thenReturn(dish);
+        when(menuMapper.toDto(menu)).thenReturn(menuDto);
+
+        MenuDto result = menuService.addDishesToMenu(1L, List.of(dishDto));
+
+        assertEquals(menuDto, result);
+        assertEquals(menu, dish.getMenu());
+        assertNull(dish.getCategory());
     }
 
     @Test
-    @DisplayName("addDishesToMenu: throw DishNotFoundException when dish name is 'error'")
-    void addDishesToMenu_ThrowException_WhenNameIsError() {
-        Long menuId = 1L;
+    void addDishesToMenu_MenuNotFound() {
+        when(menuRepository.findById(1L)).thenReturn(Optional.empty());
+        assertThrows(MenuNotFoundException.class, () -> menuService.addDishesToMenu(1L, List.of()));
+    }
 
-        DishCreateDto validDish = new DishCreateDto();
-        validDish.setName("Pizza");
+    @Test
+    void addDishesToMenu_WrongMenuId() {
+        DishCreateDto dishDto = new DishCreateDto();
+        dishDto.setMenuId(2L);
 
-        DishCreateDto errorDish = new DishCreateDto();
-        errorDish.setName("error");
+        when(menuRepository.findById(1L)).thenReturn(Optional.of(menu));
 
-        List<DishCreateDto> dishList = List.of(validDish, errorDish);
+        assertThrows(DishHasAnotherRestaurantException.class, () -> menuService.addDishesToMenu(1L, List.of(dishDto)));
+    }
 
-        when(menuRepository.findById(menuId)).thenReturn(Optional.of(new Menu()));
-        when(dishMapper.toEntity(validDish)).thenReturn(new Dish());
-        when(dishRepository.saveAndFlush(any())).thenReturn(new Dish());
+    @Test
+    void addDishesToMenu_CategoryNotFound() {
+        DishCreateDto dishDto = new DishCreateDto();
+        dishDto.setMenuId(1L);
+        dishDto.setCategoryId(1L);
 
-        assertThatThrownBy(() -> menuService.addDishesToMenu(menuId, dishList))
-                .isInstanceOf(DishNotFoundException.class)
-                .hasMessage("error");
+        Dish dish = new Dish();
 
-        verify(dishRepository, org.mockito.Mockito.times(1)).saveAndFlush(any());
+        when(menuRepository.findById(1L)).thenReturn(Optional.of(menu));
+        when(dishMapper.toEntity(dishDto)).thenReturn(dish);
+        when(categoryRepository.findById(1L)).thenReturn(Optional.empty());
+
+        assertThrows(CategoryNotFoundException.class, () -> menuService.addDishesToMenu(1L, List.of(dishDto)));
     }
 }

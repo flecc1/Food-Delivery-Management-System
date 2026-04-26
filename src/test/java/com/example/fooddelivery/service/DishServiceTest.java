@@ -5,10 +5,11 @@ import com.example.fooddelivery.dto.dish.DishDto;
 import com.example.fooddelivery.entity.Category;
 import com.example.fooddelivery.entity.Dish;
 import com.example.fooddelivery.entity.Menu;
+import com.example.fooddelivery.entity.Order;
 import com.example.fooddelivery.exception.CategoryNotFoundException;
+import com.example.fooddelivery.exception.DishHasOrdersException;
 import com.example.fooddelivery.exception.DishNotFoundException;
 import com.example.fooddelivery.exception.MenuNotFoundException;
-import com.example.fooddelivery.exception.OrderHasDishesException;
 import com.example.fooddelivery.mapper.DishMapper;
 import com.example.fooddelivery.repository.CategoryRepository;
 import com.example.fooddelivery.repository.DishRepository;
@@ -24,9 +25,11 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.ArgumentMatchers.any;
@@ -34,6 +37,7 @@ import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 class DishServiceTest {
+
     @Mock
     private DishRepository dishRepository;
     @Mock
@@ -122,7 +126,7 @@ class DishServiceTest {
     }
 
     @Test
-    @DisplayName("addDish: success")
+    @DisplayName("addDish: success with category and menu")
     void addDish_Success() {
         DishCreateDto createDto = new DishCreateDto();
         createDto.setCategoryId(1L);
@@ -173,7 +177,7 @@ class DishServiceTest {
     }
 
     @Test
-    @DisplayName("updateDishById: success")
+    @DisplayName("updateDishById: full success")
     void updateDishById_Success() {
         Long id = 1L;
         DishCreateDto updateDto = new DishCreateDto();
@@ -195,6 +199,7 @@ class DishServiceTest {
 
         assertThat(result).isNotNull();
         assertThat(existingDish.getName()).isEqualTo("New Name");
+        verify(dishRepository).save(existingDish);
     }
 
     @Test
@@ -259,16 +264,14 @@ class DishServiceTest {
     @DisplayName("deleteDishById: linked to orders (Branch Coverage)")
     void deleteDishById_LinkedToOrders() {
         Long id = 1L;
-
-        com.example.fooddelivery.entity.Order mockOrder = new com.example.fooddelivery.entity.Order();
+        Order mockOrder = new Order();
 
         when(dishRepository.existsById(id)).thenReturn(true);
-
         when(orderRepository.findByDishId(id)).thenReturn(List.of(mockOrder));
 
         assertThatThrownBy(() -> dishService.deleteDishById(id))
-                .isInstanceOf(OrderHasDishesException.class)
-                .hasMessageContaining("has dishes and cannot be delete");
+                .isInstanceOf(DishHasOrdersException.class)
+                .hasMessageContaining("Dish with id " + id + " is linked to orders and cannot be deleted");
 
         verify(dishRepository, never()).deleteById(id);
     }
