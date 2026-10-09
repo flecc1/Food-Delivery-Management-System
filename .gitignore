@@ -34,6 +34,9 @@ logs/
 /nbbuild/
 /nbdist/
 /.nb-gradle/
+**/node_modules/
+**/food-delivery-spa/.vite.deps/
+**/food-delivery-spa/dist/
 
 .env
 .env.*
